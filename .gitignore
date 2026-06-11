@@ -1,0 +1,10 @@
+.DS_Store
+*.dmg
+*.zip
+*.xcarchive
+DerivedData/
+build/
+dist/
+.env
+.env.*
+node_modules/

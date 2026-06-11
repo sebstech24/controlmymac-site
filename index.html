@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Control My Mac — Turn your iPhone into a Mac trackpad & keyboard</title>
+<meta name="description" content="Swoipe turns your iPhone into a one-handed trackpad, keyboard and launcher for your Mac. Free Mac app. No account needed. Works over your local network or Bluetooth." />
+<style>
+  :root{
+    --bg:#0b0d12; --bg2:#11141b; --card:#161a23; --line:#232838;
+    --text:#eef1f7; --muted:#9aa3b5; --accent:#4f8cff; --accent2:#7c5cff;
+    --radius:16px; --maxw:1080px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f7f8fb; --bg2:#ffffff; --card:#ffffff; --line:#e6e9f0; --text:#0d1220; --muted:#5b6577; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(14px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.02em}
+  .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-weight:800}
+  .nav a.navlink{color:var(--muted);font-size:14px;margin-left:22px}
+  .nav a.navlink:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:600;padding:12px 20px;border-radius:12px;font-size:15px;transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 6px 20px color-mix(in srgb,var(--accent) 35%,transparent)}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.secondary{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none}
+  .hero{padding:84px 0 60px;text-align:center}
+  .pill{display:inline-block;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+  h1{font-size:clamp(34px,6vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin-bottom:18px}
+  h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{font-size:clamp(16px,2.4vw,20px);color:var(--muted);max-width:640px;margin:0 auto 32px}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta small{display:block;color:var(--muted);font-size:12px;margin-top:10px}
+  .mock{margin:56px auto 0;max-width:760px;height:340px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(120% 120% at 50% 0%,color-mix(in srgb,var(--accent) 18%,var(--card)),var(--card));display:grid;place-items:center;color:var(--muted);font-size:14px}
+  section{padding:64px 0}
+  .h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;font-weight:800;text-align:center;margin-bottom:12px}
+  .lead{color:var(--muted);text-align:center;max-width:620px;margin:0 auto 44px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card .ico{width:42px;height:42px;border-radius:11px;background:color-mix(in srgb,var(--accent) 16%,transparent);display:grid;place-items:center;margin-bottom:14px;font-size:20px}
+  .card h3{font-size:17px;margin-bottom:7px;letter-spacing:-.01em}
+  .card p{color:var(--muted);font-size:14.5px}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;margin-bottom:12px}
+  .pricing{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  @media(max-width:680px){.pricing{grid-template-columns:1fr}}
+  .price{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-align:center}
+  .price.feat{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
+  .price .amt{font-size:34px;font-weight:800;letter-spacing:-.02em;margin:10px 0}
+  .price .amt span{font-size:15px;color:var(--muted);font-weight:500}
+  .price ul{list-style:none;text-align:left;margin:18px 0 0;color:var(--muted);font-size:14.5px}
+  .price li{padding:7px 0;border-top:1px solid var(--line)}
+  .final{text-align:center;background:radial-gradient(120% 120% at 50% 0%,color-mix(in srgb,var(--accent2) 16%,var(--bg2)),var(--bg2));border:1px solid var(--line);border-radius:24px;padding:56px 24px;margin:24px 0}
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13.5px}
+  .frow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+  .frow a{color:var(--muted);margin-left:18px}
+  .frow a:hover{color:var(--text)}
+  .note{background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px dashed color-mix(in srgb,var(--accent) 40%,var(--line));color:var(--muted);font-size:13px;border-radius:10px;padding:12px 16px;max-width:760px;margin:18px auto 0;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><div class="logo">S</div> Control&nbsp;My&nbsp;Mac</div>
+    <nav>
+      <a class="navlink" href="#features">Features</a>
+      <a class="navlink" href="#how">How it works</a>
+      <a class="navlink" href="#pricing">Pricing</a>
+      <a class="btn" style="padding:9px 16px;font-size:14px" href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" id="download">
+    <span class="pill">Free Mac app · No account · Works offline on your local network</span>
+    <h1>Your iPhone is now a <span class="grad">trackpad &amp; keyboard</span> for your Mac.</h1>
+    <p class="sub">Swoipe turns your iPhone into a one-handed trackpad, mouse and composer keyboard for your Mac — type, click, scroll and launch apps from across the room.</p>
+    <div class="cta">
+      <a class="btn" href="GITHUB_RELEASE_URL_HERE">⬇ Download for Mac — Free</a>
+      <a class="btn secondary" href="APP_STORE_URL_HERE">Get the iPhone app</a>
+      <small>macOS 14+ · Apple Silicon &amp; Intel · The Mac app is free; the iPhone app unlocks the full experience.</small>
+    </div>
+    <div class="mock">App screenshot goes here (added after the overnight build)</div>
+    <div class="note">⚠️ Placeholder links: replace <code>GITHUB_RELEASE_URL_HERE</code> with the .dmg release link and <code>APP_STORE_URL_HERE</code> with the App Store URL once the apps are published.</div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2 class="h2">Built for one-handed control</h2>
+      <p class="lead">Everything you need to drive your Mac from the couch, the kitchen, or the back of the room.</p>
+      <div class="grid">
+        <div class="card"><div class="ico">🖱️</div><h3>Precision trackpad</h3><p>Move the pointer, click, right-click and scroll with natural, low-latency gestures tuned for smoothness.</p></div>
+        <div class="card"><div class="ico">⌨️</div><h3>Composer keyboard</h3><p>Write on your phone and send to the Mac — edit, undo and resend without fighting tiny on-screen targets.</p></div>
+        <div class="card"><div class="ico">🚀</div><h3>App launcher</h3><p>Open and switch Mac apps straight from your iPhone, so you never reach for the keyboard.</p></div>
+        <div class="card"><div class="ico">🔒</div><h3>Private by design</h3><p>No accounts, no servers. Your connection stays between your iPhone and your Mac, on your local network or Bluetooth.</p></div>
+        <div class="card"><div class="ico">✨</div><h3>AI writing tools</h3><p>Completion, rewrite and tone tools plus voice-to-text — turn quick thoughts into polished text on your Mac.</p></div>
+        <div class="card"><div class="ico">🛟</div><h3>Always in control</h3><p>A clear panic-stop and safe-target awareness mean you always know exactly what your phone is controlling.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:var(--bg2)">
+    <div class="wrap">
+      <h2 class="h2">Set up in under a minute</h2>
+      <p class="lead">No sign-up. No cables. Just pair and go.</p>
+      <div class="steps">
+        <div class="step"><h3>Install the free Mac app</h3><p>Download and open Control My Mac on your Mac, then grant the quick one-time permissions it asks for.</p></div>
+        <div class="step"><h3>Open the iPhone app</h3><p>Get the iPhone app from the App Store and put both devices on the same Wi-Fi or Bluetooth.</p></div>
+        <div class="step"><h3>Enter the pairing code</h3><p>Type the one-time code shown on your Mac and start controlling it instantly.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2 class="h2">Simple pricing</h2>
+      <p class="lead">The Mac app is free forever. Start with a 1-week free trial of the full iPhone experience, then choose what fits.</p>
+      <div class="pricing">
+        <div class="price">
+          <h3>Free</h3>
+          <div class="amt">€0</div>
+          <p style="color:var(--muted);font-size:14px">The essentials, forever</p>
+          <ul>
+            <li>Free Mac app</li>
+            <li>Trackpad &amp; mouse clicks</li>
+            <li>Composer keyboard</li>
+            <li>Available after your trial ends</li>
+          </ul>
+        </div>
+        <div class="price feat">
+          <h3>Advanced</h3>
+          <div class="amt">€4.99<span>/month</span></div>
+          <p style="color:var(--muted);font-size:14px">or €19.99 one-time · 1-week free trial</p>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Full feature set &amp; all controls</li>
+            <li>AI writing tools &amp; voice-to-text</li>
+            <li>App launcher &amp; advanced gestures</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2 class="h2">Ready to control your Mac from your iPhone?</h2>
+        <p class="lead">Download the free Mac app and pair in seconds.</p>
+        <div class="cta"><a class="btn" href="GITHUB_RELEASE_URL_HERE">⬇ Download for Mac — Free</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <div>© 2026 Control My Mac · Swoipe</div>
+    <div>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:sebs.tech.collab@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
