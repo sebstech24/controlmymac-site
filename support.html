@@ -1,95 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Support - Control My Mac</title>
-<meta name="description" content="Support for Control My Mac and its companion iPhone app." />
-<style>
-  :root{
-    --bg:#0b0d12; --bg2:#11141b; --card:#161a23; --line:#232838;
-    --text:#eef1f7; --muted:#9aa3b5; --accent:#4f8cff; --accent2:#7c5cff;
-    --radius:16px; --maxw:860px;
-  }
-  @media (prefers-color-scheme: light){
-    :root{ --bg:#f7f8fb; --bg2:#ffffff; --card:#ffffff; --line:#e6e9f0; --text:#0d1220; --muted:#5b6577; }
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(14px);background:color-mix(in srgb,var(--bg) 80%,transparent);border-bottom:1px solid var(--line);z-index:10}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-.02em}
-  .logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#fff;font-weight:800}
-  .nav a{color:var(--muted);font-size:14px}
-  .nav a:hover{color:var(--text)}
-  main{padding:56px 0 72px}
-  .doc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px}
-  h1{font-size:clamp(32px,5vw,48px);line-height:1.08;letter-spacing:-.03em;margin-bottom:12px}
-  h2{font-size:22px;line-height:1.2;letter-spacing:-.02em;margin:32px 0 10px}
-  h3{font-size:17px;line-height:1.25;margin:22px 0 8px}
-  p,li{color:var(--muted);font-size:15.5px}
-  p{margin:10px 0}
-  ol,ul{padding-left:22px;margin:12px 0}
-  strong{color:var(--text)}
-  .intro{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:24px 0}
-  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13.5px}
-  .frow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-  .frow a{color:var(--muted);margin-left:18px}
-  .frow a:hover{color:var(--text)}
-  @media(max-width:620px){.doc{padding:24px}.frow a{margin-left:0;margin-right:18px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Control My Mac</title>
+<meta name="description" content="Setup and pairing help for Control My Mac: QR pairing, same Wi-Fi network, Bluetooth fallback, macOS firewall and permission checks, free vs Advanced tiers. Contact info@azurefilm.com.">
+<link rel="canonical" href="https://controlmymac.com/support">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Control My Mac">
+<meta property="og:title" content="Support — Control My Mac">
+<meta property="og:description" content="Pairing troubleshooting, permission checks, and answers about free vs Advanced.">
+<meta property="og:url" content="https://controlmymac.com/support">
+<meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234F8CFF'/%3E%3Cstop offset='1' stop-color='%237C5CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='9' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="index.html"><div class="logo">S</div> Control&nbsp;My&nbsp;Mac</a>
-    <a href="privacy.html">Privacy</a>
-  </div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav glass" aria-label="Primary">
+    <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>Control&nbsp;My&nbsp;Mac</a>
+    <div class="nav-links">
+      <a href="/privacy">Privacy</a>
+      <a class="btn btn-primary btn-small" href="https://github.com/sebstech24/controlmymac-site/releases/latest/download/ControlMyMac.dmg">Download</a>
+    </div>
+  </nav>
 </header>
 
-<main class="wrap">
+<main id="main" class="doc-main wrap">
   <article class="doc">
     <h1>Support</h1>
-    <p>Help for Control My Mac and its companion iPhone app.</p>
-    <div class="intro">
-      <p>Need help with anything not covered here? Email <strong>sebs.tech.collab@gmail.com</strong>.</p>
+    <p>Help for Control My Mac — the iPhone app and its free Mac menu-bar companion.</p>
+    <div class="meta">
+      <p>Anything not covered here? Email <a href="mailto:info@azurefilm.com"><strong>info@azurefilm.com</strong></a> — a human reads it.</p>
     </div>
 
     <h2>Getting started</h2>
     <ol>
-      <li>Download and open the free Mac app.</li>
-      <li>Grant the permissions it asks for: Accessibility or Automation, Local Network, and Bluetooth.</li>
-      <li>Install the iPhone app from the App Store.</li>
-      <li>Put both devices on the same Wi-Fi, or pair over Bluetooth.</li>
-      <li>Enter the pairing code shown on your Mac.</li>
+      <li><a href="https://github.com/sebstech24/controlmymac-site/releases/latest/download/ControlMyMac.dmg">Download the free Mac app</a>, open the .dmg and move Control My Mac to Applications.</li>
+      <li>Launch it — it lives in your menu bar and shows a QR code.</li>
+      <li>Grant the one-time macOS permissions it requests (Accessibility, and Bluetooth if you plan to use it).</li>
+      <li>Install the iPhone app (coming soon to the App Store) and put both devices on the same Wi-Fi network, or turn on Bluetooth on both.</li>
+      <li>Scan the QR code on your Mac with the iPhone app. You're paired — the connection is direct and encrypted.</li>
     </ol>
+    <p><strong>Requirements:</strong> iOS 17 or later, macOS 14 or later (Apple Silicon and Intel).</p>
 
-    <h2>Common questions</h2>
-    <h3>It will not connect.</h3>
-    <p>Make sure both devices are on the same Wi-Fi network, or switch to Bluetooth in Settings. Confirm the Mac app is running and shows a pairing code.</p>
+    <h2>Pairing &amp; connection troubleshooting</h2>
 
-    <h3>Typing or clicking does nothing.</h3>
-    <p>Open System Settings, then Privacy &amp; Security, then Accessibility and Automation. Confirm Control My Mac is allowed.</p>
+    <h3>The iPhone can't find my Mac.</h3>
+    <ul>
+      <li><strong>Same Wi-Fi network:</strong> make sure both devices are on the same network — not one on Wi-Fi and one on Ethernet behind a different subnet, and not a guest network. Guest networks and some office/hotel networks block devices from seeing each other ("client isolation"); switch to Bluetooth there.</li>
+      <li><strong>Bluetooth on:</strong> if you're pairing over Bluetooth, confirm Bluetooth is enabled on both the iPhone and the Mac.</li>
+      <li><strong>Mac app running:</strong> the menu-bar icon must be present and showing a QR code or "ready" state.</li>
+    </ul>
 
-    <h3>What is free vs paid?</h3>
-    <p>The Mac app is free. The iPhone app gives a 1-week free trial of the full experience. After that, the free tier keeps the trackpad, basic clicks and composer keyboard, while Advanced mode adds the app launcher, Mac keyboard shortcuts, window switching and advanced gestures.</p>
+    <h3>Pairing worked, but nothing connects (or it drops).</h3>
+    <ul>
+      <li><strong>macOS firewall:</strong> open System Settings → Network → Firewall → Options, and make sure incoming connections for Control My Mac are allowed (or temporarily turn the firewall off to test).</li>
+      <li><strong>Local Network permission (Mac):</strong> on macOS 15 and later, check System Settings → Privacy &amp; Security → Local Network and confirm Control My Mac is enabled.</li>
+      <li><strong>Local Network permission (iPhone):</strong> check Settings → Apps → Control My Mac → Local Network is on. iOS asks once and silently blocks discovery if it was declined.</li>
+      <li><strong>VPNs:</strong> a VPN on either device can route local traffic away. Pause the VPN or enable its local-network exemption.</li>
+      <li>Still stuck? Quit and reopen the Mac app, toggle Wi-Fi on the iPhone, and try Bluetooth as a cross-check — it isolates whether the network is the problem.</li>
+    </ul>
 
+    <h3>Pointer moves but clicking or typing does nothing.</h3>
+    <p>The Mac app needs the Accessibility permission to act on your behalf. Open System Settings → Privacy &amp; Security → Accessibility and confirm Control My Mac is listed and enabled. After granting it, quit and reopen the Mac app.</p>
+
+    <h3>The QR code won't scan.</h3>
+    <p>The iPhone camera permission may be off — check Settings → Apps → Control My Mac → Camera. The camera is used only for scanning the pairing code; see the <a href="/privacy">Privacy Policy</a>.</p>
+
+    <h2>Plans &amp; pricing</h2>
+    <h3>What's free and what's paid?</h3>
+    <p>The Mac app is free, full stop. The iPhone app starts everyone on a <strong>7-day free trial</strong> of Advanced. After the trial, <strong>Simple</strong> stays free forever — precision trackpad, basic clicks and the composer keyboard. <strong>Advanced</strong> (€4.99/month or €19.99 lifetime) adds the app launcher, window switching, Mac keyboard shortcuts and full gestures. There are no ads in either tier.</p>
+
+    <h3>How do I manage or cancel a subscription?</h3>
+    <p>Purchases are handled by Apple. On your iPhone: Settings → your name → Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews.</p>
+
+    <h2>Privacy</h2>
     <h3>Is it private?</h3>
-    <p>Yes. There are no accounts and no servers. Your devices talk directly over your local network or Bluetooth. See the <a href="privacy.html"><strong>Privacy Policy</strong></a>.</p>
+    <p>Yes. No account, no servers, no analytics. Your devices talk directly to each other over your local network or Bluetooth, encrypted. Details in the <a href="/privacy"><strong>Privacy Policy</strong></a>.</p>
+
+    <h2>Contact</h2>
+    <p>Email <a href="mailto:info@azurefilm.com"><strong>info@azurefilm.com</strong></a> with your macOS and iOS versions and a short description — screenshots of any error help a lot.</p>
   </article>
 </main>
 
-<footer>
-  <div class="wrap frow">
-    <div>© 2026 Control My Mac</div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="mailto:sebs.tech.collab@gmail.com">Contact</a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="frow">
+      <div>© 2026 Control My Mac</div>
+      <nav class="flinks" aria-label="Footer">
+        <a href="/">Overview</a>
+        <a href="/start">Find your fit</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:info@azurefilm.com">Contact</a>
+      </nav>
     </div>
+    <p class="fnote">Requires iOS 17+ and macOS 14+. No account, no servers — your devices talk directly to each other, encrypted, over your local network or Bluetooth.</p>
   </div>
 </footer>
+
+<script src="/assets/site.js"></script>
 </body>
 </html>
