@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Wake — An alarm that picks a lighter moment, with a guaranteed backup</title>
+<meta name="description" content="Smart Wake for iPhone and Apple Watch wakes you during a lighter sleep moment near your chosen time — and a hard-stop backup alarm fires at your time no matter what. Apple Health sleep data stays on-device. No account, no servers.">
+<link rel="canonical" href="https://controlmymac.com/smartwake">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smart Wake">
+<meta property="og:title" content="Smart Wake — An alarm that picks a lighter moment">
+<meta property="og:description" content="Wakes you during a lighter sleep moment near your chosen time, with a guaranteed backup alarm that can never be missed. On-device, no account, no servers.">
+<meta property="og:url" content="https://controlmymac.com/smartwake">
+<meta name="theme-color" content="#0b0d16" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%235B6CFF'/%3E%3Cstop offset='1' stop-color='%238A7BFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='38' r='9' fill='%23FF9E64'/%3E%3Cpath d='M18 38a14 14 0 0 1 28 0' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+/* Smart Wake page theme: dark-first indigo, sunrise used sparingly. */
+:root{
+  --accent:#5B6CFF;
+  --accent-2:#8A7BFF;
+  --sunrise:#FF9E64;
+  --shadow-btn:0 6px 20px rgba(91,108,255,.35);
+}
+body{
+  background:
+    radial-gradient(60% 38% at 50% -4%, rgba(91,108,255,.18), transparent 70%),
+    radial-gradient(34% 26% at 84% 6%, rgba(255,158,100,.07), transparent 70%),
+    var(--bg);
+}
+.pill::before{background:var(--sunrise)}
+.tag.sunrise{color:var(--sunrise);background:rgba(255,158,100,.13)}
+.btn-primary:hover{box-shadow:0 10px 26px rgba(91,108,255,.45)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav glass" aria-label="Primary">
+    <a class="brand" href="/smartwake"><span class="logo" aria-hidden="true"></span>Smart&nbsp;Wake</a>
+    <div class="nav-links">
+      <a class="nav-optional" href="#features">Features</a>
+      <a class="nav-optional" href="#pricing">Pricing</a>
+      <a class="nav-optional" href="#privacy">Privacy</a>
+      <a href="#support">Support</a>
+      <a class="btn btn-ghost btn-small" href="APP_STORE_URL_HERE">Coming soon to the App&nbsp;Store</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero wrap">
+    <p class="pill">iPhone + Apple Watch · No account · No servers</p>
+    <h1>An alarm that waits for a <span class="grad">lighter moment</span>.</h1>
+    <p class="sub">Tell Smart Wake the time you must be up. In the window before it, your Apple Watch looks for a lighter sleep moment and starts the alarm then — and if it never finds one, the backup alarm fires at your chosen time. Guaranteed. The smart part can only ever wake you earlier, never later.</p>
+    <div class="cta">
+      <a class="btn btn-ghost" href="APP_STORE_URL_HERE">Coming soon to the App Store</a>
+      <a class="btn btn-quiet" href="#how">See how it works</a>
+    </div>
+    <p class="cta-note">The core alarm works on iPhone alone. The smart wake window uses an Apple Watch.</p>
+  </section>
+
+  <section id="how" class="band">
+    <div class="wrap">
+      <h2 class="h2">One deadline, one window</h2>
+      <p class="lead">Smart Wake is built around a single promise: it never wakes you later than the time you set.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Set your no-later-than time</h3>
+          <p>This is the hard deadline — the moment you must be up. The backup alarm is anchored here and cannot be missed.</p>
+        </div>
+        <div class="step">
+          <h3>Choose a wake window</h3>
+          <p>Pick how far before that time Smart Wake may start — say, up to 30 minutes. Wear your Apple Watch to bed and that's it.</p>
+        </div>
+        <div class="step">
+          <h3>Wake earlier — or exactly on time</h3>
+          <p>If a lighter sleep moment shows up inside your window, the alarm starts then. If not, the backup fires at your time. Either way, you're up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2 class="h2">Clever where it can be, certain where it must be</h2>
+      <p class="lead">The smart window is a bonus on top of a dependable alarm clock — never a replacement for one.</p>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">Premium</span>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Smart wake window</h3>
+          <p>Your Apple Watch watches for a lighter sleep moment inside the window you chose, near your alarm time, and starts the alarm there.</p>
+        </article>
+        <article class="card">
+          <span class="tag sunrise">Guaranteed</span>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a7 7 0 0 1 7 7v3l2 3H3l2-3v-3a7 7 0 0 1 7-7z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div>
+          <h3>Hard-stop backup alarm</h3>
+          <p>Fires at your chosen time no matter what — Watch on the charger, window not found, phone face down on the nightstand.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.6-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.4-9 9-9 9z"/></svg></div>
+          <h3>Apple Health, on-device</h3>
+          <p>Reads your sleep data from Apple Health with your permission and processes it entirely on this device. Nothing is uploaded — there's nowhere to upload it to.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>No account, no servers</h3>
+          <p>Nothing to sign up for and no cloud in the loop. An alarm clock should work in airplane mode — this one does.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Premium</span>
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3>Morning recap</h3>
+          <p>See what time the alarm chose and where in your window it landed — a simple log of what Smart Wake did, morning by morning.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 10v3l2 2"/><path d="M9 3h6"/></svg></div>
+          <h3>Works without the Watch</h3>
+          <p>No Apple Watch, or forgot to wear it? Smart Wake is still a clean, dependable alarm clock that rings exactly when you told it to.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="band">
+    <div class="wrap">
+      <h2 class="h2">The alarm is free. Forever.</h2>
+      <p class="lead">Every new user starts with a 7-day free trial of Premium — then the core alarm stays free for good.</p>
+      <div class="pricing">
+        <div class="price">
+          <h3>Alarm</h3>
+          <p class="amt">€0</p>
+          <p class="per">Free after the trial, forever</p>
+          <ul>
+            <li>Dependable alarm clock</li>
+            <li>Hard-stop backup alarm at your chosen time</li>
+            <li>No ads, no account — same privacy as Premium</li>
+          </ul>
+        </div>
+        <div class="price feat">
+          <h3>Premium</h3>
+          <p class="amt">€4.99<span>/month</span></p>
+          <p class="per">or €19.99 once, yours for life · 7-day free trial</p>
+          <ul>
+            <li>Everything in Alarm</li>
+            <li>Smart wake window via Apple Watch</li>
+            <li>Morning recap insights</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-note">Every feature is listed above — no surprises later. Purchases are handled by Apple through the App Store.</p>
+    </div>
+  </section>
+
+  <!--
+    The #privacy and #support sections below double as the App Store's required
+    privacy-policy and support URLs:
+      https://controlmymac.com/smartwake#privacy
+      https://controlmymac.com/smartwake#support
+    Keep these anchor ids stable.
+  -->
+  <section id="privacy">
+    <div class="wrap">
+      <article class="doc">
+        <h1>Privacy</h1>
+        <p>Smart Wake is designed so there is nothing to collect and nowhere to send it.</p>
+        <div class="meta">
+          <p><strong>The short version:</strong> your sleep data is read from Apple Health on your device, used on your device, and never leaves your device. No tracking, no analytics, no account, no servers.</p>
+        </div>
+        <h2>Apple Health (HealthKit)</h2>
+        <p>With your permission, Smart Wake reads sleep data from Apple Health to find a lighter sleep moment inside your wake window. That data is processed entirely on your iPhone and Apple Watch. It is never uploaded, shared, sold, or used for advertising — Smart Wake operates no servers it could send it to. You can revoke access at any time in Settings → Health → Data Access &amp; Devices, and the backup alarm keeps working exactly as before.</p>
+        <h2>No tracking, no account</h2>
+        <ul>
+          <li>No account or sign-in — the app never asks who you are.</li>
+          <li>No analytics, no tracking, no advertising identifiers.</li>
+          <li>No data leaves your devices. Alarm times, windows and the morning recap are stored locally.</li>
+        </ul>
+        <h2>Purchases</h2>
+        <p>Premium subscriptions and the lifetime purchase are processed by Apple through the App Store. Smart Wake never sees your payment details.</p>
+        <h2>Questions</h2>
+        <p>Email <a href="mailto:info@azurefilm.com"><strong>info@azurefilm.com</strong></a>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="support" class="band">
+    <div class="wrap">
+      <article class="doc">
+        <h1>Support</h1>
+        <p>Help for Smart Wake on iPhone and Apple Watch.</p>
+        <div class="meta">
+          <p>Anything not covered here? Email <a href="mailto:info@azurefilm.com"><strong>info@azurefilm.com</strong></a> — a human reads it.</p>
+        </div>
+
+        <h2>Making sure the alarm can always sound</h2>
+        <p>Smart Wake checks these at setup and warns you on the alarm screen if anything would get in the way. If an alarm was quieter or later than expected, walk through this list:</p>
+        <ul>
+          <li><strong>Notifications allowed:</strong> Settings → Notifications → Smart Wake → Allow Notifications on, with Sounds enabled.</li>
+          <li><strong>Focus modes:</strong> if you use Sleep Focus or Do Not Disturb, add Smart Wake to the allowed apps (Settings → Focus → your Focus → Allowed Notifications).</li>
+          <li><strong>Volume:</strong> keep the ringer volume up. The alarm uses the ringer, not the media volume.</li>
+          <li><strong>Keep the app installed:</strong> deleting or offloading the app removes its alarms. iOS offloading can be disabled per app in Settings.</li>
+        </ul>
+
+        <h2>The smart window didn't trigger early</h2>
+        <ul>
+          <li><strong>Wear the Watch to bed</strong> with wrist detection on (Watch app → Passcode → Wrist Detection).</li>
+          <li><strong>Health permission:</strong> check Settings → Health → Data Access &amp; Devices → Smart Wake and confirm sleep data access is granted.</li>
+          <li><strong>Window length:</strong> confirm a wake window is set on the alarm. With no window — or no lighter moment found inside it — the alarm simply fires at your chosen time, as designed.</li>
+          <li>An early start is a bonus, never a requirement: the backup alarm at your chosen time does not depend on the Watch at all.</li>
+        </ul>
+
+        <h2>Plans</h2>
+        <p>The core alarm is free forever. <strong>Premium</strong> (smart wake window + morning recap) starts with a 7-day free trial, then €4.99/month or €19.99 once for life. Manage or cancel in Settings → your name → Subscriptions on your iPhone; purchases are handled by Apple.</p>
+
+        <h2>Contact</h2>
+        <p>Email <a href="mailto:info@azurefilm.com"><strong>info@azurefilm.com</strong></a> with your iOS and watchOS versions and a short description of what happened.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2 class="h2">Up when it matters</h2>
+        <p class="lead">Earlier when there's a lighter moment, exactly on time when there isn't. Smart Wake is coming soon to the App Store.</p>
+        <div class="cta">
+          <a class="btn btn-ghost" href="APP_STORE_URL_HERE">Coming soon to the App Store</a>
+          <a class="btn btn-quiet" href="mailto:info@azurefilm.com?subject=Smart%20Wake%20launch">Email us to hear when it ships</a>
+        </div>
+        <p class="cta-note">iPhone + Apple Watch · Free core alarm · No account required</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="frow">
+      <div>© 2026 Smart Wake</div>
+      <nav class="flinks" aria-label="Footer">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#support">Support</a>
+        <a href="/">Control My Mac</a>
+        <a href="/filepilot">FilePilot</a>
+        <a href="mailto:info@azurefilm.com">Contact</a>
+      </nav>
+    </div>
+    <p class="fnote">Smart Wake is an alarm clock. It makes no health claims and is not a medical device. Your Apple Health data is processed on-device and never leaves your devices.</p>
+  </div>
+</footer>
+
+</body>
+</html>

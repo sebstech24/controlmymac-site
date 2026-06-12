@@ -20,6 +20,8 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/pro` | `pro.html` | Variant: power-user framing |
 | `/privacy` | `privacy.html` | Privacy policy (no data collected, no account, local-only) |
 | `/support` | `support.html` | Setup, pairing troubleshooting, plans, contact |
+| `/smartwake` | `smartwake.html` | Product page: Smart Wake (iPhone + Apple Watch alarm, unreleased). `#privacy` / `#support` anchors double as its App Store privacy & support URLs |
+| `/filepilot` | `filepilot.html` | Product page: FilePilot (Explorer-style file manager for macOS, unreleased, direct download). `#privacy` / `#support` anchors serve as its privacy & support URLs |
 | — | `assets/site.css` | Shared design system (glass chrome, accent gradient, light/dark, reduced-motion/transparency fallbacks) |
 | — | `assets/site.js` | Audience-choice memory for `/start` (no tracking, localStorage only) |
 | — | `AUDIENCE-RESEARCH.md` | Public-safe research notes behind the variant messaging |
@@ -42,6 +44,7 @@ gh release create v1.0.0 "<path-to>/ControlMyMac.dmg" \
 
 No HTML changes are needed for new versions — `releases/latest` always serves the newest release, as long as each release attaches an asset named `ControlMyMac.dmg`.
 
-## Remaining placeholder
+## Remaining placeholders
 
-- `APP_STORE_URL_HERE` — the de-emphasized "Coming soon to the App Store" buttons (`index.html`, all four variant pages). Replace with the real App Store URL once the iPhone app ships, and reword the buttons to "Download on the App Store".
+- `APP_STORE_URL_HERE` — the de-emphasized "Coming soon to the App Store" buttons (`index.html`, all four variant pages, and `smartwake.html`). Replace with the real App Store URL once each iPhone app ships, and reword the buttons to "Download on the App Store".
+- `DOWNLOAD_URL_HERE` — the "Download coming soon" buttons on `filepilot.html`. Replace with the direct-download URL once FilePilot ships.
