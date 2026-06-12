@@ -375,6 +375,52 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .flinks a{color:var(--muted);padding:4px 0}
 .flinks a:hover{color:var(--text)}
 .fnote{margin-top:var(--sp-l);font-size:12.5px;color:color-mix(in srgb,var(--muted) 80%,transparent)}
+.fsupport{margin-top:var(--sp-l)}
+
+/* ---------- Newsletter signup (hidden until /api/subscribe is configured) ---------- */
+.visually-hidden{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;
+  clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;
+}
+.signup{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r-card);padding:var(--sp-l) var(--sp-xl);
+}
+.signup-card{
+  max-width:560px;margin:var(--sp-l) auto 0;text-align:left;
+  border-color:color-mix(in srgb,var(--accent) 35%,var(--line));
+  box-shadow:var(--shadow-float);
+}
+.signup-card .signup-title{padding-right:44px}
+/* card dropped below the sticky header (nav CTA case) needs side gutters */
+.site-header + .signup-card{margin-left:var(--sp-xl);margin-right:var(--sp-xl)}
+@media(min-width:620px){.site-header + .signup-card{margin-left:auto;margin-right:auto}}
+.signup-row{margin-top:var(--sp-xl)}
+.signup-title{font-size:15.5px;font-weight:650;letter-spacing:-.01em;color:var(--text);margin-bottom:var(--sp-m)}
+.signup-form{display:flex;gap:var(--sp-s);flex-wrap:wrap}
+.signup-input{
+  flex:1;min-width:200px;min-height:44px;padding:10px 14px;
+  border-radius:var(--r-control);border:1px solid var(--line);
+  background:var(--bg-2);color:var(--text);font-size:15px;font-family:inherit;
+}
+.signup-input::placeholder{color:color-mix(in srgb,var(--muted) 70%,transparent)}
+.signup-btn{flex:none}
+.signup-consent{margin-top:var(--sp-s);font-size:12.5px;color:var(--muted);max-width:520px}
+.signup-msg{margin-top:var(--sp-s);font-size:13.5px;color:var(--muted)}
+.signup-msg.is-error{color:#e0556d}
+/* Honeypot: parked off-screen, unreachable by keyboard or screen reader */
+.signup-pot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none}
+.signup-close{
+  position:absolute;top:2px;right:2px;width:44px;height:44px;
+  display:grid;place-items:center;background:transparent;border:0;
+  color:var(--muted);font-size:22px;line-height:1;cursor:pointer;border-radius:50%;
+}
+.signup-close:hover{color:var(--text)}
+
+/* ---------- Pricing: free Mac app + tip seam ---------- */
+.price-mac{grid-column:1/-1}
+.price-mac .mac-note{color:var(--muted);font-size:14px;max-width:560px;margin:var(--sp-l) auto 0}
+.price-mac .btn{margin-top:var(--sp-l)}
 
 /* ============================================================
    Reusable pure-CSS demos

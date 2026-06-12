@@ -120,4 +120,212 @@
       }
     }
   }
+
+  // ------------------------------------------------------------
+  // Donate seam. Buttons ship hidden with data-donate-url set to a
+  // placeholder; once the attribute holds a real URL they appear.
+  // Same pattern as the other unset-URL seams: no dead links, ever.
+  // ------------------------------------------------------------
+  var donateEls = document.querySelectorAll("[data-donate-url]");
+  for (var dn = 0; dn < donateEls.length; dn++) {
+    var donateUrl = donateEls[dn].getAttribute("data-donate-url") || "";
+    if (/^https?:\/\//.test(donateUrl)) {
+      donateEls[dn].setAttribute("href", donateUrl);
+      donateEls[dn].setAttribute("target", "_blank");
+      donateEls[dn].setAttribute("rel", "noopener");
+      donateEls[dn].hidden = false;
+    }
+  }
+
+  // ------------------------------------------------------------
+  // Newsletter opt-in. Everything stays hidden unless GET
+  // /api/subscribe says the provider env vars are configured —
+  // no dead forms on an unconfigured deploy or local preview.
+  // The download itself is never blocked or intercepted: clicking
+  // a CTA downloads exactly as before, and a small card simply
+  // appears nearby afterwards.
+  // ------------------------------------------------------------
+  var SUB_KEY = "cmm-subscribed";
+  var CONSENT_TEXT = "Occasional emails about updates, deals, and new apps " +
+    "from the same developer. No spam, unsubscribe anytime.";
+
+  function hasSubscribed() {
+    try { return localStorage.getItem(SUB_KEY) === "1"; } catch (e) { return false; }
+  }
+  function rememberSubscribed() {
+    try { localStorage.setItem(SUB_KEY, "1"); } catch (e) { /* fine */ }
+  }
+  function looksLikeEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  // Builds one self-contained signup unit ("card" near a CTA, or the
+  // quieter footer "row"). All wiring is local to the element.
+  function createSignup(kind) {
+    var box = document.createElement("div");
+    box.className = "signup " + (kind === "card" ? "signup-card" : "signup-row");
+
+    var title = document.createElement("p");
+    title.className = "signup-title";
+    if (kind === "card") {
+      // On a non-Mac the CTA is a hand-off (share/copy), not a download.
+      title.textContent = isMac
+        ? "While it downloads — want updates?"
+        : "While you're here — want updates?";
+    } else {
+      title.textContent = "Want occasional updates?";
+    }
+    box.appendChild(title);
+
+    if (kind === "card") {
+      var close = document.createElement("button");
+      close.type = "button";
+      close.className = "signup-close";
+      close.setAttribute("aria-label", "Dismiss");
+      close.innerHTML = "&times;";
+      close.addEventListener("click", function () {
+        if (box.parentNode) { box.parentNode.removeChild(box); }
+      });
+      box.appendChild(close);
+    }
+
+    var form = document.createElement("form");
+    form.className = "signup-form";
+    form.setAttribute("novalidate", "");
+
+    var inputId = "nl-" + Math.random().toString(36).slice(2, 8);
+    var label = document.createElement("label");
+    label.className = "visually-hidden";
+    label.setAttribute("for", inputId);
+    label.textContent = "Email address";
+
+    var input = document.createElement("input");
+    input.type = "email";
+    input.id = inputId;
+    input.name = "email";
+    input.required = true;
+    input.autocomplete = "email";
+    input.placeholder = "you@example.com";
+    input.className = "signup-input";
+
+    // Honeypot — visually removed, skipped by keyboard and screen
+    // readers; only bots fill it. The API silently drops those.
+    var pot = document.createElement("input");
+    pot.type = "text";
+    pot.name = "website";
+    pot.tabIndex = -1;
+    pot.autocomplete = "off";
+    pot.setAttribute("aria-hidden", "true");
+    pot.className = "signup-pot";
+
+    var btn = document.createElement("button");
+    btn.type = "submit";
+    btn.className = "btn btn-primary signup-btn";
+    btn.textContent = "Notify me";
+
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(pot);
+    form.appendChild(btn);
+    box.appendChild(form);
+
+    var consent = document.createElement("p");
+    consent.className = "signup-consent";
+    consent.textContent = CONSENT_TEXT;
+    box.appendChild(consent);
+
+    var msg = document.createElement("p");
+    msg.className = "signup-msg";
+    msg.setAttribute("role", "status");
+    msg.hidden = true;
+    box.appendChild(msg);
+
+    function showError(text) {
+      msg.textContent = text;
+      msg.classList.add("is-error");
+      msg.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = input.value.trim();
+      if (!looksLikeEmail(email)) {
+        showError("Please enter a valid email address.");
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "Adding…";
+      fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, website: pot.value })
+      }).then(function (r) {
+        return r.json();
+      }).then(function (data) {
+        if (data && data.ok) {
+          form.hidden = true;
+          consent.hidden = true;
+          msg.hidden = true;
+          title.textContent = "You're on the list — thanks!";
+          rememberSubscribed();
+        } else {
+          showError((data && data.error) ||
+            "Something went wrong — please try again later.");
+          btn.disabled = false;
+          btn.textContent = "Notify me";
+        }
+      }).catch(function () {
+        showError("Couldn't reach the signup service — please try again later.");
+        btn.disabled = false;
+        btn.textContent = "Notify me";
+      });
+    });
+
+    return box;
+  }
+
+  // Shows the post-download card near the clicked CTA. Never blocks
+  // the click itself (no preventDefault here), shows at most one card.
+  function showSignupCard(cta) {
+    if (hasSubscribed()) { return; }
+    if (document.querySelector(".signup-card")) { return; }
+    var card = createSignup("card");
+    var anchor;
+    if (cta.closest && cta.closest(".nav")) {
+      // Nav pill can't host a card; drop it just below the header.
+      anchor = document.querySelector(".site-header") || cta;
+    } else {
+      anchor = (cta.closest && cta.closest(".cta")) || cta;
+    }
+    if (anchor.insertAdjacentElement) {
+      anchor.insertAdjacentElement("afterend", card);
+    }
+  }
+
+  // Footer row: fill the static slot when a page has one, otherwise
+  // append to the footer — every page gets it from this one file.
+  function enableSignupUI() {
+    if (hasSubscribed()) { return; }
+    var slot = document.querySelector("[data-signup-row]");
+    if (slot) {
+      slot.appendChild(createSignup("row"));
+      slot.hidden = false;
+    } else {
+      var footWrap = document.querySelector(".site-footer .wrap");
+      if (footWrap) { footWrap.appendChild(createSignup("row")); }
+    }
+    for (var c = 0; c < dlCtas.length; c++) {
+      dlCtas[c].addEventListener("click", function () {
+        showSignupCard(this);
+      });
+    }
+  }
+
+  if (typeof fetch === "function") {
+    fetch("/api/subscribe").then(function (r) {
+      return r.json();
+    }).then(function (data) {
+      if (data && data.configured) { enableSignupUI(); }
+    }).catch(function () { /* no API here (e.g. local preview) — stay hidden */ });
+  }
 })();
