@@ -58,6 +58,7 @@ body{
   overflow-x:clip;
 }
 img,svg{display:block;max-width:100%}
+[hidden]{display:none !important} /* .btn{display:inline-flex} must not beat the hidden attribute */
 a{color:inherit;text-decoration:none}
 p a,li a{color:var(--accent);text-underline-offset:3px}
 p a:hover,li a:hover{text-decoration:underline}
@@ -95,7 +96,7 @@ strong{color:var(--text)}
     radial-gradient(circle at 50% 52%, #fff 0 5px, transparent 6px),
     var(--grad);
 }
-.nav-links{display:flex;align-items:center;gap:var(--sp-xs);flex-wrap:wrap;justify-content:flex-end}
+.nav-links{display:flex;align-items:center;gap:var(--sp-xs);flex-wrap:nowrap;justify-content:flex-end}
 .nav-links a:not(.btn){
   color:var(--muted);font-size:14px;font-weight:500;
   padding:var(--sp-s) var(--sp-m);border-radius:999px;
@@ -109,6 +110,11 @@ strong{color:var(--text)}
   .logo{width:26px;height:26px;border-radius:8px}
   .nav-links a:not(.btn){padding:8px 6px;font-size:13.5px}
   .btn-small{padding:8px 11px;font-size:13.5px}
+}
+/* ≤380px (360px Androids, 320px SE-class): only brand + Download fit.
+   Hide the remaining text links; nowrap above guarantees a single row. */
+@media(max-width:380px){
+  .nav-links a:not(.btn){display:none}
 }
 
 /* ---------- Buttons (≥44px targets) ---------- */
@@ -136,7 +142,9 @@ strong{color:var(--text)}
 .btn-small{min-height:40px;padding:8px 16px;font-size:14px}
 
 /* ---------- Hero ---------- */
-.hero{padding:var(--sp-4xl) 0 var(--sp-3xl);text-align:center}
+/* inline padding kept: .hero shares the element with .wrap, so a 0 here
+   would erase .wrap's gutter and let hero text touch the screen edges */
+.hero{padding:var(--sp-4xl) var(--sp-xl) var(--sp-3xl);text-align:center}
 .pill{
   display:inline-flex;align-items:center;gap:8px;
   font-size:13px;font-weight:500;color:var(--muted);
@@ -145,6 +153,10 @@ strong{color:var(--text)}
   background:color-mix(in srgb,var(--card) 55%,transparent);
 }
 .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad);flex:none}
+@media(max-width:430px){
+  .pill{font-size:12px;padding:5px 10px}
+  .pill-optional{display:none} /* keeps the pill on one line */
+}
 h1{
   font-size:clamp(36px,6.4vw,62px);line-height:1.04;letter-spacing:-.03em;
   font-weight:800;margin-bottom:var(--sp-l);text-wrap:balance;
@@ -276,6 +288,10 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .step h3{font-size:16.5px;margin-bottom:6px;letter-spacing:-.01em}
 .step p{color:var(--muted);font-size:14.5px}
 
+/* Inline CTA after the pairing steps */
+.how-cta{text-align:center;margin-top:var(--sp-2xl)}
+.how-cta-line{font-size:17px;font-weight:650;letter-spacing:-.01em;margin-bottom:var(--sp-l)}
+
 /* Pricing */
 .pricing{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-l);max-width:780px;margin:0 auto}
 @media(max-width:680px){.pricing{grid-template-columns:1fr}}
@@ -361,39 +377,11 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .fnote{margin-top:var(--sp-l);font-size:12.5px;color:color-mix(in srgb,var(--muted) 80%,transparent)}
 
 /* ============================================================
-   Showcase marquee + reusable pure-CSS demos
+   Reusable pure-CSS demos
    Demos animate transform/opacity only. Base (non-animated)
    styles double as the static "first frame" so the global
    reduced-motion rule below degrades them gracefully.
    ============================================================ */
-
-/* ----- Marquee ----- */
-.showcase{overflow:hidden}
-.marquee{
-  overflow:hidden;padding:var(--sp-s) 0 var(--sp-xl);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-}
-.marquee-track{display:flex;width:max-content;animation:marquee 36s linear infinite}
-.m-set{display:flex;gap:var(--sp-l);padding-right:var(--sp-l);list-style:none}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track,
-.marquee:focus .marquee-track{animation-play-state:paused}
-.marquee.is-paused .marquee-track{animation-play-state:paused}
-.marquee-controls{text-align:center;margin-bottom:var(--sp-l)}
-.marquee-controls .btn[aria-pressed="true"]{
-  color:var(--text);border-style:solid;
-  border-color:color-mix(in srgb,var(--accent) 55%,var(--line));
-}
-.show-card{
-  width:250px;flex:none;background:var(--card);border:1px solid var(--line);
-  border-radius:var(--r-card);padding:var(--sp-l);
-  transition:transform var(--motion-micro),border-color var(--motion-micro);
-}
-.show-card:hover{transform:scale(1.03);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
-.show-card h3{font-size:14.5px;font-weight:650;letter-spacing:-.01em;margin:var(--sp-m) 2px 2px}
-.show-card p{font-size:12.5px;color:var(--muted);margin:0 2px}
 
 /* ----- Demo stage (shared) ----- */
 .demo{
@@ -556,6 +544,9 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .use h3{font-size:15.5px}
 .use p{font-size:13.5px}
 .uses-more{text-align:center;margin-top:var(--sp-xl)}
+/* a section-level CTA link needs a ≥44px tap target; negative margin
+   keeps the visual layout unchanged */
+.uses-more a{display:inline-block;padding:14px 8px;margin:-10px 0}
 
 /* ---------- Accessibility fallbacks ---------- */
 @media (prefers-reduced-transparency: reduce){
@@ -567,12 +558,9 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
-  /* The single switch: kills the marquee and every demo animation.
+  /* The single switch: kills every demo animation.
      Demo base styles are designed as sensible static first frames. */
   *,*::before,*::after{animation:none !important;transition:none !important}
-  .marquee{overflow-x:auto}          /* reel becomes a manual scroller */
-  .marquee .m-set[aria-hidden="true"]{display:none} /* each card exactly once */
-  .marquee-controls{display:none}    /* nothing left to pause */
   .demo-card .demo{opacity:1}        /* static frames shown undimmed */
   .demo-card::after{display:none}
 }
@@ -583,7 +571,3 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 
 /* anchored sections clear the sticky nav */
 html { scroll-padding-top: 84px; }
-/* reduced-motion: marquee becomes a manual scroller — no edge fade clipping */
-@media (prefers-reduced-motion: reduce) {
-  .marquee { mask-image: none; -webkit-mask-image: none; scrollbar-width: thin; }
-}
