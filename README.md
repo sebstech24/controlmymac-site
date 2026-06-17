@@ -20,6 +20,7 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/pro` | `pro.html` | Variant: power-user framing |
 | `/privacy` | `privacy.html` | Privacy policy (no data collected, no account, local-only) |
 | `/support` | `support.html` | Setup, pairing troubleshooting, plans, contact |
+| `/download` | `download.html` | Mac companion download handoff page with GitHub and direct .dmg actions |
 | `/smartwake` | `smartwake.html` | Product page: Smart Wake (iPhone + Apple Watch alarm, unreleased). `#privacy` / `#support` anchors double as its App Store privacy & support URLs |
 | `/filepilot` | `filepilot.html` | Product page: FilePilot (Explorer-style file manager for macOS, unreleased, direct download). `#privacy` / `#support` anchors serve as its privacy & support URLs |
 | — | `assets/site.css` | Shared design system (glass chrome, accent gradient, light/dark, reduced-motion/transparency fallbacks) |
@@ -27,15 +28,20 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/api/subscribe` | `api/subscribe.ts` | Vercel serverless function: adds newsletter signups to the email provider (env-var configured, see below) |
 | — | `AUDIENCE-RESEARCH.md` | Public-safe research notes behind the variant messaging |
 
-## Releases — how the download button works
+## Releases — how the download flow works
 
-Every download button on the site points at the **stable latest-release URL**:
+Every public download CTA points first at:
 
 ```
-https://github.com/sebstech24/controlmymac-site/releases/latest/download/ControlMyMac.dmg
+https://controlmymac.com/download
 ```
 
-That URL only works if the release asset is named **exactly `ControlMyMac.dmg`**. To publish or update the Mac app:
+That page has two actions:
+
+- **Download from GitHub** opens the public GitHub Releases page.
+- **Download .dmg** opens `/download.dmg`, which redirects to the stable latest-release asset if it exists, or falls back to the GitHub Releases page instead of showing a 404.
+
+The direct `.dmg` URL only works if the GitHub release asset is named **exactly `ControlMyMac.dmg`**. To publish or update the Mac app:
 
 ```sh
 gh release create v1.0.0 "<path-to>/ControlMyMac.dmg" \
@@ -43,7 +49,13 @@ gh release create v1.0.0 "<path-to>/ControlMyMac.dmg" \
   --notes "Initial public release."
 ```
 
-No HTML changes are needed for new versions — `releases/latest` always serves the newest release, as long as each release attaches an asset named `ControlMyMac.dmg`.
+No HTML changes are needed for new versions — `/download.dmg` always checks the newest GitHub release, as long as each release attaches an asset named `ControlMyMac.dmg`.
+
+For iPhone handoff buttons, the share/copy payload is only `https://controlmymac.com/download`, so pasting on a Mac gives a usable page link rather than helper text.
+
+## Vercel Web Analytics
+
+The shared site script loads Vercel Web Analytics from `/_vercel/insights/script.js`. Also enable Web Analytics in the Vercel project dashboard; Vercel creates the analytics routes after the next deployment.
 
 ## Newsletter + donations setup
 
@@ -77,6 +89,6 @@ Ko-fi takes 0% of one-off tips; money lands directly and instantly in your own S
 
 ## Remaining placeholders
 
-- `APP_STORE_URL_HERE` — the de-emphasized "Coming soon to the App Store" buttons (`index.html`, all four variant pages, and `smartwake.html`). Replace with the real App Store URL once each iPhone app ships, and reword the buttons to "Download on the App Store".
+- `APP_STORE_URL_HERE` — still used only by unreleased future app pages when present. Control My Mac no longer exposes an App Store placeholder on the public pages.
 - `DOWNLOAD_URL_HERE` — the "Download coming soon" buttons on `filepilot.html`. Replace with the direct-download URL once FilePilot ships.
 - `DONATE_URL_HERE` — the two hidden "Support the free Mac app" buttons in `index.html` (pricing + footer). Replace with your Ko-fi page URL (see above); the buttons stay hidden until then.

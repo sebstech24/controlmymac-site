@@ -3,7 +3,16 @@
    this device only). Never force-redirects. */
 (function () {
   "use strict";
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+  var analyticsScript = document.createElement("script");
+  analyticsScript.defer = true;
+  analyticsScript.src = "/_vercel/insights/script.js";
+  document.head.appendChild(analyticsScript);
+
   var KEY = "cmm-audience";
+  var DOWNLOAD_PAGE_URL = "https://controlmymac.com/download";
   var PAGES = {
     "one-hand": { href: "/one-hand", label: "One-finger control" },
     "couch":    { href: "/couch",    label: "Couch mode" },
@@ -55,7 +64,6 @@
   // copy-link with a brief inline confirmation. Quiet "[data-dl-alt]"
   // links keep the raw .dmg reachable, and "[data-dl-note]" helper
   // text explains the two-device hand-off.
-  var SITE_URL = "https://controlmymac.com/";
   var platform =
     (navigator.userAgentData && navigator.userAgentData.platform) ||
     navigator.platform || "";
@@ -73,11 +81,10 @@
     if (canShare) {
       navigator.share({
         title: "Control My Mac",
-        text: "Open this on your Mac to download the free app",
-        url: SITE_URL
+        url: DOWNLOAD_PAGE_URL
       }).catch(function () { /* visitor closed the sheet — fine */ });
     } else {
-      navigator.clipboard.writeText(SITE_URL).then(function () {
+      navigator.clipboard.writeText(DOWNLOAD_PAGE_URL).then(function () {
         if (el.getAttribute("data-dl-copied")) { return; }
         el.setAttribute("data-dl-copied", "1");
         var label = el.textContent;
