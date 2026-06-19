@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Control My Mac</title>
+    <link>https://controlmymac.com/appcast.xml</link>
+    <description>Updates for the free Control My Mac companion app.</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0.0</title>
+      <description><![CDATA[
+        <ul>
+          <li>First public release of the free Control My Mac companion app.</li>
+          <li>Pair with the iPhone app by scanning a QR code — no account, no sign-up.</li>
+          <li>Encrypted, device-to-device over your local network or Bluetooth.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Thu, 19 Jun 2026 00:00:00 +0000</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://controlmymac.com/download.dmg"
+                 sparkle:version="1"
+                 sparkle:shortVersionString="1.0.0"
+                 length="2056712"
+                 type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
