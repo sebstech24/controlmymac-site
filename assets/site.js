@@ -328,11 +328,5 @@
     }
   }
 
-  if (typeof fetch === "function") {
-    fetch("/api/subscribe").then(function (r) {
-      return r.json();
-    }).then(function (data) {
-      if (data && data.configured) { enableSignupUI(); }
-    }).catch(function () { /* no API here (e.g. local preview) — stay hidden */ });
-  }
+  /* Newsletter signup intentionally disabled for now (hidden everywhere). */
 })();

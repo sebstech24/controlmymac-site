@@ -391,6 +391,8 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .flinks a:hover{color:var(--text)}
 .fnote{margin-top:var(--sp-l);font-size:12.5px;color:color-mix(in srgb,var(--muted) 80%,transparent)}
 .fsupport{margin-top:var(--sp-l)}
+.footer-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-m)}
+.footer-grid nav{display:flex;flex-wrap:wrap;gap:var(--sp-l);justify-content:center}
 
 /* ---------- Newsletter signup (hidden until /api/subscribe is configured) ---------- */
 .visually-hidden{
