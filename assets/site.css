@@ -577,7 +577,7 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 
 /* ----- Feature cards: demo dimmed/paused until hover/focus/tap ----- */
 .demo-card{cursor:pointer}
-.demo-card .demo{margin-top:var(--sp-l);opacity:.45;transition:opacity var(--motion)}
+.demo-card .demo{margin-top:var(--sp-l);opacity:.85;transition:opacity var(--motion)}
 .demo-card .demo *,
 .demo-card .demo *::before,
 .demo-card .demo *::after{animation-play-state:paused}
