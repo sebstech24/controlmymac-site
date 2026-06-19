@@ -23,7 +23,8 @@
       <enclosure url="https://controlmymac.com/download.dmg"
                  sparkle:version="1"
                  sparkle:shortVersionString="1.0.0"
-                 length="2056712"
+                 length="3695238"
+                 sparkle:edSignature="D22xREH8k+V8PGYyFKWt3HYH1U84ZVeBBznnZXeNuqS5WshqEjKgQuTpZiMHu0TxxF090NRptlBrT0vz4VaeAA=="
                  type="application/octet-stream" />
     </item>
   </channel>
