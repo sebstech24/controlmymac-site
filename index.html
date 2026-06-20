@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Control My Mac — Run your whole Mac with one finger</title>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Control My Mac — iPhone Trackpad, Keyboard and Remote for Mac</title>
 <meta name="description" content="Control My Mac turns your iPhone into a precision trackpad, keyboard and command deck for your Mac. One finger does it all — click, scroll, type, launch apps, switch windows. Free Mac app. No account, no ads, no servers.">
 <link rel="canonical" href="https://controlmymac.com/">
 <meta property="og:type" content="website">
@@ -24,7 +25,32 @@
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="/assets/control-my-mac-icon.png">
 <link rel="apple-touch-icon" href="/assets/control-my-mac-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"Control My Mac",
+  "operatingSystem":"iOS 18+, macOS 14+",
+  "applicationCategory":"UtilitiesApplication",
+  "description":"Turn your iPhone into a precision trackpad, keyboard and command deck for your Mac — control your Mac from your iPhone over a local, encrypted connection.",
+  "url":"https://controlmymac.com/",
+  "image":"https://controlmymac.com/assets/og.png",
+  "softwareVersion":"1.0",
+  "offers":[
+    {"@type":"Offer","name":"Essentials","price":"0","priceCurrency":"EUR","category":"free"},
+    {"@type":"Offer","name":"Full App (lifetime)","price":"19.99","priceCurrency":"EUR"},
+    {"@type":"Offer","name":"Full App (monthly)","price":"4.99","priceCurrency":"EUR"}
+  ],
+  "publisher":{"@type":"Organization","name":"Control My Mac","url":"https://controlmymac.com/"}
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Control My Mac","url":"https://controlmymac.com/","logo":"https://controlmymac.com/assets/control-my-mac-icon.png","email":"support@controlmymac.com"}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -45,7 +71,7 @@
 
 <main id="main">
   <section class="hero wrap">
-    <p class="pill">Free Mac app + iPhone remote<span class="pill-optional"> · No account · No ads</span></p>
+    <p class="pill">Your iPhone → trackpad, keyboard &amp; remote for your Mac<span class="pill-optional"> · Free Mac app</span></p>
     <h1>Run your whole Mac with <span class="grad">one finger</span>.</h1>
     <p class="sub">Control My Mac turns your iPhone into a precision trackpad, keyboard and command deck for your Mac. Point, click, scroll, type, launch apps, switch windows and fire shortcuts — with a single finger, from anywhere in the room.</p>
     <div class="cta">
@@ -85,6 +111,7 @@
           <div class="demo demo-trackpad" aria-hidden="true"><span class="d-phone"><span class="d-dot"></span></span><span class="d-mac"><span class="d-tb"></span><span class="d-win w1"></span><span class="d-cur"></span></span></div>
         </article>
         <article class="card demo-card" tabindex="0" role="button" aria-pressed="false" aria-label="Play demo: Composer keyboard" data-demo-card>
+          <span class="tag" title="Full App feature — a paid upgrade available only in the iPhone app">Full App</span>
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg></div>
           <h3>Composer keyboard</h3>
           <p>Draft and edit a whole message on your iPhone, then insert it on the Mac in one go — no racing a live cursor.</p>
@@ -237,13 +264,13 @@
   <section id="pricing">
     <div class="wrap">
       <h2 class="h2">Clear pricing, on the page</h2>
-      <p class="lead">The Mac app is free — forever. It isn't a tier, it's the download. The iPhone app can start a free App Store 7-day Trial of Full App, then Essentials stays free and Full App is optional.</p>
+      <p class="lead">The Mac app is free — forever. It isn't a tier, it's the download. The iPhone app starts with a free 7-day trial of Full App, then Essentials stays free and Full App is optional.</p>
       <div class="pricing">
         <div class="price price-mac">
           <h3>Mac app</h3>
           <p class="amt">Free</p>
           <p class="per">Forever — not a tier, not a trial</p>
-          <p class="mac-note">The Mac app is free — forever. The iPhone app has a free App Store 7-day Trial, then Essentials stays free and Full App is optional.</p>
+          <p class="mac-note">The Mac app is free — forever. The iPhone app has a free 7-day trial of Full App, then Essentials stays free and Full App is optional.</p>
           <a class="btn btn-quiet" data-donate-url="DONATE_URL_HERE" hidden>Support the free Mac app</a>
         </div>
         <div class="price">
@@ -259,9 +286,10 @@
         <div class="price feat">
           <h3>Full App</h3>
           <p class="amt">€4.99<span>/month</span></p>
-          <p class="per">or €19.99 once, yours for life · free 7-day Trial · in the iPhone app</p>
+          <p class="per">or €19.99 once, yours for life · free 7-day trial · in the iPhone app</p>
           <ul>
             <li>Everything in Essentials</li>
+            <li>Composer keyboard</li>
             <li>App launcher</li>
             <li>Window switching</li>
             <li>Scrolling, Mac shortcuts, gestures, presets and tuning</li>
@@ -308,6 +336,6 @@
   </div>
 </footer>
 
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <title>Support — Control My Mac</title>
 <meta name="description" content="Setup and pairing help for Control My Mac: QR pairing, same Wi-Fi network, Bluetooth fallback, macOS firewall, permissions, Essentials and Full App. Contact support@controlmymac.com.">
 <link rel="canonical" href="https://controlmymac.com/support">
@@ -11,11 +12,32 @@
 <meta property="og:title" content="Support — Control My Mac">
 <meta property="og:description" content="Pairing troubleshooting, permission checks, and answers about Essentials and Full App.">
 <meta property="og:url" content="https://controlmymac.com/support">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://controlmymac.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Control My Mac — your iPhone as a trackpad, keyboard and remote for your Mac">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Support — Control My Mac">
+<meta name="twitter:description" content="Pairing troubleshooting, permission checks, and answers about Essentials and Full App.">
+<meta name="twitter:image" content="https://controlmymac.com/assets/og.png">
 <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="/assets/control-my-mac-icon.png">
 <link rel="apple-touch-icon" href="/assets/control-my-mac-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"What's free and what's paid?","acceptedAnswer":{"@type":"Answer","text":"The Mac app is free. The iPhone app has a free 7-day trial of Full App; afterwards Essentials stays free (trackpad movement, click, right click, and basic keyboard) and Full App is 4.99 EUR per month or 19.99 EUR lifetime, bought in-app through Apple. No ads in either plan."}},
+ {"@type":"Question","name":"Is it private?","acceptedAnswer":{"@type":"Answer","text":"Yes. No account, no servers, no analytics. Your iPhone and Mac talk directly over your local network or Bluetooth, encrypted. The camera is used only to scan the pairing QR code."}},
+ {"@type":"Question","name":"How do I manage or cancel a subscription?","acceptedAnswer":{"@type":"Answer","text":"Purchases are handled by Apple. On your iPhone go to Settings, your name, then Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews."}},
+ {"@type":"Question","name":"The iPhone can't find my Mac.","acceptedAnswer":{"@type":"Answer","text":"Make sure both devices are on the same Wi-Fi network (not a guest network with client isolation) or use Bluetooth, confirm the free Mac app is running and showing its QR code, and check the Local Network permission on both devices."}},
+ {"@type":"Question","name":"Pointer moves but clicking or typing does nothing.","acceptedAnswer":{"@type":"Answer","text":"The Mac app needs the macOS Accessibility permission to act on your behalf. Open System Settings, Privacy and Security, Accessibility, enable Control My Mac, then quit and reopen the Mac app."}}
+]}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -74,7 +96,7 @@
 
     <h2>Plans &amp; pricing</h2>
     <h3>What's free and what's paid?</h3>
-    <p>The Mac app is free, full stop. The iPhone app can start a free App Store <strong>7-day Trial</strong> of Full App. After the trial, <strong>Essentials</strong> stays free with trackpad movement, click, right click, and basic Keyboard with typed text, Tab, Backspace and Enter. <strong>Full App</strong> (€4.99/month or €19.99 lifetime) adds scrolling, Composer, Launcher, window switching, Mac keyboard shortcuts, full gestures, presets and tuning. There are no ads in either plan. <strong>The paid Full App upgrade is bought only in the iPhone app through Apple — there's nothing to pay for on this website or in the free Mac app.</strong></p>
+    <p>The Mac app is free, full stop. The iPhone app starts with a free <strong>7-day trial</strong> of Full App. After the trial, <strong>Essentials</strong> stays free with trackpad movement, click, right click, and basic Keyboard with typed text, Tab, Backspace and Enter. <strong>Full App</strong> (€4.99/month or €19.99 lifetime) adds scrolling, Composer, Launcher, window switching, Mac keyboard shortcuts, full gestures, presets and tuning. There are no ads in either plan. <strong>The paid Full App upgrade is bought only in the iPhone app through Apple — there's nothing to pay for on this website or in the free Mac app.</strong></p>
 
     <h3>How do I manage or cancel a subscription?</h3>
     <p>Purchases are handled by Apple. On your iPhone: Settings → your name → Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews.</p>
@@ -103,6 +125,6 @@
   </div>
 </footer>
 
-<script src="/assets/site.js"></script>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
