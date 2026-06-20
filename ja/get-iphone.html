@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone用のControl My Macを入手</title>
+  <meta name="description" content="Control My MacのiPhoneアプリを入手して、無料のMacコンパニオンとペアリングし、Mac全体を指一本で操作しましょう。">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone app is approved.
+    var APP_STORE_URL = "";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">コンテンツへスキップ</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">iPhone用のControl My Mac</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      まもなくApp&nbsp;Storeに登場
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      無料のMacアプリはインストール済みです — 最後のピースは、それとペアリングする
+      iPhoneアプリです。App Storeへ向かっているところです。少ししたらまた
+      ご確認いただくか、Macアプリのセットアップガイドを開いたままにして、
+      公開され次第ペアリングコードをスキャンしてください。
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="/ja/">controlmymac.comへ戻る</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      アカウント不要、サーバーなし — あなたのiPhoneとMacは、直接、プライベートにやり取りします。
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>

@@ -1,12 +1,2109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://controlmymac.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://controlmymac.com/pro</loc><priority>0.8</priority></url>
-  <url><loc>https://controlmymac.com/one-hand</loc><priority>0.8</priority></url>
-  <url><loc>https://controlmymac.com/couch</loc><priority>0.7</priority></url>
-  <url><loc>https://controlmymac.com/present</loc><priority>0.7</priority></url>
-  <url><loc>https://controlmymac.com/download</loc><priority>0.7</priority></url>
-  <url><loc>https://controlmymac.com/start</loc><priority>0.6</priority></url>
-  <url><loc>https://controlmymac.com/support</loc><priority>0.6</priority></url>
-  <url><loc>https://controlmymac.com/privacy</loc><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://controlmymac.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/"/>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/pro"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/pro"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/pro"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/pro"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/pro"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/pro"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/pro"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/pro"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/pro"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/pro"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/pro"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/pro"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/pro"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/pro"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/one-hand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/one-hand"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/one-hand"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/couch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/couch"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/couch"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/couch"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/couch"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/couch"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/couch"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/couch"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/couch"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/couch"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/couch"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/couch"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/couch"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/couch"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/couch"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/present</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/present"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/present"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/present"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/present"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/present"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/present"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/present"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/present"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/present"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/present"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/present"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/present"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/present"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/present"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/download</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/download"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/download"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/download"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/download"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/download"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/download"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/download"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/download"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/download"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/download"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/download"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/download"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/download"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/download"/>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/start</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/start"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/start"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/start"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/start"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/start"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/start"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/start"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/start"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/start"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/start"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/start"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/start"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/start"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/support</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/support"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/support"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/support"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/support"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/support"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/support"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/support"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/support"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/support"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/support"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/support"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/support"/>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/de/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/fr/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/it/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/es/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pt/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/nl/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ja/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/zh/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ko/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/ru/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/pl/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://controlmymac.com/tr/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://controlmymac.com/privacy"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://controlmymac.com/de/privacy"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://controlmymac.com/fr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://controlmymac.com/it/privacy"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://controlmymac.com/es/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://controlmymac.com/pt/privacy"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://controlmymac.com/nl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://controlmymac.com/ja/privacy"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://controlmymac.com/zh/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://controlmymac.com/ko/privacy"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://controlmymac.com/ru/privacy"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://controlmymac.com/pl/privacy"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://controlmymac.com/tr/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://controlmymac.com/privacy"/>
+    <priority>0.3</priority>
+  </url>
 </urlset>

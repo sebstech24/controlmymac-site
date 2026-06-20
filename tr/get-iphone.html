@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone için Control My Mac'i edin</title>
+  <meta name="description" content="Ücretsiz Mac yardımcısıyla eşleştirmek ve tüm Mac'ini tek parmakla kullanmak için Control My Mac iPhone uygulamasını edin.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone app is approved.
+    var APP_STORE_URL = "";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">iPhone için Control My Mac</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      Yakında App&nbsp;Store'da
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      Ücretsiz Mac uygulamasını kurdun — son parça, onunla eşleşen iPhone uygulaması.
+      App Store'a doğru yolda. Kısa süre içinde tekrar bak ya da Mac uygulamasının
+      kurulum kılavuzunu açık tut ve uygulama yayınlanır yayınlanmaz eşleştirme
+      kodunu tara.
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="/tr/">controlmymac.com'a geri dön</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      Hesap yok, sunucu yok — iPhone'un ve Mac'in birbiriyle doğrudan, gizli bir şekilde konuşur.
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>
