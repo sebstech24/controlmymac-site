@@ -8,23 +8,23 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.0</title>
+      <title>Version 1.0.1</title>
       <description><![CDATA[
         <ul>
-          <li>First public release of the free Control My Mac companion app.</li>
-          <li>Pair with the iPhone app by scanning a QR code — no account, no sign-up.</li>
-          <li>Encrypted, device-to-device over your local network or Bluetooth.</li>
+          <li>Much lighter on battery: the app now fully idles — zero CPU wakeups — when no iPhone is connected, and runs at full speed the moment one is.</li>
+          <li>Now available in 12 languages.</li>
+          <li>Clearer system permission prompts.</li>
         </ul>
       ]]></description>
-      <pubDate>Thu, 19 Jun 2026 00:00:00 +0000</pubDate>
-      <sparkle:version>1</sparkle:version>
-      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://controlmymac.com/download.dmg"
-                 sparkle:version="1"
-                 sparkle:shortVersionString="1.0.0"
-                 length="3738293"
-                 sparkle:edSignature="4bwtnmwGH5LncPAswRI4fWc9CDC7AITjJUQT+zNSkj72tNUGyopjuDxzMd4+yIyk0moiQkd+vernhurn3OXeDQ=="
+                 sparkle:version="2"
+                 sparkle:shortVersionString="1.0.1"
+                 length="3821613"
+                 sparkle:edSignature="E0TPYL42DUPTN8izXlcooc6tzizpIxwUoyuelYpXzvNs8Wpg+TtRaxba+s3x9xZshwyb1zTvPKg0zIFf8bJmAQ=="
                  type="application/octet-stream" />
     </item>
   </channel>
