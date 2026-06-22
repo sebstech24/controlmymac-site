@@ -8,23 +8,23 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
-      <title>Version 1.0.1</title>
+      <title>Version 1.0.2</title>
       <description><![CDATA[
         <ul>
-          <li>Much lighter on battery: the app now fully idles — zero CPU wakeups — when no iPhone is connected, and runs at full speed the moment one is.</li>
-          <li>Now available in 12 languages.</li>
-          <li>Clearer system permission prompts.</li>
+          <li>New: an in-app <strong>Update Available</strong> button, so updating is one click right from the menu-bar window.</li>
+          <li>Much lighter on battery — the app fully idles (zero CPU wakeups) when no iPhone is connected, and runs at full speed the moment one is.</li>
+          <li>Now available in 12 languages, with clearer system permission prompts.</li>
         </ul>
       ]]></description>
       <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
-      <sparkle:version>2</sparkle:version>
-      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+      <sparkle:version>3</sparkle:version>
+      <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure url="https://controlmymac.com/download.dmg"
-                 sparkle:version="2"
-                 sparkle:shortVersionString="1.0.1"
-                 length="3821613"
-                 sparkle:edSignature="E0TPYL42DUPTN8izXlcooc6tzizpIxwUoyuelYpXzvNs8Wpg+TtRaxba+s3x9xZshwyb1zTvPKg0zIFf8bJmAQ=="
+                 sparkle:version="3"
+                 sparkle:shortVersionString="1.0.2"
+                 length="3893777"
+                 sparkle:edSignature="ipN7A+4ZuNJVdwDejFmLT0Wm70Eovl6KLI4kWFPSZVXViW6p5GzY/PmKf4d1dKRLBawsmVeoXS1hlk7p1JXNBw=="
                  type="application/octet-stream" />
     </item>
   </channel>
