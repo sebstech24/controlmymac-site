@@ -168,6 +168,8 @@ strong{color:var(--text)}
   border:1px solid var(--line);border-radius:999px;
   padding:6px 14px;margin-bottom:var(--sp-xl);
   background:color-mix(in srgb,var(--card) 55%,transparent);
+  /* balanced rows, never a one-word orphan — works in every language */
+  text-wrap:balance;
 }
 .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad);flex:none}
 @media(max-width:430px){
@@ -259,6 +261,10 @@ section{padding:var(--sp-4xl) 0}
   text-align:center;margin-bottom:var(--sp-m);text-wrap:balance;
 }
 .lead{color:var(--muted);text-align:center;max-width:640px;margin:0 auto var(--sp-3xl);text-wrap:pretty}
+/* Keep body copy tidy on phones in every language — no one-word orphan last lines,
+   and short display lines stay balanced rather than ragged. */
+.card p,.step p,.use p,.choice p,.cta-note,.price-note,.price-mac .mac-note,.doc p,.doc li{text-wrap:pretty}
+.card h3,.step h3,.use h3,.choice h2,.how-cta-line,.price h3{text-wrap:balance}
 .band{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 
 /* Feature cards */
