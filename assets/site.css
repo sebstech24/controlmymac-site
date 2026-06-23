@@ -126,9 +126,11 @@ strong{color:var(--text)}
   .nav-links a:not(.btn){font-size:13px;padding:7px 5px}
   .btn-small{min-height:36px;padding:7px 10px;border-radius:11px;font-size:13px}
 }
-/* ≤380px (360px Androids, 320px SE-class): only brand + Download fit.
-   Hide the remaining text links; nowrap above guarantees a single row. */
-@media(max-width:380px){
+/* On phones only the brand + Download (and the globe) fit on one row.
+   Hide the secondary text links well before they overflow and clip the
+   Download CTA — they remain reachable in the footer. nowrap above keeps
+   everything on a single row. */
+@media(max-width:520px){
   .nav-links a:not(.btn){display:none}
 }
 
