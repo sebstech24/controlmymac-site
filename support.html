@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://controlmymac.com/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Control My Mac — your iPhone as a trackpad, keyboard and remote for your Mac">
+<meta property="og:image:alt" content="Control My Mac — your iPhone or iPad as a trackpad, keyboard and remote for your Mac">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Support — Control My Mac">
 <meta name="twitter:description" content="Pairing troubleshooting, permission checks, and answers about Essentials and Full App.">
@@ -31,10 +31,10 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
- {"@type":"Question","name":"What's free and what's paid?","acceptedAnswer":{"@type":"Answer","text":"The Mac app is free. The iPhone app has a free 7-day trial of Full App that auto-renews into a 4.99 EUR per month subscription unless you cancel before it ends; cancel anytime in Settings and Essentials stays free (trackpad movement, click, right click, and basic keyboard). Full App is 4.99 EUR per month or 19.99 EUR lifetime (a one-time purchase), bought in-app through Apple. No ads in either plan."}},
- {"@type":"Question","name":"Is it private?","acceptedAnswer":{"@type":"Answer","text":"Yes. No account, no servers, no analytics. Your iPhone and Mac talk directly over your local network or Bluetooth, encrypted. The camera is used only to scan the pairing QR code."}},
- {"@type":"Question","name":"How do I manage or cancel a subscription?","acceptedAnswer":{"@type":"Answer","text":"Purchases are handled by Apple. On your iPhone go to Settings, your name, then Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews."}},
- {"@type":"Question","name":"The iPhone can't find my Mac.","acceptedAnswer":{"@type":"Answer","text":"Make sure both devices are on the same Wi-Fi network (not a guest network with client isolation) or use Bluetooth, confirm the free Mac app is running and showing its QR code, and check the Local Network permission on both devices."}},
+ {"@type":"Question","name":"What's free and what's paid?","acceptedAnswer":{"@type":"Answer","text":"The Mac app is free. The iPhone &amp; iPad app has a free 7-day trial of Full App that auto-renews into a 4.99 EUR per month subscription unless you cancel before it ends; cancel anytime in Settings and Essentials stays free (trackpad movement, click, right click, and basic keyboard). Full App is 4.99 EUR per month or 19.99 EUR lifetime (a one-time purchase), bought in-app through Apple. No ads in either plan."}},
+ {"@type":"Question","name":"Is it private?","acceptedAnswer":{"@type":"Answer","text":"Yes. No account, no servers, no analytics. Your iPhone or iPad and Mac talk directly over your local network or Bluetooth, encrypted. The camera is used only to scan the pairing QR code."}},
+ {"@type":"Question","name":"How do I manage or cancel a subscription?","acceptedAnswer":{"@type":"Answer","text":"Purchases are handled by Apple. On your iPhone or iPad go to Settings, your name, then Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews."}},
+ {"@type":"Question","name":"The iPhone or iPad can't find my Mac.","acceptedAnswer":{"@type":"Answer","text":"Make sure both devices are on the same Wi-Fi network (not a guest network with client isolation) or use Bluetooth, confirm the free Mac app is running and showing its QR code, and check the Local Network permission on both devices."}},
  {"@type":"Question","name":"Pointer moves but clicking or typing does nothing.","acceptedAnswer":{"@type":"Answer","text":"The Mac app needs the macOS Accessibility permission to act on your behalf. Open System Settings, Privacy and Security, Accessibility, enable Control My Mac, then quit and reopen the Mac app."}}
 ]}
 </script>
@@ -57,7 +57,7 @@
 <main id="main" class="doc-main wrap">
   <article class="doc">
     <h1>Support</h1>
-    <p>Help for Control My Mac — the iPhone app and its free Mac menu-bar companion.</p>
+    <p>Help for Control My Mac — the iPhone &amp; iPad app and its free Mac menu-bar companion.</p>
     <div class="meta">
       <p>Anything not covered here? Email <a href="mailto:support@controlmymac.com"><strong>support@controlmymac.com</strong></a> — a human reads it.</p>
     </div>
@@ -67,17 +67,17 @@
       <li><a href="/download">Download the free Mac app</a>, open the .dmg and move Control My Mac to Applications.</li>
       <li>Launch it — it lives in your menu bar and shows a QR code.</li>
       <li>Grant the one-time macOS permissions it requests (Accessibility, and Bluetooth if you plan to use it).</li>
-      <li>Install the iPhone app from the App Store and put both devices on the same Wi-Fi network, or turn on Bluetooth on both.</li>
-      <li>Scan the QR code on your Mac with the iPhone app. You're paired — the connection is direct and encrypted.</li>
+      <li>Install the iPhone &amp; iPad app from the App Store and put both devices on the same Wi-Fi network, or turn on Bluetooth on both.</li>
+      <li>Scan the QR code on your Mac with the iPhone &amp; iPad app. You're paired — the connection is direct and encrypted.</li>
     </ol>
-    <p><strong>Requirements:</strong> iOS 18 or later, macOS 14 or later (Apple Silicon and Intel).</p>
+    <p><strong>Requirements:</strong> iOS/iPadOS 18 or later, macOS 14 or later (Apple Silicon and Intel).</p>
 
     <h2>Pairing &amp; connection troubleshooting</h2>
 
-    <h3>The iPhone can't find my Mac.</h3>
+    <h3>The iPhone or iPad can't find my Mac.</h3>
     <ul>
       <li><strong>Same Wi-Fi network:</strong> make sure both devices are on the same network — not one on Wi-Fi and one on Ethernet behind a different subnet, and not a guest network. Guest networks and some office/hotel networks block devices from seeing each other ("client isolation"); switch to Bluetooth there.</li>
-      <li><strong>Bluetooth on:</strong> if you're pairing over Bluetooth, confirm Bluetooth is enabled on both the iPhone and the Mac.</li>
+      <li><strong>Bluetooth on:</strong> if you're pairing over Bluetooth, confirm Bluetooth is enabled on both the iPhone or iPad and the Mac.</li>
       <li><strong>Mac app running:</strong> the menu-bar icon must be present and showing a QR code or "ready" state.</li>
     </ul>
 
@@ -85,30 +85,30 @@
     <ul>
       <li><strong>macOS firewall:</strong> open <strong>System Settings → Network → Firewall → Options</strong> and make sure incoming connections for Control My Mac are allowed.</li>
       <li><strong>Local Network permission (Mac):</strong> on macOS 15 and later, check <strong>System Settings → Privacy &amp; Security → Local Network</strong> and confirm Control My Mac is enabled.</li>
-      <li><strong>Local Network permission (iPhone):</strong> check <strong>Settings → Apps → Control My Mac → Local Network</strong> is on. iOS asks once and silently blocks discovery if it was declined.</li>
+      <li><strong>Local Network permission (iPhone or iPad):</strong> check <strong>Settings → Apps → Control My Mac → Local Network</strong> is on. iOS and iPadOS ask once and silently block discovery if it was declined.</li>
       <li><strong>VPNs:</strong> a VPN on either device can route local traffic away. Pause the VPN or enable its local-network exemption.</li>
-      <li>Still stuck? Quit and reopen the Mac app, toggle Wi-Fi on the iPhone, and try Bluetooth as a cross-check — it isolates whether the network is the problem.</li>
+      <li>Still stuck? Quit and reopen the Mac app, toggle Wi-Fi on the iPhone or iPad, and try Bluetooth as a cross-check — it isolates whether the network is the problem.</li>
     </ul>
 
     <h3>Pointer moves but clicking or typing does nothing.</h3>
     <p>The Mac app needs the Accessibility permission to act on your behalf. Open <strong>System Settings → Privacy &amp; Security → Accessibility</strong> and confirm Control My Mac is listed and enabled. After granting it, quit and reopen the Mac app.</p>
 
     <h3>The QR code won't scan.</h3>
-    <p>The iPhone camera permission may be off — check <strong>Settings → Apps → Control My Mac → Camera</strong>. The camera is used only for scanning the pairing code; see the <a href="/privacy">Privacy Policy</a>.</p>
+    <p>The camera permission may be off — check <strong>Settings → Apps → Control My Mac → Camera</strong>. The camera is used only for scanning the pairing code; see the <a href="/privacy">Privacy Policy</a>.</p>
 
     <h2>Plans &amp; pricing</h2>
     <h3>What's free and what's paid?</h3>
-    <p>The Mac app is free, full stop. The iPhone app starts with a free <strong>7-day trial</strong> of Full App. The trial <strong>auto-renews at €4.99/month unless you cancel</strong> before it ends — cancel anytime in Settings → Apple ID → Subscriptions and you stay on <strong>Essentials</strong>, free, with trackpad movement, click, right click, and basic Keyboard with typed text, Tab, Backspace and Enter. <strong>Full App</strong> (€4.99/month or €19.99 lifetime) adds scrolling, Composer, Launcher, window switching, Mac keyboard shortcuts, full gestures, presets and tuning. There are no ads in either plan. <strong>The paid Full App upgrade is bought only in the iPhone app through Apple — there's nothing to pay for on this website or in the free Mac app.</strong></p>
+    <p>The Mac app is free, full stop. The iPhone &amp; iPad app starts with a free <strong>7-day trial</strong> of Full App. The trial <strong>auto-renews at €4.99/month unless you cancel</strong> before it ends — cancel anytime in Settings → Apple ID → Subscriptions and you stay on <strong>Essentials</strong>, free, with trackpad movement, click, right click, and basic Keyboard with typed text, Tab, Backspace and Enter. <strong>Full App</strong> (€4.99/month or €19.99 lifetime) adds scrolling, Composer, Launcher, window switching, Mac keyboard shortcuts, full gestures, presets and tuning. There are no ads in either plan. <strong>The paid Full App upgrade is bought only in the iPhone &amp; iPad app through Apple — there's nothing to pay for on this website or in the free Mac app.</strong></p>
 
     <h3>How do I manage or cancel a subscription?</h3>
-    <p>Purchases are handled by Apple. On your iPhone: Settings → your name → Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews.</p>
+    <p>Purchases are handled by Apple. On your iPhone or iPad: Settings → your name → Subscriptions. Cancelling takes effect at the end of the current period; the lifetime purchase never renews.</p>
 
     <h2>Privacy</h2>
     <h3>Is it private?</h3>
     <p>Yes. No account, no servers, no analytics. Your devices talk directly to each other over your local network or Bluetooth, encrypted. Details in the <a href="/privacy"><strong>Privacy Policy</strong></a>.</p>
 
     <h2>Contact</h2>
-    <p>Email <a href="mailto:support@controlmymac.com"><strong>support@controlmymac.com</strong></a> with your macOS and iOS versions and a short description — screenshots of any error help a lot.</p>
+    <p>Email <a href="mailto:support@controlmymac.com"><strong>support@controlmymac.com</strong></a> with your macOS and iOS or iPadOS versions and a short description — screenshots of any error help a lot.</p>
   </article>
 </main>
 
@@ -123,7 +123,7 @@
         <a href="mailto:support@controlmymac.com">Contact</a>
       </nav>
     </div>
-    <p class="fnote">Requires iOS 18+ and macOS 14+. No account, no servers — your devices talk directly to each other, encrypted, over your local network or Bluetooth.</p>
+    <p class="fnote">Requires iOS/iPadOS 18+ and macOS 14+. No account, no servers — your devices talk directly to each other, encrypted, over your local network or Bluetooth.</p>
   </div>
 </footer>
 
