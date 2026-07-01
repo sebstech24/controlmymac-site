@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="/assets/site.css">
   <!--
     The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
-    When the iPhone & iPad app is live on the App Store, set APP_STORE_URL below to the
-    listing URL — this page then instantly redirects there. No Mac app update needed.
+    The iPhone & iPad app is live on the App Store; APP_STORE_URL below redirects
+    visitors straight to the listing. Change it here anytime — no Mac app update needed.
   -->
   <script>
-    // PLUG IN: the App Store listing URL once the iPhone & iPad app is approved.
-    var APP_STORE_URL = "";
+    // App Store listing URL for the iPhone & iPad app (live) — redirects on load.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6781458180";
     if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
   </script>
   <style>
@@ -30,15 +30,16 @@
   <main id="main" class="gi-wrap">
     <p class="gi-badge">Control My Mac for iPhone &amp; iPad</p>
     <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
-      Coming soon to the App&nbsp;Store
+      Get it on the App&nbsp;Store
     </h1>
     <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
       You've installed the free Mac app — the last piece is the iPhone or iPad app that
-      pairs with it. It's on its way to the App Store. Check back shortly, or
-      keep the Mac app's setup guide open and scan the pairing code once it's live.
+      pairs with it. It's on the App Store now. If this page doesn't take you there
+      automatically, tap the button below, then scan the pairing code from the Mac app.
     </p>
     <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
-      <a class="btn btn-primary" href="/">Back to controlmymac.com</a>
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6781458180">Open in the App&nbsp;Store</a>
+      <a class="btn btn-quiet" href="/">Back to controlmymac.com</a>
     </div>
     <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
       No account, no servers — your iPhone or iPad and Mac talk directly, privately.
