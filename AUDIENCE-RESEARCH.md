@@ -75,8 +75,11 @@ no internal information.
 - **Accounts / sign-ups for a local tool** → no account, ever.
 - **Pay-per-key micro-paywalls and opaque pricing** → pricing on the page:
   free Mac app; Essentials stays free with trackpad movement, click, right click
-  and basic Keyboard; Full App is €4.99/month or €19.99 lifetime after a free
-  App Store 7-day Trial.
+  Live and Draft Keyboard basics, one Grid button and Launcher preview; Full
+  App is €4.99/month or €19.99 lifetime after a free App Store 7-day Trial.
+- **Shortcut grids that change with context** → Full App can assign a Grid to
+  the frontmost Mac app, so the controls change automatically when the user's
+  work changes.
 - **Firewall/port/IP setup friction** → pair by scanning a QR code; the only
   setup notes we need are standard macOS/iOS permissions.
 - **Unencrypted local protocols (Remote Mouse disclosure)** → device-to-device

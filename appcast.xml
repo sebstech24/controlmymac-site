@@ -8,6 +8,27 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.0</title>
+      <description><![CDATA[
+        <ul>
+          <li>Adds support for the new <strong>Grid</strong> controls, including app-aware Grid switching from the iPhone and iPad app.</li>
+          <li>Fixes the menu-bar <strong>Open Accessibility</strong> action so permission recovery opens macOS System Settings directly.</li>
+          <li>Prevents duplicate companion copies from lingering after reinstalling or launching a test build.</li>
+          <li>Improves setup and settings button labels for assistive technologies.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Thu, 02 Jul 2026 14:15:00 +0000</pubDate>
+      <sparkle:version>5</sparkle:version>
+      <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.0/ControlMyMac-1.2.0.dmg"
+                 sparkle:version="5"
+                 sparkle:shortVersionString="1.2.0"
+                 length="3206668"
+                 sparkle:edSignature="nuSyRnaGN9CnMCGWTCgjpdcjjH9+wXDgZwZKsK8xvRlV9+NJE8EpNOqPSyMT9cn+x9PmP+GFgwjpHbqH/LR3DA=="
+                 type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0.3</title>
       <description><![CDATA[
         <ul>
