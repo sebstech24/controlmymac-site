@@ -8,6 +8,27 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.1</title>
+      <description><![CDATA[
+        <ul>
+          <li>Adds a clear Mac update prompt when new iPhone and iPad features need the latest companion app.</li>
+          <li>Keeps an update button visible in the Mac menu-bar window whenever an update is available.</li>
+          <li>Remembers <strong>Not Now</strong> per update version, so the same update prompt is not shown again after dismissal.</li>
+          <li>Improves the Grid compatibility message shown by the iPhone and iPad app when the paired Mac companion is too old.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Fri, 03 Jul 2026 12:52:22 +0000</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.1/ControlMyMac-1.2.1.dmg"
+                 sparkle:version="6"
+                 sparkle:shortVersionString="1.2.1"
+                 length="4084369"
+                 sparkle:edSignature="TwNIIG9vEsQZk1lwBSCjiZa8ShxYDnYgglkmDLbAFhiULS7nxy8n1H7hFVkWtPC8JRfl9GuvEfoHUECovck8Aw=="
+                 type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.2.0</title>
       <description><![CDATA[
         <ul>

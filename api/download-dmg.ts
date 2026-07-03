@@ -2,8 +2,8 @@
 //
 // The asset is named ControlMyMac-<version>.dmg, and the downloaded filename is
 // the asset name (a 302 cannot override the target's Content-Disposition), so
-// users get a versioned file. We look the asset up by ".dmg" suffix rather than
-// a fixed name, so it keeps working no matter what the version is.
+// users get a versioned file. Prefer the exact versioned filename from the
+// latest tag, then fall back to any versioned DMG, then any DMG.
 //
 // The redirect is edge-cached (s-maxage) so we rarely call the GitHub API —
 // important under a launch traffic spike, where unauthenticated API calls could
@@ -35,7 +35,14 @@ export async function GET(): Promise<Response> {
     if (res.ok) {
       const json: any = await res.json();
       const assets: any[] = Array.isArray(json.assets) ? json.assets : [];
+      const tag = typeof json.tag_name === "string" ? json.tag_name : "";
+      const version = tag.replace(/^v/i, "");
+      const expectedName = version ? `ControlMyMac-${version}.dmg` : "";
       const dmg = assets.find(
+        (a) => typeof a?.name === "string" && a.name === expectedName,
+      ) ?? assets.find(
+        (a) => typeof a?.name === "string" && /^ControlMyMac-[0-9].*\.dmg$/i.test(a.name),
+      ) ?? assets.find(
         (a) => typeof a?.name === "string" && a.name.toLowerCase().endsWith(".dmg"),
       );
       if (dmg?.browser_download_url) {
