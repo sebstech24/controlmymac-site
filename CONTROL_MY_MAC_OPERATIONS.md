@@ -24,7 +24,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 - Local: `/Users/sebastianskoic/Coding/Fable stuff/Swoip-claude/native/MacRemoteControlPhone`
 - GitHub: `https://github.com/sebstech24/mac-remote-control.git`
 - Branch: `main`
-- Baseline commit before the APNs completion work: `383f026`
+- Current pushed commit containing the APNs completion work: `cd2f650`
 - Bundle ID: `com.sebastianskoic.macremotecontrol.phone`
 - Apple team ID: `H9ZS6Y55PD`
 - Important: this checkout still declares version 1.1 build 12. Do not archive it as build 19 without first reconciling it with the actual 1.2 release branch.
@@ -43,6 +43,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 - GitHub: `https://github.com/sebstech24/controlmymac-site.git`
 - Vercel project: `controlmymac-site`
 - Vercel project ID: `prj_jqyqJTPw8ENwY1u7jYFteTAQWF5I`
+- Current pushed website/backend commit: `f0a2a7c`
 - Production site: `https://controlmymac.com`
 - Database schema: `db/code-delivery.sql`
 - Environment-variable template: `.env.example`
