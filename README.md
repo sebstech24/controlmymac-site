@@ -1,5 +1,7 @@
 # Control My Mac — Public Site
 
+For the current App Store build, code-delivery, subscriber email, APNs setup, testing, and launch checklist, see [`CONTROL_MY_MAC_OPERATIONS.md`](CONTROL_MY_MAC_OPERATIONS.md).
+
 Static marketing site for [Control My Mac](https://controlmymac.com) — an iPhone app plus a free Mac menu-bar companion that lets you operate your entire Mac with one finger.
 
 This repository contains **only** the public site, legal pages and public release assets attached through GitHub Releases. It must never contain app source code, signing material, credentials, private configuration or internal project files.

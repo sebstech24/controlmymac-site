@@ -210,3 +210,67 @@ export async function claimNextDelivery() {
   const rows = await sql`select * from claim_next_code_delivery()`;
   return rows[0] || null;
 }
+
+export async function upsertPushDevice(input) {
+  const sql = getDatabase();
+  await sql`
+    update push_devices
+    set enabled = false, disabled_at = now(), updated_at = now()
+    where installation_hash = ${input.installationHash}
+      and token_hash <> ${input.tokenHash}
+      and enabled = true
+  `;
+  await sql`
+    insert into push_devices (
+      installation_hash, token_hash, token_ciphertext, environment,
+      locale, app_version, enabled, last_seen_at, disabled_at, last_error, updated_at
+    ) values (
+      ${input.installationHash}, ${input.tokenHash}, ${input.tokenCiphertext},
+      ${input.environment}, ${input.locale}, ${input.appVersion},
+      true, now(), null, null, now()
+    )
+    on conflict (token_hash) do update set
+      installation_hash = excluded.installation_hash,
+      token_ciphertext = excluded.token_ciphertext,
+      environment = excluded.environment,
+      locale = excluded.locale,
+      app_version = excluded.app_version,
+      enabled = true,
+      last_seen_at = now(),
+      disabled_at = null,
+      last_error = null,
+      updated_at = now()
+  `;
+}
+
+export async function activePushDevices(limit = 100) {
+  const sql = getDatabase();
+  return sql`
+    select token_hash, token_ciphertext, environment, locale, app_version
+    from push_devices
+    where enabled = true
+    order by last_delivery_at asc nulls first, last_seen_at desc
+    limit ${limit}
+  `;
+}
+
+export async function markPushDelivered(tokenHash) {
+  const sql = getDatabase();
+  await sql`
+    update push_devices
+    set last_delivery_at = now(), last_error = null, updated_at = now()
+    where token_hash = ${tokenHash}
+  `;
+}
+
+export async function markPushFailed(tokenHash, error, disable = false) {
+  const sql = getDatabase();
+  await sql`
+    update push_devices
+    set last_error = ${String(error || "Unknown APNs error").slice(0, 500)},
+        enabled = case when ${disable} then false else enabled end,
+        disabled_at = case when ${disable} then now() else disabled_at end,
+        updated_at = now()
+    where token_hash = ${tokenHash}
+  `;
+}

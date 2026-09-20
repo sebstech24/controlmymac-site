@@ -82,6 +82,31 @@ create table if not exists rate_limit_buckets (
   attempts integer not null
 );
 
+-- APNs device tokens are opaque identifiers. Store only encrypted token values
+-- and keyed hashes; never store a device name, Apple ID, or email association.
+create table if not exists push_devices (
+  id uuid primary key default gen_random_uuid(),
+  installation_hash text not null,
+  token_hash text not null unique,
+  token_ciphertext text not null,
+  environment text not null check (environment in ('sandbox', 'production')),
+  locale text not null default 'en',
+  app_version text not null default 'unknown',
+  enabled boolean not null default true,
+  last_seen_at timestamptz not null default now(),
+  last_delivery_at timestamptz,
+  disabled_at timestamptz,
+  last_error text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists push_devices_active_idx
+  on push_devices (last_seen_at desc)
+  where enabled = true;
+create index if not exists push_devices_installation_idx
+  on push_devices (installation_hash);
+
 create or replace function consume_rate_limit(
   p_key_hash text,
   p_limit integer,

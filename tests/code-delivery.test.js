@@ -18,6 +18,13 @@ import {
 } from "../api/_lib/apple-offers.js";
 import { GET as requestCodeStatus, POST as requestCode } from "../api/request-code.js";
 import { GET as maintainOffers } from "../api/cron/maintain-offers.js";
+import {
+  apnsHeaders,
+  apnsPayload,
+  createApnsProviderToken,
+  shouldDisableDevice,
+} from "../api/_lib/apns.js";
+import { GET as pushStatus, POST as registerPushDevice } from "../api/notifications/register.js";
 
 test("normalizes and validates email input", () => {
   assert.equal(normalizeEmail("  Person@Example.COM "), "person@example.com");
@@ -65,6 +72,70 @@ test("creates a correctly shaped App Store Connect JWT", () => {
   assert.deepEqual(header, { alg: "ES256", kid: "key-id", typ: "JWT" });
   assert.equal(payload.aud, "appstoreconnect-v1");
   assert.equal(payload.exp - payload.iat, 900);
+});
+
+test("creates a correctly shaped APNs provider token and request", () => {
+  const { privateKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
+  const token = createApnsProviderToken({
+    teamId: "TEAM123",
+    keyId: "KEY123",
+    privateKey: privateKey.export({ format: "pem", type: "pkcs8" }).toString(),
+    now: 1_700_000_000_000,
+  });
+  const parts = token.split(".");
+  assert.equal(parts.length, 3);
+  assert.deepEqual(JSON.parse(Buffer.from(parts[0], "base64url").toString()), {
+    alg: "ES256",
+    kid: "KEY123",
+  });
+  assert.deepEqual(JSON.parse(Buffer.from(parts[1], "base64url").toString()), {
+    iss: "TEAM123",
+    iat: 1_700_000_000,
+  });
+
+  const headers = apnsHeaders({
+    deviceToken: "a".repeat(64),
+    providerToken: token,
+    topic: "com.example.app",
+    version: "1.3",
+  });
+  assert.equal(headers[":path"], `/3/device/${"a".repeat(64)}`);
+  assert.equal(headers["apns-topic"], "com.example.app");
+  assert.equal(headers["apns-push-type"], "alert");
+  assert.equal(headers["apns-collapse-id"], "control-my-mac-update-1.3");
+
+  const payload = apnsPayload({
+    title: "Control My Mac 1.3",
+    body: "A shorter update summary.",
+    version: "1.3",
+    url: "https://controlmymac.com/updates/1-3",
+  });
+  assert.equal(payload.aps["thread-id"], "control-my-mac-updates");
+  assert.equal(payload.updateVersion, "1.3");
+  assert.equal(shouldDisableDevice(410, "Unregistered"), true);
+  assert.equal(shouldDisableDevice(500, "InternalServerError"), false);
+});
+
+test("push registration remains disabled until explicitly activated", async () => {
+  const previous = process.env.PUSH_REGISTRATION_MODE;
+  process.env.PUSH_REGISTRATION_MODE = "disabled";
+  try {
+    const status = await pushStatus();
+    assert.deepEqual(await status.json(), { configured: false });
+    const response = await registerPushDevice(new Request("https://example.test/api/notifications/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        deviceToken: "a".repeat(64),
+        installationId: "00000000-0000-4000-8000-000000000001",
+        environment: "production",
+      }),
+    }));
+    assert.equal(response.status, 503);
+  } finally {
+    if (previous === undefined) delete process.env.PUSH_REGISTRATION_MODE;
+    else process.env.PUSH_REGISTRATION_MODE = previous;
+  }
 });
 
 test("renders one manual-code email in every supported language", () => {
