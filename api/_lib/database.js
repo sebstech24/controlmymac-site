@@ -1,0 +1,212 @@
+import { neon } from "@neondatabase/serverless";
+
+let client;
+
+export function getDatabase() {
+  if (!client) {
+    if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is required");
+    client = neon(process.env.DATABASE_URL);
+  }
+  return client;
+}
+
+export async function consumeRateLimit(keyHash, limit = 5, windowSeconds = 600) {
+  const sql = getDatabase();
+  const rows = await sql`select consume_rate_limit(${keyHash}, ${limit}, ${windowSeconds}) as allowed`;
+  return rows[0]?.allowed === true;
+}
+
+export async function assignCode(input) {
+  const sql = getDatabase();
+  const rows = await sql`
+    select * from assign_offer_code(
+      ${input.emailHash},
+      ${input.emailCiphertext},
+      ${input.locale},
+      ${input.marketingRequested},
+      ${input.consentVersion}
+    )
+  `;
+  return rows[0] || null;
+}
+
+export async function markDeliverySent(requestId, providerMessageId) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set status = 'sent', provider_message_id = ${providerMessageId}, sent_at = now(), last_error = null
+    where id = ${requestId}
+  `;
+  await sql`
+    update offer_codes
+    set status = 'sent', sent_at = now()
+    where request_id = ${requestId}
+  `;
+}
+
+export async function markDeliveryFailed(requestId, error) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set status = 'delivery_failed', last_error = ${String(error).slice(0, 500)}
+    where id = ${requestId}
+  `;
+}
+
+export async function markMarketingSubscribed(requestId) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set marketing_subscribed_at = coalesce(marketing_subscribed_at, now()),
+        marketing_unsubscribed_at = null,
+        marketing_removed_at = null
+    where id = ${requestId}
+  `;
+}
+
+export async function markMarketingConfirmed(requestId) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set marketing_confirmed_at = now(), marketing_unsubscribed_at = null, marketing_removed_at = null
+    where id = ${requestId}
+  `;
+}
+
+export async function findRequestForUnsubscribe(requestId) {
+  const sql = getDatabase();
+  const rows = await sql`
+    select id, email_ciphertext, locale, marketing_unsubscribed_at, created_at
+    from code_requests
+    where id = ${requestId}
+  `;
+  return rows[0] || null;
+}
+
+export async function markMarketingUnsubscribed(requestId) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set marketing_unsubscribed_at = coalesce(marketing_unsubscribed_at, now())
+    where id = ${requestId}
+  `;
+}
+
+export async function markMarketingRemoved(requestId) {
+  const sql = getDatabase();
+  await sql`
+    update code_requests
+    set marketing_removed_at = now()
+    where id = ${requestId}
+  `;
+}
+
+export async function pendingMarketingRemovals(limit = 50) {
+  const sql = getDatabase();
+  return sql`
+    select id, email_ciphertext
+    from code_requests
+    where marketing_unsubscribed_at is not null
+      and marketing_removed_at is null
+    order by marketing_unsubscribed_at asc
+    limit ${limit}
+  `;
+}
+
+export async function pendingMarketingRequests(limit = 50) {
+  const sql = getDatabase();
+  return sql`
+    select id, email_ciphertext, locale
+    from code_requests
+    where marketing_requested = true
+      and marketing_confirmed_at is not null
+      and marketing_subscribed_at is null
+      and marketing_unsubscribed_at is null
+      and sent_at is not null
+    order by sent_at asc
+    limit ${limit}
+  `;
+}
+
+export async function inventoryCounts() {
+  const sql = getDatabase();
+  const rows = await sql`
+    select
+      count(*) filter (where status = 'unused' and expires_at > now() + interval '24 hours')::int as unused,
+      count(*) filter (where status in ('assigned', 'sent'))::int as allocated,
+      count(*) filter (where status = 'expired' or expires_at <= now())::int as expired
+    from offer_codes
+  `;
+  const pending = await sql`
+    select count(*)::int as pending
+    from code_requests
+    where status in ('queued', 'delivery_failed')
+  `;
+  return {
+    ...rows[0],
+    pending: pending[0]?.pending || 0,
+  };
+}
+
+export async function upsertBatch(batch) {
+  const sql = getDatabase();
+  await sql`
+    insert into offer_code_batches (
+      id, source, environment, expected_count, expires_at, state, last_error, updated_at
+    ) values (
+      ${batch.id}, ${batch.source}, ${batch.environment}, ${batch.expectedCount},
+      ${batch.expiresAt}, ${batch.state}, ${batch.lastError || null}, now()
+    )
+    on conflict (id) do update set
+      expected_count = excluded.expected_count,
+      expires_at = excluded.expires_at,
+      state = excluded.state,
+      last_error = excluded.last_error,
+      updated_at = now()
+  `;
+}
+
+export async function pendingBatches() {
+  const sql = getDatabase();
+  return sql`
+    select id, expected_count, expires_at
+    from offer_code_batches
+    where state = 'generating'
+    order by created_at asc
+  `;
+}
+
+export async function importCodeRows(batchId, rows) {
+  if (rows.length === 0) return 0;
+  const sql = getDatabase();
+  const result = await sql.query(
+    `with incoming as (
+       select * from jsonb_to_recordset($1::jsonb)
+       as x(code_fingerprint text, code_ciphertext text, redemption_url_ciphertext text, expires_at timestamptz)
+     ), inserted as (
+       insert into offer_codes (
+         batch_id, code_fingerprint, code_ciphertext, redemption_url_ciphertext, expires_at
+       )
+       select $2, code_fingerprint, code_ciphertext, redemption_url_ciphertext, expires_at
+       from incoming
+       on conflict (code_fingerprint) do nothing
+       returning 1
+     )
+     select count(*)::int as inserted from inserted`,
+    [JSON.stringify(rows), batchId],
+  );
+  const inserted = result[0]?.inserted || 0;
+  await sql`
+    update offer_code_batches
+    set imported_count = (select count(*)::int from offer_codes where batch_id = ${batchId}),
+        state = 'ready', last_error = null, updated_at = now()
+    where id = ${batchId}
+  `;
+  return inserted;
+}
+
+export async function claimNextDelivery() {
+  const sql = getDatabase();
+  const rows = await sql`select * from claim_next_code_delivery()`;
+  return rows[0] || null;
+}

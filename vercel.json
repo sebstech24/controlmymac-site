@@ -6,5 +6,11 @@
       "source": "/download.dmg",
       "destination": "/api/download-dmg"
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/maintain-offers",
+      "schedule": "17 4 * * *"
+    }
   ]
 }

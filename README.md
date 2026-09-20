@@ -57,27 +57,44 @@ For iPhone handoff buttons, the share/copy payload is only `https://controlmymac
 
 The shared site script loads Vercel Web Analytics from `/_vercel/insights/script.js`. Also enable Web Analytics in the Vercel project dashboard; Vercel creates the analytics routes after the next deployment.
 
+## Subscriber welcome gift (prepared, not live)
+
+The repository contains a disabled implementation for a subscriber welcome gift:
+
+1. The visitor explicitly joins occasional Control My Mac and Sebastian Apps emails.
+2. The only automatic email contains a unique Apple code for one free month, manual in-app redemption steps, and a request to confirm future emails.
+3. Only that confirmation click adds the address to the ongoing marketing list.
+4. A signed unsubscribe page removes the address from the list without invalidating a code already sent.
+5. A daily authenticated Vercel Cron imports newly generated Apple batches, fulfills queued requests, retries provider synchronization, and creates another 500-code batch when fewer than 100 remain.
+
+The public pages do not call this API yet. `/api/request-code` remains unavailable unless `CODE_DELIVERY_MODE` and every required environment variable are explicitly configured. `CODE_DELIVERY_MODE=preview` performs no storage and sends no email.
+
+### Test and activation sequence
+
+1. Create a dedicated Neon database and run `db/code-delivery.sql`.
+2. Copy `.env.example` to an untracked local environment file. Generate independent high-entropy values for `EMAIL_HASH_SECRET`, `UNSUBSCRIBE_SECRET`, and `NEWSLETTER_CONFIRM_SECRET`, plus a 32-byte base64 value for `CODE_ENCRYPTION_KEY`.
+3. In App Store Connect, create the one-month subscription offer with auto-renew disabled, then create the production one-time-use code batch.
+4. Import a production CSV manually only if App Store Connect API import is unavailable:
+
+   ```sh
+   npm run codes:import -- AppleProductionCodes.csv cmm-production-001 2027-01-15T08:00:00.000Z manual
+   ```
+
+5. Configure a Brevo test list and authenticated sending domain. Keep `BREVO_SANDBOX_MODE=true` to validate requests without delivering messages, then change it to `false` only for controlled real-inbox tests.
+6. Configure Cloudflare Turnstile test keys, use a Vercel Preview deployment, and verify: unchecked consent, invalid email, duplicates, queue exhaustion, bounce behavior, unsubscribe, all 13 languages, and production code assignment without exposing code values.
+7. Only after sign-off, connect the visible form to `/api/request-code`, update the privacy page, set production secrets, and change `CODE_DELIVERY_MODE` from `disabled` to `ready`.
+
+The App Store Connect `.p8` private key, database URL, encryption keys, Brevo key, and code values must stay in encrypted server-side environment variables. Never place them in this public repository or client-side JavaScript.
+
 ## Newsletter + donations setup
 
 The site ships with an email-capture backbone and a donate seam. **Both are dark by default**: every signup form stays hidden until the API is configured (the front-end asks `GET /api/subscribe` on load), and every donate button stays hidden until its `data-donate-url` holds a real URL. No dead forms, no dead links.
 
 **This repo is public — never put an API key in code.** Keys live only in Vercel environment variables.
 
-### Newsletter — Kit (kit.com), free "Newsletter" plan (~5 minutes)
+### Newsletter and code email — Brevo
 
-Kit's free plan stores up to 10,000 subscribers with unlimited sends, and one-click CSV export of the whole list anytime (Subscribers page → select all → Export CSV).
-
-1. Sign up free at [kit.com](https://kit.com) (Newsletter plan, no card needed), confirm your email and complete your profile / sender address.
-2. Click your avatar (top right) → **Settings → Developer** (`app.kit.com/account_settings/developer_settings`).
-3. Under **V4 Keys → "Add a new key"**, name it (e.g. `controlmymac-site`) and **copy it immediately** — it is shown once.
-4. Vercel dashboard → your project → **Settings → Environment Variables** → add (Production, and Preview if you want to test there):
-   - `NEWSLETTER_PROVIDER` = `kit`
-   - `NEWSLETTER_API_KEY` = the V4 key you just copied
-5. **Redeploy** (Deployments → ⋯ → Redeploy). The signup forms appear automatically: a "While it downloads — want updates?" card after any download click, and a quiet row in the footer.
-
-Note: subscribers added via Kit's API arrive in `active` state (no automatic double opt-in). Consent is collected affirmatively on the site (visitors must submit the form themselves, next to the consent line); if you want confirmed opt-in, send a confirmation broadcast from Kit.
-
-Switching to the runner-up **MailerLite** later (better EU data residency + a built-in "double opt-in for API & integrations" toggle, but only 500 free subscribers): sign up at mailerlite.com, **Integrations → MailerLite API → "Generate new token"**, enable double opt-in for API & integrations in the signup settings, then set `NEWSLETTER_PROVIDER` = `mailerlite`, `NEWSLETTER_API_KEY` = the token, and optionally `NEWSLETTER_GROUP_ID` = a group id. Redeploy. No code changes.
+The prepared welcome-gift flow uses Brevo for transactional delivery and the confirmed newsletter list. Configure the authenticated sender domain, sender address, a dedicated list, and the `BREVO_*` values from `.env.example` in Vercel. Keep `BREVO_SANDBOX_MODE=true` during provider-contract tests. Only set it to `false` for controlled inbox tests after the sender domain is authenticated.
 
 ### Donations — Ko-fi, 0% platform fee (~5 minutes)
 
