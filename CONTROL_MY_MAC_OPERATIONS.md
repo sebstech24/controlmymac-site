@@ -43,7 +43,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 - GitHub: `https://github.com/sebstech24/controlmymac-site.git`
 - Vercel project: `controlmymac-site`
 - Vercel project ID: `prj_jqyqJTPw8ENwY1u7jYFteTAQWF5I`
-- Current pushed website/backend commit: `f0a2a7c`
+- Website/backend implementation commit: `f0a2a7c` (documentation follow-up: `340d4af`)
 - Production site: `https://controlmymac.com`
 - Database schema: `db/code-delivery.sql`
 - Environment-variable template: `.env.example`
