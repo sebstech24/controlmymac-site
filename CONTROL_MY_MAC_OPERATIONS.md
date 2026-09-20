@@ -12,6 +12,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 | Build 19 code redemption | Available from the paywall through Apple's system offer-code sheet. The same code can also be entered in Apple's App Store redemption UI. | `cmm-custom-grid/native/MacRemoteControlPhone/.../PaywallView.swift` |
 | Settings redemption shortcut | Implemented on `mac-remote-control` `main` at commit `383f026`, after build 19 was uploaded. It is not in the already-uploaded build 19 binary. | `Swoip-claude/native/MacRemoteControlPhone/.../SettingsRootView.swift` |
 | Update-notification prompt | Implemented on `mac-remote-control` `main`. | `.../Monetization/UpdateNotifications.swift` |
+| Review request for build 20+ | Prepared on `mac-remote-control` `main`: after three hours of foreground, Mac-connected use and three successful app sessions; requested only once for the lifetime of that installation. | `.../Monetization/ReviewRequest.swift` and `PhoneComposerView.swift` |
 | Remote push delivery | App registration, encrypted token storage, and an authenticated APNs sender are implemented in source. Apple capability/key, database migration, Vercel secrets, next-build integration, and a real-device test are still required. | iOS repo plus this website repo |
 | Subscriber gift email | One localized email with a manual free-month code, in-app instructions, confirmation link, and unsubscribe link. No lifetime offer or follow-up offer exists. | `api/_lib/email-content.js` |
 | Public gift form | The visual prototype works locally. The production website is not connected to the code API. | local prototype and `assets/site.js` |
@@ -102,6 +103,17 @@ The server starts with `PUSH_REGISTRATION_MODE=disabled`. This fail-closed setti
 - [ ] Integrate the Settings redemption shortcut, review prompt, notification primer, APNs registrar, app delegate, and entitlements from `mac-remote-control/main` into the real 1.2 release line by reviewing individual diffs.
 - [ ] Resolve the next available App Store build number. Since 19 has already been uploaded, use 20 or higher.
 - [ ] Confirm both in-app redemption entrances: paywall and **Settings → Mode**.
+- [ ] Confirm the review request remains at three connected foreground hours plus three successful sessions, with `review.hasPromptedEver` preventing every later request on that installation.
+
+### Review-request behavior prepared for build 20+
+
+- Only foreground time while the app is connected to the Mac is accumulated.
+- A successful session is counted after one continuous connected minute, at most once per app run.
+- Both three accumulated hours and three successful sessions are required.
+- The request waits until onboarding, paywall, Settings, scanner, notification primer, and help overlays are all closed.
+- `review.hasPromptedEver` is persisted before StoreKit is called. App updates preserve it, so the app will never request the sheet again on that installation even when Apple suppresses the first request.
+- Deleting and reinstalling the app creates a new installation and clears local app storage. Preventing another request across reinstalls would require an account or server-side identity, which Control My Mac intentionally does not have.
+- StoreKit owns the native review sheet. Its text and controls cannot be customized.
 
 ### B. Enable Apple Push Notification service
 
