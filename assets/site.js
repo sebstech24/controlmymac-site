@@ -74,6 +74,24 @@
   var canShare = typeof navigator.share === "function";
   var canCopy = !!(navigator.clipboard && navigator.clipboard.writeText);
   var dlCtas = document.querySelectorAll("[data-dl-cta]");
+  // Hand-off copy in the page's language (pages set <html lang>).
+  var DL_COPY = {
+    en: ["Send it to your Mac", "Copy link for your Mac", "Link copied — open it on your Mac", "You're on your iPhone — AirDrop or message this link to yourself, then open it on your Mac to download.", "Copy the link, then open it on your Mac to download the free app."],
+    de: ["An deinen Mac senden", "Link für deinen Mac kopieren", "Link kopiert – öffne ihn auf deinem Mac", "Du bist auf deinem iPhone – schick dir diesen Link per AirDrop oder Nachricht und öffne ihn dann auf deinem Mac, um die App zu laden.", "Kopiere den Link und öffne ihn auf deinem Mac, um die kostenlose App zu laden."],
+    fr: ["Envoyer à votre Mac", "Copier le lien pour votre Mac", "Lien copié — ouvrez-le sur votre Mac", "Vous êtes sur votre iPhone — envoyez-vous ce lien par AirDrop ou message, puis ouvrez-le sur votre Mac pour télécharger l’app.", "Copiez le lien, puis ouvrez-le sur votre Mac pour télécharger l’app gratuite."],
+    it: ["Invialo al tuo Mac", "Copia il link per il tuo Mac", "Link copiato — aprilo sul tuo Mac", "Sei su iPhone — inviati questo link con AirDrop o in un messaggio, poi aprilo sul Mac per scaricare l’app.", "Copia il link, poi aprilo sul Mac per scaricare l’app gratuita."],
+    es: ["Envíalo a tu Mac", "Copiar enlace para tu Mac", "Enlace copiado: ábrelo en tu Mac", "Estás en tu iPhone: envíate este enlace por AirDrop o mensaje y ábrelo en tu Mac para descargar la app.", "Copia el enlace y ábrelo en tu Mac para descargar la app gratuita."],
+    pt: ["Envie para seu Mac", "Copiar link para seu Mac", "Link copiado — abra no seu Mac", "Você está no iPhone — envie este link para você por AirDrop ou mensagem e abra no seu Mac para baixar o app.", "Copie o link e abra no seu Mac para baixar o app gratuito."],
+    nl: ["Stuur naar je Mac", "Kopieer link voor je Mac", "Link gekopieerd — open hem op je Mac", "Je zit op je iPhone — stuur jezelf deze link via AirDrop of een bericht en open hem op je Mac om te downloaden.", "Kopieer de link en open hem op je Mac om de gratis app te downloaden."],
+    ja: ["Macに送る", "Mac用のリンクをコピー", "リンクをコピーしました。Macで開いてください", "iPhoneで表示しています。AirDropやメッセージでこのリンクを自分に送り、Macで開いてダウンロードしてください。", "リンクをコピーしてMacで開くと、無料アプリをダウンロードできます。"],
+    zh: ["发送到你的 Mac", "复制 Mac 下载链接", "链接已复制——请在 Mac 上打开", "你正在使用 iPhone——通过隔空投送或信息把此链接发给自己，然后在 Mac 上打开以下载。", "复制链接，然后在 Mac 上打开以下载免费 App。"],
+    ko: ["Mac으로 보내기", "Mac용 링크 복사", "링크가 복사되었습니다. Mac에서 여세요", "지금 iPhone에서 보고 있습니다. AirDrop이나 메시지로 이 링크를 자신에게 보낸 다음 Mac에서 열어 다운로드하세요.", "링크를 복사한 다음 Mac에서 열어 무료 앱을 다운로드하세요."],
+    ru: ["Отправить на Mac", "Скопировать ссылку для Mac", "Ссылка скопирована — откройте её на Mac", "Вы на iPhone — отправьте себе эту ссылку через AirDrop или сообщение, затем откройте её на Mac, чтобы скачать приложение.", "Скопируйте ссылку и откройте её на Mac, чтобы скачать бесплатное приложение."],
+    pl: ["Wyślij na Maca", "Kopiuj link dla Maca", "Link skopiowany — otwórz go na Macu", "Jesteś na iPhonie — wyślij sobie ten link przez AirDrop lub wiadomość, a potem otwórz go na Macu, aby pobrać aplikację.", "Skopiuj link, a potem otwórz go na Macu, aby pobrać darmową aplikację."],
+    tr: ["Mac’ine gönder", "Mac’in için bağlantıyı kopyala", "Bağlantı kopyalandı — Mac’inde aç", "iPhone’dasın — bu bağlantıyı AirDrop veya mesajla kendine gönder, sonra indirmek için Mac’inde aç.", "Bağlantıyı kopyala, sonra ücretsiz uygulamayı indirmek için Mac’inde aç."]
+  };
+  var pageLang = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
+  var dlCopy = DL_COPY[pageLang] || DL_COPY.en;
 
   function handoffClick(e) {
     e.preventDefault();
@@ -88,7 +106,7 @@
         if (el.getAttribute("data-dl-copied")) { return; }
         el.setAttribute("data-dl-copied", "1");
         var label = el.textContent;
-        el.textContent = "Link copied — open it on your Mac";
+        el.textContent = dlCopy[2];
         setTimeout(function () {
           el.textContent = label;
           el.removeAttribute("data-dl-copied");
@@ -98,7 +116,7 @@
   }
 
   if (!isMac && (canShare || canCopy)) {
-    var mainLabel = canShare ? "Send it to your Mac" : "Copy link for your Mac";
+    var mainLabel = canShare ? dlCopy[0] : dlCopy[1];
     for (var k = 0; k < dlCtas.length; k++) {
       dlCtas[k].textContent = dlCtas[k].getAttribute("data-dl-label") || mainLabel;
       dlCtas[k].setAttribute("aria-live", "polite"); // announces "Link copied…"
@@ -108,8 +126,8 @@
     for (var a = 0; a < dlAlts.length; a++) { dlAlts[a].hidden = false; }
     var dlNotes = document.querySelectorAll("[data-dl-note]");
     var noteText = canShare
-      ? "You're on your iPhone — AirDrop or message this link to yourself, then open it on your Mac to download."
-      : "Copy the link, then open it on your Mac to download the free app.";
+      ? dlCopy[3]
+      : dlCopy[4];
     for (var n = 0; n < dlNotes.length; n++) { dlNotes[n].textContent = noteText; }
   }
 

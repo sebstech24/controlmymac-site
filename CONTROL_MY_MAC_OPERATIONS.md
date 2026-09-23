@@ -15,7 +15,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 | Review request for build 20+ | Prepared on `mac-remote-control` `main`: after three hours of foreground, Mac-connected use and three successful app sessions; requested only once for the lifetime of that installation. | `.../Monetization/ReviewRequest.swift` and `PhoneComposerView.swift` |
 | Remote push delivery | App registration, encrypted token storage, and an authenticated APNs sender are implemented in source. Apple capability/key, database migration, Vercel secrets, next-build integration, and a real-device test are still required. | iOS repo plus this website repo |
 | Subscriber gift email | One localized email with a manual free-month code, in-app instructions, confirmation link, and unsubscribe link. No lifetime offer or follow-up offer exists. | `api/_lib/email-content.js` |
-| Public gift form | The visual prototype works locally. The production website is not connected to the code API. | local prototype and `assets/site.js` |
+| Public gift form | Implemented on branch `feature/free-month-form` (not merged or deployed as of 23 Sep 2026): `assets/offer.js` adds the approved "Get a free month of Full App" link and dialog to all 13 homepages. It is fail-closed: the link only appears when `GET /api/request-code` reports `configured: true`. On localhost, `?offer-preview=1` shows the flow without calling the API. | `assets/offer.js`, `assets/site.css`, `*/index.html` |
 | Production code delivery | Safely disabled. `GET /api/request-code` reports `configured: false`. No production code inventory has been approved for sending. | Vercel environment |
 
 ## Repositories and deployments
@@ -165,6 +165,7 @@ The response reports `attempted`, `delivered`, `disabled`, and `failed`. A 401 m
 - [ ] Test a real address end-to-end: receipt location, spam placement, code text, instructions, confirmation, Brevo list membership, unsubscribe, and duplicate submission.
 - [ ] Confirm all 13 localized email variants render without missing text.
 - [ ] Connect the approved visible website form to `/api/request-code` only after the real-inbox test passes.
+  - The form code is ready on `feature/free-month-form`. Merging and deploying it is safe while `CODE_DELIVERY_MODE=disabled`, because the link stays hidden. Use `CODE_DELIVERY_MODE=preview` on a Vercel preview deployment to review the live dialog without sending mail.
 - [ ] Set `CODE_DELIVERY_MODE=ready` only after production inventory exists and the public form is ready. It remains a separate switch from push notifications.
 - [ ] Verify the first public request, then watch Neon inventory and Brevo delivery events without exposing code values in logs.
 
