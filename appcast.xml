@@ -8,6 +8,27 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.2</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Security update:</strong> your Mac now only accepts control from the iPhone you paired with it. Other devices on the same Wi-Fi or within Bluetooth range can no longer send input, read your open apps, or pause your session.</li>
+          <li>Fixes the cursor jumping back when you grab it again while it is still gliding after a throw.</li>
+          <li>Fixes the trackpad sometimes staying unresponsive after reopening the iPhone app, even though it showed "Trackpad Active".</li>
+          <li>This is the final update for Intel Macs. Future updates require a Mac with Apple silicon.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Thu, 24 Sep 2026 11:03:10 +0000</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.2/ControlMyMac-1.2.2.dmg"
+                 sparkle:version="8"
+                 sparkle:shortVersionString="1.2.2"
+                 length="4124524"
+                 sparkle:edSignature="UoRWsdiqOIZ7d7tz971uNX2G4vvwBwIK+3BEe1xAjT5HOi8Oy7fp4r1CGjwMXFlKlzdtLv9ZiGq4TNbo5xwwDg=="
+                 type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.2.1</title>
       <description><![CDATA[
         <ul>
