@@ -53,6 +53,17 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Control My Mac","url":"https://www.controlmymac.com/","logo":"https://www.controlmymac.com/assets/control-my-mac-icon.png","email":"support@controlmymac.com","sameAs":["https://apps.apple.com/app/id6781458180"],"founder":{"@type":"Person","name":"Sebastian Skoic","alternateName":"Sebs_Tech","sameAs":["https://www.tiktok.com/@sebs_tech","https://www.instagram.com/sebs_tech","https://www.youtube.com/@Sebs_tech","https://linktr.ee/sebs_tech"]}}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"iPhone'umu uygulama olmadan Mac'im için fare olarak kullanabilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Eylül 2026 itibarıyla macOS'ta iPhone'u fare veya trackpad olarak kullanmanın yerleşik bir yolu yok. Evrensel Denetim, bir Mac'in klavyesini ve trackpad'ini yakındaki bir Mac veya iPad ile paylaşır; Sidecar ise iPad'i ikinci bir ekrana dönüştürür. İkisi de iPhone'u desteklemez."}},
+ {"@type":"Question","name":"Wi-Fi gerekir mi?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Bluetooth veya Wi-Fi üzerinden çalışır. Bluetooth en akıcı imleç hareketini sağlar ve hiçbir ağ olmadan çalışır. Wi-Fi'da iki cihazın da aynı ağda olması gerekir; misafir ve otel ağları cihazların birbirini görmesini engelleyebilir."}},
+ {"@type":"Question","name":"Hesap gerekir mi?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Ne Essentials'ta ne Full App'te kaydolacak bir şey yok. Mac'indeki QR kodunu tarayarak eşleştirirsin."}},
+ {"@type":"Question","name":"Hangi Mac'ler ve iPhone'lar çalışır?","acceptedAnswer":{"@type":"Answer","text":"Mac uygulaması, Apple Silicon bir Mac'te macOS 14 veya üzerini gerektirir. Intel Mac'ler 1.2.2 sürümüne kadar desteklenir. iPhone ve iPad uygulaması iOS veya iPadOS 18 veya üzerini gerektirir."}},
+ {"@type":"Question","name":"Mac'imdeki her uygulamayla çalışır mı?","acceptedAnswer":{"@type":"Answer","text":"Mac'inin imlecini hareket ettirir ve odakta ne varsa ona tuş tuş yazar, tıpkı gerçek bir fare ve klavye gibi. Bunun için Mac uygulamasının macOS Erişilebilirlik iznine ihtiyacı vardır ve bu izni bir kez ister."}},
+ {"@type":"Question","name":"Bağlantı gizli mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Hesap yok, sunucu yok, analiz yok. iPhone veya iPad'in ile Mac'in yerel ağın veya Bluetooth üzerinden doğrudan, şifreli olarak konuşur. Kamera yalnızca eşleştirme QR kodunu taramak için kullanılır."}},
+ {"@type":"Question","name":"Ne ücretsiz, Full App'te neler var?","acceptedAnswer":{"@type":"Answer","text":"Mac uygulaması ücretsizdir. iPhone ve iPad uygulamasında Essentials sonsuza dek ücretsizdir: trackpad hareketi, tıklama ve sağ tıklama, Live ve Draft klavye temel özellikleri, bir Grid düğmesi ve Launcher önizlemesi. Full App; kaydırma ve mini trackpad kontrolleri, uygulamaya göre otomatik geçişli tam Grid, yükseltme uyarısı olmadan Launcher ve pencere değiştirme, Mac kısayolları, hareketler, ön ayarlar ve ince ayar ekler. Ücretsiz 7 günlük denemeden sonra €4.99/ay veya tek seferlik €19.99'dur ve iPhone veya iPad uygulamasında Apple üzerinden satın alınır. Her iki planda da reklam yoktur."}}
+]}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -166,6 +177,18 @@
     </div>
   </section>
 
+  <section id="screenshots">
+    <div class="wrap">
+      <h2 class="h2">iPhone'unda gör</h2>
+      <p class="lead">Trackpad, uygulama başlatıcı ve Composer klavye, uygulamada göründükleri gibi.</p>
+      <div class="home-shots">
+        <img src="/assets/shots/trackpad.webp" loading="lazy" decoding="async" width="330" height="717" alt="iPhone&#x27;da Control My Mac trackpad ekranı; üstte değiştirici tuşlar, altta hızlı düğmeler">
+        <img src="/assets/shots/launcher.webp" loading="lazy" decoding="async" width="330" height="717" alt="iPhone&#x27;da Finder ve Safari gibi Mac uygulamalarını ve pencerelerini listeleyen uygulama başlatıcı">
+        <img src="/assets/shots/composer.webp" loading="lazy" decoding="async" width="330" height="717" alt="iPhone&#x27;da Composer klavye; Mac&#x27;e eklenecek bir mesajı yazmak için bir metin kutusu">
+      </div>
+    </div>
+  </section>
+
   <section id="audiences" class="band">
     <div class="wrap">
       <h2 class="h2">Herkes için yapıldı</h2>
@@ -246,6 +269,43 @@
           <p>Kamera tam olarak tek bir şey için kullanılır: Mac'indeki eşleştirme kodunu taramak. Hiçbir şey saklanmaz veya gönderilmez.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="h2">Satın almadan önce</h2>
+      <div class="prose faq">
+        <details>
+          <summary>iPhone'umu uygulama olmadan Mac'im için fare olarak kullanabilir miyim?</summary>
+          <p>Hayır. Eylül 2026 itibarıyla macOS'ta iPhone'u fare veya trackpad olarak kullanmanın yerleşik bir yolu yok. Evrensel Denetim, bir Mac'in klavyesini ve trackpad'ini yakındaki bir Mac veya iPad ile paylaşır; Sidecar ise iPad'i ikinci bir ekrana dönüştürür. İkisi de iPhone'u desteklemez.</p>
+        </details>
+        <details>
+          <summary>Wi-Fi gerekir mi?</summary>
+          <p>Hayır. Bluetooth veya Wi-Fi üzerinden çalışır. Bluetooth en akıcı imleç hareketini sağlar ve hiçbir ağ olmadan çalışır. Wi-Fi'da iki cihazın da aynı ağda olması gerekir; misafir ve otel ağları cihazların birbirini görmesini engelleyebilir.</p>
+        </details>
+        <details>
+          <summary>Hesap gerekir mi?</summary>
+          <p>Hayır. Ne Essentials'ta ne Full App'te kaydolacak bir şey yok. Mac'indeki QR kodunu tarayarak eşleştirirsin.</p>
+        </details>
+        <details>
+          <summary>Hangi Mac'ler ve iPhone'lar çalışır?</summary>
+          <p>Mac uygulaması, Apple Silicon bir Mac'te macOS 14 veya üzerini gerektirir. Intel Mac'ler 1.2.2 sürümüne kadar desteklenir. iPhone ve iPad uygulaması iOS veya iPadOS 18 veya üzerini gerektirir.</p>
+        </details>
+        <details>
+          <summary>Mac'imdeki her uygulamayla çalışır mı?</summary>
+          <p>Mac'inin imlecini hareket ettirir ve odakta ne varsa ona tuş tuş yazar, tıpkı gerçek bir fare ve klavye gibi. Bunun için Mac uygulamasının macOS Erişilebilirlik iznine ihtiyacı vardır ve bu izni bir kez ister.</p>
+        </details>
+        <details>
+          <summary>Bağlantı gizli mi?</summary>
+          <p>Evet. Hesap yok, sunucu yok, analiz yok. iPhone veya iPad'in ile Mac'in yerel ağın veya Bluetooth üzerinden doğrudan, şifreli olarak konuşur. Kamera yalnızca eşleştirme QR kodunu taramak için kullanılır.</p>
+        </details>
+        <details>
+          <summary>Ne ücretsiz, Full App'te neler var?</summary>
+          <p>Mac uygulaması ücretsizdir. iPhone ve iPad uygulamasında Essentials sonsuza dek ücretsizdir: trackpad hareketi, tıklama ve sağ tıklama, Live ve Draft klavye temel özellikleri, bir Grid düğmesi ve Launcher önizlemesi. Full App; kaydırma ve mini trackpad kontrolleri, uygulamaya göre otomatik geçişli tam Grid, yükseltme uyarısı olmadan Launcher ve pencere değiştirme, Mac kısayolları, hareketler, ön ayarlar ve ince ayar ekler. Ücretsiz 7 günlük denemeden sonra €4.99/ay veya tek seferlik €19.99'dur ve iPhone veya iPad uygulamasında Apple üzerinden satın alınır. Her iki planda da reklam yoktur.</p>
+        </details>
+      </div>
+      <p class="uses-more"><a href="/tr/support">Daha fazla yanıt Destek sayfasında →</a></p>
     </div>
   </section>
 

@@ -894,3 +894,11 @@ html { scroll-padding-top: 84px; }
 .faq details p{margin-top:var(--sp-s)}
 .cmp-wide{min-width:860px}
 .card .falls-short{margin-top:var(--sp-s)}
+
+/* homepage screenshots */
+.home-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-xl);align-items:start}
+.home-shots img{width:100%;max-width:100%;height:auto;border-radius:28px;border:1px solid var(--line)}
+@media (width < 600px){
+  .home-shots{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:var(--sp-l);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:var(--sp-s)}
+  .home-shots img{scroll-snap-align:center}
+}
