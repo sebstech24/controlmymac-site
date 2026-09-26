@@ -96,8 +96,8 @@ strong{color:var(--text)}
     radial-gradient(circle at 50% 52%, #fff 0 5px, transparent 6px),
     var(--grad);
 }
-/* Control My Mac home links in every language ("/", "/de/", …); product pages keep their own mark */
-.brand[href^="/"][href$="/"] .logo{
+/* Control My Mac home links in every language ("/", "/de", …); product pages keep their own mark */
+.brand[href="/"] .logo,.brand[href="/de"] .logo,.brand[href="/es"] .logo,.brand[href="/fr"] .logo,.brand[href="/it"] .logo,.brand[href="/ja"] .logo,.brand[href="/ko"] .logo,.brand[href="/nl"] .logo,.brand[href="/pl"] .logo,.brand[href="/pt"] .logo,.brand[href="/ru"] .logo,.brand[href="/tr"] .logo,.brand[href="/zh"] .logo{
   background-image:url("/assets/control-my-mac-icon.png");
   background-size:cover;
   background-position:center;
@@ -511,6 +511,14 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 .fsupport{margin-top:var(--sp-l)}
 .footer-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--sp-m)}
 .footer-grid nav{display:flex;flex-wrap:wrap;gap:var(--sp-l);justify-content:center}
+/* footer extras: language links, guides, maker line (plain HTML so crawlers can follow them) */
+.fextra{margin-top:var(--sp-l);display:flex;flex-direction:column;gap:var(--sp-s,8px);font-size:12.5px}
+.flangs,.fguides{display:flex;flex-wrap:wrap;gap:2px 14px}
+.flangs a,.fguides a,.fmade a{color:var(--muted);padding:3px 0}
+.flangs a:hover,.fguides a:hover,.fmade a:hover{color:var(--text)}
+.flangs a[aria-current="page"]{color:var(--text)}
+.fmade{margin:0;color:color-mix(in srgb,var(--muted) 80%,transparent)}
+.footer-grid + .fextra,.site-footer > .fextra:only-of-type{align-items:flex-start}
 
 /* ---------- Newsletter signup (hidden until /api/subscribe is configured) ---------- */
 .visually-hidden{
@@ -858,3 +866,31 @@ html { scroll-padding-top: 84px; }
   .offer-panel h2{font-size:20px}
 }
 @media (prefers-reduced-motion:reduce){.offer-link svg:last-child{transition:none}}
+
+/* guide pages */
+.prose{max-width:720px;margin:0 auto}
+.prose > * + *{margin-top:var(--sp-m)}
+.prose h3{font-size:18px;letter-spacing:-.01em;margin-top:var(--sp-2xl);text-wrap:balance}
+.prose p,.prose li{color:var(--muted);font-size:16px;text-wrap:pretty}
+.prose ul,.prose ol{padding-left:22px}
+.prose li + li{margin-top:6px}
+.prose kbd,.cmp kbd{font:inherit;font-size:.92em;padding:1px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg-2);color:var(--text);white-space:nowrap}
+.prose + .grid-2,.prose + .shot-row,.grid-2 + .prose,.table-wrap + .prose,.cmp-note + .prose{margin-top:var(--sp-2xl)}
+.shot-row{display:flex;gap:var(--sp-xl);justify-content:center;flex-wrap:wrap;margin-top:var(--sp-2xl)}
+.shot{margin:0;width:330px;max-width:100%;text-align:center}
+.shot img{width:100%;height:auto;border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow-float)}
+.shot figcaption{color:var(--muted);font-size:13px;margin-top:var(--sp-s);text-wrap:pretty}
+.table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-card);background:var(--card)}
+.cmp{width:100%;border-collapse:collapse;font-size:14.5px;min-width:680px}
+.cmp th,.cmp td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp thead th{font-size:13.5px;color:var(--text);background:var(--bg-2)}
+.cmp tbody th{color:var(--text);font-weight:650;width:18%}
+.cmp td{color:var(--muted)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp-note{color:var(--muted);font-size:13px;max-width:720px;margin:var(--sp-m) auto 0;text-wrap:pretty}
+.faq details{border-top:1px solid var(--line);padding:var(--sp-m) 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:650;color:var(--text)}
+.faq details p{margin-top:var(--sp-s)}
+.cmp-wide{min-width:860px}
+.card .falls-short{margin-top:var(--sp-s)}

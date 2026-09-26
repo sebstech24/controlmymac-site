@@ -52,7 +52,7 @@
     return "en";
   }
   function go(code) {
-    var target = code === "en" ? bare : "/" + code + (bare === "/" ? "/" : bare);
+    var target = code === "en" ? bare : "/" + code + (bare === "/" ? "" : bare);
     location.replace(target + location.search + location.hash);
   }
 
@@ -95,7 +95,7 @@
       var a = document.createElement("a");
       a.lang = l.hreflang;
       a.textContent = l.name;
-      a.href = l.code === "en" ? bare : "/" + l.code + (bare === "/" ? "/" : bare);
+      a.href = l.code === "en" ? bare : "/" + l.code + (bare === "/" ? "" : bare);
       if (l.code === current) { a.setAttribute("aria-current", "true"); li.className = "is-active"; }
       a.addEventListener("click", function () { setStored(l.code); });
       li.appendChild(a);

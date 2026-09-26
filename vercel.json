@@ -1,6 +1,19 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/((?!api/|_vercel/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "controlmymac-site.vercel.app"
+        }
+      ],
+      "destination": "https://www.controlmymac.com/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/download.dmg",

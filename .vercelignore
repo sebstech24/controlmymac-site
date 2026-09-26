@@ -1,0 +1,9 @@
+# Internal files: kept in git, never served on the website.
+AUDIENCE-RESEARCH.md
+CONTROL_MY_MAC_OPERATIONS.md
+README.md
+db
+tests
+scripts
+.claude
+.env.example

@@ -12,7 +12,7 @@
   document.head.appendChild(analyticsScript);
 
   var KEY = "cmm-audience";
-  var DOWNLOAD_PAGE_URL = "https://controlmymac.com/download";
+  var DOWNLOAD_PAGE_URL = "https://www.controlmymac.com/download";
   var PAGES = {
     "one-hand": { href: "/one-hand", label: "One-finger control" },
     "couch":    { href: "/couch",    label: "Couch mode" },
@@ -139,8 +139,16 @@
     if (page) {
       var link = resume.querySelector("a");
       if (link) {
-        link.href = page.href;
-        link.textContent = page.label;
+        // Use this page's own (translated, locale-prefixed) choice card.
+        var choices = document.querySelectorAll("a.choice");
+        var card = null;
+        for (var c = 0; c < choices.length; c++) {
+          var h = choices[c].getAttribute("href") || "";
+          if (h.replace(/^\/[a-z]{2}(?=\/)/, "") === page.href) { card = choices[c]; }
+        }
+        var go = card && card.querySelector(".go");
+        link.href = card ? card.getAttribute("href") : page.href;
+        link.textContent = go ? go.textContent.replace(/\s*[→›]\s*$/, "") : page.label;
         resume.classList.add("show");
       }
     }
