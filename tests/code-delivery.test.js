@@ -74,6 +74,15 @@ test("creates a correctly shaped App Store Connect JWT", () => {
   assert.equal(payload.exp - payload.iat, 900);
 });
 
+test("accepts a private key pasted as one line with spaces instead of newlines", () => {
+  const { privateKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
+  const pem = privateKey.export({ format: "pem", type: "pkcs8" }).toString();
+  for (const pasted of [pem.replace(/\n/g, " ").trim(), pem.replace(/\n/g, "\\n"), pem.replace(/\n/g, "")]) {
+    const token = createAppStoreConnectToken({ issuerId: "issuer", keyId: "key-id", privateKey: pasted });
+    assert.equal(token.split(".").length, 3);
+  }
+});
+
 test("creates a correctly shaped APNs provider token and request", () => {
   const { privateKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
   const token = createApnsProviderToken({

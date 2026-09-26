@@ -1,5 +1,6 @@
 import { connect } from "node:http2";
 import { createPrivateKey, sign } from "node:crypto";
+import { normalizePem } from "./security.js";
 
 function base64urlJson(value) {
   return Buffer.from(JSON.stringify(value)).toString("base64url");
@@ -12,7 +13,7 @@ export function createApnsProviderToken({ teamId, keyId, privateKey, now = Date.
   const header = base64urlJson({ alg: "ES256", kid: keyId });
   const payload = base64urlJson({ iss: teamId, iat: Math.floor(now / 1000) });
   const signingInput = `${header}.${payload}`;
-  const normalizedKey = String(privateKey).replaceAll("\\n", "\n");
+  const normalizedKey = normalizePem(privateKey);
   const signature = sign("sha256", Buffer.from(signingInput), {
     key: createPrivateKey(normalizedKey),
     dsaEncoding: "ieee-p1363",

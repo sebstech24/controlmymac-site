@@ -1,5 +1,5 @@
 import { createPrivateKey, sign } from "node:crypto";
-import { encrypt, fingerprint } from "./security.js";
+import { encrypt, fingerprint, normalizePem } from "./security.js";
 
 const APP_STORE_API = "https://api.appstoreconnect.apple.com";
 
@@ -18,7 +18,7 @@ export function createAppStoreConnectToken({ issuerId, keyId, privateKey, now = 
   });
   const unsigned = `${header}.${payload}`;
   const signature = sign("sha256", Buffer.from(unsigned), {
-    key: createPrivateKey(privateKey.replaceAll("\\n", "\n")),
+    key: createPrivateKey(normalizePem(privateKey)),
     dsaEncoding: "ieee-p1363",
   }).toString("base64url");
   return `${unsigned}.${signature}`;

@@ -9,6 +9,20 @@ export const SUPPORTED_LOCALES = new Set([
   "en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "tr", "zh",
 ]);
 
+/**
+ * Rebuilds a PEM private key however it was pasted into an environment variable:
+ * real newlines, literal "\\n" sequences, or a single line whose newlines became
+ * spaces (Vercel's one-line value field). The base64 body is re-wrapped at 64 characters.
+ */
+export function normalizePem(value, fallbackLabel = "PRIVATE KEY") {
+  const text = String(value || "").replaceAll("\\n", "\n").replaceAll("\r", "").trim();
+  const match = text.match(/-----BEGIN ([A-Z0-9 ]+)-----([\s\S]*?)-----END \1-----/);
+  const label = match ? match[1] : fallbackLabel;
+  const body = (match ? match[2] : text).replace(/\s+/g, "");
+  const lines = body.match(/.{1,64}/g) || [];
+  return `-----BEGIN ${label}-----\n${lines.join("\n")}\n-----END ${label}-----\n`;
+}
+
 export function normalizeEmail(value) {
   return String(value || "").trim().toLowerCase();
 }
