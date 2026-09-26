@@ -96,7 +96,8 @@ strong{color:var(--text)}
     radial-gradient(circle at 50% 52%, #fff 0 5px, transparent 6px),
     var(--grad);
 }
-.brand[href="/"] .logo{
+/* Control My Mac home links in every language ("/", "/de/", …); product pages keep their own mark */
+.brand[href^="/"][href$="/"] .logo{
   background-image:url("/assets/control-my-mac-icon.png");
   background-size:cover;
   background-position:center;
@@ -179,17 +180,105 @@ strong{color:var(--text)}
 .hero{padding:var(--sp-4xl) var(--sp-xl) var(--sp-3xl);text-align:center}
 .pill{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:13px;font-weight:500;color:var(--muted);
-  border:1px solid var(--line);border-radius:999px;
-  padding:6px 14px;margin-bottom:var(--sp-xl);
-  background:color-mix(in srgb,var(--card) 55%,transparent);
+  max-width:min(100%,760px);
+  font-size:13px;font-weight:500;line-height:1.35;
+  color:color-mix(in srgb,var(--text) 72%,var(--muted));
+  border:1px solid var(--glass-line);border-radius:24px;
+  padding:6px 15px 6px 13px;margin-bottom:var(--sp-xl);
+  background:var(--glass-bg);
+  -webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 10px 28px -16px rgba(79,140,255,.55);
   /* balanced rows, never a one-word orphan — works in every language */
   text-wrap:balance;
 }
 .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--grad);flex:none}
 @media(max-width:430px){
-  .pill{font-size:12px;padding:5px 10px}
-  .pill-optional{display:none} /* keeps the pill on one line */
+  .pill{font-size:12px;padding:5px 11px}
+}
+
+/* Homepage eyebrow (above the H1): editorial, no box.
+   Row 1  the kicker ("Your iPhone or iPad") in gradient ink, between two
+          hairlines that fade outward.
+   Row 2  what it becomes, in soft body ink, then "Free Mac app" as a quiet
+          companion after a small gradient dot.
+   The dot is painted on a real space (.eb-sep), so when the line breaks
+   there the space is dropped and no line ever starts with a dot. */
+.eyebrow{
+  --eb-ink-1:#7FAEFF; --eb-ink-2:#A38BFF;          /* AA on the dark canvas */
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  max-width:780px;margin:0 auto 28px;
+  line-height:1.4;
+}
+@media (prefers-color-scheme: light){
+  .eyebrow{--eb-ink-1:#2159E0; --eb-ink-2:#6242E6} /* AA (5:1+) on the tinted light hero */
+}
+.eb-kicker{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  font-size:13.5px;font-weight:600;letter-spacing:.015em;
+}
+.eb-kicker::before,.eb-kicker::after{
+  content:"";flex:none;width:48px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--eb-ink-1) 72%);
+  transform-origin:right center;
+  animation:eb-rule 900ms cubic-bezier(.2,.6,.2,1) 150ms both;
+}
+.eb-kicker::after{
+  background:linear-gradient(270deg,transparent,var(--eb-ink-2) 72%);
+  transform-origin:left center;
+}
+@keyframes eb-rule{from{transform:scaleX(0);opacity:0}}
+.eb-kicker-text{
+  background:linear-gradient(90deg,var(--eb-ink-1),var(--eb-ink-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  white-space:nowrap;
+}
+.eb-kicker-text::selection{color:var(--text);background:color-mix(in srgb,var(--accent) 32%,transparent)}
+.eb-text{
+  display:block;max-width:100%;
+  font-size:15px;font-weight:400;letter-spacing:-.01em;
+  color:color-mix(in srgb,var(--text) 70%,var(--muted));
+  text-wrap:balance;
+}
+.eb-text::first-letter{text-transform:uppercase} /* row 2 starts a line now */
+.eb-nw,.eb-free{white-space:nowrap}
+.eb-nw{display:inline-block} /* inline-block, not just nowrap: Chrome won't break at the space after a nowrap span */
+.eb-free{font-weight:500;color:var(--muted)}
+.eb-sep{
+  word-spacing:18px;                               /* the space becomes a ~22px gap */
+  background:radial-gradient(circle at 50% 57%,var(--eb-ink-1) 0,var(--eb-ink-2) 2px,transparent 2.6px);
+}
+/* CJK: no negative tracking, proportional punctuation, never break mid-word
+   (ja/zh markup also groups each phrase, for browsers without auto-phrase) */
+.eyebrow:lang(ja) .eb-text,.eyebrow:lang(zh) .eb-text,.eyebrow:lang(ko) .eb-text{letter-spacing:0;word-break:keep-all}
+.eyebrow:lang(ja) .eb-text,.eyebrow:lang(zh) .eb-text{font-feature-settings:"palt"}
+/* Tablet / narrow laptop (the H1 wraps there): "Free Mac app" takes its own
+   centred line, so row 2 never grows wider than the headline under it.
+   ru and pt keep a two-line H1 even at full width, so they stack above phone width.
+   Phones (to 520px) keep one flowing, balanced block: two lines, not three. */
+@media (520px < width <= 1080px){
+  .eb-sep{display:none}
+  .eb-free{display:block}
+}
+@media (width > 520px){
+  .eyebrow:lang(ru) .eb-sep,.eyebrow:lang(pt) .eb-sep{display:none}
+  .eyebrow:lang(ru) .eb-free,.eyebrow:lang(pt) .eb-free{display:block}
+}
+@media(max-width:430px){
+  .eyebrow{gap:6px;margin-bottom:22px}
+  .eb-kicker{font-size:13px;gap:10px}
+  .eb-kicker::before,.eb-kicker::after{width:28px}
+  .eb-text{font-size:14px;max-width:340px}
+}
+@media (prefers-contrast: more){
+  .eb-kicker-text{background:none;color:var(--text)}
+  .eb-kicker::before,.eb-kicker::after{background:color-mix(in srgb,var(--text) 75%,transparent)}
+  .eb-text,.eb-free{color:var(--text)}
+  .eb-sep{background:radial-gradient(circle at 50% 57%,var(--text) 2px,transparent 2.6px)}
+}
+@media (forced-colors: active){
+  .eb-kicker-text{background:none;color:CanvasText}
+  .eb-kicker::before,.eb-kicker::after{background:CanvasText}
+  .eb-sep{background:radial-gradient(circle at 50% 57%,CanvasText 2px,transparent 2.6px)}
 }
 h1{
   font-size:clamp(36px,6.4vw,62px);line-height:1.04;letter-spacing:-.03em;
