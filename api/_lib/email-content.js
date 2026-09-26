@@ -4,6 +4,8 @@ export const APP_STORE_APP_ID = "6781458180";
 
 // The sender named in every email's footer, next to the site and its privacy page.
 const SENDER_NAME = "Sebastian Apps";
+// The sender's postal address, shown after the name; COPY[locale].country names the country.
+const SENDER_STREET_CITY = "Šturmova ulica 7A, Ljubljana";
 const SITE_URL = "https://controlmymac.com";
 
 /**
@@ -81,6 +83,7 @@ const COPY = {
     ignore: "If this wasn’t you, unsubscribe below and you won’t get any more emails from us.",
     unsubscribe: "Unsubscribe from Sebastian Apps emails",
     privacy: "Privacy Policy",
+    country: "Slovenia",
   },
   de: {
     subject: "Dein Gratismonat für Control My Mac",
@@ -100,6 +103,7 @@ const COPY = {
     ignore: "Warst du das nicht, melde dich unten ab – dann bekommst du keine weiteren E-Mails von uns.",
     unsubscribe: "Von den E-Mails von Sebastian Apps abmelden",
     privacy: "Datenschutzerklärung",
+    country: "Slowenien",
   },
   es: {
     subject: "Tu mes gratis de Control My Mac",
@@ -119,6 +123,7 @@ const COPY = {
     ignore: "Si no has sido tú, date de baja con el enlace de abajo y no volverás a recibir correos nuestros.",
     unsubscribe: "Darme de baja de los correos de Sebastian Apps",
     privacy: "Política de privacidad",
+    country: "Eslovenia",
   },
   fr: {
     subject: "Votre mois gratuit de Control My Mac",
@@ -138,6 +143,7 @@ const COPY = {
     ignore: "Si ce n’était pas vous, désabonnez-vous ci-dessous et vous ne recevrez plus d’e-mails de notre part.",
     unsubscribe: "Se désabonner des e-mails Sebastian Apps",
     privacy: "Politique de confidentialité",
+    country: "Slovénie",
   },
   it: {
     subject: "Il tuo mese gratis di Control My Mac",
@@ -157,6 +163,7 @@ const COPY = {
     ignore: "Se non sei stato tu, annulla l’iscrizione qui sotto e non riceverai altre email da noi.",
     unsubscribe: "Annulla l’iscrizione alle email Sebastian Apps",
     privacy: "Informativa sulla privacy",
+    country: "Slovenia",
   },
   nl: {
     subject: "Je gratis maand Control My Mac",
@@ -176,6 +183,7 @@ const COPY = {
     ignore: "Was jij dit niet? Meld je dan hieronder af, dan krijg je geen e-mails meer van ons.",
     unsubscribe: "Afmelden voor e-mails van Sebastian Apps",
     privacy: "Privacybeleid",
+    country: "Slovenië",
   },
   pl: {
     subject: "Twój darmowy miesiąc Control My Mac",
@@ -195,6 +203,7 @@ const COPY = {
     ignore: "Jeśli to nie Ty, wypisz się poniżej, a nie dostaniesz od nas więcej wiadomości.",
     unsubscribe: "Zrezygnuj z e-maili Sebastian Apps",
     privacy: "Polityka prywatności",
+    country: "Słowenia",
   },
   pt: {
     subject: "Seu mês grátis do Control My Mac",
@@ -214,6 +223,7 @@ const COPY = {
     ignore: "Se não foi você, cancele a inscrição abaixo e não enviaremos mais e-mails.",
     unsubscribe: "Cancelar a inscrição nos e-mails da Sebastian Apps",
     privacy: "Política de Privacidade",
+    country: "Eslovênia",
   },
   ru: {
     subject: "Ваш бесплатный месяц Control My Mac",
@@ -233,6 +243,7 @@ const COPY = {
     ignore: "Если это были не вы, отпишитесь по ссылке ниже, и мы больше не будем вам писать.",
     unsubscribe: "Отписаться от писем Sebastian Apps",
     privacy: "Политика конфиденциальности",
+    country: "Словения",
   },
   tr: {
     subject: "Control My Mac ücretsiz ayınız",
@@ -252,6 +263,7 @@ const COPY = {
     ignore: "Bu isteği siz yapmadıysanız aşağıdan abonelikten çıkın; size başka e-posta göndermeyiz.",
     unsubscribe: "Sebastian Apps e-postalarından ayrıl",
     privacy: "Gizlilik Politikası",
+    country: "Slovenya",
   },
   ja: {
     subject: "Control My Macの無料1か月コードをお届けします",
@@ -271,6 +283,7 @@ const COPY = {
     ignore: "お心当たりがない場合は、下のリンクから配信を停止してください。以降、メールはお送りしません。",
     unsubscribe: "Sebastian Appsのメール配信を停止",
     privacy: "プライバシーポリシー",
+    country: "スロベニア",
   },
   ko: {
     subject: "Control My Mac 1개월 무료 이용 코드",
@@ -290,6 +303,7 @@ const COPY = {
     ignore: "본인이 요청하지 않았다면 아래에서 수신 거부해 주세요. 이후로는 이메일을 보내지 않습니다.",
     unsubscribe: "Sebastian Apps 이메일 수신 거부",
     privacy: "개인정보 처리방침",
+    country: "슬로베니아",
   },
   zh: {
     subject: "Control My Mac 免费使用一个月",
@@ -309,6 +323,7 @@ const COPY = {
     ignore: "如果这不是您本人的操作，请点击下方链接退订，我们将不再向您发送邮件。",
     unsubscribe: "退订 Sebastian Apps 邮件",
     privacy: "隐私政策",
+    country: "斯洛文尼亚",
   },
 };
 
@@ -361,6 +376,7 @@ export function renderCodeEmail({ locale, code, expiresAt, autoRenews, redemptio
   const homeUrl = language === "en" ? SITE_URL : `${SITE_URL}/${language}`;
   const privacyUrl = `${homeUrl}/privacy`;
   const siteName = new URL(SITE_URL).hostname;
+  const senderAddress = `${SENDER_STREET_CITY}, ${copy.country}`;
 
   const text = [
     copy.heading,
@@ -383,7 +399,7 @@ export function renderCodeEmail({ locale, code, expiresAt, autoRenews, redemptio
     "",
     `${copy.why}${gap}${copy.ignore}`,
     `${copy.unsubscribe}${colon}${unsubscribeUrl}`,
-    `${SENDER_NAME} · ${siteName} · ${copy.privacy}${colon}${privacyUrl}`,
+    `${SENDER_NAME} · ${senderAddress} · ${siteName} · ${copy.privacy}${colon}${privacyUrl}`,
   ].join("\n");
 
   const steps = copy.steps
@@ -412,7 +428,7 @@ export function renderCodeEmail({ locale, code, expiresAt, autoRenews, redemptio
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px"><tr><td style="padding:20px 32px 0;color:#5f6b84;font-size:12px;line-height:1.6;text-align:center">
 <p style="margin:0 0 6px">${escapeHtml(copy.why)}${gap}${escapeHtml(copy.ignore)}</p>
 <p style="margin:0 0 6px"><a href="${escapeHtml(unsubscribeUrl)}" style="color:#3f4c6b;text-decoration:underline">${escapeHtml(copy.unsubscribe)}</a></p>
-<p style="margin:0">${escapeHtml(SENDER_NAME)} · <a href="${escapeHtml(homeUrl)}" style="color:#5f6b84;text-decoration:underline">${escapeHtml(siteName)}</a> · <a href="${escapeHtml(privacyUrl)}" style="color:#3f4c6b;text-decoration:underline">${escapeHtml(copy.privacy)}</a></p>
+<p style="margin:0">${escapeHtml(SENDER_NAME)} · ${escapeHtml(senderAddress)} · <a href="${escapeHtml(homeUrl)}" style="color:#5f6b84;text-decoration:underline">${escapeHtml(siteName)}</a> · <a href="${escapeHtml(privacyUrl)}" style="color:#3f4c6b;text-decoration:underline">${escapeHtml(copy.privacy)}</a></p>
 </td></tr></table>
 </td></tr></table></body></html>`;
 

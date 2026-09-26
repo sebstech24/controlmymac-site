@@ -83,15 +83,19 @@ test("every language's footer names the sender and links its own privacy page", 
     const page = new URL(`../${locale === "en" ? "" : `${locale}/`}privacy.html`, import.meta.url);
     assert.ok(existsSync(page), `${locale} privacy page is missing`);
     // The link text is the privacy page's own title.
-    const title = readFileSync(page, "utf8").match(/<h1>([^<]+)<\/h1>/)?.[1];
+    const pageHtml = readFileSync(page, "utf8");
+    const title = pageHtml.match(/<h1>([^<]+)<\/h1>/)?.[1];
     assert.ok(title, `${locale} privacy page has no <h1>`);
+    // The postal address is the one the privacy page gives, country in the page's language.
+    const address = pageHtml.match(/Šturmova ulica 7A, Ljubljana, [^<]+/)?.[0];
+    assert.ok(address, `${locale} privacy page has no address`);
     assert.ok(
-      html.includes(`Sebastian Apps · <a href="${home}" style="color:#5f6b84;text-decoration:underline">controlmymac.com</a> · `
+      html.includes(`Sebastian Apps · ${escapeHtml(address)} · <a href="${home}" style="color:#5f6b84;text-decoration:underline">controlmymac.com</a> · `
         + `<a href="${home}/privacy" style="color:#3f4c6b;text-decoration:underline">${escapeHtml(title)}</a>`),
       `${locale} html footer`,
     );
     const lastLine = text.split("\n").at(-1);
-    assert.ok(lastLine.startsWith(`Sebastian Apps · controlmymac.com · ${title}`), `${locale} text footer`);
+    assert.ok(lastLine.startsWith(`Sebastian Apps · ${address} · controlmymac.com · ${title}`), `${locale} text footer`);
     assert.ok(lastLine.endsWith(`${home}/privacy`), `${locale} text privacy link`);
   }
 });
