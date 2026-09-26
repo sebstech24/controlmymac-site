@@ -57,6 +57,14 @@ test("parses Apple offer-code CSV including quoted commas", () => {
   ]);
 });
 
+test("parses the header-less CSV returned by the App Store Connect API", () => {
+  const csv = "AAAA1111BBBB2222CC,https://apps.apple.com/redeem?ctx=offercodes&id=1&code=AAAA1111BBBB2222CC\nDDDD3333EEEE4444FF,https://apps.apple.com/redeem?ctx=offercodes&id=1&code=DDDD3333EEEE4444FF\n";
+  assert.deepEqual(parseOfferCodeCsv(csv), [
+    { code: "AAAA1111BBBB2222CC", redemptionUrl: "https://apps.apple.com/redeem?ctx=offercodes&id=1&code=AAAA1111BBBB2222CC" },
+    { code: "DDDD3333EEEE4444FF", redemptionUrl: "https://apps.apple.com/redeem?ctx=offercodes&id=1&code=DDDD3333EEEE4444FF" },
+  ]);
+});
+
 test("creates a correctly shaped App Store Connect JWT", () => {
   const { privateKey } = generateKeyPairSync("ec", { namedCurve: "P-256" });
   const token = createAppStoreConnectToken({

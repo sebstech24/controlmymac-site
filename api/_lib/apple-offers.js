@@ -118,11 +118,19 @@ export function parseOfferCodeCsv(csv) {
   const header = parseCsvLine(lines[0]).map((value) => value.toLowerCase().replace(/[^a-z]/g, ""));
   const codeIndex = header.findIndex((value) => value === "code" || value.endsWith("offercode"));
   const urlIndex = header.findIndex((value) => value.includes("redemptionurl") || value === "url");
-  if (codeIndex < 0) throw new Error("Apple CSV does not contain an offer-code column");
-  return lines.slice(1).map(parseCsvLine).map((cells) => ({
-    code: cells[codeIndex],
-    redemptionUrl: urlIndex >= 0 ? cells[urlIndex] : "",
-  })).filter((row) => row.code);
+  if (codeIndex >= 0) {
+    return lines.slice(1).map(parseCsvLine).map((cells) => ({
+      code: cells[codeIndex],
+      redemptionUrl: urlIndex >= 0 ? cells[urlIndex] : "",
+    })).filter((row) => row.code);
+  }
+  // The App Store Connect API returns one-time codes without a header row: "CODE,https://apps.apple.com/redeem?...".
+  const rows = lines.map(parseCsvLine).map((cells) => ({
+    code: cells[0],
+    redemptionUrl: /^https:\/\//.test(cells[1] || "") ? cells[1] : "",
+  })).filter((row) => /^[A-Za-z0-9-]{6,}$/.test(row.code || ""));
+  if (!rows.length) throw new Error("Apple CSV does not contain an offer-code column");
+  return rows;
 }
 
 export async function fetchBatchValues(batchId) {
