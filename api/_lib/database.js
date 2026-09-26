@@ -10,10 +10,34 @@ export function getDatabase() {
   return client;
 }
 
+/** Tests swap in a fake tagged-template client here; production code never calls it. */
+export function setDatabaseClient(fake) {
+  client = fake;
+}
+
 export async function consumeRateLimit(keyHash, limit = 5, windowSeconds = 600) {
   const sql = getDatabase();
   const rows = await sql`select consume_rate_limit(${keyHash}, ${limit}, ${windowSeconds}) as allowed`;
   return rows[0]?.allowed === true;
+}
+
+/**
+ * Returns whichever of the candidate email hashes already has a code request, or null.
+ * A row that already holds (or once received) a code wins; otherwise the caller's order
+ * decides. Used to keep recognising rows hashed before alias folding existed.
+ */
+export async function findExistingEmailHash(candidateHashes) {
+  const hashes = [...new Set(candidateHashes.filter(Boolean))];
+  if (hashes.length === 0) return null;
+  const sql = getDatabase();
+  const rows = await sql`
+    select email_hash, (code_id is not null or sent_at is not null) as has_code
+    from code_requests
+    where email_hash = any(${hashes}::text[])
+  `;
+  if (rows.length === 0) return null;
+  const rank = (row) => (row.has_code ? 0 : hashes.length) + hashes.indexOf(row.email_hash);
+  return [...rows].sort((a, b) => rank(a) - rank(b))[0].email_hash;
 }
 
 export async function assignCode(input) {

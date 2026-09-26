@@ -155,20 +155,19 @@ test("push registration remains disabled until explicitly activated", async () =
   }
 });
 
-test("renders one manual-code email in every supported language", () => {
+test("renders one free-month code email in every supported language", () => {
   for (const locale of ["en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "tr", "zh"]) {
     const email = renderCodeEmail({
       locale,
       code: "FREE-MONTH-123",
       expiresAt: "2027-01-15T08:00:00.000Z",
       autoRenews: false,
-      confirmationUrl: "https://controlmymac.com/api/confirm-newsletter?token=test",
       unsubscribeUrl: "https://controlmymac.com/api/unsubscribe?token=test",
     });
     assert.ok(email.subject.length > 5, locale);
     assert.match(email.html, /FREE-MONTH-123/);
-    assert.doesNotMatch(email.html, /SEBASTIAN15|lifetime|apps\.apple\.com\/redeem|Redeem your free month|click the button/i);
-    assert.match(email.html, /confirm-newsletter\?token=test/);
+    assert.doesNotMatch(email.html, /SEBASTIAN15|lifetime|confirm-newsletter/i);
+    assert.match(email.html, /apps\.apple\.com\/redeem\?ctx=offercodes&amp;id=6781458180&amp;code=FREE-MONTH-123/);
     assert.match(email.html, /unsubscribe\?token=test/);
     assert.doesNotMatch(email.html, /\bundefined\b|\bnull\b/);
   }
@@ -197,7 +196,6 @@ test("sends the fake free-month email through the Brevo API contract", async () 
       code: "CMM-FAKE-7K4P",
       expiresAt: "2027-01-15T08:00:00.000Z",
       autoRenews: false,
-      confirmationUrl: "https://example.test/api/confirm-newsletter?token=fake",
       unsubscribeUrl: "https://example.test/api/unsubscribe?token=fake",
     });
     assert.equal(messageId, "fake-message-id");
@@ -206,8 +204,9 @@ test("sends the fake free-month email through the Brevo API contract", async () 
     assert.equal(request.body.headers["X-Sib-Sandbox"], "drop");
     assert.deepEqual(request.body.tags, ["control-my-mac", "free-month-code"]);
     assert.match(request.body.htmlContent, /CMM-FAKE-7K4P/);
-    assert.match(request.body.textContent, /Settings.*Mode.*Redeem Offer Code/s);
-    assert.doesNotMatch(request.body.htmlContent, /lifetime|apps\.apple\.com\/redeem/i);
+    assert.match(request.body.textContent, /Settings.*Mode.*Unlock.*Have a promo code\?/s);
+    assert.match(request.body.textContent, /https:\/\/apps\.apple\.com\/redeem\?ctx=offercodes&id=6781458180&code=CMM-FAKE-7K4P/);
+    assert.doesNotMatch(request.body.htmlContent, /lifetime|confirm-newsletter/i);
   } finally {
     globalThis.fetch = previousFetch;
     for (const [key, value] of Object.entries(previousEnv)) {
@@ -262,7 +261,7 @@ test("explicit disabled mode cannot become live merely because secrets exist", a
     assert.deepEqual(await status.json(), {
       configured: false,
       preview: false,
-      consentVersion: "sebastian-apps-perks-v2-2026-09-19",
+      consentVersion: "sebastian-apps-perks-v3-2026-09-26",
       turnstileSiteKey: null,
     });
 

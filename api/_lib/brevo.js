@@ -21,7 +21,10 @@ async function brevoRequest(path, body, { acceptDuplicate = false } = {}) {
   });
   if (!response.ok) {
     const detail = await response.text();
-    if (acceptDuplicate && response.status === 400 && /duplicate_parameter/i.test(detail)) {
+    // Brevo answers a reused idempotencyKey with a duplicate_parameter error: the first
+    // request already went out, so the send counts as done.
+    if (acceptDuplicate && (response.status === 400 || response.status === 409) &&
+      /duplicate_parameter/i.test(detail)) {
       return { messageId: "duplicate-suppressed" };
     }
     throw new Error(`Brevo ${response.status}: ${detail.slice(0, 300)}`);
@@ -32,9 +35,14 @@ async function brevoRequest(path, body, { acceptDuplicate = false } = {}) {
 
 export async function sendCodeEmail(input) {
   const content = renderCodeEmail(input);
+  // Each time the person asks (code_requests.attempts) is a new send; a retry of that same
+  // ask, such as the daily cron re-delivering after a failure, reuses the key and is
+  // deduplicated by Brevo for 30 minutes. Brevo reads the key from the body headers as
+  // "idempotencyKey" and requires a UUID.
+  const attempt = Number.isInteger(input.attempt) && input.attempt > 0 ? input.attempt : 1;
   const headers = {
-    "X-Entity-Ref-ID": `control-my-mac-code-${input.requestId}`,
-    "Idempotency-Key": deterministicIdempotencyKey(`${input.requestId}:free-month`),
+    "X-Entity-Ref-ID": `control-my-mac-code-${input.requestId}-${attempt}`,
+    idempotencyKey: deterministicIdempotencyKey(`${input.requestId}:free-month:${attempt}`),
   };
   if (process.env.BREVO_SANDBOX_MODE === "true") {
     headers["X-Sib-Sandbox"] = "drop";

@@ -1,5 +1,5 @@
 import { consumeRateLimit, upsertPushDevice } from "../_lib/database.js";
-import { encrypt, fingerprint, normalizeLocale } from "../_lib/security.js";
+import { clientIp, encrypt, fingerprint, normalizeLocale } from "../_lib/security.js";
 
 const REQUIRED_ENV = ["DATABASE_URL", "EMAIL_HASH_SECRET", "CODE_ENCRYPTION_KEY"];
 
@@ -13,11 +13,6 @@ function json(body, status = 200) {
 function isReady() {
   return process.env.PUSH_REGISTRATION_MODE === "ready" &&
     REQUIRED_ENV.every((name) => Boolean(process.env[name]));
-}
-
-function remoteIp(request) {
-  const forwarded = request.headers.get("x-forwarded-for") || "";
-  return (request.headers.get("cf-connecting-ip") || forwarded.split(",")[0] || "unknown").trim();
 }
 
 export function GET() {
@@ -48,7 +43,7 @@ export async function POST(request) {
   const secret = process.env.EMAIL_HASH_SECRET;
   const installationHash = fingerprint(`push-installation:${installationId}`, secret);
   const tokenHash = fingerprint(`push-token:${deviceToken}`, secret);
-  const rateKey = fingerprint(`push-register:${remoteIp(request)}:${installationHash}`, secret);
+  const rateKey = fingerprint(`push-register:${clientIp(request.headers)}:${installationHash}`, secret);
   if (!(await consumeRateLimit(rateKey, 20, 600))) {
     return json({ ok: false, error: "Too many attempts." }, 429);
   }

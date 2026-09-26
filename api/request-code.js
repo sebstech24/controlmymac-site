@@ -1,23 +1,32 @@
 import {
   assignCode,
   consumeRateLimit,
+  findExistingEmailHash,
   markDeliveryFailed,
   markDeliverySent,
 } from "./_lib/database.js";
 import { sendCodeEmail } from "./_lib/brevo.js";
 import {
+  canonicalEmail,
+  clientIp,
   decrypt,
+  decryptOptional,
   encrypt,
   fingerprint,
+  ipRateBucket,
   isValidEmail,
   normalizeEmail,
   normalizeLocale,
-  signNewsletterConfirmToken,
   signUnsubscribeToken,
 } from "./_lib/security.js";
 import { verifyTurnstile } from "./_lib/turnstile.js";
 
-const CONSENT_VERSION = "sebastian-apps-perks-v2-2026-09-19";
+// v3: single opt-in. Ticking the required box on the form is the consent; there is no
+// separate confirmation email any more (api/confirm-newsletter.js only serves old links).
+const CONSENT_VERSION = "sebastian-apps-perks-v3-2026-09-26";
+// Brand-new addresses (not re-sends) one IP, or IPv6 /64, may claim per day.
+const NEW_CODES_PER_IP = 3;
+const NEW_CODE_WINDOW_SECONDS = 24 * 60 * 60;
 const REQUIRED_ENV = [
   "DATABASE_URL",
   "BREVO_API_KEY",
@@ -26,7 +35,6 @@ const REQUIRED_ENV = [
   "EMAIL_HASH_SECRET",
   "CODE_ENCRYPTION_KEY",
   "UNSUBSCRIBE_SECRET",
-  "NEWSLETTER_CONFIRM_SECRET",
   "TURNSTILE_SITE_KEY",
   "TURNSTILE_SECRET_KEY",
 ];
@@ -50,9 +58,14 @@ function mode() {
   return "disabled";
 }
 
-function remoteIp(request) {
-  const forwarded = request.headers.get("x-forwarded-for") || "";
-  return (request.headers.get("cf-connecting-ip") || forwarded.split(",")[0] || "unknown").trim();
+// errorKey names the matching message in assets/offer.js so the form can show it
+// in the visitor's language.
+function failure(status, errorKey, error, extra = {}) {
+  return json({ ok: false, error, errorKey, ...extra }, status);
+}
+
+function tooManyAttempts() {
+  return failure(429, "errRate", "Too many attempts. Please try again in ten minutes.");
 }
 
 export function GET() {
@@ -68,14 +81,16 @@ export function GET() {
 export async function POST(request) {
   const currentMode = mode();
   if (currentMode === "disabled") {
-    return json({ ok: false, configured: false }, 503);
+    return failure(503, "errUnavailable", "The free-month gift isn't available right now.", {
+      configured: false,
+    });
   }
 
   let body;
   try {
     body = await request.json();
   } catch {
-    return json({ ok: false, error: "Invalid request." }, 400);
+    return failure(400, "errCheck", "Invalid request.");
   }
 
   if (typeof body.website === "string" && body.website.trim()) {
@@ -85,13 +100,14 @@ export async function POST(request) {
   const email = normalizeEmail(body.email);
   const locale = normalizeLocale(body.locale);
   if (!isValidEmail(email)) {
-    return json({ ok: false, error: "Please enter a valid email address." }, 400);
+    return failure(400, "errEmail", "Please enter a valid email address.");
   }
   if (body.marketingOptIn !== true) {
-    return json({
-      ok: false,
-      error: "Please agree to join Sebastian Apps emails to receive this subscriber welcome gift.",
-    }, 400);
+    return failure(
+      400,
+      "errConsent",
+      "Please agree to join Sebastian Apps emails to receive this subscriber welcome gift.",
+    );
   }
 
   if (currentMode === "preview") {
@@ -103,24 +119,42 @@ export async function POST(request) {
     });
   }
 
-  const ip = remoteIp(request);
+  const ip = clientIp(request.headers);
   if (!(await verifyTurnstile(body.turnstileToken, ip))) {
-    return json({ ok: false, error: "Please complete the security check and try again." }, 400);
+    return failure(400, "errCheck", "Please complete the security check and try again.");
   }
 
-  const emailHash = fingerprint(email, process.env.EMAIL_HASH_SECRET);
-  const rateKey = fingerprint(`request:${ip}:${emailHash}`, process.env.EMAIL_HASH_SECRET);
-  if (!(await consumeRateLimit(rateKey))) {
-    return json({ ok: false, error: "Too many attempts. Please try again in ten minutes." }, 429);
+  // Aliases of one inbox (Gmail dots, +tags, googlemail.com, ...) share one key, so an
+  // address can only ever be linked to one code. Rows saved before this existed were
+  // hashed from the plain lowercased address; keep recognising those.
+  const secret = process.env.EMAIL_HASH_SECRET;
+  const canonicalHash = fingerprint(canonicalEmail(email), secret);
+  const legacyHash = fingerprint(email, secret);
+  const rateKey = fingerprint(`request:${ip}:${canonicalHash}`, secret);
+  if (!(await consumeRateLimit(rateKey))) return tooManyAttempts();
+
+  const existingHash = await findExistingEmailHash([legacyHash, canonicalHash]);
+  if (!existingHash) {
+    const ipKey = fingerprint(`new-code-ip:${ipRateBucket(ip)}`, secret);
+    if (!(await consumeRateLimit(ipKey, NEW_CODES_PER_IP, NEW_CODE_WINDOW_SECONDS))) {
+      return tooManyAttempts();
+    }
   }
 
   const assigned = await assignCode({
-    emailHash,
+    emailHash: existingHash || canonicalHash,
     emailCiphertext: encrypt(email, process.env.CODE_ENCRYPTION_KEY),
     locale,
     marketingRequested: true,
     consentVersion: CONSENT_VERSION,
   });
+  if (assigned?.outcome === "already_claimed") {
+    return failure(
+      409,
+      "errClaimed",
+      "This email address has already received its free-month code. Each address can claim the gift once.",
+    );
+  }
   if (!assigned?.code_ciphertext) {
     return json({
       ok: true,
@@ -130,29 +164,30 @@ export async function POST(request) {
   }
 
   const code = decrypt(assigned.code_ciphertext, process.env.CODE_ENCRYPTION_KEY);
-  const token = signUnsubscribeToken(assigned.request_id, process.env.UNSUBSCRIBE_SECRET);
-  const confirmToken = signNewsletterConfirmToken(
-    assigned.request_id,
-    process.env.NEWSLETTER_CONFIRM_SECRET,
+  const redemptionUrl = decryptOptional(
+    assigned.redemption_url_ciphertext,
+    process.env.CODE_ENCRYPTION_KEY,
   );
+  const token = signUnsubscribeToken(assigned.request_id, process.env.UNSUBSCRIBE_SECRET);
   const siteUrl = (process.env.PUBLIC_SITE_URL || "https://controlmymac.com").replace(/\/$/, "");
 
   let providerMessageId;
   try {
     providerMessageId = await sendCodeEmail({
       requestId: assigned.request_id,
+      attempt: assigned.attempt,
       email,
       locale,
       code,
+      redemptionUrl,
       expiresAt: assigned.expires_at,
       autoRenews: process.env.FREE_MONTH_AUTO_RENEWS === "true",
-      confirmationUrl: `${siteUrl}/api/confirm-newsletter?token=${encodeURIComponent(confirmToken)}`,
       unsubscribeUrl: `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(token)}`,
     });
     await markDeliverySent(assigned.request_id, providerMessageId);
   } catch (error) {
     await markDeliveryFailed(assigned.request_id, error);
-    return json({ ok: false, error: "We could not send the email yet. Please try again shortly." }, 502);
+    return failure(502, "errGeneric", "We could not send the email yet. Please try again shortly.");
   }
 
   return json({ ok: true, queued: false, reused: assigned.reused === true });

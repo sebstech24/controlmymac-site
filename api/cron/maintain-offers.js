@@ -21,7 +21,7 @@ import {
   subscribeContact,
   unsubscribeContact,
 } from "../_lib/brevo.js";
-import { decrypt, signNewsletterConfirmToken, signUnsubscribeToken } from "../_lib/security.js";
+import { decrypt, decryptOptional, signUnsubscribeToken } from "../_lib/security.js";
 
 function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -55,19 +55,16 @@ function messageInput(delivery) {
   const email = decrypt(delivery.email_ciphertext, process.env.CODE_ENCRYPTION_KEY);
   const code = decrypt(delivery.code_ciphertext, process.env.CODE_ENCRYPTION_KEY);
   const token = signUnsubscribeToken(delivery.request_id, process.env.UNSUBSCRIBE_SECRET);
-  const confirmToken = signNewsletterConfirmToken(
-    delivery.request_id,
-    process.env.NEWSLETTER_CONFIRM_SECRET,
-  );
   const siteUrl = (process.env.PUBLIC_SITE_URL || "https://controlmymac.com").replace(/\/$/, "");
   return {
     requestId: delivery.request_id,
+    attempt: delivery.attempt,
     email,
     locale: delivery.locale,
     code,
+    redemptionUrl: decryptOptional(delivery.redemption_url_ciphertext, process.env.CODE_ENCRYPTION_KEY),
     expiresAt: delivery.expires_at,
     autoRenews: process.env.FREE_MONTH_AUTO_RENEWS === "true",
-    confirmationUrl: `${siteUrl}/api/confirm-newsletter?token=${encodeURIComponent(confirmToken)}`,
     unsubscribeUrl: `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(token)}`,
   };
 }

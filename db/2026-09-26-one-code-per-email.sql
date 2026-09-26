@@ -1,147 +1,33 @@
--- Control My Mac free-month code delivery schema.
--- Run this once against the dedicated Neon database before enabling the API.
+-- 2026-09-26: one free-month code per email address, ever.
+--
+-- Before: once an address's code expired, asking again handed out a fresh code, and the
+-- daily cron did the same for a failed re-send whose code had expired.
+-- After:
+--   * code still valid        -> the SAME code is sent again (outcome 'reused')
+--   * address already received a code that has since expired
+--                             -> nothing is sent (outcome 'already_claimed'; the API
+--                                answers 409 with errorKey "errClaimed")
+--   * a code that expired before ANY email reached the person is still replaced.
+-- Both functions also return the request's attempt number, which the API uses for the
+-- Brevo idempotency key.
+--
+-- Single opt-in (same day): the double opt-in email step is gone. assign_offer_code now sets
+-- marketing_confirmed_at when a request with consent is accepted, so the daily Brevo list
+-- sync adds the address once the code email has been sent. Anyone can type any address into
+-- the form, so:
+--   * an unsubscribe sticks: a new request never re-confirms or re-subscribes the address
+--     (before, it cleared the unsubscribe and waited for a new confirmation click);
+--   * an 'already_claimed' request sends nothing and changes nothing stored about the
+--     address: its stored address, language and consent are put back.
+-- An old row that never clicked its confirmation link is confirmed only when a new request
+-- for it is accepted; api/confirm-newsletter.js keeps serving links already sent.
+--
+-- Idempotent: safe to run more than once. Run it as one transaction (psql -f, or paste
+-- the whole file into the Neon SQL editor). Apply it before deploying the matching API
+-- code; the old API code keeps working against these functions in the meantime.
+-- db/code-delivery.sql carries the same definitions for fresh databases.
 
-create extension if not exists pgcrypto;
-
-create table if not exists offer_code_batches (
-  id text primary key,
-  source text not null check (source in ('apple_api', 'manual', 'sandbox')),
-  environment text not null default 'PRODUCTION',
-  expected_count integer not null default 0,
-  imported_count integer not null default 0,
-  expires_at timestamptz not null,
-  state text not null default 'generating'
-    check (state in ('generating', 'ready', 'failed', 'expired')),
-  last_error text,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
-create table if not exists code_requests (
-  id uuid primary key default gen_random_uuid(),
-  email_hash text not null unique,
-  email_ciphertext text not null,
-  locale text not null default 'en',
-  marketing_requested boolean not null default false,
-  marketing_requested_at timestamptz,
-  marketing_confirmed_at timestamptz,
-  marketing_subscribed_at timestamptz,
-  marketing_unsubscribed_at timestamptz,
-  marketing_removed_at timestamptz,
-  consent_text_version text,
-  status text not null default 'queued'
-    check (status in ('queued', 'sending', 'sent', 'delivery_failed')),
-  code_id uuid,
-  provider_message_id text,
-  last_error text,
-  attempts integer not null default 1,
-  created_at timestamptz not null default now(),
-  last_requested_at timestamptz not null default now(),
-  sent_at timestamptz
-);
-
--- Remove fields from the discarded promotional follow-up experiment.
-drop function if exists claim_next_lifetime_offer();
-drop index if exists code_requests_lifetime_offer_idx;
-alter table code_requests drop column if exists lifetime_offer_status;
-alter table code_requests drop column if exists lifetime_offer_attempts;
-alter table code_requests drop column if exists lifetime_offer_last_attempt_at;
-alter table code_requests drop column if exists lifetime_offer_sent_at;
-alter table code_requests drop column if exists lifetime_offer_provider_message_id;
-alter table code_requests drop column if exists lifetime_offer_last_error;
-
-create table if not exists offer_codes (
-  id uuid primary key default gen_random_uuid(),
-  batch_id text not null references offer_code_batches(id) on delete restrict,
-  code_fingerprint text not null unique,
-  code_ciphertext text not null,
-  redemption_url_ciphertext text,
-  expires_at timestamptz not null,
-  status text not null default 'unused'
-    check (status in ('unused', 'assigned', 'sent', 'expired')),
-  request_id uuid unique references code_requests(id) on delete set null,
-  assigned_at timestamptz,
-  sent_at timestamptz,
-  created_at timestamptz not null default now()
-);
-
-alter table code_requests
-  drop constraint if exists code_requests_code_id_fkey;
-alter table code_requests
-  add constraint code_requests_code_id_fkey
-  foreign key (code_id) references offer_codes(id) on delete set null;
-
-create index if not exists offer_codes_available_idx
-  on offer_codes (expires_at, created_at)
-  where status = 'unused';
-create index if not exists code_requests_delivery_idx
-  on code_requests (status, last_requested_at);
-create table if not exists rate_limit_buckets (
-  key_hash text primary key,
-  window_started_at timestamptz not null,
-  attempts integer not null
-);
-
--- APNs device tokens are opaque identifiers. Store only encrypted token values
--- and keyed hashes; never store a device name, Apple ID, or email association.
-create table if not exists push_devices (
-  id uuid primary key default gen_random_uuid(),
-  installation_hash text not null,
-  token_hash text not null unique,
-  token_ciphertext text not null,
-  environment text not null check (environment in ('sandbox', 'production')),
-  locale text not null default 'en',
-  app_version text not null default 'unknown',
-  enabled boolean not null default true,
-  last_seen_at timestamptz not null default now(),
-  last_delivery_at timestamptz,
-  disabled_at timestamptz,
-  last_error text,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
-create index if not exists push_devices_active_idx
-  on push_devices (last_seen_at desc)
-  where enabled = true;
-create index if not exists push_devices_installation_idx
-  on push_devices (installation_hash);
-
-create or replace function consume_rate_limit(
-  p_key_hash text,
-  p_limit integer,
-  p_window_seconds integer
-) returns boolean
-language plpgsql
-as $$
-declare
-  v_attempts integer;
-begin
-  insert into rate_limit_buckets (key_hash, window_started_at, attempts)
-  values (p_key_hash, now(), 1)
-  on conflict (key_hash) do update
-  set window_started_at = case
-        when rate_limit_buckets.window_started_at < now() - make_interval(secs => p_window_seconds)
-          then now()
-        else rate_limit_buckets.window_started_at
-      end,
-      attempts = case
-        when rate_limit_buckets.window_started_at < now() - make_interval(secs => p_window_seconds)
-          then 1
-        else rate_limit_buckets.attempts + 1
-      end
-  returning attempts into v_attempts;
-
-  return v_attempts <= p_limit;
-end;
-$$;
-
--- One free-month code per email address, ever: a still-valid code is re-sent, an expired
--- one is never replaced once the address received it. Consent is single opt-in: an
--- accepted request with consent is confirmed at once, but never for an address that
--- unsubscribed, and a request that sends nothing changes nothing stored about the address.
--- Existing databases: apply db/2026-09-26-one-code-per-email.sql (same definitions,
--- wrapped in a transaction).
+begin;
 
 -- The new result columns change the functions' return shape, which CREATE OR REPLACE
 -- cannot do by itself. Drop the old shapes only (a no-op on re-runs).
@@ -435,3 +321,5 @@ begin
     v_request.attempts;
 end;
 $$;
+
+commit;

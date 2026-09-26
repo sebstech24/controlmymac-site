@@ -14,7 +14,7 @@ This is the canonical map for the current Control My Mac launch work. It records
 | Update-notification prompt | Implemented on `mac-remote-control` `main`. | `.../Monetization/UpdateNotifications.swift` |
 | Review request for build 20+ | Prepared on `mac-remote-control` `main`: after three hours of foreground, Mac-connected use and three successful app sessions; requested only once for the lifetime of that installation. | `.../Monetization/ReviewRequest.swift` and `PhoneComposerView.swift` |
 | Remote push delivery | App registration, encrypted token storage, and an authenticated APNs sender are implemented in source. Apple capability/key, database migration, Vercel secrets, next-build integration, and a real-device test are still required. | iOS repo plus this website repo |
-| Subscriber gift email | One localized email with a manual free-month code, in-app instructions, confirmation link, and unsubscribe link. No lifetime offer or follow-up offer exists. | `api/_lib/email-content.js` |
+| Subscriber gift email | One localized email (13 languages) with the free-month code, a "Redeem in the App Store" button using the code's Apple redemption link, in-app steps (Settings → Mode → Unlock → Have a promo code?), and an unsubscribe link. Single opt-in since 26 Sep 2026: no confirmation link. No lifetime offer or follow-up offer exists. Preview: `npm run email:preview -- <folder>`. | `api/_lib/email-content.js` |
 | Public gift form | Implemented on branch `feature/free-month-form` (not merged or deployed as of 23 Sep 2026): `assets/offer.js` adds the approved "Get a free month of Full App" link and dialog to all 13 homepages. It is fail-closed: the link only appears when `GET /api/request-code` reports `configured: true`. On localhost, `?offer-preview=1` shows the flow without calling the API. | `assets/offer.js`, `assets/site.css`, `*/index.html` |
 | Production code delivery | Safely disabled. `GET /api/request-code` reports `configured: false`. No production code inventory has been approved for sending. | Vercel environment |
 
@@ -55,7 +55,7 @@ Build 19 already supports a valid Apple offer code in these ways:
 
 1. Open Control My Mac, open the Full App paywall, choose **Redeem Offer Code**, and enter the code in Apple's system sheet.
 2. Open the App Store, open the Apple Account menu, choose **Redeem Gift Card or Code**, and enter the code manually.
-3. Apple-generated batches can include unique redemption URLs. The current email intentionally does not use those links because the approved flow tells the person exactly where to enter the code in the app.
+3. Apple-generated batches include a unique redemption URL per code. The email's main button uses it (falling back to `https://apps.apple.com/redeem?ctx=offercodes&id=6781458180&code=<code>`), with the in-app and App Store steps below it.
 
 The later app source adds a second in-app entrance at **Control My Mac → Settings → Mode → Redeem Offer Code**. That shortcut requires a new uploaded build.
 
@@ -66,16 +66,16 @@ The intended flow is:
 1. A visitor opens the desktop website and selects the required Sebastian Apps email opt-in.
 2. Cloudflare Turnstile blocks basic automated abuse.
 3. `/api/request-code` normalizes and hashes the address, encrypts the address, records the consent version, and atomically assigns one unused Apple code.
-4. Brevo sends exactly one immediate email. The message shows the code as text and explains **Control My Mac → Settings → Mode → Redeem Offer Code**.
-5. The email includes a separate confirmation link for future Sebastian Apps emails. Only that click adds the address to the ongoing Brevo marketing list.
-6. Every future marketing email must include an unsubscribe path. Unsubscribing does not invalidate an already-sent Apple code.
+4. Brevo sends exactly one immediate email. The message shows the code, a **Redeem in the App Store** button, and the in-app path **Settings → Mode → Unlock → Have a promo code?**.
+5. Consent is single opt-in: the required checkbox is recorded with the request (`marketing_confirmed_at` is set at once), and the daily cron adds the address to the Brevo marketing list after the code email is sent. `/api/confirm-newsletter` only serves links sent before 26 Sep 2026.
+6. Every future marketing email must include an unsubscribe path. Unsubscribing does not invalidate an already-sent Apple code, and it sticks: a later form request for the same address never re-subscribes it (anyone can type any address into the form). An "already received" request sends nothing and changes nothing stored.
 
 There is no lifetime discount, lifetime timer, scheduled follow-up offer, or promotional push notification.
 
 ### Data and secrets
 
 - Neon stores encrypted email addresses and offer codes, keyed hashes for lookup, consent timestamps, delivery state, and unsubscribe state.
-- Brevo delivers the transactional code email and stores only confirmed newsletter contacts in the selected list.
+- Brevo delivers the transactional code email and stores newsletter contacts (added after their code email was sent) in the selected list.
 - Cloudflare Turnstile verifies the public request before code assignment.
 - Vercel runs the API and stores server-side environment secrets.
 - Secret names are listed in `.env.example`. Their values belong only in Vercel or an untracked local environment file.
@@ -162,7 +162,7 @@ The response reports `attempted`, `delivered`, `disabled`, and `failed`. A 401 m
 - [ ] Create/import a production batch of valid one-time Apple offer codes with an expiry date that leaves a safe redemption window.
 - [ ] Verify the current subscription offer behavior in App Store Connect, including whether it auto-renews and who is eligible. Set `FREE_MONTH_AUTO_RENEWS` so the email says the truth.
 - [ ] Keep `BREVO_SANDBOX_MODE=true` for a final contract test, then use `false` for a controlled real-inbox test.
-- [ ] Test a real address end-to-end: receipt location, spam placement, code text, instructions, confirmation, Brevo list membership, unsubscribe, and duplicate submission.
+- [ ] Test a real address end-to-end: receipt location, spam placement, code text, the App Store button, instructions, Brevo list membership after the next cron run, unsubscribe page language, and duplicate submission (same code re-sent; "already received" once expired).
 - [ ] Confirm all 13 localized email variants render without missing text.
 - [ ] Connect the approved visible website form to `/api/request-code` only after the real-inbox test passes.
   - The form code is ready on `feature/free-month-form`. Merging and deploying it is safe while `CODE_DELIVERY_MODE=disabled`, because the link stays hidden. Use `CODE_DELIVERY_MODE=preview` on a Vercel preview deployment to review the live dialog without sending mail.

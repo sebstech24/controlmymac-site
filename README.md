@@ -64,9 +64,9 @@ The shared site script loads Vercel Web Analytics from `/_vercel/insights/script
 The repository contains a disabled implementation for a subscriber welcome gift:
 
 1. The visitor explicitly joins occasional Control My Mac and Sebastian Apps emails.
-2. The only automatic email contains a unique Apple code for one free month, manual in-app redemption steps, and a request to confirm future emails.
-3. Only that confirmation click adds the address to the ongoing marketing list.
-4. A signed unsubscribe page removes the address from the list without invalidating a code already sent.
+2. The only automatic email contains a unique Apple code for one free month, a "Redeem in the App Store" button (the code's Apple redemption link), the in-app steps, and an unsubscribe link.
+3. Consent is single opt-in (since 26 Sep 2026): the required checkbox is recorded with the request, and the daily cron adds the address to the marketing list after the code email is sent. `/api/confirm-newsletter` only keeps serving confirmation links sent before that date.
+4. A signed unsubscribe page removes the address from the list without invalidating a code already sent. An unsubscribe sticks: a later form request for the same address (which anyone can make) never re-subscribes it, and a request that sends nothing changes nothing stored.
 5. A daily authenticated Vercel Cron imports newly generated Apple batches, fulfills queued requests, retries provider synchronization, and creates another 500-code batch when fewer than 100 remain.
 
 The public pages do not call this API yet. `/api/request-code` remains unavailable unless `CODE_DELIVERY_MODE` and every required environment variable are explicitly configured. `CODE_DELIVERY_MODE=preview` performs no storage and sends no email.
@@ -74,7 +74,7 @@ The public pages do not call this API yet. `/api/request-code` remains unavailab
 ### Test and activation sequence
 
 1. Create a dedicated Neon database and run `db/code-delivery.sql`.
-2. Copy `.env.example` to an untracked local environment file. Generate independent high-entropy values for `EMAIL_HASH_SECRET`, `UNSUBSCRIBE_SECRET`, and `NEWSLETTER_CONFIRM_SECRET`, plus a 32-byte base64 value for `CODE_ENCRYPTION_KEY`.
+2. Copy `.env.example` to an untracked local environment file. Generate independent high-entropy values for `EMAIL_HASH_SECRET` and `UNSUBSCRIBE_SECRET` (keep an existing `NEWSLETTER_CONFIRM_SECRET` so old confirmation links still work), plus a 32-byte base64 value for `CODE_ENCRYPTION_KEY`.
 3. In App Store Connect, create the one-month subscription offer with auto-renew disabled, then create the production one-time-use code batch.
 4. Import a production CSV manually only if App Store Connect API import is unavailable:
 
@@ -96,7 +96,7 @@ The site ships with an email-capture backbone and a donate seam. **Both are dark
 
 ### Newsletter and code email — Brevo
 
-The prepared welcome-gift flow uses Brevo for transactional delivery and the confirmed newsletter list. Configure the authenticated sender domain, sender address, a dedicated list, and the `BREVO_*` values from `.env.example` in Vercel. Keep `BREVO_SANDBOX_MODE=true` during provider-contract tests. Only set it to `false` for controlled inbox tests after the sender domain is authenticated.
+The prepared welcome-gift flow uses Brevo for transactional delivery and the newsletter list. Configure the authenticated sender domain, sender address, a dedicated list, and the `BREVO_*` values from `.env.example` in Vercel. Keep `BREVO_SANDBOX_MODE=true` during provider-contract tests. Only set it to `false` for controlled inbox tests after the sender domain is authenticated.
 
 ### Donations — Ko-fi, 0% platform fee (~5 minutes)
 
