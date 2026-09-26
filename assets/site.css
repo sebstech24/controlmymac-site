@@ -134,6 +134,12 @@ strong{color:var(--text)}
 @media(max-width:520px){
   .nav-links > a:not(.btn){display:none}
 }
+/* The homepage nav (the only one with the #how link) is the longest: with
+   all five links it needs ~970px in fr, ru and de. On tablets and narrow
+   laptops drop the three in-page links first, then For you / Support —
+   the sections are one scroll away and the rest sits in the footer. */
+@media(max-width:1080px){.nav-links:has(> a[href="#how"]) > a.nav-optional{display:none}}
+@media(max-width:720px){.nav-links:has(> a[href="#how"]) > a:not(.btn){display:none}}
 
 /* ---------- Buttons (≥44px targets) ---------- */
 .btn{
@@ -714,7 +720,11 @@ a.card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--acc
 @media (hover:hover){.demo-card::after{display:none}}
 
 /* ----- "Made for anyone" use-case grid ----- */
-.grid-uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--sp-l)}
+/* four cards: one row of four, 2 × 2 on tablets, one column on phones
+   (never a 3 + 1 row with an orphan card) */
+.grid-uses{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-l)}
+@media(max-width:880px){.grid-uses{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid-uses{grid-template-columns:1fr}}
 .use .ico{width:38px;height:38px;margin-bottom:var(--sp-m)}
 .use h3{font-size:15.5px}
 .use p{font-size:13.5px}
