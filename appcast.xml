@@ -8,6 +8,26 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.3</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Security update:</strong> your iPhone and your Mac now talk over an encrypted connection, on Wi-Fi and on Bluetooth. It switches on by itself once the iPhone or iPad app is updated to 1.2.2.</li>
+          <li>Long messages such as the Launcher's app list now arrive reliably over Bluetooth.</li>
+          <li>This is the final update for Intel Macs. Future updates require a Mac with Apple silicon.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Sun, 27 Sep 2026 00:29:00 +0000</pubDate>
+      <sparkle:version>9</sparkle:version>
+      <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.3/ControlMyMac-1.2.3.dmg"
+                 sparkle:version="9"
+                 sparkle:shortVersionString="1.2.3"
+                 length="4274664"
+                 sparkle:edSignature="Mg+OjzqldLU9mre+/eD1yu053rAMpxGOgobup06rxPcH5oRgdDzD/cf1haaHq+c7GHAPcN5jyTd+BqClvBAgDg=="
+                 type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.2.2</title>
       <description><![CDATA[
         <ul>
