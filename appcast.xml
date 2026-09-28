@@ -8,6 +8,28 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.4</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Smoother throws:</strong> when you flick on the trackpad, your Mac now draws the glide itself, so it stays smooth on Wi-Fi and Bluetooth. Update the iPhone or iPad app to 1.2.3 to use it.</li>
+          <li>Fixed: your Mac's display could stay awake long after you stopped using Control My Mac. It now goes to sleep normally again.</li>
+          <li>The menu bar window and the setup window now fit on smaller screens.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3, which keeps working with the new iPhone and iPad app.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 28 Sep 2026 05:06:00 +0000</pubDate>
+      <sparkle:version>10</sparkle:version>
+      <sparkle:shortVersionString>1.2.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.4/ControlMyMac-1.2.4.dmg"
+                 sparkle:version="10"
+                 sparkle:shortVersionString="1.2.4"
+                 length="3677040"
+                 type="application/octet-stream"
+                 sparkle:edSignature="2xsIq1BhwQIavG9Zv+wXGuuG8EoYXBcufPhzo+Hvob/asby+ftHQy0ORekb95aWxDVzGn1xOKaMnT16HCS2zBQ==" />
+    </item>
+    <item>
       <title>Version 1.2.3</title>
       <description><![CDATA[
         <ul>
