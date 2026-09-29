@@ -17,7 +17,10 @@ HEADER = re.search(r'<header class="site-header">.*?</header>', t, re.S).group(0
 STORE = re.search(r'<div class="hero-store">.*?</div>', t, re.S).group(0)
 FOOTER = re.search(r'<footer class="site-footer">.*?</footer>', t, re.S).group(0)
 
-GUIDES = [  # (url, card title, card text) for "More guides" and the footer guide row
+TM_ALL = ("Premiere Pro and Photoshop are trademarks of Adobe, DaVinci Resolve is a trademark of Blackmagic Design, and "
+          "Final Cut Pro is a trademark of Apple Inc. Other product names belong to their owners. Control My Mac is not "
+          "affiliated with Adobe, Blackmagic Design or Apple.")
+GUIDES = [  # (url, card title, card text) for "More guides" (first 4 that aren't the page itself)
     ("/stream-deck-alternative", "Stream Deck alternative", "A Grid for every Mac app on the iPhone you already own."),
     ("/premiere-pro-shortcuts-iphone", "Premiere Pro", "A ready-made Grid of Premiere Pro shortcuts."),
     ("/davinci-resolve-shortcuts-iphone", "DaVinci Resolve", "A ready-made Grid of DaVinci Resolve shortcuts."),
@@ -59,8 +62,8 @@ def page(p):
     steps = "\n".join(f"        <h3>{i}. {html.escape(h)}</h3>\n        <p>{b}</p>" for i, (h, b) in enumerate(p["steps"], 1))
     faq = "\n".join(f"        <details>\n          <summary>{html.escape(q)}</summary>\n          <p>{a}</p>\n        </details>" for q, a in p["faq"])
     guides = "\n".join(f'        <a class="card use" href="{u}">\n          {ICON}\n          <h3>{html.escape(n)}</h3>\n          <p>{html.escape(d)}</p>\n        </a>'
-                       for u, n, d in GUIDES if u != p["path"])
-    footer = FOOTER.replace('Control My Mac is not affiliated with Elgato.', 'Control My Mac is not affiliated with Elgato. ' + p["tm"])
+                       for u, n, d in [g for g in GUIDES if g[0] != p["path"]][:4])
+    footer = FOOTER.replace('Control My Mac is not affiliated with Elgato.', 'Control My Mac is not affiliated with Elgato. ' + TM_ALL)
     footer = re.sub(r'<nav class="fguides" aria-label="Guides">.*?</nav>', '<nav class="fguides" aria-label="Guides">' + " ".join(
         f'<a href="{u}">{html.escape(n)}</a>' for u, n in [("/iphone-as-mouse-for-mac", "iPhone as a mouse for Mac"),
         ("/stream-deck-alternative", "Stream Deck alternative"), ("/compare", "Compare Mac remote apps"),
@@ -86,7 +89,7 @@ def page(p):
 <meta property="og:image" content="{SITE}/assets/og-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Control My Mac: a Grid of one-tap Mac shortcuts, a trackpad and a keyboard on your iPhone or iPad">
+<meta property="og:image:alt" content="Control My Mac: your iPhone or iPad as a mouse, trackpad and keyboard for your Mac">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(p["og"])}">
 <meta name="twitter:description" content="{e(p["desc"])}">
@@ -185,7 +188,7 @@ def page(p):
     <div class="wrap">
       <div class="final">
         <h2 class="h2">{e(p["final_h2"])}</h2>
-        <p class="lead">The Mac app is free. Start the 7-day free trial of Full App on iPhone or iPad to give every Mac app its own Grid. If you don't keep it, Essentials stays free with the trackpad, keyboard basics and one Grid button.</p>
+        <p class="lead">The Mac app is free. Start the 7-day free trial of Full App on iPhone or iPad to give every Mac app its own Grid. It then renews at $3.99 a month in the US unless you cancel. If you cancel, Essentials stays free with the trackpad, keyboard basics and one Grid button.</p>
         {CTA}
         <p class="cta-note">macOS 14+ · Apple silicon · Intel Macs up to <a href="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.3/ControlMyMac-1.2.3.dmg">version 1.2.3</a> · No account</p>
       </div>
@@ -201,7 +204,7 @@ def page(p):
 """
 
 
-HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App ($3.99 a month or $17.99 once in the US, with a 7-day free trial). The free Essentials plan includes one Grid button, so you can try the idea first.</p>
+HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $17.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
         <p><strong>Keyboard shortcuts only.</strong> Each button sends a key combo, or a few in a row, to your Mac. It doesn't run plugins, scripts or typed text, so anything you can't do with a keyboard shortcut in {app} is out of reach for the Grid too.</p>
         <p><strong>Learning from the Mac.</strong> Recording a shortcut by pressing it on the Mac needs the Input Monitoring permission for the Mac app. It only listens while you're recording and saves just the combo. You can also set every shortcut by hand.</p>
         <p><strong>Your shortcuts, not ours.</strong> The list above uses {app}'s default Mac shortcuts. If you've changed yours, record them from your Mac instead and the buttons will always match.</p>"""
@@ -211,7 +214,7 @@ def app_steps(app):
     return [
         (f"Open {app} on your Mac", f"Bring {app} to the front. Control My Mac on your iPhone or iPad sees which app is in front."),
         (f"Tap “Grid for {app}”", f"In the Grid, the button names the app that's in front. One tap makes a Grid just for {app}, starting as a copy of your Default grid."),
-        ("Add your buttons", "Tap Edit Grid, add a button, then press the shortcut on your Mac's keyboard to record it, or pick the keys by hand. Rename it and drag it where your thumb rests."),
+        ("Add your buttons", "Tap an empty square (+) on the Grid, tap Start Listening and press the shortcut on your Mac's keyboard, then Stop Listening and Bind. Or tap Enter shortcut manually to pick the keys. Buttons copied from Default can be changed by touching and holding them (Re-record or Clear). Tap Edit Grid to add a row if you want all twelve, and Rearrange to move buttons where your thumb rests."),
         ("Leave Auto-Switch on", f"From now on the {app} Grid appears by itself whenever {app} is in front, and every other app uses Default. Turn Auto-Switch off if you want one Grid to stay put."),
     ]
 

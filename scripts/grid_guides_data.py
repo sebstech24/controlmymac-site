@@ -1,17 +1,15 @@
 """Content for scripts/build-grid-guides.py. Shortcut lists are the vendors' DEFAULT macOS shortcuts, checked against
 their official documentation in September 2026 (links in each page's source_note)."""
 
-TM_ELGATO = ""  # the footer already carries the Elgato / Stream Deck note
-
 MACRO = {
     "path": "/macro-pad-for-mac",
     "crumb": "Macro pad for Mac",
     "title": "Use Your iPhone as a Macro Pad for Mac | Control My Mac",
-    "desc": "Turn your iPhone or iPad into a macro pad for your Mac: one-tap buttons for any shortcut, with a Grid for every app that switches in by itself.",
+    "desc": "Turn your iPhone or iPad into a macro pad for your Mac: one-tap buttons for your Mac shortcuts, with a Grid for every app that switches in by itself.",
     "og": "Your iPhone as a macro pad for your Mac",
-    "pill": "One tap for any Mac shortcut",
+    "pill": "One tap for your Mac shortcuts",
     "h1": 'Use your iPhone as a <span class="grad">macro pad</span> for your Mac.',
-    "sub": "A macro pad is a small board of extra keys, each one firing a shortcut you'd otherwise have to finger-twist on the keyboard. Control My Mac turns the iPhone or iPad you already own into one: a Grid of one-tap buttons for any Mac shortcut, with its own Grid for every Mac app, switching in by itself.",
+    "sub": "A macro pad is a small board of extra keys, each one firing a shortcut you'd otherwise have to finger-twist on the keyboard. Control My Mac turns the iPhone or iPad you already own into one: a Grid of one-tap buttons for your Mac shortcuts, with its own Grid for every Mac app, switching in by itself.",
     "grid_h2": "A starter Grid that works in every app",
     "grid_lead": "These are standard macOS shortcuts, so they work whatever app is in front. Make them your Default grid, then give your busiest apps a Grid of their own.",
     "buttons": [
@@ -33,13 +31,13 @@ MACRO = {
     "steps_lead": "You need the free Mac app and Control My Mac on your iPhone or iPad. Pairing is one QR scan, then:",
     "steps": [
         ("Open the Grid", "Tap Grid at the bottom of the app. The grid you see first is Default, the one every app uses unless it has its own."),
-        ("Add a button", "Tap Edit Grid and add a button. Press the shortcut on your Mac's keyboard to record it, or pick the keys by hand. A button can also send a few shortcuts back to back."),
-        ("Name it and place it", "Give it a short label, then drag it to where your thumb rests. Pick how many rows and columns the Grid has."),
+        ("Add a button", "Tap an empty square (+) on the Grid. Tap Start Listening, press the shortcut on your Mac's keyboard, then tap Stop Listening and Bind. Or tap Enter shortcut manually to pick the keys. A button can also send a few shortcuts back to back."),
+        ("Name it and place it", "Type a short name while recording, or touch and hold the button and tap Rename. Tap Rearrange to drag it where your thumb rests, and tap Edit Grid to pick how many rows and columns the Grid has."),
         ("Give busy apps their own Grid", "With an app in front on your Mac, tap “Grid for” and that app's name. Its Grid switches in by itself whenever that app is in front. See the <a href=\"/premiere-pro-shortcuts-iphone\">Premiere Pro</a>, <a href=\"/davinci-resolve-shortcuts-iphone\">DaVinci Resolve</a> and <a href=\"/final-cut-pro-shortcuts-iphone\">Final Cut Pro</a> guides for ready-made examples."),
     ],
     "shots": ["zoom", "menu"],
-    "honest": """        <p><strong>What “macro” means here.</strong> Each button sends a keyboard shortcut, or a few in a row, to your Mac. It doesn't type text snippets, run scripts or wait between steps. If a key combo can do it on your Mac, a button can too.</p>
-        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App ($3.99 a month or $17.99 once in the US, with a 7-day free trial). The free Essentials plan includes one Grid button, so you can try the idea first.</p>
+    "honest": """        <p><strong>What “macro” means here.</strong> Each button sends a keyboard shortcut, or a few in a row, to your Mac. It doesn't type text snippets, run scripts or wait between steps. Most things a keyboard shortcut does on your Mac, a button can do too. Media keys like volume and brightness, and shortcuts you have to hold down, aren't supported.</p>
+        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $17.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
         <p><strong>Learning from the Mac.</strong> Recording a shortcut by pressing it on the Mac needs the Input Monitoring permission for the Mac app. It only listens while you're recording and saves just the combo. You can also set every shortcut by hand.</p>
         <p><strong>More than buttons.</strong> The same app is also a trackpad, a keyboard and a launcher for apps and windows, all built to be used with one finger. More in the <a href="/iphone-as-mouse-for-mac">iPhone as a mouse guide</a>.</p>""",
     "faq": [
@@ -53,7 +51,6 @@ MACRO = {
          "No. Control My Mac is for Macs only (macOS 14 or later), on iPhone or iPad."),
     ],
     "final_h2": "Put a macro pad on the phone you own",
-    "tm": "",
 }
 
 ADOBE_MAIN = "https://helpx.adobe.com/premiere/desktop/get-started/keyboard-shortcuts/default-keyboard-shortcuts.html"
@@ -98,7 +95,6 @@ PREMIERE = {
          "No. It works on iPhone. On iPad the Grid is bigger, with room for more buttons."),
     ],
     "final_h2": "Cut faster with the phone on your desk",
-    "tm": "Adobe and Premiere are trademarks of Adobe. Control My Mac is not affiliated with Adobe.",
 }
 
 BMD = "https://documents.blackmagicdesign.com/UserManuals/DaVinci_Resolve_21_Reference_Manual.pdf"
@@ -145,7 +141,6 @@ RESOLVE = {
          "Record each button by pressing your shortcut on the Mac, and the button sends exactly that. The table above uses Blackmagic's defaults."),
     ],
     "final_h2": "Edit with a deck you already own",
-    "tm": "DaVinci Resolve is a trademark of Blackmagic Design. Control My Mac is not affiliated with Blackmagic Design.",
 }
 
 FCP_GUIDE = "https://support.apple.com/guide/final-cut-pro/keyboard-shortcuts-ver90ba5929/mac"
@@ -190,7 +185,6 @@ FCP = {
          "No. It works on iPhone. On iPad the Grid is bigger, with room for more buttons."),
     ],
     "final_h2": "Put Final Cut on a deck you already own",
-    "tm": "Final Cut Pro is a trademark of Apple Inc.",
 }
 
 PAGES = [MACRO, PREMIERE, RESOLVE, FCP]

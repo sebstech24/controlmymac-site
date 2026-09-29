@@ -6,17 +6,18 @@ onto it: those pages were held by an auto-publish job that aborts if they change
 Every edit is an exact-text replacement that must match exactly once, so a changed page stops the script instead of
 being patched in the wrong place. Re-running is safe: edits already applied are skipped.
 
-  1. US visitors saw euro prices on the English homepage, /pro and /one-hand: show US dollars, name the euro prices.
+  1. US visitors saw euro prices on the English homepage, /pro, /one-hand, /support and /present: show US dollars, name the
+     euro prices. Trademark notes for Adobe, Blackmagic and Apple products on pages whose new copy names them.
   2. /one-hand: new section "Two-hand shortcuts become one tap".
   3. /iphone-as-mouse-for-mac: a Grid block before "More guides".
   4. /stream-deck-alternative: FAQ (+ FAQPage data) and two more guide cards.
   5. Footer guide row on the English pages: + Macro pad for Mac.
   6. sitemap.xml: the four new guides.
 """
-import os, re, sys
+import datetime, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TODAY = "2026-09-30" if len(sys.argv) < 2 else sys.argv[1]
+TODAY = datetime.date.today().isoformat() if len(sys.argv) < 2 else sys.argv[1]
 changed = set()
 
 
@@ -61,6 +62,23 @@ edit("pro.html", "or €4.99/month — free 7-day trial, then auto-renews unless
      "or $3.99/month, free 7-day trial, then auto-renews unless cancelled")
 edit("pro.html", '<p class="price-note">Lifetime means lifetime.', f'<p class="price-note">Prices shown are US prices. {EURO} Lifetime means lifetime.')
 edit("pro.html", "auto-renews at €4.99/month unless you cancel", "auto-renews at $3.99/month in the US (€4.99 in euro countries) unless you cancel")
+
+edit("support.html", "auto-renews into a 4.99 EUR per month subscription unless you cancel before it ends",
+     "auto-renews into a $3.99 per month subscription in the US (4.99 EUR in euro countries) unless you cancel before it ends")
+edit("support.html", "Full App is 4.99 EUR per month or 19.99 EUR lifetime (a one-time purchase),",
+     "Full App is $3.99 per month or $17.99 lifetime (a one-time purchase) in the US, or 4.99 EUR and 19.99 EUR in euro countries,")
+edit("support.html", "auto-renews at €4.99/month unless you cancel</strong>",
+     "auto-renews at $3.99/month in the US (€4.99 in euro countries) unless you cancel</strong>")
+edit("support.html", "<strong>Full App</strong> (€4.99/month or €19.99 lifetime)",
+     "<strong>Full App</strong> ($3.99/month or $17.99 lifetime in the US, €4.99 or €19.99 in euro countries)")
+edit("present.html", "or unlock for €4.99/month or €19.99 once.",
+     "or unlock for $3.99/month or $17.99 once in the US (€4.99 or €19.99 in euro countries).")
+TM = ("Premiere Pro and Photoshop are trademarks of Adobe, DaVinci Resolve is a trademark of Blackmagic Design, and Final Cut "
+      "Pro is a trademark of Apple Inc. Control My Mac is not affiliated with Adobe, Blackmagic Design or Apple.")
+edit("stream-deck-alternative.html", "Control My Mac is not affiliated with Elgato.</p>",
+     "Control My Mac is not affiliated with Elgato. " + TM + "</p>", marker="not affiliated with Adobe")
+edit("iphone-as-mouse-for-mac.html", "Remote-control traffic stays encrypted and travels directly between your devices.</p>",
+     "Remote-control traffic stays encrypted and travels directly between your devices. " + TM + "</p>", marker="not affiliated with Adobe")
 
 edit("one-hand.html", "and Full App is €4.99/month or €19.99 once.",
      "and Full App is $3.99/month or $17.99 once in the US (€4.99 or €19.99 in euro countries).")
@@ -122,7 +140,7 @@ FAQ = [
     ("Does it work with Premiere Pro, DaVinci Resolve or Final Cut Pro?",
      'Yes, through their keyboard shortcuts. Each of them can have its own Grid. There are ready-made starter Grids for <a href="/premiere-pro-shortcuts-iphone">Premiere Pro</a>, <a href="/davinci-resolve-shortcuts-iphone">DaVinci Resolve</a> and <a href="/final-cut-pro-shortcuts-iphone">Final Cut Pro</a>.'),
     ("Is it free?",
-     "The Mac app is free, and the free Essentials plan in the iPhone and iPad app includes one Grid button. A Grid for every Mac app and Auto-Switch come with Full App: $3.99 a month or $17.99 once in the US, with a 7-day free trial."),
+     "The Mac app is free, and the free Essentials plan in the iPhone and iPad app includes one Grid button. A Grid for every Mac app and Auto-Switch come with Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $17.99 once."),
 ]
 import json  # noqa: E402
 faq_html = "\n".join(f"        <details>\n          <summary>{q}</summary>\n          <p>{a}</p>\n        </details>" for q, a in FAQ)
@@ -134,8 +152,18 @@ edit("stream-deck-alternative.html", '  <section class="band">\n    <div class="
 edit("stream-deck-alternative.html", "</script>\n</head>", f'</script>\n<script type="application/ld+json">\n{faq_ld}\n</script>\n</head>', marker='"FAQPage"')
 CARDS = """        <a class="card use" href="/premiere-pro-shortcuts-iphone">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
-          <h3>Grids for video editors</h3>
-          <p>Ready-made Grids for Premiere Pro, DaVinci Resolve and Final Cut Pro.</p>
+          <h3>Premiere Pro</h3>
+          <p>A ready-made Grid of Premiere Pro shortcuts.</p>
+        </a>
+        <a class="card use" href="/davinci-resolve-shortcuts-iphone">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
+          <h3>DaVinci Resolve</h3>
+          <p>A ready-made Grid of DaVinci Resolve shortcuts.</p>
+        </a>
+        <a class="card use" href="/final-cut-pro-shortcuts-iphone">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
+          <h3>Final Cut Pro</h3>
+          <p>A ready-made Grid of Final Cut Pro shortcuts.</p>
         </a>
         <a class="card use" href="/macro-pad-for-mac">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg></div>
