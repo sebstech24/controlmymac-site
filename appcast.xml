@@ -8,6 +8,28 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.5</title>
+      <description><![CDATA[
+        <ul>
+          <li>Fixed: after your Mac restarted, the iPhone could fail to connect over Wi-Fi until you quit and reopened Control My Mac. It now recovers by itself.</li>
+          <li>The menu bar window now closes when you click anywhere outside it.</li>
+          <li>App grids: your Mac tells the iPhone which app is in front right after it connects, so the right grid shows straight away. App grids come with iPhone and iPad app 1.2.4.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3, which keeps working with the iPhone and iPad app.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Tue, 29 Sep 2026 00:10:00 +0000</pubDate>
+      <sparkle:version>11</sparkle:version>
+      <sparkle:shortVersionString>1.2.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.5/ControlMyMac-1.2.5.dmg"
+                 sparkle:version="11"
+                 sparkle:shortVersionString="1.2.5"
+                 length="3686931"
+                 type="application/octet-stream"
+                 sparkle:edSignature="NEVqXoY7x/6HlzTzsS/19qRkyhvyUJ0U+wXaVAGiNKFLm4JSGV9X6wfRvuQ3zAnWVBPX9ccvNe8Ua8hgRDGoDQ==" />
+    </item>
+    <item>
       <title>Version 1.2.4</title>
       <description><![CDATA[
         <ul>
