@@ -28,6 +28,9 @@ const APP_LABELS = {
   ru: { settings: "Настройки", mode: "Режим", unlock: "Разблокировать", promo: "Есть промокод?" },
   tr: { settings: "Ayarlar", mode: "Mod", unlock: "Aç", promo: "Promosyon kodunuz mu var?" },
   zh: { settings: "设置", mode: "模式", unlock: "解锁", promo: "有促销代码？" },
+  "zh-hant": { settings: "設定", mode: "模式", unlock: "解鎖", promo: "有優惠代碼嗎？" },
+  uk: { settings: "Параметри", mode: "Режим", unlock: "Розблокувати", promo: "Маєте промокод?" },
+  sl: { settings: "Nastavitve", mode: "Način", unlock: "Odkleni", promo: "Imate promocijsko kodo?" },
 };
 
 /**
@@ -50,18 +53,21 @@ const APPLE_REDEEM_LABEL = {
   ru: "Погасить подарочную карту или код",
   tr: "Hediye Kartı veya Kod Kullan",
   zh: "兑换代码",
+  "zh-hant": "兌換禮品卡或代碼",
+  uk: "Активувати подарункову карту чи код",
+  sl: "Redeem Code",
 };
 
 // How each language quotes an on-screen label.
 const QUOTES = {
   en: ["“", "”"], de: ["„", "“"], es: ["«", "»"], fr: ["«\u00a0", "\u00a0»"], it: ["«", "»"],
   ja: ["「", "」"], ko: ["‘", "’"], nl: ["‘", "’"], pl: ["„", "”"], pt: ["“", "”"],
-  ru: ["«", "»"], tr: ["“", "”"], zh: ["“", "”"],
+  ru: ["«", "»"], tr: ["“", "”"], zh: ["“", "”"], "zh-hant": ["「", "」"], uk: ["«", "»"], sl: ["»", "«"],
 };
 
 // Punctuation between a label and its value, and between two sentences, in the plain-text version.
-const COLON = { fr: "\u00a0: ", ja: "：", zh: "：" };
-const SENTENCE_GAP = { ja: "", zh: "" };
+const COLON = { fr: "\u00a0: ", ja: "：", zh: "：", "zh-hant": "：" };
+const SENTENCE_GAP = { ja: "", zh: "", "zh-hant": "" };
 
 // {settings}, {mode}, {unlock} and {promo} become the app's labels, {redeem} Apple's.
 const COPY = {
@@ -325,10 +331,75 @@ const COPY = {
     privacy: "隐私政策",
     country: "斯洛文尼亚",
   },
+  "zh-hant": {
+    subject: "你的 Control My Mac 免費一個月",
+    preview: "你的專屬代碼，以及兩種快速兌換方式。",
+    heading: "你的免費一個月準備好了",
+    intro: "感謝你訂閱 Sebastian Apps 電子郵件。這是你的專屬代碼，可免費使用 Control My Mac 的 Full App 一個月。",
+    codeLabel: "你的代碼",
+    button: "在 App Store 兌換",
+    appTitle: "或在 App 內兌換",
+    steps: ["打開 Control My Mac，點一下{settings}。", "在{mode}區域，點一下{unlock}。", "在最下方點一下{promo}，然後輸入你的代碼。"],
+    store: "或者：App Store → 你的大頭貼照 → {redeem}",
+    expires: "請在 {date}前兌換。",
+    noRenew: "免費的一個月結束後不會自動續訂，所以你不會被收費。",
+    renews: "免費的一個月結束後，除非你先取消，否則訂閱會以標準價格續訂。",
+    eligibility: "需要 Apple 帳號，並適用 Apple 的優惠資格規定。每個代碼只能兌換一次。",
+    why: "你會收到這封電子郵件，是因為你在 controlmymac.com 申請了免費一個月，並同意接收 Sebastian Apps 電子郵件。",
+    ignore: "如果這不是你本人申請的，請在下方取消訂閱，我們就不會再寄電子郵件給你。",
+    unsubscribe: "取消訂閱 Sebastian Apps 電子郵件",
+    privacy: "隱私權政策",
+    country: "斯洛維尼亞",
+  },
+  uk: {
+    subject: "Ваш безкоштовний місяць Control My Mac",
+    preview: "Ваш особистий код і два швидкі способи його використати.",
+    heading: "Ваш безкоштовний місяць готовий",
+    intro: "Дякуємо, що підписалися на листи від Sebastian Apps. Ось ваш особистий код на безкоштовний місяць Full App у Control My Mac.",
+    codeLabel: "Ваш код",
+    button: "Використати в App Store",
+    appTitle: "Або використайте код у програмі",
+    steps: ["Відкрийте Control My Mac і торкніть {settings}.", "У розділі {mode} торкніть {unlock}.", "Унизу торкніть {promo} і введіть свій код."],
+    store: "Або: App Store → фото вашого облікового запису → {redeem}",
+    expires: "Використайте його до {date}.",
+    noRenew: "Безкоштовний місяць не поновлюється автоматично, тож плату з вас не стягнуть.",
+    renews: "Після безкоштовного місяця підписка поновиться за стандартною ціною, якщо ви її не скасуєте.",
+    eligibility: "Потрібен обліковий запис Apple, і діють правила Apple щодо того, хто може скористатися пропозицією. Кожен код можна використати лише один раз.",
+    why: "Ви отримали цей лист, бо попросили безкоштовний місяць на controlmymac.com і погодилися отримувати листи від Sebastian Apps.",
+    ignore: "Якщо це були не ви, відпишіться нижче, і листів від нас більше не буде.",
+    unsubscribe: "Відписатися від листів Sebastian Apps",
+    privacy: "Політика приватності",
+    country: "Словенія",
+  },
+  sl: {
+    subject: "Vaš brezplačni mesec aplikacije Control My Mac",
+    preview: "Vaša osebna koda in dva hitra načina za unovčenje.",
+    heading: "Vaš brezplačni mesec je pripravljen",
+    intro: "Hvala, ker ste se naročili na e-poštna sporočila Sebastian Apps. Tukaj je vaša osebna koda za brezplačen mesec Full App v aplikaciji Control My Mac.",
+    codeLabel: "Vaša koda",
+    button: "Unovčite v trgovini App Store",
+    appTitle: "Ali pa unovčite v aplikaciji",
+    steps: ["Odprite Control My Mac in tapnite {settings}.", "V razdelku {mode} tapnite {unlock}.", "Na dnu tapnite {promo} in vnesite svojo kodo."],
+    store: "Ali pa: App Store → vaša profilna slika → {redeem}",
+    expires: "Kodo unovčite pred {date}.",
+    noRenew: "Brezplačni mesec se ne podaljša samodejno, zato vam ne bo nič zaračunano.",
+    renews: "Po brezplačnem mesecu se naročnina podaljša po redni ceni, razen če jo prekličete.",
+    eligibility: "Potrebujete račun Apple, veljajo pa pravila družbe Apple o upravičenosti do ponudb. Vsako kodo je mogoče unovčiti enkrat.",
+    why: "To e-poštno sporočilo ste prejeli, ker ste na controlmymac.com zahtevali brezplačni mesec in privolili v prejemanje e-poštnih sporočil Sebastian Apps.",
+    ignore: "Če to niste bili vi, se spodaj odjavite in od nas ne boste prejeli nobenega sporočila več.",
+    unsubscribe: "Odjava od e-poštnih sporočil Sebastian Apps",
+    privacy: "Pravilnik o zasebnosti",
+    country: "Slovenija",
+  },
 };
 
+// Slovenian needs the month in the genitive after "do" ("do 15. januarja"), which the long month name
+// from Intl is not; the numeric form ("15. 1. 2027") is correct in every sentence.
+const DATE_STYLE = { sl: { year: "numeric", month: "numeric", day: "numeric", timeZone: "UTC" } };
+
 function formatDate(value, locale) {
-  return new Intl.DateTimeFormat(locale, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(value));
+  const style = DATE_STYLE[locale] || { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" };
+  return new Intl.DateTimeFormat(locale, style).format(new Date(value));
 }
 
 /**

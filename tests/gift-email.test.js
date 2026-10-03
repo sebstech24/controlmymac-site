@@ -32,7 +32,7 @@ const NO_RENEW = {
   fr: "ne se renouvelle pas automatiquement", it: "non si rinnova automaticamente", ja: "自動更新されない",
   ko: "자동으로 갱신되지 않으므로", nl: "niet automatisch verlengd", pl: "nie odnawia się automatycznie",
   pt: "não é renovado automaticamente", ru: "не продлевается автоматически", tr: "otomatik olarak yenilenmez",
-  zh: "不会自动续订",
+  zh: "不会自动续订", "zh-hant": "不會自動續訂", uk: "не поновлюється автоматично", sl: "se ne podaljša samodejno",
 };
 
 function render(locale, overrides = {}) {
@@ -173,11 +173,12 @@ test("the in-app steps use exactly the labels the app shows in each language", (
   expectLabels("ja", ["設定", "モード", "ロック解除", "プロモコードをお持ちですか？", "コードを使う"]);
   if (!existsSync(catalogPath)) return; // The app repository is not checked out next to this one.
   const strings = JSON.parse(readFileSync(catalogPath, "utf8")).strings;
-  const catalogLocale = { pt: "pt-BR", zh: "zh-Hans" };
+  const catalogLocale = { pt: "pt-BR", zh: "zh-Hans", "zh-hant": "zh-Hant" };
   for (const locale of LOCALES.filter((value) => value !== "en")) {
     const labels = ["Settings", "Mode", "Unlock", "Have a promo code?"].map(
-      (key) => strings[key].localizations[catalogLocale[locale] || locale].stringUnit.value,
+      (key) => strings[key].localizations[catalogLocale[locale] || locale]?.stringUnit.value,
     );
+    if (labels.some((label) => !label)) continue; // That checkout of the app is older than this language.
     expectLabels(locale, labels);
   }
 });
@@ -362,7 +363,7 @@ test("form copy: every language has errClaimed and no longer promises a confirma
   const copy = vm.runInNewContext(`(${literal})`);
   assert.deepEqual(Object.keys(copy).sort(), [...LOCALES].sort());
   const keys = Object.keys(copy.en).sort();
-  const confirmPromise = /confirm|bestätig|bevestig|potwierd|подтвержд|onayla|確認|确认|확인/i;
+  const confirmPromise = /confirm|bestätig|bevestig|potwierd|подтвержд|підтверд|potrdi|onayla|確認|确认|확인/i;
   for (const [locale, strings] of Object.entries(copy)) {
     assert.deepEqual(Object.keys(strings).sort(), keys, `${locale} keys`);
     assert.ok(strings.errClaimed.length > 20, `${locale} errClaimed`);

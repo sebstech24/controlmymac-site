@@ -104,14 +104,35 @@ const COPY = {
     goneTitle: "已移除", goneBody: "此邮箱已不在列表中。",
     doneTitle: "已退订", doneBody: "您将不再收到 Sebastian Apps 的营销邮件。",
   },
+  "zh-hant": {
+    invalidTitle: "連結已失效", invalidBody: "這個取消訂閱連結無效。",
+    askTitle: "要停止接收 Sebastian Apps 電子郵件嗎？", askBody: "已寄給你的代碼都會保留。取消訂閱只會停止日後的最新消息和優惠。",
+    button: "取消訂閱",
+    goneTitle: "已經移除", goneBody: "這個電子郵件地址已不在名單中。",
+    doneTitle: "已取消訂閱", doneBody: "你之後不會再收到 Sebastian Apps 的行銷電子郵件。",
+  },
+  uk: {
+    invalidTitle: "Посилання більше не діє", invalidBody: "Це посилання для відписки недійсне.",
+    askTitle: "Відписатися від листів Sebastian Apps?", askBody: "Коди, які вам уже надіслано, залишаться у вас. Ви лише перестанете отримувати новини та пропозиції.",
+    button: "Відписатися",
+    goneTitle: "Адресу вже вилучено", goneBody: "Цієї адреси вже немає в списку.",
+    doneTitle: "Ви відписалися", doneBody: "Ви більше не отримуватимете маркетингових листів від Sebastian Apps.",
+  },
+  sl: {
+    invalidTitle: "Povezava je potekla", invalidBody: "Ta povezava za odjavo ni veljavna.",
+    askTitle: "Želite prenehati prejemati e-poštna sporočila Sebastian Apps?", askBody: "Kode, ki ste jih že prejeli, vam ostanejo. Odjava ustavi samo prihodnje novice in ponudbe.",
+    button: "Odjavite me",
+    goneTitle: "Naslov je že odstranjen", goneBody: "Tega naslova ni več na seznamu.",
+    doneTitle: "Odjavljeni ste", doneBody: "Trženjskih e-poštnih sporočil Sebastian Apps ne boste več prejemali.",
+  },
 };
 
 /** The browser's first supported language, for links that don't lead to a stored request. */
 function browserLocale(request) {
   const header = request.headers.get("accept-language") || "";
   for (const part of header.split(",")) {
-    const locale = part.split(";")[0].trim().toLowerCase().split(/[-_]/)[0];
-    if (SUPPORTED_LOCALES.has(locale)) return locale;
+    const tag = part.split(";")[0].trim();
+    if (SUPPORTED_LOCALES.has(tag.toLowerCase().split(/[-_]/)[0])) return normalizeLocale(tag);
   }
   return "en";
 }

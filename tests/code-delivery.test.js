@@ -31,6 +31,13 @@ test("normalizes and validates email input", () => {
   assert.equal(isValidEmail("person@example.com"), true);
   assert.equal(isValidEmail("not-an-email"), false);
   assert.equal(normalizeLocale("pt-BR"), "pt");
+  // Chinese: Traditional for the Hant script and for Taiwan, Hong Kong and Macau; Simplified otherwise.
+  assert.equal(normalizeLocale("zh-Hant-TW"), "zh-hant");
+  assert.equal(normalizeLocale("zh_HK"), "zh-hant");
+  assert.equal(normalizeLocale("zh-Hans-CN"), "zh");
+  assert.equal(normalizeLocale("zh"), "zh");
+  assert.equal(normalizeLocale("uk-UA"), "uk");
+  assert.equal(normalizeLocale("sl_SI"), "sl");
   assert.equal(normalizeLocale("xx"), "en");
 });
 
@@ -156,7 +163,7 @@ test("push registration remains disabled until explicitly activated", async () =
 });
 
 test("renders one free-month code email in every supported language", () => {
-  for (const locale of ["en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "tr", "zh"]) {
+  for (const locale of ["en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "sl", "tr", "uk", "zh", "zh-hant"]) {
     const email = renderCodeEmail({
       locale,
       code: "FREE-MONTH-123",

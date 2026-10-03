@@ -83,7 +83,7 @@ The public pages do not call this API yet. `/api/request-code` remains unavailab
    ```
 
 5. Configure a Brevo test list and authenticated sending domain. Keep `BREVO_SANDBOX_MODE=true` to validate requests without delivering messages, then change it to `false` only for controlled real-inbox tests.
-6. Configure Cloudflare Turnstile test keys, use a Vercel Preview deployment, and verify: unchecked consent, invalid email, duplicates, queue exhaustion, bounce behavior, unsubscribe, all 13 languages, and production code assignment without exposing code values.
+6. Configure Cloudflare Turnstile test keys, use a Vercel Preview deployment, and verify: unchecked consent, invalid email, duplicates, queue exhaustion, bounce behavior, unsubscribe, all 16 languages, and production code assignment without exposing code values.
 7. Only after sign-off, connect the visible form to `/api/request-code`, update the privacy page, set production secrets, and change `CODE_DELIVERY_MODE` from `disabled` to `ready`.
 
 The App Store Connect `.p8` private key, database URL, encryption keys, Brevo key, and code values must stay in encrypted server-side environment variables. Never place them in this public repository or client-side JavaScript.

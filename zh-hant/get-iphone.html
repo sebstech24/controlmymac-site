@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone 與 iPad App | Control My Mac</title>
+  <meta name="description" content="在 App Store 取得 iPhone 與 iPad 版 Control My Mac。掃描 QR 碼與免費的 Mac App 配對，用一根手指操作整部 Mac。">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone & iPad app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone & iPad app is approved.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6781458180";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">iPhone 與 iPad 版 Control My Mac</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      在 App&nbsp;Store 取得
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      你已經裝好免費的 Mac App，最後一步是與它配對的 iPhone 或 iPad App。它現已在 App Store 上架。如果這個頁面沒有自動帶你過去，請點一下底下的按鈕，再掃描 Mac App 上的配對碼。
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6781458180">在 App&nbsp;Store 打開</a>
+      <a class="btn btn-quiet" href="/zh-hant">返回 controlmymac.com</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      不需帳號，沒有伺服器。你的 iPhone 或 iPad 和 Mac 直接、私密地通訊。
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>

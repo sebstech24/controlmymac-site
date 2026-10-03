@@ -88,10 +88,14 @@
     ko: ["Mac으로 보내기", "Mac용 링크 복사", "링크가 복사되었습니다. Mac에서 여세요", "지금 iPhone에서 보고 있습니다. AirDrop이나 메시지로 이 링크를 자신에게 보낸 다음 Mac에서 열어 다운로드하세요.", "링크를 복사한 다음 Mac에서 열어 무료 앱을 다운로드하세요."],
     ru: ["Отправить на Mac", "Скопировать ссылку для Mac", "Ссылка скопирована — откройте её на Mac", "Вы на iPhone — отправьте себе эту ссылку через AirDrop или сообщение, затем откройте её на Mac, чтобы скачать приложение.", "Скопируйте ссылку и откройте её на Mac, чтобы скачать бесплатное приложение."],
     pl: ["Wyślij na Maca", "Kopiuj link dla Maca", "Link skopiowany — otwórz go na Macu", "Jesteś na iPhonie — wyślij sobie ten link przez AirDrop lub wiadomość, a potem otwórz go na Macu, aby pobrać aplikację.", "Skopiuj link, a potem otwórz go na Macu, aby pobrać darmową aplikację."],
-    tr: ["Mac’ine gönder", "Mac’in için bağlantıyı kopyala", "Bağlantı kopyalandı — Mac’inde aç", "iPhone’dasın — bu bağlantıyı AirDrop veya mesajla kendine gönder, sonra indirmek için Mac’inde aç.", "Bağlantıyı kopyala, sonra ücretsiz uygulamayı indirmek için Mac’inde aç."]
+    tr: ["Mac’ine gönder", "Mac’in için bağlantıyı kopyala", "Bağlantı kopyalandı — Mac’inde aç", "iPhone’dasın — bu bağlantıyı AirDrop veya mesajla kendine gönder, sonra indirmek için Mac’inde aç.", "Bağlantıyı kopyala, sonra ücretsiz uygulamayı indirmek için Mac’inde aç."],
+    "zh-hant": ["傳送到你的 Mac", "拷貝 Mac 下載連結", "已拷貝連結，請在 Mac 上打開", "你正在使用 iPhone：用 AirDrop 或訊息把這個連結傳給自己，然後在 Mac 上打開即可下載。", "拷貝連結，然後在 Mac 上打開，即可下載免費 App。"],
+    uk: ["Надіслати на Mac", "Скопіювати посилання для Mac", "Посилання скопійовано — відкрийте його на Mac", "Ви на iPhone — надішліть собі це посилання через AirDrop або в повідомленні, а потім відкрийте його на Mac, щоб завантажити програму.", "Скопіюйте посилання, а потім відкрийте його на Mac, щоб завантажити безкоштовну програму."],
+    sl: ["Pošljite na svoj Mac", "Kopirajte povezavo za svoj Mac", "Povezava je kopirana – odprite jo na Macu", "Ste na iPhonu – pošljite si to povezavo s funkcijo AirDrop ali v sporočilu in jo nato odprite na Macu, da prenesete aplikacijo.", "Kopirajte povezavo in jo nato odprite na Macu, da prenesete brezplačno aplikacijo."]
   };
-  var pageLang = (document.documentElement.lang || "en").toLowerCase().split("-")[0];
-  var dlCopy = DL_COPY[pageLang] || DL_COPY.en;
+  // <html lang> is "pl", "pt-BR", "zh-Hans", "zh-Hant", ...: try the full tag, then its language part.
+  var pageLang = (document.documentElement.lang || "en").toLowerCase();
+  var dlCopy = DL_COPY[pageLang] || DL_COPY[pageLang.split("-")[0]] || DL_COPY.en;
 
   function handoffClick(e) {
     e.preventDefault();
@@ -144,7 +148,7 @@
         var card = null;
         for (var c = 0; c < choices.length; c++) {
           var h = choices[c].getAttribute("href") || "";
-          if (h.replace(/^\/[a-z]{2}(?=\/)/, "") === page.href) { card = choices[c]; }
+          if (h.replace(/^\/[a-z]{2}(?:-[a-z]{4})?(?=\/)/, "") === page.href) { card = choices[c]; }
         }
         var go = card && card.querySelector(".go");
         link.href = card ? card.getAttribute("href") : page.href;

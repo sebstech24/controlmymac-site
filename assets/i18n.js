@@ -6,6 +6,7 @@
 (function () {
   "use strict";
 
+  // `short` is what the switcher button shows when the code is not a two-letter one.
   var LOCALES = [
     { code: "en", name: "English",    hreflang: "en" },
     { code: "de", name: "Deutsch",    hreflang: "de" },
@@ -15,18 +16,25 @@
     { code: "pt", name: "Português",  hreflang: "pt-BR" },
     { code: "nl", name: "Nederlands", hreflang: "nl" },
     { code: "ja", name: "日本語",      hreflang: "ja" },
-    { code: "zh", name: "中文",        hreflang: "zh-Hans" },
+    { code: "zh", name: "简体中文",    hreflang: "zh-Hans" },
+    { code: "zh-hant", name: "繁體中文", hreflang: "zh-Hant", short: "繁體" },
     { code: "ko", name: "한국어",      hreflang: "ko" },
     { code: "ru", name: "Русский",    hreflang: "ru" },
+    { code: "uk", name: "Українська", hreflang: "uk" },
     { code: "pl", name: "Polski",     hreflang: "pl" },
+    { code: "sl", name: "Slovenščina", hreflang: "sl" },
     { code: "tr", name: "Türkçe",     hreflang: "tr" }
   ];
   var CODES = LOCALES.map(function (l) { return l.code; });
   var KEY = "cmm_lang";
+  // Languages added after launch. A visitor whose browser asks for one of them, but who was
+  // sent to another language before it existed, is moved over once (see below).
+  var ADDED = ["zh-hant", "uk", "sl"];
+  var MOVED_KEY = "cmm_lang_moved";
 
   function getStored() {
     try { var v = localStorage.getItem(KEY); if (v) return v; } catch (e) {}
-    var m = document.cookie.match(/(?:^|;\s*)cmm_lang=([a-z]{2})/);
+    var m = document.cookie.match(/(?:^|;\s*)cmm_lang=([a-z]{2}(?:-[a-z]{4})?)/);
     return m ? m[1] : null;
   }
   function setStored(v) {
@@ -44,6 +52,8 @@
   function match(tag) {
     tag = (tag || "").toLowerCase();
     var primary = tag.split("-")[0];
+    // Chinese: Traditional for the Hant script and for Taiwan, Hong Kong and Macau.
+    if (primary === "zh") return /-hans\b/.test(tag) ? "zh" : /-(hant|tw|hk|mo)\b/.test(tag) ? "zh-hant" : "zh";
     return CODES.indexOf(primary) > -1 ? primary : null;
   }
   function detect() {
@@ -60,6 +70,13 @@
   // so a visitor deliberately on /de/… is never bounced away.
   var stored = getStored();
   if (current === "en") {
+    // One-time move to a language that did not exist when the stored one was picked for them.
+    var moved = true;
+    try { moved = !!localStorage.getItem(MOVED_KEY); localStorage.setItem(MOVED_KEY, "1"); } catch (e) {}
+    if (stored && !moved) {
+      var first = detect();
+      if (ADDED.indexOf(first) > -1 && first !== stored) { stored = first; setStored(first); }
+    }
     if (stored && stored !== "en" && CODES.indexOf(stored) > -1) { go(stored); return; }
     if (!stored) {
       var want = detect();
@@ -83,7 +100,7 @@
     btn.setAttribute("aria-haspopup", "listbox");
     btn.setAttribute("aria-expanded", "false");
     btn.setAttribute("aria-label", "Choose language");
-    btn.innerHTML = '<span aria-hidden="true">🌐</span> <span class="lang-cur">' + cur.code.toUpperCase() + "</span>";
+    btn.innerHTML = '<span aria-hidden="true">🌐</span> <span class="lang-cur">' + (cur.short || cur.code.toUpperCase()) + "</span>";
 
     var menu = document.createElement("ul");
     menu.className = "lang-menu";

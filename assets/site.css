@@ -97,7 +97,7 @@ strong{color:var(--text)}
     var(--grad);
 }
 /* Control My Mac home links in every language ("/", "/de", …); product pages keep their own mark */
-.brand[href="/"] .logo,.brand[href="/de"] .logo,.brand[href="/es"] .logo,.brand[href="/fr"] .logo,.brand[href="/it"] .logo,.brand[href="/ja"] .logo,.brand[href="/ko"] .logo,.brand[href="/nl"] .logo,.brand[href="/pl"] .logo,.brand[href="/pt"] .logo,.brand[href="/ru"] .logo,.brand[href="/tr"] .logo,.brand[href="/zh"] .logo{
+.brand[href="/"] .logo,.brand[href="/de"] .logo,.brand[href="/es"] .logo,.brand[href="/fr"] .logo,.brand[href="/it"] .logo,.brand[href="/ja"] .logo,.brand[href="/ko"] .logo,.brand[href="/nl"] .logo,.brand[href="/pl"] .logo,.brand[href="/pt"] .logo,.brand[href="/ru"] .logo,.brand[href="/sl"] .logo,.brand[href="/tr"] .logo,.brand[href="/uk"] .logo,.brand[href="/zh"] .logo,.brand[href="/zh-hant"] .logo{
   background-image:url("/assets/control-my-mac-icon.png");
   background-size:cover;
   background-position:center;
@@ -269,6 +269,10 @@ strong{color:var(--text)}
   .eyebrow:lang(ru) .eb-sep,.eyebrow:lang(pt) .eb-sep{display:none}
   .eyebrow:lang(ru) .eb-free,.eyebrow:lang(pt) .eb-free{display:block}
 }
+/* uk and sl: row 2 needs three lines on a phone anyway, so "Free Mac app" always takes its own line
+   (otherwise the last line starts with an orphaned "Mac ·"). */
+.eyebrow:lang(uk) .eb-sep,.eyebrow:lang(sl) .eb-sep{display:none}
+.eyebrow:lang(uk) .eb-free,.eyebrow:lang(sl) .eb-free{display:block}
 @media(max-width:430px){
   .eyebrow{gap:6px;margin-bottom:22px}
   .eb-kicker{font-size:13px;gap:10px}
