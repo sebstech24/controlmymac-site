@@ -322,7 +322,7 @@ def bullets(items, indent="        "):
 
 
 def build_og():
-    """1200 × 630 share image cut from the three-iPhones art (Grid first, unlike the site-wide og-v2.png)."""
+    """1200 × 630 share image cut from the three-iPhones art (the site-wide share image is /assets/og-v3.jpg)."""
     im = Image.open(os.path.join(PRESS, "control-my-mac-grid-three-iphones.png")).convert("RGB")
     w, h = im.size
     crop_h = round(w * 630 / 1200)
