@@ -11,7 +11,8 @@ Before a rebuild, re-check the facts below (versions, prices, languages) and upd
 The header is copied from compare.html so the page matches the current site chrome. Like the other English guides,
 the page has NO i18n.js (its auto-redirect would send other languages to 404s).
 
-Still waiting on Sebastian (leave out until he answers, no placeholders): founder quotes, founder photo.
+The five founder quotes are used word for word (Sebastian, 4 Oct 2026: "i want them all as they are").
+The founder photo is his Sebs_Tech avatar (assets/press/sebastian-skoic-sebs-tech.jpg).
 """
 import html, io, json, os, re, zipfile
 
@@ -64,6 +65,22 @@ DESCRIPTIONS = [  # (id, heading, text)
 BIO = ("Sebastian Škoić is a solo app developer from Slovenia and the tech creator behind Sebs_Tech, with more than 30,000 "
        "followers across TikTok, Instagram and YouTube. He designed, built and ships Control My Mac on his own: the iPhone "
        "and iPad app, the Mac app and the website.")
+
+PHOTO = "sebastian-skoic-sebs-tech"                      # .jpg in assets/press, his Sebs_Tech avatar, 1080 × 1080
+PHOTO_ALT = "Sebastian Škoić, the maker of Control My Mac: a headshot against a green and blue background"
+QUOTES = [  # (id, label, quote) approved as written, do not reword
+    ("quote-grid", "On the Grid", "Your Mac has hundreds of keyboard shortcuts and a lot of them need two hands. I wanted "
+     "each one to be a single tap on the phone that's already next to you, and I wanted the buttons to change by "
+     "themselves when I switch apps."),
+    ("quote-editing", "On editing", "When Premiere is in front, my phone shows my editing shortcuts. When I jump to "
+     "Safari, it shows tab controls. I don't touch anything, it just follows me."),
+    ("quote-privacy", "On privacy", "It's your phone and your Mac talking to each other, and that's it. No account, no "
+     "servers, nothing to sign up for. That's how I'd want a remote for my own computer to work."),
+    ("quote-one-hand", "On one-handed use", "If a shortcut needs two hands, that's a problem for a lot of people. On the "
+     "Grid it's one tap with one finger."),
+    ("quote-solo", "On building it alone", "I'm one person in Slovenia. Every button in the app is something I use "
+     "myself."),
+]
 
 FACTS = [  # (label, html)
     ("What it is", "An iPhone and iPad app (the remote) and a free Mac menu bar app (the receiver it pairs with)."),
@@ -259,9 +276,10 @@ COVERAGE = [  # (source and date, link text, url, lang)
     ("Product Hunt · 4 October 2026", "Featured on Product Hunt",
      "https://www.producthunt.com/products/control-my-mac", None),
 ]
-TRADEMARKS = ("Stream Deck is a trademark of Corsair Memory, Inc. iPhone, iPad, Mac, macOS and App Store are trademarks "
-              "of Apple Inc. Other product names, including the app names shown in the screenshots, belong to their "
-              "owners. Control My Mac is not affiliated with or endorsed by any of them.")
+TRADEMARKS = ("Stream Deck is a trademark of Corsair Memory, Inc. Premiere is a trademark of Adobe. iPhone, iPad, Mac, "
+              "macOS, Safari and App Store are trademarks of Apple Inc. Other product names, including the app names "
+              "shown in the screenshots, belong to their owners. Control My Mac is not affiliated with or endorsed by "
+              "any of them.")
 
 e = html.escape
 
@@ -325,15 +343,16 @@ def facts_text():
     for _, heading, text in DESCRIPTIONS[1:]:
         lines += [f"{heading} ({words(text)} words):", text, ""]
     lines += ["NOTE", "App grids and Auto-Switch are part of the paid Full App. The free Essentials plan includes one "
-              "Grid button.", "", "ABOUT THE MAKER", BIO, "", "LINKS", f"Website: {SITE}", f"Press page: {URL}",
+              "Grid button.", "", "ABOUT THE MAKER", BIO, "", "QUOTES (Sebastian Škoić, maker of Control My Mac)",
+              *[f'{label}: "{quote}"' for _, label, quote in QUOTES], "", "LINKS", f"Website: {SITE}", f"Press page: {URL}",
               f"App Store: {APP_STORE}", f"Mac app: {SITE}/download",
               f"Demo video: https://www.youtube.com/watch?v={YOUTUBE_ID}", f"Privacy policy: {SITE}/privacy"]
     lines += [f"{name}: {url}" for name, url in SOCIAL]
     lines += ["", "PRESS CONTACT", f"Sebastian Škoić, {EMAIL}", "", "USING THE FILES",
-              "You may use the images, the app icon and the demo video in coverage of Control My Mac. Please don't "
+              "You may use the images, the photo, the app icon and the demo video in coverage of Control My Mac. Please don't "
               "recolor, crop, stretch or add effects to the icon. Write the name as Control My Mac, three words.", "",
               "IN THIS FOLDER", "icon/    the app icon, square (1024 × 1024) and rounded with transparent corners (512 × 512)",
-              "images/  eight press images (PNG)", "", TRADEMARKS, ""]
+              "images/  eight press images (PNG)", "photo/   Sebastian Škoić (JPG, 1080 × 1080)", "", TRADEMARKS, ""]
     return "\n".join(lines)
 
 
@@ -351,6 +370,7 @@ def build_zip():
             add(f"icon/{stem}.png", open(os.path.join(PRESS, stem + ".png"), "rb").read(), zipfile.ZIP_STORED)
         for stem, *_ in IMAGES_WIDE + IMAGES_TALL:
             add(f"images/{stem}.png", open(os.path.join(PRESS, stem + ".png"), "rb").read(), zipfile.ZIP_STORED)
+        add(f"photo/{PHOTO}.jpg", open(os.path.join(PRESS, PHOTO + ".jpg"), "rb").read(), zipfile.ZIP_STORED)
     data = buf.getvalue()
     if not os.path.exists(path) or open(path, "rb").read() != data:
         open(path, "wb").write(data)
@@ -362,6 +382,7 @@ def json_ld():
     person = {"@context": "https://schema.org", "@type": "Person", "@id": URL + "#sebastian", "name": "Sebastian Škoić",
               "alternateName": ["Sebs_Tech", "Sebastian Skoic"], "jobTitle": "App developer and tech creator",
               "description": BIO, "email": EMAIL, "url": URL,
+              "image": SITE + "/assets/press/" + PHOTO + ".jpg",
               "address": {"@type": "PostalAddress", "addressCountry": "SI"},
               "sameAs": [u for _, u in SOCIAL] + ["https://linktr.ee/sebs_tech"]}
     app = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Control My Mac",
@@ -422,6 +443,18 @@ def build_page(zip_mb):
         f'        <li><span class="pk-src">{e(src)}</span><a href="{url}" rel="noopener"'
         + (f' hreflang="{lang}" lang="{lang}"' if lang else "") + f'>{e(text)}</a></li>'
         for src, text, url, lang in COVERAGE)
+    photo = Image.open(os.path.join(PRESS, PHOTO + ".jpg"))
+    photo_w, photo_h = photo.size
+    photo_kb = round(os.path.getsize(os.path.join(PRESS, PHOTO + ".jpg")) / 1000)
+    photo.convert("RGB").resize((400, 400), Image.LANCZOS).save(
+        os.path.join(PRESS, "thumbs", PHOTO + ".webp"), quality=84, method=6)
+    quotes = "\n".join(
+        f'        <figure class="card pk-copy pk-quote">\n'
+        f'          <figcaption class="pk-copy-head"><h3>{e(label)}</h3></figcaption>\n'
+        f'          <blockquote class="pk-copy-text" id="{qid}">“{e(quote)}”</blockquote>\n'
+        f'          <button class="btn btn-quiet btn-small pk-copy-btn" type="button" data-copy="{qid}" '
+        f'aria-label="Copy the quote: {e(label)}">Copy</button>\n'
+        f'        </figure>' for qid, label, quote in QUOTES)
     social = " ".join(f'<a class="btn btn-quiet btn-small" href="{url}" rel="me noopener">{name}</a>' for name, url in SOCIAL)
     og_image = SITE + "/assets/press/og-press.jpg"
     og_alt = "Three iPhones showing Control My Mac shortcut Grids for different Mac apps"
@@ -550,11 +583,19 @@ def build_page(zip_mb):
   <section id="maker">
     <div class="wrap">
       <h2 class="h2">About the maker</h2>
-      <div class="prose">
-        <p>{e(BIO)}</p>
-        <p>Contact: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-        <div class="pk-links">{social}</div>
+      <div class="pk-maker">
+        <a class="pk-photo" href="/assets/press/{PHOTO}.jpg"><img src="/assets/press/thumbs/{PHOTO}.webp" loading="lazy" decoding="async" width="400" height="400" alt="{e(PHOTO_ALT)}"></a>
+        <div class="prose">
+          <p>{e(BIO)}</p>
+          <p>Contact: <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="/assets/press/{PHOTO}.jpg" download>Photo: JPG, {photo_w} × {photo_h}, {photo_kb} KB</a></p>
+          <div class="pk-links">{social}</div>
+        </div>
       </div>
+      <h3 class="pk-sub">In his words</h3>
+      <div class="pk-quotes">
+{quotes}
+      </div>
+      <p class="cmp-note">Quotes by Sebastian Škoić, maker of Control My Mac. You may use them and the photo in coverage of Control My Mac.</p>
     </div>
   </section>
 

@@ -46,6 +46,23 @@
 .pk-icon img.pk-square{border-radius:22.5%}
 .pk-icon p{font-size:14px}
 
+/* About the maker: photo, bio, quotes */
+.pk-maker{display:flex;align-items:center;gap:var(--sp-2xl);max-width:860px;margin:0 auto}
+.pk-maker .prose{margin:0;flex:1}
+.pk-photo{flex:none;display:block;border-radius:50%}
+.pk-photo img{width:184px;height:184px;border-radius:50%;border:1px solid var(--line);box-shadow:var(--shadow-float)}
+.pk-sub{font-size:18px;letter-spacing:-.01em;text-align:center;margin:var(--sp-3xl) 0 var(--sp-l)}
+.pk-quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-l)}
+.pk-quote{margin:0}
+.pk-quote:first-child{grid-column:1 / -1}
+.pk-quote blockquote.pk-copy-text{font-size:16.5px}
+@media(max-width:760px){
+  .pk-maker{flex-direction:column;text-align:center;gap:var(--sp-xl)}
+  .pk-maker .pk-links{justify-content:center}
+  .pk-photo img{width:148px;height:148px}
+  .pk-quotes{grid-template-columns:1fr}
+}
+
 /* Essentials and Full App table */
 .pk-plans{max-width:860px;margin:var(--sp-l) auto 0}
 .pk-plans .cmp td{width:50%}
