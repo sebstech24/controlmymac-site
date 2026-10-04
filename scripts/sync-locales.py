@@ -8,6 +8,8 @@ Run from the repository root after adding a language folder (or any time, it is 
 
 What it rewrites, for every page that exists:
   * the footer language list (<nav class="flangs">) on every localized page, in every language;
+  * the hreflang <link> tags in the <head> of every localized page (right after the canonical link), the same
+    set the sitemap carries;
   * sitemap.xml: one <url> per localized page, each with the full set of hreflang alternates;
   * the logo selector list in assets/site.css (.brand[href="/xx"] .logo).
 
@@ -51,6 +53,8 @@ NAV_RE = re.compile(r'<nav class="flangs" aria-label="([^"]*)">.*?</nav>', re.S)
 URL_RE = re.compile(r"  <url>\n.*?  </url>\n", re.S)
 LOC_RE = re.compile(r"<loc>([^<]+)</loc>")
 LASTMOD_RE = re.compile(r"<lastmod>([^<]+)</lastmod>")
+# The canonical link, plus any hreflang links already sitting right after it.
+CANONICAL_RE = re.compile(r'(<link rel="canonical" href="[^"]*">\n)((?:<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n)*)')
 
 
 def page_file(code, page):
@@ -88,6 +92,37 @@ def sync_navs(check):
                 print(f"  no language list in {os.path.relpath(path, ROOT)}")
                 continue
             new = html[: match.start()] + nav_html(match.group(1), code, page) + html[match.end():]
+            if new != html:
+                changed.append(os.path.relpath(path, ROOT))
+                if not check:
+                    open(path, "w", encoding="utf-8").write(new)
+    return changed
+
+
+def hreflang_html(page):
+    lines = []
+    for alt_code, lang, extra, _name in LOCALES:
+        if not os.path.exists(page_file(alt_code, page)):
+            continue
+        for value in [lang] + extra:
+            lines.append(f'<link rel="alternate" hreflang="{value}" href="{SITE}{page_path(alt_code, page)}">')
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="{SITE}{page_path("en", page)}">')
+    return "\n".join(lines) + "\n"
+
+
+def sync_hreflang(check):
+    changed = []
+    for code, _lang, _extra, _name in LOCALES:
+        for page in PAGES:
+            path = page_file(code, page)
+            if not os.path.exists(path):
+                continue
+            html = open(path, encoding="utf-8").read()
+            match = CANONICAL_RE.search(html)
+            if not match:
+                print(f"  no canonical link in {os.path.relpath(path, ROOT)}")
+                continue
+            new = html[: match.end(1)] + hreflang_html(page) + html[match.end():]
             if new != html:
                 changed.append(os.path.relpath(path, ROOT))
                 if not check:
@@ -144,10 +179,12 @@ def sync_css(check):
 def main():
     check = "--check" in sys.argv
     navs = sync_navs(check)
+    hreflangs = sync_hreflang(check)
     sitemap_changed, urls = sync_sitemap(check)
     css_changed = sync_css(check)
     verb = "would change" if check else "changed"
     print(f"language lists {verb}: {len(navs)} pages")
+    print(f"hreflang tags {verb}: {len(hreflangs)} pages")
     print(f"sitemap.xml {verb}: {sitemap_changed} ({urls} URLs)")
     print(f"assets/site.css {verb}: {css_changed}")
 

@@ -86,14 +86,14 @@ def page(p):
 <meta property="og:description" content="{e(p["desc"])}">
 <meta property="og:url" content="{url}">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="{SITE}/assets/og-v2.png">
+<meta property="og:image" content="{SITE}/assets/og-v3.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Control My Mac: your iPhone or iPad as a mouse, trackpad and keyboard for your Mac">
+<meta property="og:image:alt" content="Control My Mac: a shortcut deck for every Mac app, shown on two iPhones">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(p["og"])}">
 <meta name="twitter:description" content="{e(p["desc"])}">
-<meta name="twitter:image" content="{SITE}/assets/og-v2.png">
+<meta name="twitter:image" content="{SITE}/assets/og-v3.jpg">
 <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="/assets/control-my-mac-icon.png">

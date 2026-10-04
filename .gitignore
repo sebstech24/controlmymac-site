@@ -1,6 +1,7 @@
 .DS_Store
 *.dmg
 *.zip
+!assets/press/*.zip
 *.xcarchive
 DerivedData/
 build/
