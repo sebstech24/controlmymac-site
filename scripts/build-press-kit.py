@@ -193,7 +193,7 @@ PRIVACY = [
      "and only used to learn a shortcut from the Mac keyboard: it listens only while you're recording and saves just "
      "the combination you pressed."),
     ("iPhone and iPad permissions.", "Camera, only to scan the pairing QR code. Local Network, only to find the Mac."),
-    ("The website is separate from the apps.", "It counts visits in aggregate and has an optional email list. The demo "
+    ("The website is separate from the apps.", "It counts visits in aggregate and has optional email sign-ups. The demo "
      'video is hosted on YouTube and loads only when you press play. Details are in the <a href="/privacy">privacy '
      "policy</a>."),
 ]
@@ -223,7 +223,7 @@ FAQ = [  # (question, answer html)
     ("What data does it collect?",
      "None from the apps. The App Store privacy label is Data Not Collected. There is no account, no analytics and no "
      "ads in the apps, and the connection between the two devices is encrypted. The website is separate: it counts "
-     'visits in aggregate and has an optional email list, both described in the <a href="/privacy">privacy policy</a>.'),
+     'visits in aggregate and has optional email sign-ups, all described in the <a href="/privacy">privacy policy</a>.'),
     ("Which Mac, iPhone or iPad do I need?",
      "A Mac with macOS 14 or later and Apple silicon. Intel Macs can use Mac app version 1.2.3, the last Intel version. "
      "The iPhone or iPad needs iOS or iPadOS 18 or later."),
@@ -266,7 +266,8 @@ FAQ = [  # (question, answer html)
     ("Which languages does it speak?",
      f"{len(LANGUAGES)}: {LANG_LIST}. The website is in the same {len(LANGUAGES)} languages."),
     ("Does it work with Windows or Android?",
-     "Not today. It is for Mac, iPhone and iPad only."),
+     "Not today. It is for Mac, iPhone and iPad only. Windows and Android versions are on the way, and the "
+     '<a href="/#platforms">homepage has a waiting list</a> for them.'),
     ("Who is behind it?",
      "Sebastian Škoić, a solo developer in Slovenia, also known as the tech creator Sebs_Tech."),
 ]
