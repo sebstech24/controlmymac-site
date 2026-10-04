@@ -906,3 +906,4 @@ html { scroll-padding-top: 84px; }
   .home-shots{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78%;gap:var(--sp-l);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding-bottom:var(--sp-s)}
   .home-shots img{scroll-snap-align:center}
 }
+.hero-ph{display:flex;justify-content:center;margin-top:14px}.hero-ph img{display:block;width:200px;height:43px}
