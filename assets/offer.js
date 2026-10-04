@@ -557,6 +557,7 @@
   var pageLang = (document.documentElement.lang || "en").toLowerCase();
   var locale = LANG_MAP[pageLang] || pageLang.split("-")[0];
   var t = COPY[locale] || COPY.en;
+  window.cmmOfferCopy = t; // shared form words, reused by assets/waitlist.js
   // English lives at the site root, every other language under /<locale>/.
   var privacyHref = COPY[locale] && locale !== "en" ? "/" + locale + "/privacy" : "/privacy";
 

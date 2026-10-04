@@ -382,4 +382,89 @@
       });
     })(boxes[i]);
   }
+
+  // Feature rail: a side-scrolling row of slides. Native scroll + snap does the
+  // moving; this only wires the buttons, marks the slide in view (its animation
+  // plays, the others rest) and lets a mouse drag the row.
+  var rails = document.querySelectorAll("[data-rail]");
+  for (var r = 0; r < rails.length; r++) {
+    (function (rail) {
+      var track = rail.querySelector(".rail-track");
+      var slides = rail.querySelectorAll(".slide");
+      var dots = rail.querySelectorAll("[data-rail-to]");
+      var prev = rail.querySelector("[data-rail-prev]");
+      var next = rail.querySelector("[data-rail-next]");
+      if (!track || !slides.length || !("IntersectionObserver" in window)) { return; }
+      var active = 0;
+      var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      rail.classList.add("rail-js");
+
+      function mark(index) {
+        active = index;
+        for (var s = 0; s < slides.length; s++) {
+          slides[s].classList.toggle("is-active", s === index);
+          if (dots[s]) { dots[s].setAttribute("aria-current", s === index ? "true" : "false"); }
+        }
+        if (prev) { prev.disabled = index === 0; }
+        if (next) { next.disabled = index === slides.length - 1; }
+      }
+      function go(index) {
+        index = Math.max(0, Math.min(slides.length - 1, index));
+        var slide = slides[index];
+        track.scrollTo({
+          left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2,
+          behavior: calm ? "auto" : "smooth"
+        });
+      }
+      mark(0);
+
+      var seen = new IntersectionObserver(function (entries) {
+        for (var e = 0; e < entries.length; e++) {
+          if (entries[e].isIntersecting) {
+            mark(Array.prototype.indexOf.call(slides, entries[e].target));
+          }
+        }
+      }, { root: track, threshold: 0.6 });
+      for (var s = 0; s < slides.length; s++) { seen.observe(slides[s]); }
+
+      if (prev) { prev.addEventListener("click", function () { go(active - 1); }); }
+      if (next) { next.addEventListener("click", function () { go(active + 1); }); }
+      for (var d2 = 0; d2 < dots.length; d2++) {
+        (function (index) {
+          dots[index].addEventListener("click", function () { go(index); });
+        })(d2);
+      }
+      track.addEventListener("keydown", function (e) {
+        var back = getComputedStyle(track).direction === "rtl" ? "ArrowRight" : "ArrowLeft";
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          go(active + (e.key === back ? -1 : 1));
+        }
+      });
+
+      // Mouse drag (touch and trackpads already scroll natively).
+      var dragX = null, dragLeft = 0, moved = false;
+      track.addEventListener("pointerdown", function (e) {
+        if (e.pointerType !== "mouse" || e.button !== 0) { return; }
+        dragX = e.clientX; dragLeft = track.scrollLeft; moved = false;
+      });
+      window.addEventListener("pointermove", function (e) {
+        if (dragX === null) { return; }
+        var dx = e.clientX - dragX;
+        if (!moved && Math.abs(dx) < 6) { return; }
+        moved = true;
+        track.classList.add("is-dragging");
+        track.scrollLeft = dragLeft - dx;
+      });
+      window.addEventListener("pointerup", function (e) {
+        if (dragX === null) { return; }
+        var dx = e.clientX - dragX;
+        dragX = null;
+        if (!moved) { return; }
+        track.classList.remove("is-dragging");
+        go(active);
+      });
+      track.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    })(rails[r]);
+  }
 })();

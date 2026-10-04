@@ -435,3 +435,19 @@ begin
     v_request.attempts;
 end;
 $$;
+
+-- Windows and Android waiting list (Oct 2026). Separate from code_requests on purpose:
+-- joining it does not subscribe anyone to Sebastian Apps emails.
+create table if not exists platform_waitlist (
+  id uuid primary key default gen_random_uuid(),
+  email_hash text not null unique,
+  email_ciphertext text not null,
+  locale text not null default 'en',
+  wants_windows boolean not null default false,
+  wants_android boolean not null default false,
+  consent_text_version text not null,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  notified_windows_at timestamptz,
+  notified_android_at timestamptz
+);

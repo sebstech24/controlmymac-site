@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""Windows and Android waiting list: adds the homepage section, the footer link and the
+privacy-policy section in all 16 languages. Words live in scripts/waitlist-i18n.json.
+Run from the repo root. Safe to run again (it replaces its own blocks)."""
+import html
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+COPY = json.loads((ROOT / "scripts" / "waitlist-i18n.json").read_text(encoding="utf-8"))
+FORM_KEYS = ["pick", "consent", "submit", "done", "fine", "errPick", "errConsent", "errUnavailable"]
+
+for code, words in COPY.items():
+    folder = "" if code == "en" else code
+    esc = lambda key: html.escape(words[key], quote=False)
+
+    # ---------- homepage ----------
+    path = ROOT / folder / "index.html"
+    src = path.read_text(encoding="utf-8")
+    src = re.sub(r'  <section id="platforms".*?  </section>\n\n', "", src, flags=re.S)
+    payload = json.dumps({k: words[k] for k in FORM_KEYS}, ensure_ascii=False).replace("</", "<\\/")
+    section = (
+        '  <section id="platforms" class="band" hidden data-waitlist>\n'
+        '    <div class="wrap">\n'
+        f'      <h2 class="h2">{esc("heading")}</h2>\n'
+        f'      <p class="lead">{esc("lead")}</p>\n'
+        '      <div class="wl" data-waitlist-form></div>\n'
+        f'      <script type="application/json" data-waitlist-copy>{payload}</script>\n'
+        '    </div>\n'
+        '  </section>\n\n'
+    )
+    marker = '  <section id="pricing">'
+    assert src.count(marker) == 1, code
+    src = src.replace(marker, section + marker)
+
+    src = re.sub(r'\n        <a href="#platforms" data-waitlist-link hidden>.*?</a>', "", src)
+    link = re.search(r'\n        <a href="[^"]*/privacy">', src)
+    assert link, code
+    src = src[:link.start()] + f'\n        <a href="#platforms" data-waitlist-link hidden>{esc("footer")}</a>' + src[link.start():]
+
+    if "/assets/waitlist.js" not in src:
+        tag = '<script src="/assets/offer.js" defer></script>\n'
+        assert tag in src, code
+        src = src.replace(tag, tag + '<script src="/assets/waitlist.js" defer></script>\n')
+    path.write_text(src, encoding="utf-8")
+
+    # ---------- privacy page ----------
+    path = ROOT / folder / "privacy.html"
+    src = path.read_text(encoding="utf-8")
+    src = re.sub(r'    <h2 id="waiting-list">.*?</p>\n\n', "", src, flags=re.S)
+    heads = [m.start() for m in re.finditer(r"    <h2", src)]
+    assert len(heads) == 11, (code, len(heads))
+    block = f'    <h2 id="waiting-list">{esc("privacyHeading")}</h2>\n    <p>{esc("privacyText")}</p>\n\n'
+    block = block.replace("support@controlmymac.com", '<a href="mailto:support@controlmymac.com">support@controlmymac.com</a>')
+    src = src[:heads[3]] + block + src[heads[3]:]
+    path.write_text(src, encoding="utf-8")
+    print("ok", code)

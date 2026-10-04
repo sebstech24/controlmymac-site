@@ -298,3 +298,23 @@ export async function markPushFailed(tokenHash, error, disable = false) {
     where token_hash = ${tokenHash}
   `;
 }
+
+/** Adds an address to the Windows/Android waiting list, or adds platforms to its existing row. */
+export async function joinPlatformWaitlist(input) {
+  const sql = getDatabase();
+  const rows = await sql`
+    insert into platform_waitlist
+      (email_hash, email_ciphertext, locale, wants_windows, wants_android, consent_text_version)
+    values
+      (${input.emailHash}, ${input.emailCiphertext}, ${input.locale}, ${input.windows}, ${input.android}, ${input.consentVersion})
+    on conflict (email_hash) do update set
+      email_ciphertext = excluded.email_ciphertext,
+      locale = excluded.locale,
+      wants_windows = platform_waitlist.wants_windows or excluded.wants_windows,
+      wants_android = platform_waitlist.wants_android or excluded.wants_android,
+      consent_text_version = excluded.consent_text_version,
+      updated_at = now()
+    returning id
+  `;
+  return rows[0] || null;
+}
