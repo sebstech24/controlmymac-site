@@ -1,4 +1,9 @@
-import { consumeRateLimit, joinPlatformWaitlist } from "./_lib/database.js";
+import { sendWaitlistEmail, subscribeContact } from "./_lib/brevo.js";
+import {
+  consumeRateLimit,
+  joinPlatformWaitlist,
+  markWaitlistConfirmationSent,
+} from "./_lib/database.js";
 import {
   canonicalEmail,
   clientIp,
@@ -12,12 +17,17 @@ import {
 import { verifyTurnstile } from "./_lib/turnstile.js";
 
 // Windows and Android waiting list. Stores the address for one release announcement per
-// platform; it never touches the Sebastian Apps mailing list or the free-month codes.
-const CONSENT_VERSION = "platform-waitlist-v1-2026-10-05";
+// platform and sends one confirmation email, so the person can check the address works and
+// rescue it from spam. Pressing the button is the consent (the form says so); the optional
+// news box also adds the address to the Sebastian Apps mailing list. Free-month codes are
+// never touched.
+const CONSENT_VERSION = "platform-waitlist-v2-2026-10-05";
 const JOINS_PER_IP = 10;
 const JOIN_WINDOW_SECONDS = 24 * 60 * 60;
 const REQUIRED_ENV = [
   "DATABASE_URL",
+  "BREVO_API_KEY",
+  "BREVO_SENDER_EMAIL",
   "EMAIL_HASH_SECRET",
   "CODE_ENCRYPTION_KEY",
   "TURNSTILE_SITE_KEY",
@@ -72,14 +82,12 @@ export async function POST(request) {
   const email = normalizeEmail(body.email);
   const windows = body.windows === true;
   const android = body.android === true;
+  const news = body.news === true;
   if (!isValidEmail(email)) {
     return failure(400, "errEmail", "Please enter a valid email address.");
   }
   if (!windows && !android) {
     return failure(400, "errPick", "Pick Windows, Android or both.");
-  }
-  if (body.consent !== true) {
-    return failure(400, "errConsent", "Please tick the box to join the list.");
   }
 
   const ip = clientIp(request.headers);
@@ -100,13 +108,39 @@ export async function POST(request) {
     return failure(429, "errRate", "Too many attempts. Please try again later.");
   }
 
-  await joinPlatformWaitlist({
+  const locale = normalizeLocale(body.locale);
+  const row = await joinPlatformWaitlist({
     emailHash,
     emailCiphertext: encrypt(email, process.env.CODE_ENCRYPTION_KEY),
-    locale: normalizeLocale(body.locale),
+    locale,
     windows,
     android,
+    news,
     consentVersion: CONSENT_VERSION,
   });
+
+  try {
+    await sendWaitlistEmail({
+      email,
+      locale,
+      windows: row?.wants_windows ?? windows,
+      android: row?.wants_android ?? android,
+      news,
+    });
+  } catch {
+    return failure(502, "errGeneric", "We could not send the confirmation email. Please check the address and try again.");
+  }
+
+  // The news box is optional: a mailing-list hiccup must not undo the sign-up.
+  let subscribed = false;
+  if (news && process.env.BREVO_MARKETING_LIST_ID) {
+    try {
+      await subscribeContact({ email, locale });
+      subscribed = true;
+    } catch {
+      subscribed = false;
+    }
+  }
+  if (row?.id) await markWaitlistConfirmationSent(row.id, subscribed);
   return json({ ok: true });
 }

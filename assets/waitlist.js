@@ -71,17 +71,11 @@
     picks.appendChild(windows.wrap);
     picks.appendChild(android.wrap);
 
-    var consentBox = el("div", "offer-consent");
-    var consent = check("offer-check", t("consent"), "consent");
-    var req = el("span", "offer-required", t("required"));
-    consent.wrap.lastChild.appendChild(document.createTextNode(" "));
-    consent.wrap.lastChild.appendChild(req);
-    consentBox.appendChild(consent.wrap);
-    var detail = el("p", "offer-detail", t("fine") + " " + t("privacyLead") + " ");
+    var news = check("offer-check wl-news", t("news"), "news");
+    var consentBox = el("p", "offer-detail wl-terms", t("consent") + " " + t("privacyLead") + " ");
     var privacy = el("a", "", t("privacyLink"));
     privacy.href = privacyHref;
-    detail.appendChild(privacy);
-    consentBox.appendChild(detail);
+    consentBox.appendChild(privacy);
 
     var honeypot = document.createElement("input");
     honeypot.className = "offer-hp";
@@ -98,7 +92,7 @@
     var submit = el("button", "btn btn-primary offer-submit", t("submit"));
     submit.type = "submit";
 
-    [label, email, picks, consentBox, honeypot, guard, message, submit].forEach(function (n) { form.appendChild(n); });
+    [label, email, picks, news.wrap, honeypot, guard, message, submit, consentBox].forEach(function (n) { form.appendChild(n); });
     box.appendChild(form);
 
     function say(text) { message.textContent = text; message.hidden = !text; }
@@ -131,15 +125,30 @@
       var address = email.value.trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address)) { say(t("errEmail")); email.focus(); return; }
       if (!windows.input.checked && !android.input.checked) { say(t("errPick")); windows.input.focus(); return; }
-      if (!consent.input.checked) { say(t("errConsent")); consent.input.focus(); return; }
       if (state.turnstileSiteKey && !token) { say(t("errWait")); return; }
       say("");
       submit.disabled = true;
       submit.textContent = t("sending");
 
       function done() {
-        var thanks = el("p", "wl-done", t("done"));
+        var thanks = el("div", "wl-done");
         thanks.setAttribute("role", "status");
+        var parts = t("done").split("{email}");
+        var line = el("p", "wl-done-main", parts[0]);
+        line.appendChild(el("strong", "", address));
+        line.appendChild(document.createTextNode(parts[1] || ""));
+        thanks.appendChild(line);
+        var typo = el("p", "wl-done-typo", t("doneTypo") + " ");
+        var again = el("button", "wl-again", t("again"));
+        again.type = "button";
+        again.addEventListener("click", function () {
+          box.replaceChildren();
+          mount(state);
+          var field = box.querySelector("input[type=email]");
+          if (field) { field.focus(); }
+        });
+        typo.appendChild(again);
+        thanks.appendChild(typo);
         box.replaceChildren(thanks);
       }
       if (localPreview) { window.setTimeout(done, 400); return; }
@@ -151,7 +160,7 @@
           locale: locale,
           windows: windows.input.checked,
           android: android.input.checked,
-          consent: true,
+          news: news.input.checked,
           turnstileToken: token,
           website: honeypot.value
         })

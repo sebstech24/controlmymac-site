@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { renderCodeEmail } from "./email-content.js";
+import { renderWaitlistEmail } from "./waitlist-email.js";
 
 function deterministicIdempotencyKey(seed) {
   const value = createHash("sha256").update(seed).digest("hex").slice(0, 32).split("");
@@ -86,4 +87,29 @@ export async function unsubscribeContact(email) {
   return brevoRequest(`/contacts/lists/${listId}/contacts/remove`, {
     emails: [email],
   });
+}
+
+/** The "you're on the list" email for the Windows/Android waiting list. */
+export async function sendWaitlistEmail(input) {
+  const content = renderWaitlistEmail(input);
+  const headers = {};
+  if (process.env.BREVO_SANDBOX_MODE === "true") {
+    headers["X-Sib-Sandbox"] = "drop";
+  }
+  const response = await brevoRequest("/smtp/email", {
+    sender: {
+      email: process.env.BREVO_SENDER_EMAIL,
+      name: process.env.BREVO_SENDER_NAME || "Sebastian from Control My Mac",
+    },
+    replyTo: process.env.BREVO_REPLY_TO
+      ? { email: process.env.BREVO_REPLY_TO, name: "Sebastian" }
+      : undefined,
+    to: [{ email: input.email }],
+    subject: content.subject,
+    htmlContent: content.html,
+    textContent: content.text,
+    headers: Object.keys(headers).length ? headers : undefined,
+    tags: ["control-my-mac", "platform-waitlist"],
+  });
+  return response.messageId || "accepted";
 }

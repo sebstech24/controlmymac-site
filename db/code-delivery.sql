@@ -451,3 +451,6 @@ create table if not exists platform_waitlist (
   notified_windows_at timestamptz,
   notified_android_at timestamptz
 );
+alter table platform_waitlist add column if not exists news_opt_in boolean not null default false;
+alter table platform_waitlist add column if not exists news_subscribed_at timestamptz;
+alter table platform_waitlist add column if not exists confirmation_sent_at timestamptz;

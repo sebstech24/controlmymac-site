@@ -304,17 +304,28 @@ export async function joinPlatformWaitlist(input) {
   const sql = getDatabase();
   const rows = await sql`
     insert into platform_waitlist
-      (email_hash, email_ciphertext, locale, wants_windows, wants_android, consent_text_version)
+      (email_hash, email_ciphertext, locale, wants_windows, wants_android, news_opt_in, consent_text_version)
     values
-      (${input.emailHash}, ${input.emailCiphertext}, ${input.locale}, ${input.windows}, ${input.android}, ${input.consentVersion})
+      (${input.emailHash}, ${input.emailCiphertext}, ${input.locale}, ${input.windows}, ${input.android}, ${input.news}, ${input.consentVersion})
     on conflict (email_hash) do update set
       email_ciphertext = excluded.email_ciphertext,
       locale = excluded.locale,
       wants_windows = platform_waitlist.wants_windows or excluded.wants_windows,
       wants_android = platform_waitlist.wants_android or excluded.wants_android,
+      news_opt_in = platform_waitlist.news_opt_in or excluded.news_opt_in,
       consent_text_version = excluded.consent_text_version,
       updated_at = now()
-    returning id
+    returning id, wants_windows, wants_android
   `;
   return rows[0] || null;
+}
+
+export async function markWaitlistConfirmationSent(id, newsSubscribed) {
+  const sql = getDatabase();
+  await sql`
+    update platform_waitlist
+    set confirmation_sent_at = now(),
+        news_subscribed_at = case when ${newsSubscribed} then coalesce(news_subscribed_at, now()) else news_subscribed_at end
+    where id = ${id}
+  `;
 }
