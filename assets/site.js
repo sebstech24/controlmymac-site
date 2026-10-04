@@ -360,3 +360,26 @@
 
   /* Newsletter signup intentionally disabled for now (hidden everywhere). */
 })();
+
+/* Homepage video: the YouTube player loads only after a press on the cover. */
+(function () {
+  var boxes = document.querySelectorAll(".hero-video[data-yt]");
+  for (var i = 0; i < boxes.length; i++) {
+    (function (box) {
+      var btn = box.querySelector(".hv-play");
+      if (!btn) { return; }
+      btn.addEventListener("click", function () {
+        var lang = (document.documentElement.lang || "en").toLowerCase();
+        var hl = lang.indexOf("zh-hant") === 0 ? "zh-TW" : (lang.indexOf("zh") === 0 ? "zh-CN" : lang);
+        var frame = document.createElement("iframe");
+        frame.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(box.getAttribute("data-yt")) +
+          "?autoplay=1&rel=0&playsinline=1&hl=" + encodeURIComponent(hl);
+        frame.title = btn.getAttribute("aria-label") || "Control My Mac";
+        frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        frame.allowFullscreen = true;
+        frame.referrerPolicy = "strict-origin-when-cross-origin";
+        box.replaceChildren(frame);
+      });
+    })(boxes[i]);
+  }
+})();
