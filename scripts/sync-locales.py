@@ -27,18 +27,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.controlmymac.com"
 
 # (folder / URL prefix, <html lang> and hreflang, extra hreflang values, name in its own language)
-# Order = the order every language list on the site shows (Sebastian, 5 Oct 2026): the six main languages
-# first, A-Z by their own name, then the rest A-Z (Latin names, then Greek, Cyrillic, Korean, Chinese).
+# Order = the order every language list on the site shows (Sebastian, 5 Oct 2026): English first, then every
+# other language A-Z by its own name (Latin names, then Greek, Cyrillic, Japanese, Korean, Chinese).
 # Keep assets/i18n.js and 404.html in the same order.
 LOCALES = [
-    ("de", "de", [], "Deutsch"),
     ("en", "en", [], "English"),
-    ("es", "es", [], "Español"),
-    ("fr", "fr", [], "Français"),
-    ("ja", "ja", [], "日本語"),
-    ("zh", "zh-Hans", [], "简体中文"),
     ("cs", "cs", [], "Čeština"),
     ("da", "da", [], "Dansk"),
+    ("de", "de", [], "Deutsch"),
+    ("es", "es", [], "Español"),
+    ("fr", "fr", [], "Français"),
     ("it", "it", [], "Italiano"),
     ("hu", "hu", [], "Magyar"),
     ("nl", "nl", [], "Nederlands"),
@@ -54,7 +52,9 @@ LOCALES = [
     ("el", "el", [], "Ελληνικά"),
     ("ru", "ru", [], "Русский"),
     ("uk", "uk", [], "Українська"),
+    ("ja", "ja", [], "日本語"),
     ("ko", "ko", [], "한국어"),
+    ("zh", "zh-Hans", [], "简体中文"),
     ("zh-hant", "zh-Hant", [], "繁體中文"),
 ]
 

@@ -7,16 +7,14 @@
   "use strict";
 
   // `short` is what the switcher button shows when the code is not a two-letter one.
-  // Same order as scripts/sync-locales.py: the six main languages first, then the rest, each A-Z.
+  // Same order as scripts/sync-locales.py: English first, then the rest A-Z by their own name.
   var LOCALES = [
-    { code: "de", name: "Deutsch", hreflang: "de" },
     { code: "en", name: "English", hreflang: "en" },
-    { code: "es", name: "Español", hreflang: "es" },
-    { code: "fr", name: "Français", hreflang: "fr" },
-    { code: "ja", name: "日本語", hreflang: "ja" },
-    { code: "zh", name: "简体中文", hreflang: "zh-Hans" },
     { code: "cs", name: "Čeština", hreflang: "cs" },
     { code: "da", name: "Dansk", hreflang: "da" },
+    { code: "de", name: "Deutsch", hreflang: "de" },
+    { code: "es", name: "Español", hreflang: "es" },
+    { code: "fr", name: "Français", hreflang: "fr" },
     { code: "it", name: "Italiano", hreflang: "it" },
     { code: "hu", name: "Magyar", hreflang: "hu" },
     { code: "nl", name: "Nederlands", hreflang: "nl" },
@@ -32,7 +30,9 @@
     { code: "el", name: "Ελληνικά", hreflang: "el" },
     { code: "ru", name: "Русский", hreflang: "ru" },
     { code: "uk", name: "Українська", hreflang: "uk" },
+    { code: "ja", name: "日本語", hreflang: "ja" },
     { code: "ko", name: "한국어", hreflang: "ko" },
+    { code: "zh", name: "简体中文", hreflang: "zh-Hans" },
     { code: "zh-hant", name: "繁體中文", hreflang: "zh-Hant", short: "繁體" }
   ];
   var CODES = LOCALES.map(function (l) { return l.code; });
