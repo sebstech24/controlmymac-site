@@ -8,6 +8,26 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.9</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Nine more languages:</strong> Czech, Slovak, Swedish, Norwegian, Danish, Finnish, Hungarian, Romanian and Greek.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 05 Oct 2026 20:36:00 +0000</pubDate>
+      <sparkle:version>15</sparkle:version>
+      <sparkle:shortVersionString>1.2.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.9/ControlMyMac-1.2.9.dmg"
+                 sparkle:version="15"
+                 sparkle:shortVersionString="1.2.9"
+                 length="3786811"
+                 type="application/octet-stream"
+                 sparkle:edSignature="Mp24g4MtlA22uRCs1ds+HLKee3Wtg7GjtLD8UeUoz32vPK59bk6ot82bLHnRfdp49jOBtiwADF8BODmWI2A3Dw==" />
+    </item>
+    <item>
       <title>Version 1.2.8</title>
       <description><![CDATA[
         <ul>
