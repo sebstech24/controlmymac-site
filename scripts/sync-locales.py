@@ -27,32 +27,35 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.controlmymac.com"
 
 # (folder / URL prefix, <html lang> and hreflang, extra hreflang values, name in its own language)
+# Order = the order every language list on the site shows (Sebastian, 5 Oct 2026): the six main languages
+# first, A-Z by their own name, then the rest A-Z (Latin names, then Greek, Cyrillic, Korean, Chinese).
+# Keep assets/i18n.js and 404.html in the same order.
 LOCALES = [
-    ("en", "en", [], "English"),
     ("de", "de", [], "Deutsch"),
+    ("en", "en", [], "English"),
     ("es", "es", [], "Español"),
     ("fr", "fr", [], "Français"),
-    ("it", "it", [], "Italiano"),
     ("ja", "ja", [], "日本語"),
-    ("ko", "ko", [], "한국어"),
+    ("zh", "zh-Hans", [], "简体中文"),
+    ("cs", "cs", [], "Čeština"),
+    ("da", "da", [], "Dansk"),
+    ("it", "it", [], "Italiano"),
+    ("hu", "hu", [], "Magyar"),
     ("nl", "nl", [], "Nederlands"),
+    ("no", "nb", ["no"], "Norsk"),
     ("pl", "pl", [], "Polski"),
     ("pt", "pt-BR", ["pt"], "Português"),
-    ("ru", "ru", [], "Русский"),
-    ("sl", "sl", [], "Slovenščina"),
-    ("tr", "tr", [], "Türkçe"),
-    ("uk", "uk", [], "Українська"),
-    ("zh", "zh-Hans", [], "简体中文"),
-    ("zh-hant", "zh-Hant", [], "繁體中文"),
-    ("cs", "cs", [], "Čeština"),
-    ("sk", "sk", [], "Slovenčina"),
-    ("sv", "sv", [], "Svenska"),
-    ("no", "nb", ["no"], "Norsk"),
-    ("da", "da", [], "Dansk"),
-    ("fi", "fi", [], "Suomi"),
-    ("hu", "hu", [], "Magyar"),
     ("ro", "ro", [], "Română"),
+    ("sk", "sk", [], "Slovenčina"),
+    ("sl", "sl", [], "Slovenščina"),
+    ("fi", "fi", [], "Suomi"),
+    ("sv", "sv", [], "Svenska"),
+    ("tr", "tr", [], "Türkçe"),
     ("el", "el", [], "Ελληνικά"),
+    ("ru", "ru", [], "Русский"),
+    ("uk", "uk", [], "Українська"),
+    ("ko", "ko", [], "한국어"),
+    ("zh-hant", "zh-Hant", [], "繁體中文"),
 ]
 
 # Pages that exist once per language, in sitemap order. "" is the home page.

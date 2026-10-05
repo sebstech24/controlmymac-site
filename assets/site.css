@@ -97,7 +97,7 @@ strong{color:var(--text)}
     var(--grad);
 }
 /* Control My Mac home links in every language ("/", "/de", …); product pages keep their own mark */
-.brand[href="/"] .logo,.brand[href="/de"] .logo,.brand[href="/es"] .logo,.brand[href="/fr"] .logo,.brand[href="/it"] .logo,.brand[href="/ja"] .logo,.brand[href="/ko"] .logo,.brand[href="/nl"] .logo,.brand[href="/pl"] .logo,.brand[href="/pt"] .logo,.brand[href="/ru"] .logo,.brand[href="/sl"] .logo,.brand[href="/tr"] .logo,.brand[href="/uk"] .logo,.brand[href="/zh"] .logo,.brand[href="/zh-hant"] .logo,.brand[href="/cs"] .logo,.brand[href="/sk"] .logo,.brand[href="/sv"] .logo,.brand[href="/no"] .logo,.brand[href="/da"] .logo,.brand[href="/fi"] .logo,.brand[href="/hu"] .logo,.brand[href="/ro"] .logo,.brand[href="/el"] .logo{
+.brand[href="/de"] .logo,.brand[href="/"] .logo,.brand[href="/es"] .logo,.brand[href="/fr"] .logo,.brand[href="/ja"] .logo,.brand[href="/zh"] .logo,.brand[href="/cs"] .logo,.brand[href="/da"] .logo,.brand[href="/it"] .logo,.brand[href="/hu"] .logo,.brand[href="/nl"] .logo,.brand[href="/no"] .logo,.brand[href="/pl"] .logo,.brand[href="/pt"] .logo,.brand[href="/ro"] .logo,.brand[href="/sk"] .logo,.brand[href="/sl"] .logo,.brand[href="/fi"] .logo,.brand[href="/sv"] .logo,.brand[href="/tr"] .logo,.brand[href="/el"] .logo,.brand[href="/ru"] .logo,.brand[href="/uk"] .logo,.brand[href="/ko"] .logo,.brand[href="/zh-hant"] .logo{
   background-image:url("/assets/control-my-mac-icon.png");
   background-size:cover;
   background-position:center;

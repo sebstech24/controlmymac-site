@@ -7,32 +7,33 @@
   "use strict";
 
   // `short` is what the switcher button shows when the code is not a two-letter one.
+  // Same order as scripts/sync-locales.py: the six main languages first, then the rest, each A-Z.
   var LOCALES = [
-    { code: "en", name: "English",    hreflang: "en" },
-    { code: "de", name: "Deutsch",    hreflang: "de" },
-    { code: "fr", name: "Français",   hreflang: "fr" },
-    { code: "it", name: "Italiano",   hreflang: "it" },
-    { code: "es", name: "Español",    hreflang: "es" },
-    { code: "pt", name: "Português",  hreflang: "pt-BR" },
-    { code: "nl", name: "Nederlands", hreflang: "nl" },
-    { code: "ja", name: "日本語",      hreflang: "ja" },
-    { code: "zh", name: "简体中文",    hreflang: "zh-Hans" },
-    { code: "zh-hant", name: "繁體中文", hreflang: "zh-Hant", short: "繁體" },
-    { code: "ko", name: "한국어",      hreflang: "ko" },
-    { code: "ru", name: "Русский",    hreflang: "ru" },
-    { code: "uk", name: "Українська", hreflang: "uk" },
-    { code: "pl", name: "Polski",     hreflang: "pl" },
-    { code: "sl", name: "Slovenščina", hreflang: "sl" },
-    { code: "tr", name: "Türkçe",     hreflang: "tr" },
+    { code: "de", name: "Deutsch", hreflang: "de" },
+    { code: "en", name: "English", hreflang: "en" },
+    { code: "es", name: "Español", hreflang: "es" },
+    { code: "fr", name: "Français", hreflang: "fr" },
+    { code: "ja", name: "日本語", hreflang: "ja" },
+    { code: "zh", name: "简体中文", hreflang: "zh-Hans" },
     { code: "cs", name: "Čeština", hreflang: "cs" },
-    { code: "sk", name: "Slovenčina", hreflang: "sk" },
-    { code: "sv", name: "Svenska", hreflang: "sv" },
-    { code: "no", name: "Norsk", hreflang: "nb" },
     { code: "da", name: "Dansk", hreflang: "da" },
-    { code: "fi", name: "Suomi", hreflang: "fi" },
+    { code: "it", name: "Italiano", hreflang: "it" },
     { code: "hu", name: "Magyar", hreflang: "hu" },
+    { code: "nl", name: "Nederlands", hreflang: "nl" },
+    { code: "no", name: "Norsk", hreflang: "nb" },
+    { code: "pl", name: "Polski", hreflang: "pl" },
+    { code: "pt", name: "Português", hreflang: "pt-BR" },
     { code: "ro", name: "Română", hreflang: "ro" },
-    { code: "el", name: "Ελληνικά", hreflang: "el" }
+    { code: "sk", name: "Slovenčina", hreflang: "sk" },
+    { code: "sl", name: "Slovenščina", hreflang: "sl" },
+    { code: "fi", name: "Suomi", hreflang: "fi" },
+    { code: "sv", name: "Svenska", hreflang: "sv" },
+    { code: "tr", name: "Türkçe", hreflang: "tr" },
+    { code: "el", name: "Ελληνικά", hreflang: "el" },
+    { code: "ru", name: "Русский", hreflang: "ru" },
+    { code: "uk", name: "Українська", hreflang: "uk" },
+    { code: "ko", name: "한국어", hreflang: "ko" },
+    { code: "zh-hant", name: "繁體中文", hreflang: "zh-Hant", short: "繁體" }
   ];
   var CODES = LOCALES.map(function (l) { return l.code; });
   var KEY = "cmm_lang";
@@ -103,7 +104,7 @@
   function build() {
     var host = document.querySelector("[data-i18n-switch]");
     if (!host) return;
-    var cur = LOCALES.filter(function (l) { return l.code === current; })[0] || LOCALES[0];
+    var cur = LOCALES.filter(function (l) { return l.code === current; })[0] || LOCALES.filter(function (l) { return l.code === "en"; })[0];
     host.hidden = false;
     host.innerHTML = "";
 
