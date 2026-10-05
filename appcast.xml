@@ -8,6 +8,28 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.8</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Security:</strong> pairing and the connection to your iPhone or iPad are hardened. Every link is encrypted and checked on both sides, repeated wrong pairing codes are paused, and Forget fully unpairs a device.</li>
+          <li><strong>Launcher:</strong> the app you used last is at the top of the list.</li>
+          <li>iPhone and iPad apps older than 1.2.2 can no longer connect. Update the app from the App Store.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 05 Oct 2026 14:50:00 +0000</pubDate>
+      <sparkle:version>14</sparkle:version>
+      <sparkle:shortVersionString>1.2.8</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.8/ControlMyMac-1.2.8.dmg"
+                 sparkle:version="14"
+                 sparkle:shortVersionString="1.2.8"
+                 length="3721287"
+                 type="application/octet-stream"
+                 sparkle:edSignature="sUsnH4ks7Ro3d5hWRL68J1Do7Tqw0eNZTZPy/xMBQ0KHNb9Pl6n/pEymhhTVDbqnIyCPXSVbdxYhPuMks6iyCg==" />
+    </item>
+    <item>
       <title>Version 1.2.7</title>
       <description><![CDATA[
         <ul>
