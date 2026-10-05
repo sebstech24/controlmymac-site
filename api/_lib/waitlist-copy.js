@@ -175,5 +175,104 @@ export const WAITLIST_MAIL = {
     "mailLeave": "沒有註冊過，或改變心意了？回覆這封郵件，我就會把你從名單中刪除。",
     "mailCountry": "斯洛維尼亞",
     "mailPrivacy": "隱私權政策"
+  },
+  "cs": {
+    "mailSubject": "Jste na seznamu: Control My Mac pro {platforms}",
+    "mailBoth": "Windows a Android",
+    "mailHello": "Děkujeme za přihlášení.",
+    "mailIntro": "Tento e-mail potvrzuje, že vaše adresa funguje. Napíšu vám v den vydání Control My Mac pro {platforms}.",
+    "mailSpam": "Skončil tento e-mail ve složce nevyžádané pošty? Přesuňte ho prosím do doručené pošty nebo ho označte jako „není nevyžádaná pošta“. Jinak se k vám e-mail o vydání nemusí nikdy dostat.",
+    "mailNews": "Požádali jste také o novinky ze Sebastian Apps: občasné novinky o aplikacích a promo kódy. Každý z těchto e-mailů obsahuje odkaz pro odhlášení.",
+    "mailLeave": "Nepřihlásili jste se, nebo jste si to rozmysleli? Odpovězte na tento e-mail a odstraním vás.",
+    "mailCountry": "Slovinsko",
+    "mailPrivacy": "Zásady ochrany osobních údajů"
+  },
+  "sk": {
+    "mailSubject": "Ste na zozname: Control My Mac pre {platforms}",
+    "mailBoth": "Windows a Android",
+    "mailHello": "Ďakujem, že ste sa zapísali.",
+    "mailIntro": "Tento e-mail potvrdzuje, že vaša adresa funguje. V deň, keď vyjde Control My Mac pre {platforms}, vám napíšem.",
+    "mailSpam": "Skončil tento e-mail v priečinku so spamom alebo nevyžiadanou poštou? Presuňte ho, prosím, do doručenej pošty alebo ho označte ako „nie je spam“. Inak sa k vám e-mail o vydaní nemusí dostať.",
+    "mailNews": "Požiadali ste aj o novinky Sebastian Apps: občasné novinky o aplikáciách a promo kódy. Každý takýto e-mail obsahuje odkaz na odhlásenie.",
+    "mailLeave": "Nezapísali ste sa alebo ste si to rozmysleli? Odpovedzte na tento e-mail a odstránim vás.",
+    "mailCountry": "Slovinsko",
+    "mailPrivacy": "Zásady ochrany súkromia"
+  },
+  "sv": {
+    "mailSubject": "Du står på listan: Control My Mac för {platforms}",
+    "mailBoth": "Windows och Android",
+    "mailHello": "Tack för din anmälan.",
+    "mailIntro": "Det här meddelandet bekräftar att din adress fungerar. Jag skickar ett mejl till dig den dag Control My Mac för {platforms} lanseras.",
+    "mailSpam": "Hamnade det här meddelandet i skräpposten? Flytta det till inkorgen eller markera det som ”inte skräp”. Annars kanske e-postmeddelandet om lanseringen aldrig når dig.",
+    "mailNews": "Du bad också om nyheter från Sebastian Apps: appnyheter och kampanjkoder då och då. Varje sådant meddelande har en länk för att avsluta prenumerationen.",
+    "mailLeave": "Har du inte anmält dig, eller ångrat dig? Svara på det här meddelandet så tar jag bort dig.",
+    "mailCountry": "Slovenien",
+    "mailPrivacy": "Integritetspolicy"
+  },
+  "no": {
+    "mailSubject": "Du står på listen: Control My Mac for {platforms}",
+    "mailBoth": "Windows og Android",
+    "mailHello": "Takk for påmeldingen.",
+    "mailIntro": "Denne e-posten bekrefter at adressen din fungerer. Jeg sender deg en e-post den dagen Control My Mac for {platforms} er ute.",
+    "mailSpam": "Havnet denne e-posten i mappen for søppelpost eller useriøs e-post? Flytt den til innboksen, eller merk den som «ikke søppelpost». Ellers kan det hende at e-posten om lanseringen aldri når deg.",
+    "mailNews": "Du ba også om nyheter fra Sebastian Apps: av og til appnyheter og kampanjekoder. Hver av disse e-postene har en lenke for å melde seg av.",
+    "mailLeave": "Har du ikke meldt deg på, eller har du ombestemt deg? Svar på denne e-posten, så fjerner jeg deg.",
+    "mailCountry": "Slovenia",
+    "mailPrivacy": "Personvernerklæring"
+  },
+  "da": {
+    "mailSubject": "Du er på listen: Control My Mac til {platforms}",
+    "mailBoth": "Windows og Android",
+    "mailHello": "Tak for din tilmelding.",
+    "mailIntro": "Denne e-mail bekræfter, at din adresse virker. Jeg skriver til dig den dag, Control My Mac til {platforms} udkommer.",
+    "mailSpam": "Er denne e-mail havnet i mappen med spam eller uønsket post? Flyt den til din indbakke, eller marker den som »ikke spam«. Ellers når mailen om udgivelsen dig måske aldrig.",
+    "mailNews": "Du har også bedt om nyheder fra Sebastian Apps: en gang imellem nyheder om appen og tilbudskoder. Hver af disse e-mails har et link til at afmelde dig.",
+    "mailLeave": "Har du ikke tilmeldt dig, eller har du fortrudt? Svar på denne e-mail, så fjerner jeg dig.",
+    "mailCountry": "Slovenien",
+    "mailPrivacy": "Privatlivspolitik"
+  },
+  "fi": {
+    "mailSubject": "Olet listalla: Control My Mac – {platforms}",
+    "mailBoth": "Windows ja Android",
+    "mailHello": "Kiitos ilmoittautumisesta.",
+    "mailIntro": "Tämä sähköposti vahvistaa, että osoitteesi toimii. Lähetän sinulle sähköpostia sinä päivänä, kun Control My Mac ({platforms}) julkaistaan.",
+    "mailSpam": "Päätyikö tämä sähköposti roskapostikansioosi? Siirrä se saapuneisiin tai merkitse, ettei se ole roskapostia. Muuten julkaisusähköposti ei välttämättä koskaan tavoita sinua.",
+    "mailNews": "Pyysit myös Sebastian Appsin uutisia: silloin tällöin sovellusuutisia ja tarjouskoodeja. Jokaisessa näistä sähköposteista on linkki tilauksen perumiseen.",
+    "mailLeave": "Etkö ilmoittautunut tai muutitko mielesi? Vastaa tähän sähköpostiin, niin poistan sinut listalta.",
+    "mailCountry": "Slovenia",
+    "mailPrivacy": "Tietosuojakäytäntö"
+  },
+  "hu": {
+    "mailSubject": "Felkerült a listára: Control My Mac – {platforms}",
+    "mailBoth": "Windows és Android",
+    "mailHello": "Köszönjük a feliratkozást.",
+    "mailIntro": "Ez az e-mail megerősíti, hogy a címe működik. Azon a napon e-mailt küldök, amikor a Control My Mac megjelenik ezen: {platforms}.",
+    "mailSpam": "A levélszemét vagy a spam mappába került ez az e-mail? Tegye át a beérkezett üzenetek közé, vagy jelölje meg úgy, hogy „nem spam”. Különben előfordulhat, hogy a megjelenésről szóló e-mail nem jut el Önhöz.",
+    "mailNews": "A Sebastian Apps híreit is kérte: időnkénti app-híreket és promóciós kódokat. Mindegyik ilyen e-mailben van leiratkozási hivatkozás.",
+    "mailLeave": "Nem Ön iratkozott fel, vagy meggondolta magát? Válaszoljon erre az e-mailre, és eltávolítom a címét.",
+    "mailCountry": "Szlovénia",
+    "mailPrivacy": "Adatvédelmi tájékoztató"
+  },
+  "ro": {
+    "mailSubject": "Sunteți pe listă: Control My Mac pentru {platforms}",
+    "mailBoth": "Windows și Android",
+    "mailHello": "Vă mulțumim pentru înscriere.",
+    "mailIntro": "Acest e-mail confirmă că adresa dvs. funcționează. Vă voi scrie în ziua în care Control My Mac pentru {platforms} este lansat.",
+    "mailSpam": "A ajuns acest e-mail în dosarul de spam sau de junk? Mutați-l în mesajele primite (Inbox) sau marcați-l ca „nu este spam”. Altfel e-mailul despre lansare poate să nu ajungă niciodată la dvs.",
+    "mailNews": "Ați cerut, de asemenea, noutăți de la Sebastian Apps: noutăți ocazionale despre aplicații și coduri promoționale. Fiecare dintre aceste e-mailuri conține un link de dezabonare.",
+    "mailLeave": "Nu v-ați înscris sau v-ați răzgândit? Răspundeți la acest e-mail și vă voi elimina.",
+    "mailCountry": "Slovenia",
+    "mailPrivacy": "Politica de confidențialitate"
+  },
+  "el": {
+    "mailSubject": "Είστε στη λίστα: Control My Mac για {platforms}",
+    "mailBoth": "Windows και Android",
+    "mailHello": "Ευχαριστούμε για την εγγραφή σας.",
+    "mailIntro": "Αυτό το email επιβεβαιώνει ότι η διεύθυνσή σας λειτουργεί. Θα σας στείλω email την ημέρα που θα κυκλοφορήσει το Control My Mac για {platforms}.",
+    "mailSpam": "Βρέθηκε αυτό το email στον φάκελο ανεπιθύμητων; Μετακινήστε το στα εισερχόμενά σας ή σημειώστε το ως «μη ανεπιθύμητο». Αλλιώς το email κυκλοφορίας μπορεί να μη φτάσει ποτέ σε εσάς.",
+    "mailNews": "Ζητήσατε επίσης νέα από τη Sebastian Apps: περιστασιακά νέα εφαρμογών και κωδικούς προσφοράς. Κάθε τέτοιο email έχει σύνδεσμο διαγραφής από τη λίστα.",
+    "mailLeave": "Δεν εγγραφήκατε εσείς ή αλλάξατε γνώμη; Απαντήστε σε αυτό το email και θα σας αφαιρέσω.",
+    "mailCountry": "Σλοβενία",
+    "mailPrivacy": "Πολιτική απορρήτου"
   }
 };

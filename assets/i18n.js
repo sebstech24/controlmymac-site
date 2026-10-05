@@ -23,14 +23,25 @@
     { code: "uk", name: "Українська", hreflang: "uk" },
     { code: "pl", name: "Polski",     hreflang: "pl" },
     { code: "sl", name: "Slovenščina", hreflang: "sl" },
-    { code: "tr", name: "Türkçe",     hreflang: "tr" }
+    { code: "tr", name: "Türkçe",     hreflang: "tr" },
+    { code: "cs", name: "Čeština", hreflang: "cs" },
+    { code: "sk", name: "Slovenčina", hreflang: "sk" },
+    { code: "sv", name: "Svenska", hreflang: "sv" },
+    { code: "no", name: "Norsk", hreflang: "nb" },
+    { code: "da", name: "Dansk", hreflang: "da" },
+    { code: "fi", name: "Suomi", hreflang: "fi" },
+    { code: "hu", name: "Magyar", hreflang: "hu" },
+    { code: "ro", name: "Română", hreflang: "ro" },
+    { code: "el", name: "Ελληνικά", hreflang: "el" }
   ];
   var CODES = LOCALES.map(function (l) { return l.code; });
   var KEY = "cmm_lang";
   // Languages added after launch. A visitor whose browser asks for one of them, but who was
   // sent to another language before it existed, is moved over once (see below).
-  var ADDED = ["zh-hant", "uk", "sl"];
-  var MOVED_KEY = "cmm_lang_moved";
+  // (The key below changes with every round, so only the newest round is listed: zh-hant, uk and sl
+  // were round one.)
+  var ADDED = ["cs", "sk", "sv", "no", "da", "fi", "hu", "ro", "el"];
+  var MOVED_KEY = "cmm_lang_moved2";
 
   function getStored() {
     try { var v = localStorage.getItem(KEY); if (v) return v; } catch (e) {}
@@ -54,6 +65,8 @@
     var primary = tag.split("-")[0];
     // Chinese: Traditional for the Hant script and for Taiwan, Hong Kong and Macau.
     if (primary === "zh") return /-hans\b/.test(tag) ? "zh" : /-(hant|tw|hk|mo)\b/.test(tag) ? "zh-hant" : "zh";
+    // Norwegian: Bokmål, Nynorsk and the plain "no" tag all go to /no.
+    if (primary === "nb" || primary === "nn") primary = "no";
     return CODES.indexOf(primary) > -1 ? primary : null;
   }
   function detect() {

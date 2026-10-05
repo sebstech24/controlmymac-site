@@ -15,7 +15,7 @@
   var shared = window.cmmOfferCopy || {};
   function t(key) { return own[key] || shared[key] || ""; }
 
-  var LANG_MAP = { "pt-br": "pt", "zh-hans": "zh", "zh-hant": "zh-hant" };
+  var LANG_MAP = { "pt-br": "pt", "zh-hans": "zh", "zh-hant": "zh-hant", "nb": "no" };
   var pageLang = (document.documentElement.lang || "en").toLowerCase();
   var locale = LANG_MAP[pageLang] || pageLang.split("-")[0];
   var privacyHref = locale === "en" ? "/privacy" : "/" + locale + "/privacy";

@@ -7,6 +7,7 @@ import {
 
 export const SUPPORTED_LOCALES = new Set([
   "en", "de", "es", "fr", "it", "ja", "ko", "nl", "pl", "pt", "ru", "sl", "tr", "uk", "zh", "zh-hant",
+  "cs", "sk", "sv", "no", "da", "fi", "hu", "ro", "el",
 ]);
 
 /**
@@ -111,7 +112,9 @@ export function isValidEmail(email) {
 
 export function normalizeLocale(value) {
   const tag = String(value || "en").toLowerCase().replaceAll("_", "-");
-  const locale = tag.split("-")[0];
+  let locale = tag.split("-")[0];
+  // Norwegian: Bokmål, Nynorsk and the plain "no" tag all use the /no pages.
+  if (locale === "nb" || locale === "nn") locale = "no";
   // Chinese: Traditional for the Hant script and for Taiwan, Hong Kong and Macau.
   if (locale === "zh") return /-hans\b/.test(tag) ? "zh" : /-(hant|tw|hk|mo)\b/.test(tag) ? "zh-hant" : "zh";
   return SUPPORTED_LOCALES.has(locale) ? locale : "en";

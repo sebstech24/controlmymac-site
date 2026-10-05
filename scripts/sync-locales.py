@@ -44,6 +44,15 @@ LOCALES = [
     ("uk", "uk", [], "Українська"),
     ("zh", "zh-Hans", [], "简体中文"),
     ("zh-hant", "zh-Hant", [], "繁體中文"),
+    ("cs", "cs", [], "Čeština"),
+    ("sk", "sk", [], "Slovenčina"),
+    ("sv", "sv", [], "Svenska"),
+    ("no", "nb", ["no"], "Norsk"),
+    ("da", "da", [], "Dansk"),
+    ("fi", "fi", [], "Suomi"),
+    ("hu", "hu", [], "Magyar"),
+    ("ro", "ro", [], "Română"),
+    ("el", "el", [], "Ελληνικά"),
 ]
 
 # Pages that exist once per language, in sitemap order. "" is the home page.

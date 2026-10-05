@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Az iPhone- és iPad-app letöltése | Control My Mac</title>
+  <meta name="description" content="Töltse le a Control My Mac iPhone- és iPad-appját az App Store-ból. Párosítsa QR-kóddal az ingyenes Mac-appal, és vezérelje az egész Macet egy ujjal.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone & iPad app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone & iPad app is approved.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6781458180";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ugrás a tartalomhoz</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">Control My Mac iPhone-ra és iPadre</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      Töltse le az App&nbsp;Store-ból
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      Telepítette az ingyenes Mac-appot – már csak az iPhone- vagy iPad-app hiányzik,
+      amely párosul vele. Már elérhető az App Store-ban. Ha ez az oldal nem viszi oda
+      automatikusan, koppintson az alábbi gombra, majd olvassa be a párosítási kódot
+      a Mac-appból.
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6781458180">Megnyitás az App&nbsp;Store-ban</a>
+      <a class="btn btn-quiet" href="/hu">Vissza a controlmymac.com oldalra</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      Nincs fiók, nincsenek szerverek – az iPhone vagy iPad és a Mac közvetlenül és privátan kommunikál egymással.
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>

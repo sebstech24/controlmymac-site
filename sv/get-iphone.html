@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hämta appen för iPhone och iPad | Control My Mac</title>
+  <meta name="description" content="Hämta Control My Mac för iPhone och iPad i App Store. Parkoppla med den kostnadsfria Mac-appen via QR-kod och styr hela din Mac med ett finger.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone & iPad app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone & iPad app is approved.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6781458180";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Hoppa till innehållet</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">Control My Mac för iPhone och iPad</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      Hämta den i App&nbsp;Store
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      Du har installerat den kostnadsfria Mac-appen – sista biten är appen för iPhone och iPad
+      som parkopplas med den. Den finns i App Store nu. Om den här sidan inte tar dig dit
+      automatiskt trycker du på knappen nedan och skannar sedan parkopplingskoden från Mac-appen.
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6781458180">Öppna i App&nbsp;Store</a>
+      <a class="btn btn-quiet" href="/sv">Tillbaka till controlmymac.com</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      Inget konto, inga servrar – din iPhone eller iPad och din Mac pratar direkt och privat med varandra.
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>

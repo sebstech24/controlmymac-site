@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Λήψη της εφαρμογής για iPhone και iPad | Control My Mac</title>
+  <meta name="description" content="Κατεβάστε το Control My Mac για iPhone και iPad από το App Store. Ζευγοποιήστε το με τη δωρεάν εφαρμογή Mac μέσω κωδικού QR.">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The Mac app's setup-guide QR points here (controlmymac.com/get-iphone).
+    When the iPhone & iPad app is live on the App Store, set APP_STORE_URL below to the
+    listing URL — this page then instantly redirects there. No Mac app update needed.
+  -->
+  <script>
+    // PLUG IN: the App Store listing URL once the iPhone & iPad app is approved.
+    var APP_STORE_URL = "https://apps.apple.com/app/id6781458180";
+    if (APP_STORE_URL) { location.replace(APP_STORE_URL); }
+  </script>
+  <style>
+    .gi-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .gi-badge { font-size: 13px; font-weight: 600; letter-spacing: .02em;
+      color: var(--accent, #4F8CFF); text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Μετάβαση στο περιεχόμενο</a>
+  <main id="main" class="gi-wrap">
+    <p class="gi-badge">Control My Mac για iPhone και iPad</p>
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">
+      Λήψη από το App&nbsp;Store
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.6;color:var(--muted,#5b6472);margin:0">
+      Εγκαταστήσατε τη δωρεάν εφαρμογή Mac· το τελευταίο κομμάτι είναι η εφαρμογή για iPhone ή iPad
+      που ζευγοποιείται μαζί της. Είναι πλέον διαθέσιμη στο App Store. Αν αυτή η σελίδα δεν σας
+      μεταφέρει αυτόματα εκεί, πατήστε το παρακάτω κουμπί και σαρώστε μετά τον κωδικό
+      ζευγοποίησης από την εφαρμογή Mac.
+    </p>
+    <div class="cta-row" style="display:flex;gap:var(--sp-m);flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-primary" href="https://apps.apple.com/app/id6781458180">Άνοιγμα στο App&nbsp;Store</a>
+      <a class="btn btn-quiet" href="/el">Επιστροφή στο controlmymac.com</a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      Χωρίς λογαριασμό, χωρίς διακομιστές: το iPhone ή το iPad και το Mac σας επικοινωνούν απευθείας και ιδιωτικά.
+    </p>
+  </main>
+<script defer src="/assets/i18n.js"></script>
+</body>
+</html>

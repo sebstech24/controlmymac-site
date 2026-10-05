@@ -33,6 +33,9 @@ const NO_RENEW = {
   ko: "자동으로 갱신되지 않으므로", nl: "niet automatisch verlengd", pl: "nie odnawia się automatycznie",
   pt: "não é renovado automaticamente", ru: "не продлевается автоматически", tr: "otomatik olarak yenilenmez",
   zh: "不会自动续订", "zh-hant": "不會自動續訂", uk: "не поновлюється автоматично", sl: "se ne podaljša samodejno",
+  cs: "se automaticky neobnovuje", sk: "sa automaticky neobnovuje", sv: "förnyas inte automatiskt",
+  no: "fornyes ikke automatisk", da: "fornyes ikke automatisk", fi: "ei uusiudu automaattisesti",
+  hu: "nem újul meg automatikusan", ro: "nu se reînnoiește automat", el: "δεν ανανεώνεται αυτόματα",
 };
 
 function render(locale, overrides = {}) {
@@ -173,7 +176,7 @@ test("the in-app steps use exactly the labels the app shows in each language", (
   expectLabels("ja", ["設定", "モード", "ロック解除", "プロモコードをお持ちですか？", "コードを使う"]);
   if (!existsSync(catalogPath)) return; // The app repository is not checked out next to this one.
   const strings = JSON.parse(readFileSync(catalogPath, "utf8")).strings;
-  const catalogLocale = { pt: "pt-BR", zh: "zh-Hans", "zh-hant": "zh-Hant" };
+  const catalogLocale = { pt: "pt-BR", zh: "zh-Hans", "zh-hant": "zh-Hant", no: "nb" };
   for (const locale of LOCALES.filter((value) => value !== "en")) {
     const labels = ["Settings", "Mode", "Unlock", "Have a promo code?"].map(
       (key) => strings[key].localizations[catalogLocale[locale] || locale]?.stringUnit.value,
