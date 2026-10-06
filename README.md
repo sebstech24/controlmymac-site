@@ -30,30 +30,45 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/api/subscribe` | `api/subscribe.ts` | Vercel serverless function: adds newsletter signups to the email provider (env-var configured, see below) |
 | — | `AUDIENCE-RESEARCH.md` | Public-safe research notes behind the variant messaging |
 
-## Releases — how the download flow works
+## After every release
 
-Every public download CTA points first at:
-
-```
-https://controlmymac.com/download
-```
-
-That page has two actions:
-
-- **Download from GitHub** opens the public GitHub Releases page.
-- **Download .dmg** opens `/download.dmg`, which redirects to the stable latest-release asset if it exists, or falls back to the GitHub Releases page instead of showing a 404.
-
-The direct `.dmg` URL only works if the GitHub release asset is named **exactly `ControlMyMac.dmg`**. To publish or update the Mac app:
+Run this after every Mac or iPhone release, then commit and push what it changed (a push to `main` publishes):
 
 ```sh
-gh release create v1.0.0 "<path-to>/ControlMyMac.dmg" \
-  --title "Control My Mac 1.0" \
-  --notes "Initial public release."
+python3 scripts/after-release.py --fix
 ```
 
-No HTML changes are needed for new versions — `/download.dmg` always checks the newest GitHub release, as long as each release attaches an asset named `ControlMyMac.dmg`.
+It compares the site with what is really out (`appcast.xml`, the newest GitHub release, the live `/download.dmg`,
+Apple's public lookup) and rewrites the press page facts. Without `--fix` it only reports and exits 1 when
+something is stale. Apple's lookup can lag a few hours behind an approval: if it still shows the old iPhone
+version, run it again later.
 
-For iPhone handoff buttons, the share/copy payload is only `https://controlmymac.com/download`, so pasting on a Mac gives a usable page link rather than helper text.
+### Mac release
+
+| What | Where | How |
+|---|---|---|
+| The DMG | GitHub release `vX.Y.Z` in this repo, file named `ControlMyMac-X.Y.Z.dmg` | `gh release create` (steps in the app repo, `native/AppStore/mac-<version>/PUBLISH.md`) |
+| Update for people who already have the app | `appcast.xml`, new item on top | by hand from the release's `appcast-item.xml` |
+| Download buttons | nothing | `/download.dmg` follows the newest GitHub release by itself (cached up to 30 minutes) |
+| Press page "Current versions" and the facts file in the press kit zip | `press.html`, `assets/press/control-my-mac-press-kit.zip` | `after-release.py --fix` (never edit `press.html` by hand) |
+
+The links to `v1.2.3` are the last Intel version and stay as they are.
+
+### iPhone and iPad release
+
+| What | Where | How |
+|---|---|---|
+| Press page version, date and language list | `press.html` and the kit zip | `after-release.py --fix`, once the App Store shows the new version |
+| Copy about a feature that changed | the pages that describe it, in every language folder | by hand, then `scripts/sync-locales.py` |
+
+### Only when that thing changes
+
+| Change | Update |
+|---|---|
+| A new language | the new folder, switcher, sitemap, 404 list (see the app repo's `native/AppStore/l10n-nine-languages/README.md`) and `LANG_NAMES` in `scripts/after-release.py` |
+| Prices | `index.html` (price cards and the four `Offer` entries in the structured data), `pro.html`, `support.html`, the same pages in every language folder, and the two price texts in `scripts/build-press-kit.py`. App Store descriptions carry no amounts, only "Prices vary by country." |
+| Minimum iOS, iPadOS or macOS version | the "macOS 14+ · iOS/iPadOS 18+" lines and footers on every page, `operatingSystem` in the structured data, the Requirements fact in `scripts/build-press-kit.py` |
+| What the apps collect or send | `privacy.html` and its effective date, in every language |
 
 ## Vercel Web Analytics
 
