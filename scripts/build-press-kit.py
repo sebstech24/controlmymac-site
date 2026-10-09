@@ -125,9 +125,9 @@ IMAGES_TALL = [
      "The Control My Mac keyboard on iPhone with Live and Draft tabs, a text field that reads Type here to instantly "
      "type on your Mac, and a Mini Trackpad button"),
     ("control-my-mac-launcher-iphone", "Launcher",
-     "Open Mac apps, windows and favorites.",
-     "The Control My Mac Launcher on iPhone with a search field for apps, windows and favorites and three results: a "
-     "running app, an open window and a favorite"),
+     "Open Mac apps and windows, and sets of them.",
+     "The Control My Mac Launcher on iPhone in dark mode: a search field, a row of sets named Morning and Presenting, "
+     "and a grid of the apps open on the Mac with their icons, such as Safari, Finder and Keynote"),
     ("control-my-mac-mac-menu-bar-app", "Mac app",
      "The free Mac menu bar app. QR code blurred.",
      "The Control My Mac menu on the Mac showing Connected, a blurred pairing QR code, the Learn shortcuts note that "
