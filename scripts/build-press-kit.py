@@ -271,12 +271,28 @@ FAQ = [  # (question, answer html)
     ("Who is behind it?",
      "Sebastian Škoić, a solo developer in Slovenia, also known as the tech creator Sebs_Tech."),
 ]
-COVERAGE = [  # (source and date, link text, url, lang)
+COVERAGE = [  # (source and date, link text, url, lang, short name, country tag) newest first
+    ("iPhoneSoft · 8 October 2026 · in French", "Control My Mac transforme l’iPhone en télécommande complète pour Mac",
+     "https://iphonesoft.fr/2026/10/08/control-my-mac-transforme-iphone-telecommande-complete-mac", "fr",
+     "iPhoneSoft", "FR"),
     ("iphone-ticker.de · 1 October 2026 · in German", "Control My Mac macht das iPhone zur Mac-Fernbedienung",
-     "https://www.iphone-ticker.de/control-my-mac-macht-das-iphone-zur-mac-fernbedienung-287352/", "de"),
+     "https://www.iphone-ticker.de/control-my-mac-macht-das-iphone-zur-mac-fernbedienung-287352/", "de",
+     "iphone-ticker.de", "DE"),
     ("Product Hunt · 4 October 2026", "Featured on Product Hunt",
-     "https://www.producthunt.com/products/control-my-mac", None),
+     "https://www.producthunt.com/products/control-my-mac", None, "Product Hunt", None),
 ]
+
+
+def featured_strip(label="Featured on", indent="  "):
+    """The side-scrolling "Featured on" strip (homepages via scripts/apply-featured-strip.py, and the press page)."""
+    chips = "\n".join(
+        f'{indent}    <a class="ft-chip" href="{url}" rel="noopener"' + (f' hreflang="{lang}"' if lang else "")
+        + f'>{e(name)}' + (f' <small>{tag}</small>' if tag else "") + '</a>'
+        for _src, _text, url, lang, name, tag in COVERAGE)
+    return (f'{indent}<section class="featured" aria-label="{e(label)}">\n{indent}  <p class="ft-label">{e(label)}</p>\n'
+            f'{indent}  <div class="ft-row" tabindex="0">\n{chips}\n{indent}  </div>\n{indent}</section>')
+
+
 TRADEMARKS = ("Stream Deck is a trademark of Corsair Memory, Inc. Premiere is a trademark of Adobe. iPhone, iPad, Mac, "
               "macOS, Safari and App Store are trademarks of Apple Inc. Other product names, including the app names "
               "shown in the screenshots, belong to their owners. Control My Mac is not affiliated with or endorsed by "
@@ -443,7 +459,7 @@ def build_page(zip_mb):
     coverage = "\n".join(
         f'        <li><span class="pk-src">{e(src)}</span><a href="{url}" rel="noopener"'
         + (f' hreflang="{lang}" lang="{lang}"' if lang else "") + f'>{e(text)}</a></li>'
-        for src, text, url, lang in COVERAGE)
+        for src, text, url, lang, _name, _tag in COVERAGE)
     photo = Image.open(os.path.join(PRESS, PHOTO + ".jpg"))
     photo_w, photo_h = photo.size
     photo_kb = round(os.path.getsize(os.path.join(PRESS, PHOTO + ".jpg")) / 1000)
@@ -513,6 +529,8 @@ def build_page(zip_mb):
     </div>
     <p class="cta-note">Press contact: <a href="mailto:{EMAIL}">{EMAIL}</a> · Facts checked on {CHECKED}</p>
   </section>
+
+{featured_strip()}
 
   <section class="band" id="facts">
     <div class="wrap">

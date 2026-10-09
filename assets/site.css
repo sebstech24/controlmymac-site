@@ -1307,3 +1307,15 @@ html { scroll-padding-top: 84px; }
 .wl-done-main strong{overflow-wrap:anywhere}
 .wl-done-typo{margin-top:var(--sp-m);color:var(--muted);font-size:14px}
 .wl-again{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
+/* ----- "Featured on" strip (side-scrolling when the names don't fit) ----- */
+.featured{margin:var(--sp-l) auto 0;max-width:1100px;text-align:center}
+.ft-label{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ft-row{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 24px 10px;scrollbar-width:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
+.ft-row::-webkit-scrollbar{display:none}
+.ft-row>:first-child{margin-left:auto}
+.ft-row>:last-child{margin-right:auto}
+.ft-chip{flex:none;scroll-snap-align:center;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+.ft-chip:hover{border-color:var(--muted)}
+.ft-chip small{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.04em}
