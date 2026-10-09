@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Puts the "Featured on" strip under the top section of every homepage (English and each language folder).
+"""Puts the "Featured on" strip above the video at the top of every homepage (English and each language folder).
 
     python3 scripts/apply-featured-strip.py
 
@@ -21,7 +21,7 @@ LABELS = {
     "sk": "Píšu o nás", "sl": "O nas pišejo", "sv": "Omnämnd i", "tr": "Basında biz", "uk": "Про нас пишуть",
     "zh": "媒体报道", "zh-hant": "媒體報導",
 }
-START, END = "  <!-- featured:start -->", "  <!-- featured:end -->"
+START, END = "    <!-- featured:start -->", "    <!-- featured:end -->"
 
 
 def main():
@@ -30,13 +30,10 @@ def main():
         if not os.path.isfile(path):
             print("missing", path); continue
         page = open(path, encoding="utf-8").read()
-        block = f"{START}\n{press.featured_strip(label)}\n{END}\n"
-        if START in page:
-            new = re.sub(re.escape(START) + r".*?" + re.escape(END) + r"\n", lambda m: block, page, flags=re.S)
-        else:
-            hero = page.index('<section class="hero wrap')
-            end = page.index("</section>\n", hero) + len("</section>\n")
-            new = page[:end] + "\n" + block + page[end:]
+        block = f"{START}\n{press.featured_strip(label, '    ')}\n{END}\n"
+        new = re.sub(r"\n?" + re.escape(START) + r".*?" + re.escape(END) + r"\n", "", page, flags=re.S)
+        video = new.index('    <div class="hero-video"')  # the strip sits at the very top, above the video
+        new = new[:video] + block + new[video:]
         if new != page:
             open(path, "w", encoding="utf-8").write(new)
             print("updated", os.path.relpath(path, ROOT))

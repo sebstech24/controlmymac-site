@@ -1309,7 +1309,8 @@ html { scroll-padding-top: 84px; }
 .wl-again{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 
 /* ----- "Featured on" strip (side-scrolling when the names don't fit) ----- */
-.featured{margin:var(--sp-l) auto 0;max-width:1100px;text-align:center}
+section.featured{margin:var(--sp-l) auto var(--sp-xl);padding:0;max-width:1100px;text-align:center}
+.hero section.featured{margin:var(--sp-xl) auto var(--sp-m)}
 .ft-label{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .ft-row{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 24px 10px;scrollbar-width:none;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
