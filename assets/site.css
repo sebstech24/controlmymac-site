@@ -1327,10 +1327,11 @@ section.featured{margin:var(--sp-l) auto var(--sp-xl);padding:0;max-width:1100px
 .price-short{max-width:620px;margin:var(--sp-m) auto 0;text-align:center;color:var(--muted);text-wrap:pretty}
 .price-cta{margin-top:var(--sp-xl)}
 @media (min-width:760px){
-  .hero-get{max-width:860px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2xl);align-items:start}
+  .hero-get{max-width:780px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-xl);align-items:start}
   .hg-row+.hg-row{margin-top:0}
   .hg-row{display:flex;flex-direction:column;align-items:center}
-  .hg-row>.cta{flex-direction:column;min-height:74px;justify-content:flex-end}
-  .hg-row>.hero-store{min-height:74px;justify-content:flex-end}
+  .hg-row>.cta{flex-direction:column}
+  .hg-row>.cta,.hg-row>.hero-store{min-height:46px;justify-content:center}
+  .hg-row .hs-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
   .hg-text .pair-note{max-width:340px}
 }
