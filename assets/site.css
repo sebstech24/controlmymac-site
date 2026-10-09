@@ -1310,7 +1310,7 @@ html { scroll-padding-top: 84px; }
 
 /* ----- "Featured on" strip (side-scrolling when the names don't fit) ----- */
 section.featured{margin:var(--sp-l) auto var(--sp-xl);padding:0;max-width:1100px;text-align:center}
-.hero section.featured{margin:var(--sp-xl) auto var(--sp-m)}
+.hero section.featured{margin:var(--sp-2xl) auto 0}
 .ft-label{margin:0 0 10px;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .ft-row{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 24px 10px;scrollbar-width:none;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,transparent,#000 24px,#000 calc(100% - 24px),transparent)}
@@ -1320,3 +1320,19 @@ section.featured{margin:var(--sp-l) auto var(--sp-xl);padding:0;max-width:1100px
 .ft-chip{flex:none;scroll-snap-align:center;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
 .ft-chip:hover{border-color:var(--muted)}
 .ft-chip small{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.04em}
+
+/* ----- Hero downloads: button left, its notes right (stacked on phones) ----- */
+.hg-row+.hg-row{margin-top:var(--sp-l)}
+.hg-row .hero-store{margin-top:0}
+.price-short{max-width:620px;margin:var(--sp-m) auto 0;text-align:center;color:var(--muted);text-wrap:pretty}
+.price-cta{margin-top:var(--sp-xl)}
+@media (min-width:760px){
+  .hero-get{max-width:860px;margin:0 auto}
+  .hg-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2xl);align-items:center}
+  .hg-row+.hg-row{margin-top:var(--sp-xl)}
+  .hg-row>.cta,.hg-row>.hero-store{flex-direction:column;align-items:flex-end}
+  .hg-text{text-align:left}
+  .hg-text>*{margin-left:0;margin-right:0}
+  .hg-text>:first-child{margin-top:0}
+  .hg-text .pair-note{max-width:360px;text-wrap:pretty}
+}

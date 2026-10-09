@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Puts the "Featured on" strip above the video at the top of every homepage (English and each language folder).
+"""Puts the "Featured on" strip under the download buttons at the top of every homepage (English and each language folder).
 
     python3 scripts/apply-featured-strip.py
 
@@ -32,8 +32,8 @@ def main():
         page = open(path, encoding="utf-8").read()
         block = f"{START}\n{press.featured_strip(label, '    ')}\n{END}\n"
         new = re.sub(r"\n?" + re.escape(START) + r".*?" + re.escape(END) + r"\n", "", page, flags=re.S)
-        video = new.index('    <div class="hero-video"')  # the strip sits at the very top, above the video
-        new = new[:video] + block + new[video:]
+        spot = new.index('    <p class="eyebrow">')  # under the two download buttons, above the headline
+        new = new[:spot] + block + "\n" + new[spot:]
         if new != page:
             open(path, "w", encoding="utf-8").write(new)
             print("updated", os.path.relpath(path, ROOT))

@@ -930,8 +930,9 @@
     trigger.appendChild(text("span", null, t.link));
     trigger.insertAdjacentHTML("beforeend", ICON_ARROW);
     var note = text("p", "offer-note", t.note);
-    cta.insertAdjacentElement("afterend", trigger);
-    trigger.insertAdjacentElement("afterend", note);
+    var slot = cta.parentElement.querySelector(".hg-text");
+    if (slot) { slot.insertAdjacentElement("afterbegin", note); slot.insertAdjacentElement("afterbegin", trigger); }
+    else { cta.insertAdjacentElement("afterend", trigger); trigger.insertAdjacentElement("afterend", note); }
 
     var scrim, panel, form, emailInput, consentInput, messageEl, submitBtn, turnstileBox, widgetId;
     var token = "";
