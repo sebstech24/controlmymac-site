@@ -28,6 +28,7 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | — | `assets/site.css` | Shared design system (glass chrome, accent gradient, light/dark, reduced-motion/transparency fallbacks) |
 | — | `assets/site.js` | Audience-choice memory for `/start` (no tracking, localStorage only), newsletter opt-in UI, donate-button seam |
 | `/api/subscribe` | `api/subscribe.ts` | Vercel serverless function: adds newsletter signups to the email provider (env-var configured, see below) |
+| — | `scripts/store-buttons.py` + `.json` | The download area (Mac, Windows, App Store, Google Play) on every homepage and download page; the Windows and Google Play links live in the `.json` |
 | — | `AUDIENCE-RESEARCH.md` | Public-safe research notes behind the variant messaging |
 
 ## After every release
@@ -69,6 +70,61 @@ The links to `v1.2.3` are the last Intel version and stay as they are.
 | Prices | `index.html` (price cards and the four `Offer` entries in the structured data), `pro.html`, `support.html`, the same pages in every language folder, and the two price texts in `scripts/build-press-kit.py`. App Store descriptions carry no amounts, only "Prices vary by country." |
 | Minimum iOS, iPadOS or macOS version | the "macOS 14+ · iOS/iPadOS 18+" lines and footers on every page, `operatingSystem` in the structured data, the Requirements fact in `scripts/build-press-kit.py` |
 | What the apps collect or send | `privacy.html` and its effective date, in every language |
+
+## Windows and Google Play buttons (prepared 12 Oct 2026, not live)
+
+The download area shows one entry per device, each under a device icon: Mac, Windows, iPhone and iPad (App Store),
+Android (Google Play). It sits in the hero of every homepage and, without the Mac entry, under the button on every
+Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; never edit the block between
+`<!-- get:start -->` and `<!-- get:end -->` by hand.
+
+**The one place for the two links is the top of `scripts/store-buttons.json`.**
+
+| Setting | Now | Meaning |
+|---|---|---|
+| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://` |
+| `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
+| `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
+| `app_name.windows`, `app_name.android` | `Control My Mac` | Open decision (Control My Mac or Control My PC). A different name shows under the device name on the live button |
+
+To switch a button on: paste the link, then
+
+```sh
+python3 scripts/store-buttons.py     # rewrites the 50 pages
+python3 scripts/sync-locales.py --check && npm test
+```
+
+commit and push. `python3 scripts/store-buttons.py --check` (also part of `npm test`) fails when the pages and the
+settings are out of step.
+
+### Official badges
+
+Apple's and Google's rules allow only their own badge artwork, at the same height, App Store first, with clear space
+around it, and no Apple, Windows or Android logos as icons (so the device icons are plain shapes).
+
+- **Not in the repository yet** (needs Sebastian's yes: Apple's artwork comes with its Marketing Artwork License).
+  Put Apple's black badges in `assets/badges/app-store/<folder>.svg` and Google's in
+  `assets/badges/google-play/<folder>.png` (`<folder>` = language folder, `en` for English), then run the builder.
+- Until Apple's file is there the pages keep the site's own App Store button. Without Google's file the Google Play
+  button refuses to go live.
+- Apple asks for one App Store badge per layout: once the official badge is in, the second App Store button on the
+  homepage (pricing section) and the ones on the other pages need the same swap or a plain text button.
+- `python3 scripts/store-buttons.py --remote-badges` is for a local look only (it loads the artwork from Apple's and
+  Google's servers). Never commit its output; `npm test` catches it.
+
+### Also do when Windows or Android goes live (the switch does not do these)
+
+- Copy that says Mac only: the pairing note under the App Store button, the FAQ "Does it work with Windows or
+  Android?", page titles and descriptions, the structured data (`operatingSystem`, `installUrl`), in every language.
+- The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
+  remove once both are out, and email the waiting list.
+- `get-iphone.html` sends every visitor to the App Store. Decide whether Android phones should go to Google Play.
+- `scripts/build-press-kit.py`: the "Get it" fact and the Windows and Android question (never edit `press.html`).
+- A Windows download page (what `/download` is for the Mac), if the link is not a store page.
+- Google Play status and plan: `Fable stuff/_Marketing/11-GOOGLE-PLAY-SAME-AS-APP-STORE.md` (on the Mac).
+
+Local preview of a worktree: the built-in preview serves the main checkout, so start
+`python3 -m http.server 8898 --directory <worktree>` and open `http://localhost:8898/index.html?waitlist-preview=1`.
 
 ## Vercel Web Analytics
 
@@ -124,5 +180,6 @@ Ko-fi takes 0% of one-off tips; money lands directly and instantly in your own S
 ## Remaining placeholders
 
 - `APP_STORE_URL_HERE` — still used only by unreleased future app pages when present. Control My Mac no longer exposes an App Store placeholder on the public pages.
+- `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` and `PASTE_THE_GOOGLE_PLAY_LINK_HERE` — only in `scripts/store-buttons.json`, never on a page (see "Windows and Google Play buttons").
 - `DOWNLOAD_URL_HERE` — the "Download coming soon" buttons on `filepilot.html`. Replace with the direct-download URL once FilePilot ships.
 - `DONATE_URL_HERE` — the two hidden "Support the free Mac app" buttons in `index.html` (pricing + footer). Replace with your Ko-fi page URL (see above); the buttons stay hidden until then.

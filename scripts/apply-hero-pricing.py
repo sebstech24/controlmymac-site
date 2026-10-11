@@ -40,7 +40,7 @@ PRICING = {  # folder: (heading, line)
 
 
 def hero(page):
-    if 'class="hero-get"' in page:
+    if 'class="hero-get"' in page or "<!-- get:start" in page:  # since 12 Oct 2026 scripts/store-buttons.py owns this block
         return page
     m = re.search(r'[ \t]*<div class="cta">.*?</div>\n(\s*<p class="cta-note"[^>]*>.*?</p>)\n\s*'
                   r'(<div class="hero-store">.*?</div>)\n(\s*<p class="pair-note">.*?</p>)\n', page, flags=re.S)
