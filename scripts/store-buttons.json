@@ -17,8 +17,8 @@
 
   "app_name": {
     "site": "Control My Mac",
-    "windows": "Control My Mac",
-    "android": "Control My Mac"
+    "windows": "Control My PC",
+    "android": "Control My PC"
   },
   "app_name_note": "If the Windows or Android app gets another name (for example Control My PC), change it here: the live button then shows that name under the device, and screen readers hear it.",
 

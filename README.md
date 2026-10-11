@@ -85,7 +85,7 @@ Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; nev
 | `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://` |
 | `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
 | `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
-| `app_name.windows`, `app_name.android` | `Control My Mac` | Open decision (Control My Mac or Control My PC). A different name shows under the device name on the live button |
+| `app_name.windows`, `app_name.android` | `Control My PC` | Working name, not final until Sebastian confirms (recommended by the SEO chat, 12 Oct 2026; the iPhone and Mac apps stay Control My Mac). A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
 
 To switch a button on: paste the link, then
 
@@ -117,7 +117,10 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
 - Copy that says Mac only: the pairing note under the App Store button, the FAQ "Does it work with Windows or
   Android?", page titles and descriptions, the structured data (`operatingSystem`, `installUrl`), in every language.
 - The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
-  remove once both are out, and email the waiting list.
+  remove once both are out, and email the waiting list. Its text says "Control My Mac is on its way to Windows PCs
+  and Android phones": change it if the final name is Control My PC.
+- The Windows file's version, size and minimum Windows version (from the "Control My PC: signed Windows download"
+  chat) belong in a note under the Windows button; the builder has no such note yet.
 - `get-iphone.html` sends every visitor to the App Store. Decide whether Android phones should go to Google Play.
 - `scripts/build-press-kit.py`: the "Get it" fact and the Windows and Android question (never edit `press.html`).
 - A Windows download page (what `/download` is for the Mac), if the link is not a store page.
