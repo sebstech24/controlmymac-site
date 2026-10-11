@@ -1359,4 +1359,6 @@ a.get-soon[href]:hover{border-color:var(--accent);background:color-mix(in srgb,v
   .get-grid{grid-template-columns:1fr 1fr;align-items:start}
   .get-grid>.get-tile:last-child:nth-child(odd){grid-column:1/-1}
 }
+/* Narrow two-column widths: a long button label (Ukrainian, Russian, Greek) wraps inside its tile instead of running off the screen edge */
+@media (min-width:760px) and (max-width:1023px){.get-tile .btn{max-width:100%;white-space:normal;text-align:center}}
 @media (prefers-reduced-motion:reduce){.store-badge,a.get-soon[href]{transition:none}}
