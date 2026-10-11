@@ -1,0 +1,302 @@
+{
+  "how_to": [
+    "The download area on the site: Mac, Windows, App Store (iPhone and iPad), Google Play (Android).",
+    "This file is the ONE place for the two new links. After any change here run:",
+    "    python3 scripts/store-buttons.py",
+    "then commit and push. A link counts as real once it starts with https://",
+    "Full steps: README.md, 'Windows and Google Play buttons'."
+  ],
+
+  "links": {
+    "windows": "PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE",
+    "android": "PASTE_THE_GOOGLE_PLAY_LINK_HERE"
+  },
+
+  "until_a_link_exists": "soon",
+  "until_a_link_exists_options": ["soon = a quiet 'Coming soon' pill that opens the waiting list", "hidden = nothing at all"],
+
+  "app_name": {
+    "site": "Control My Mac",
+    "windows": "Control My Mac",
+    "android": "Control My Mac"
+  },
+  "app_name_note": "If the Windows or Android app gets another name (for example Control My PC), change it here: the live button then shows that name under the device, and screen readers hear it.",
+
+  "copy": {
+    "en": {
+      "phones": "iPhone and iPad",
+      "win_btn": "Download for Windows",
+      "play_aria": "Get {name} on Google Play",
+      "soon": "Coming soon",
+      "other": "Other devices",
+      "tm_apple": "Apple, the Apple logo, Mac, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.",
+      "tm_play": "Google Play and the Google Play logo are trademarks of Google LLC.",
+      "tm_android": "Android is a trademark of Google LLC.",
+      "tm_windows": "Windows is a trademark of the Microsoft group of companies."
+    },
+    "cs": {
+      "phones": "iPhone a iPad",
+      "win_btn": "Stáhnout pro Windows",
+      "play_aria": "Stáhnout {name} z Google Play",
+      "soon": "Již brzy",
+      "other": "Další zařízení",
+      "tm_apple": "Apple, logo Apple, Mac, iPhone a iPad jsou ochranné známky společnosti Apple Inc. registrované v USA a dalších zemích. App Store je servisní známka společnosti Apple Inc.",
+      "tm_play": "Google Play a logo Google Play jsou ochranné známky společnosti Google LLC.",
+      "tm_android": "Android je ochranná známka společnosti Google LLC.",
+      "tm_windows": "Windows je ochranná známka skupiny společností Microsoft."
+    },
+    "da": {
+      "phones": "iPhone og iPad",
+      "win_btn": "Hent til Windows",
+      "play_aria": "Hent {name} på Google Play",
+      "soon": "Kommer snart",
+      "other": "Andre enheder",
+      "tm_apple": "Apple, Apple-logoet, Mac, iPhone og iPad er varemærker tilhørende Apple Inc., registreret i USA og andre lande. App Store er et servicemærke tilhørende Apple Inc.",
+      "tm_play": "Google Play og Google Play-logoet er varemærker tilhørende Google LLC.",
+      "tm_android": "Android er et varemærke tilhørende Google LLC.",
+      "tm_windows": "Windows er et varemærke tilhørende Microsoft-koncernen."
+    },
+    "de": {
+      "phones": "iPhone und iPad",
+      "win_btn": "Für Windows herunterladen",
+      "play_aria": "{name} bei Google Play laden",
+      "soon": "Demnächst",
+      "other": "Weitere Geräte",
+      "tm_apple": "Apple, das Apple Logo, Mac, iPhone und iPad sind Marken der Apple Inc., die in den USA und weiteren Ländern eingetragen sind. App Store ist eine Dienstleistungsmarke der Apple Inc.",
+      "tm_play": "Google Play und das Google Play-Logo sind Marken von Google LLC.",
+      "tm_android": "Android ist eine Marke von Google LLC.",
+      "tm_windows": "Windows ist eine Marke der Microsoft-Unternehmensgruppe."
+    },
+    "el": {
+      "phones": "iPhone και iPad",
+      "win_btn": "Λήψη για Windows",
+      "play_aria": "Αποκτήστε το {name} στο Google Play",
+      "soon": "Έρχεται σύντομα",
+      "other": "Άλλες συσκευές",
+      "tm_apple": "Τα Apple, το λογότυπο Apple, Mac, iPhone και iPad είναι εμπορικά σήματα της Apple Inc., κατατεθέντα στις ΗΠΑ και σε άλλες χώρες. Το App Store είναι σήμα υπηρεσίας της Apple Inc.",
+      "tm_play": "Το Google Play και το λογότυπο Google Play είναι εμπορικά σήματα της Google LLC.",
+      "tm_android": "Το Android είναι εμπορικό σήμα της Google LLC.",
+      "tm_windows": "Τα Windows είναι εμπορικό σήμα του ομίλου εταιρειών Microsoft."
+    },
+    "es": {
+      "phones": "iPhone y iPad",
+      "win_btn": "Descargar para Windows",
+      "play_aria": "Descargar {name} en Google Play",
+      "soon": "Próximamente",
+      "other": "Otros dispositivos",
+      "tm_apple": "Apple, el logotipo de Apple, Mac, iPhone y iPad son marcas comerciales de Apple Inc., registradas en EE. UU. y en otros países. App Store es una marca de servicio de Apple Inc.",
+      "tm_play": "Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.",
+      "tm_android": "Android es una marca comercial de Google LLC.",
+      "tm_windows": "Windows es una marca comercial del grupo de empresas Microsoft."
+    },
+    "fi": {
+      "phones": "iPhone ja iPad",
+      "win_btn": "Lataa Windowsille",
+      "play_aria": "Lataa {name} Google Playsta",
+      "soon": "Tulossa pian",
+      "other": "Muut laitteet",
+      "tm_apple": "Apple, Apple-logo, Mac, iPhone ja iPad ovat Apple Inc:n tavaramerkkejä, jotka on rekisteröity Yhdysvalloissa ja muissa maissa. App Store on Apple Inc:n palvelumerkki.",
+      "tm_play": "Google Play ja Google Play -logo ovat Google LLC:n tavaramerkkejä.",
+      "tm_android": "Android on Google LLC:n tavaramerkki.",
+      "tm_windows": "Windows on Microsoft-konsernin tavaramerkki."
+    },
+    "fr": {
+      "phones": "iPhone et iPad",
+      "win_btn": "Télécharger pour Windows",
+      "play_aria": "Télécharger {name} sur Google Play",
+      "soon": "Bientôt disponible",
+      "other": "Autres appareils",
+      "tm_apple": "Apple, le logo Apple, Mac, iPhone et iPad sont des marques d’Apple Inc., déposées aux États-Unis et dans d’autres pays. App Store est une marque de service d’Apple Inc.",
+      "tm_play": "Google Play et le logo Google Play sont des marques de Google LLC.",
+      "tm_android": "Android est une marque de Google LLC.",
+      "tm_windows": "Windows est une marque du groupe Microsoft."
+    },
+    "hu": {
+      "phones": "iPhone és iPad",
+      "win_btn": "Letöltés Windowsra",
+      "play_aria": "A {name} letöltése a Google Playről",
+      "soon": "Hamarosan",
+      "other": "Más eszközök",
+      "tm_apple": "Az Apple, az Apple logó, a Mac, az iPhone és az iPad az Apple Inc. védjegye, amely az Egyesült Államokban és más országokban be van jegyezve. Az App Store az Apple Inc. szolgáltatási védjegye.",
+      "tm_play": "A Google Play és a Google Play logó a Google LLC védjegye.",
+      "tm_android": "Az Android a Google LLC védjegye.",
+      "tm_windows": "A Windows a Microsoft vállalatcsoport védjegye."
+    },
+    "it": {
+      "phones": "iPhone e iPad",
+      "win_btn": "Scarica per Windows",
+      "play_aria": "Scarica {name} su Google Play",
+      "soon": "In arrivo",
+      "other": "Altri dispositivi",
+      "tm_apple": "Apple, il logo Apple, Mac, iPhone e iPad sono marchi di Apple Inc., registrati negli Stati Uniti e in altri Paesi. App Store è un marchio di servizio di Apple Inc.",
+      "tm_play": "Google Play e il logo di Google Play sono marchi di Google LLC.",
+      "tm_android": "Android è un marchio di Google LLC.",
+      "tm_windows": "Windows è un marchio del gruppo di società Microsoft."
+    },
+    "ja": {
+      "phones": "iPhone・iPad",
+      "win_btn": "Windows版をダウンロード",
+      "play_aria": "Google Playで{name}を入手",
+      "soon": "近日公開",
+      "other": "ほかのデバイス",
+      "tm_apple": "Apple、Appleのロゴ、Mac、iPhone、iPadは、米国その他の国や地域で登録されたApple Inc.の商標です。App Storeは、Apple Inc.のサービスマークです。",
+      "tm_play": "Google PlayおよびGoogle Playロゴは、Google LLCの商標です。",
+      "tm_android": "AndroidはGoogle LLCの商標です。",
+      "tm_windows": "Windowsは、マイクロソフト グループの企業の商標です。"
+    },
+    "ko": {
+      "phones": "iPhone・iPad",
+      "win_btn": "Windows용 다운로드",
+      "play_aria": "Google Play에서 {name} 다운로드",
+      "soon": "출시 예정",
+      "other": "다른 기기",
+      "tm_apple": "Apple, Apple 로고, Mac, iPhone 및 iPad는 미국 및 기타 국가에서 등록된 Apple Inc.의 상표입니다. App Store는 Apple Inc.의 서비스 상표입니다.",
+      "tm_play": "Google Play 및 Google Play 로고는 Google LLC의 상표입니다.",
+      "tm_android": "Android는 Google LLC의 상표입니다.",
+      "tm_windows": "Windows는 Microsoft 그룹사의 상표입니다."
+    },
+    "nl": {
+      "phones": "iPhone en iPad",
+      "win_btn": "Download voor Windows",
+      "play_aria": "Download {name} op Google Play",
+      "soon": "Binnenkort",
+      "other": "Andere apparaten",
+      "tm_apple": "Apple, het Apple logo, Mac, iPhone en iPad zijn handelsmerken van Apple Inc., geregistreerd in de VS en andere landen. App Store is een dienstmerk van Apple Inc.",
+      "tm_play": "Google Play en het Google Play-logo zijn handelsmerken van Google LLC.",
+      "tm_android": "Android is een handelsmerk van Google LLC.",
+      "tm_windows": "Windows is een handelsmerk van de Microsoft-bedrijvengroep."
+    },
+    "no": {
+      "phones": "iPhone og iPad",
+      "win_btn": "Last ned for Windows",
+      "play_aria": "Last ned {name} på Google Play",
+      "soon": "Kommer snart",
+      "other": "Andre enheter",
+      "tm_apple": "Apple, Apple-logoen, Mac, iPhone og iPad er varemerker for Apple Inc., registrert i USA og andre land. App Store er et tjenestemerke for Apple Inc.",
+      "tm_play": "Google Play og Google Play-logoen er varemerker for Google LLC.",
+      "tm_android": "Android er et varemerke for Google LLC.",
+      "tm_windows": "Windows er et varemerke for Microsoft-konsernet."
+    },
+    "pl": {
+      "phones": "iPhone i iPad",
+      "win_btn": "Pobierz na Windows",
+      "play_aria": "Pobierz {name} z Google Play",
+      "soon": "Wkrótce",
+      "other": "Inne urządzenia",
+      "tm_apple": "Apple, logo Apple, Mac, iPhone i iPad są znakami towarowymi Apple Inc., zastrzeżonymi w USA i innych krajach. App Store jest znakiem usługowym Apple Inc.",
+      "tm_play": "Google Play i logo Google Play są znakami towarowymi Google LLC.",
+      "tm_android": "Android jest znakiem towarowym Google LLC.",
+      "tm_windows": "Windows jest znakiem towarowym grupy firm Microsoft."
+    },
+    "pt": {
+      "phones": "iPhone e iPad",
+      "win_btn": "Baixar para Windows",
+      "play_aria": "Baixar o {name} no Google Play",
+      "soon": "Em breve",
+      "other": "Outros dispositivos",
+      "tm_apple": "Apple, o logotipo da Apple, Mac, iPhone e iPad são marcas comerciais da Apple Inc., registradas nos EUA e em outros países. App Store é uma marca de serviço da Apple Inc.",
+      "tm_play": "Google Play e o logotipo do Google Play são marcas comerciais da Google LLC.",
+      "tm_android": "Android é uma marca comercial da Google LLC.",
+      "tm_windows": "Windows é uma marca comercial do grupo de empresas Microsoft."
+    },
+    "ro": {
+      "phones": "iPhone și iPad",
+      "win_btn": "Descărcați pentru Windows",
+      "play_aria": "Descărcați {name} din Google Play",
+      "soon": "În curând",
+      "other": "Alte dispozitive",
+      "tm_apple": "Apple, sigla Apple, Mac, iPhone și iPad sunt mărci comerciale ale Apple Inc., înregistrate în SUA și în alte țări. App Store este o marcă de serviciu a Apple Inc.",
+      "tm_play": "Google Play și sigla Google Play sunt mărci comerciale ale Google LLC.",
+      "tm_android": "Android este o marcă comercială a Google LLC.",
+      "tm_windows": "Windows este o marcă comercială a grupului de companii Microsoft."
+    },
+    "ru": {
+      "phones": "iPhone и iPad",
+      "win_btn": "Скачать для Windows",
+      "play_aria": "Скачать {name} в Google Play",
+      "soon": "Скоро",
+      "other": "Другие устройства",
+      "tm_apple": "Apple, логотип Apple, Mac, iPhone и iPad являются товарными знаками Apple Inc., зарегистрированными в США и других странах. App Store является знаком обслуживания Apple Inc.",
+      "tm_play": "Google Play и логотип Google Play являются товарными знаками компании Google LLC.",
+      "tm_android": "Android является товарным знаком компании Google LLC.",
+      "tm_windows": "Windows является товарным знаком группы компаний Microsoft."
+    },
+    "sk": {
+      "phones": "iPhone a iPad",
+      "win_btn": "Stiahnuť pre Windows",
+      "play_aria": "Stiahnuť {name} z Google Play",
+      "soon": "Už čoskoro",
+      "other": "Ďalšie zariadenia",
+      "tm_apple": "Apple, logo Apple, Mac, iPhone a iPad sú ochranné známky spoločnosti Apple Inc. registrované v USA a ďalších krajinách. App Store je servisná známka spoločnosti Apple Inc.",
+      "tm_play": "Google Play a logo Google Play sú ochranné známky spoločnosti Google LLC.",
+      "tm_android": "Android je ochranná známka spoločnosti Google LLC.",
+      "tm_windows": "Windows je ochranná známka skupiny spoločností Microsoft."
+    },
+    "sl": {
+      "phones": "iPhone in iPad",
+      "win_btn": "Prenesite za Windows",
+      "play_aria": "Prenesite {name} iz trgovine Google Play",
+      "soon": "Kmalu",
+      "other": "Druge naprave",
+      "tm_apple": "Apple, logotip Apple, Mac, iPhone in iPad so blagovne znamke družbe Apple Inc., registrirane v ZDA in drugih državah. App Store je storitvena znamka družbe Apple Inc.",
+      "tm_play": "Google Play in logotip Google Play sta blagovni znamki družbe Google LLC.",
+      "tm_android": "Android je blagovna znamka družbe Google LLC.",
+      "tm_windows": "Windows je blagovna znamka skupine podjetij Microsoft."
+    },
+    "sv": {
+      "phones": "iPhone och iPad",
+      "win_btn": "Hämta för Windows",
+      "play_aria": "Hämta {name} på Google Play",
+      "soon": "Kommer snart",
+      "other": "Andra enheter",
+      "tm_apple": "Apple, Apples logotyp, Mac, iPhone och iPad är varumärken som tillhör Apple Inc. och är registrerade i USA och andra länder. App Store är ett servicemärke som tillhör Apple Inc.",
+      "tm_play": "Google Play och Google Play-logotypen är varumärken som tillhör Google LLC.",
+      "tm_android": "Android är ett varumärke som tillhör Google LLC.",
+      "tm_windows": "Windows är ett varumärke som tillhör Microsoft-koncernen."
+    },
+    "tr": {
+      "phones": "iPhone ve iPad",
+      "win_btn": "Windows için indir",
+      "play_aria": "{name} uygulamasını Google Play’den indir",
+      "soon": "Yakında",
+      "other": "Diğer cihazlar",
+      "tm_apple": "Apple, Apple logosu, Mac, iPhone ve iPad, Apple Inc.’in ABD’de ve diğer ülkelerde tescilli ticari markalarıdır. App Store, Apple Inc.’in hizmet markasıdır.",
+      "tm_play": "Google Play ve Google Play logosu, Google LLC’nin ticari markalarıdır.",
+      "tm_android": "Android, Google LLC’nin ticari markasıdır.",
+      "tm_windows": "Windows, Microsoft şirketler grubunun ticari markasıdır."
+    },
+    "uk": {
+      "phones": "iPhone та iPad",
+      "win_btn": "Завантажити для Windows",
+      "play_aria": "Завантажити {name} з Google Play",
+      "soon": "Незабаром",
+      "other": "Інші пристрої",
+      "tm_apple": "Apple, логотип Apple, Mac, iPhone та iPad є торговельними марками Apple Inc., зареєстрованими в США та інших країнах. App Store є знаком обслуговування Apple Inc.",
+      "tm_play": "Google Play і логотип Google Play є торговельними марками Google LLC.",
+      "tm_android": "Android є торговельною маркою Google LLC.",
+      "tm_windows": "Windows є торговельною маркою групи компаній Microsoft."
+    },
+    "zh": {
+      "phones": "iPhone 和 iPad",
+      "win_btn": "下载 Windows 版",
+      "play_aria": "在 Google Play 获取 {name}",
+      "soon": "即将推出",
+      "other": "其他设备",
+      "tm_apple": "Apple、Apple 标志、Mac、iPhone 和 iPad 是 Apple Inc. 在美国和其他国家及地区注册的商标。App Store 是 Apple Inc. 的服务标记。",
+      "tm_play": "Google Play 和 Google Play 徽标是 Google LLC 的商标。",
+      "tm_android": "Android 是 Google LLC 的商标。",
+      "tm_windows": "Windows 是 Microsoft 集团公司的商标。"
+    },
+    "zh-hant": {
+      "phones": "iPhone 與 iPad",
+      "win_btn": "下載 Windows 版",
+      "play_aria": "在 Google Play 取得 {name}",
+      "soon": "即將推出",
+      "other": "其他裝置",
+      "tm_apple": "Apple、Apple 標誌、Mac、iPhone 和 iPad 是 Apple Inc. 在美國及其他國家和地區註冊的商標。App Store 是 Apple Inc. 的服務標記。",
+      "tm_play": "Google Play 和 Google Play 標誌是 Google LLC 的商標。",
+      "tm_android": "Android 是 Google LLC 的商標。",
+      "tm_windows": "Windows 是 Microsoft 企業集團的商標。"
+    }
+  }
+}

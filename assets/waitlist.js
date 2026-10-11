@@ -3,15 +3,17 @@
    says the service is configured. The page carries its own words in a JSON block;
    the shared form words come from assets/offer.js. On localhost, ?waitlist-preview=1
    shows the form without calling the API. The security check loads only once the
-   visitor starts filling in the form. */
+   visitor starts filling in the form. The "Coming soon" pills in the download area
+   ([data-waitlist-href], also on pages without the form) become links the same way. */
 (function () {
   "use strict";
   var section = document.querySelector("[data-waitlist]");
-  if (!section) { return; }
-  var box = section.querySelector("[data-waitlist-form]");
-  var copyEl = section.querySelector("[data-waitlist-copy]");
+  var pills = document.querySelectorAll("[data-waitlist-href]");
+  if (!section && !pills.length) { return; }
+  var box = section && section.querySelector("[data-waitlist-form]");
+  var copyEl = section && section.querySelector("[data-waitlist-copy]");
   var own = {};
-  try { own = JSON.parse(copyEl.textContent); } catch (e) { return; }
+  if (section) { try { own = JSON.parse(copyEl.textContent); } catch (e) { return; } }
   var shared = window.cmmOfferCopy || {};
   function t(key) { return own[key] || shared[key] || ""; }
 
@@ -47,9 +49,11 @@
 
   function mount(state) {
     if (!state.configured) { return; }
-    section.hidden = false;
     var links = document.querySelectorAll("[data-waitlist-link]");
     for (var i = 0; i < links.length; i++) { links[i].hidden = false; }
+    for (var p = 0; p < pills.length; p++) { pills[p].setAttribute("href", pills[p].getAttribute("data-waitlist-href")); }
+    if (!section) { return; }
+    section.hidden = false;
 
     var form = el("form", "wl-form");
     form.noValidate = true;
