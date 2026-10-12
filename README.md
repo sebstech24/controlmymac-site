@@ -86,7 +86,7 @@ Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; nev
 | `links.windows_store` | `PASTE_THE_MICROSOFT_STORE_PAGE_LINK_HERE` | Optional small "Also in the Microsoft Store" link under the Windows button |
 | `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
 | `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
-| `app_name.windows`, `app_name.android` | `Control My PC` | Working name, not final until Sebastian confirms (recommended by the SEO chat, 12 Oct 2026; the iPhone and Mac apps stay Control My Mac). A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
+| `app_name.windows`, `app_name.android` | `Control My PC` | Confirmed by Sebastian on 12 Oct 2026 ("use Control my PC as the name", passed on by the Windows download chat); the iPhone and Mac apps stay Control My Mac. A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
 
 To switch a button on: paste the link, then
 
@@ -121,7 +121,8 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
   Android?", page titles and descriptions, the structured data (`operatingSystem`, `installUrl`), in every language.
 - The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
   remove once both are out, and email the waiting list. Its text says "Control My Mac is on its way to Windows PCs
-  and Android phones": change it if the final name is Control My PC.
+  and Android phones" and the privacy page says "Control My Mac for Windows or Android": both need the name
+  Control My PC.
 - `get-iphone.html` sends every visitor to the App Store. Decide whether Android phones should go to Google Play.
 - `scripts/build-press-kit.py`: the "Get it" fact and the Windows and Android question (never edit `press.html`).
 - Google Play status and plan: `Fable stuff/_Marketing/11-GOOGLE-PLAY-SAME-AS-APP-STORE.md` (on the Mac).
@@ -145,12 +146,13 @@ iPhone has controlled the Windows build yet.
   version 1.0.0, Windows 10 version 1809 or newer or Windows 11, 64-bit, about 58 MB.
 - The Windows and Android apps open `controlmymac.com/download`, the Mac download page. That page now lists the other
   devices under the Mac button, so those visitors find their own download once it is live.
-- The name is not settled ("For the name I want it to be the same" can mean either one): `app_name` stays the one place.
-- Only if he later buys his own certificate and hosts the installer himself: **never upload Windows files as a
-  normal release of this repository.** `api/download-dmg.ts` takes the `.dmg` from the **latest** release here, so a
-  Windows release would break the Mac download. Use a separate public repository or `--latest=false`.
+- The name is Control My PC (confirmed 12 Oct 2026). `app_name` stays the one place for it.
+- Nothing is hosted on this site or in its GitHub releases (his decision: "dont host on site, just link microsoft installer"). Worth knowing anyway: `api/download-dmg.ts` takes the `.dmg` from the **latest** release of this repository, so only Mac releases may ever be "latest" here.
 - Current notes of that chat: `~/Coding/ControlMyMac-CrossPlatform/dist/windows-release-drafts-2026-10-12/WINDOWS-DOWNLOAD-FOR-WEBSITE.md`
   (on the Mac).
+- A second design for this area exists and is not approved: the Windows download chat's proposal (the main button
+  changes with the visitor's computer, and the waiting-list section becomes "Now on Windows: Control My PC").
+  Build it only after Sebastian says so, and in this branch, so the area is not built twice.
 
 Local preview of a worktree: the built-in preview serves the main checkout, so start
 `python3 -m http.server 8898 --directory <worktree>` and open `http://localhost:8898/index.html?waitlist-preview=1`.
