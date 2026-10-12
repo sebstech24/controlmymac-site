@@ -152,7 +152,9 @@ iPhone has controlled the Windows build yet.
   (on the Mac).
 - A second design for this area exists and is not approved: the Windows download chat's proposal (the main button
   changes with the visitor's computer, and the waiting-list section becomes "Now on Windows: Control My PC").
-  Build it only after Sebastian says so, and in this branch, so the area is not built twice.
+  Build it only after Sebastian says so, and in this branch, so the area is not built twice. Agreed with that chat:
+  this download area stays the base, and its "Now on Windows" section is the part worth adding, because an iPhone
+  must be set to Wi-Fi (Settings > Trackpad & Pointer > Transport) or pairing with a PC fails, and no page says so yet.
 
 Local preview of a worktree: the built-in preview serves the main checkout, so start
 `python3 -m http.server 8898 --directory <worktree>` and open `http://localhost:8898/index.html?waitlist-preview=1`.
