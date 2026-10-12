@@ -24,15 +24,17 @@ SITE = "https://www.controlmymac.com"
 URL = SITE + "/press"
 
 # ---------------------------------------------------------------- facts (checked against the live sources)
-CHECKED = "6 October 2026"
-IOS_VERSION, IOS_DATE = "1.2.6", "3 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
-MAC_VERSION, MAC_DATE = "1.2.9", "5 October 2026"        # appcast.xml
+CHECKED = "12 October 2026"
+IOS_VERSION, IOS_DATE = "1.2.7", "6 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
+MAC_VERSION, MAC_DATE = "1.2.10", "12 October 2026"        # appcast.xml
 FIRST_RELEASE = "30 June 2026"
 YOUTUBE_ID = "tFjjSwfIPU0"                               # same video as the homepage (data-yt on index.html)
 EMAIL = "sebastian@controlmymac.com"
 APP_STORE = "https://apps.apple.com/app/id6781458180"
-LANGUAGES = ["English", "German", "French", "Italian", "Spanish", "Portuguese (Brazil)", "Dutch", "Polish", "Turkish",
-             "Russian", "Ukrainian", "Slovenian", "Japanese", "Korean", "Simplified Chinese", "Traditional Chinese"]
+LANGUAGES = ["English", "German", "French", "Italian", "Spanish", "Portuguese (Brazil)", "Dutch", "Polish",
+             "Turkish", "Russian", "Ukrainian", "Slovenian", "Czech", "Slovak", "Swedish", "Norwegian", "Danish",
+             "Finnish", "Hungarian", "Romanian", "Greek", "Japanese", "Korean", "Simplified Chinese",
+             "Traditional Chinese"]
 LANG_LIST = ", ".join(LANGUAGES[:-1]) + " and " + LANGUAGES[-1]
 SOCIAL = [("TikTok", "https://www.tiktok.com/@sebs_tech"), ("Instagram", "https://www.instagram.com/sebs_tech"),
           ("YouTube", "https://www.youtube.com/@Sebs_tech")]
