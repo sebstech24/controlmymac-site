@@ -143,13 +143,14 @@ iPhone has controlled the Windows build yet.
   button of the same area turns quiet); for everyone else it is a quiet button. `assets/site.js` does this. To see it
   locally add `&platform-preview=windows` to the address (localhost only).
 - Under the button: "Windows 10+ · Free · No account" (`windows_needs` plus words the Mac note already uses). Facts:
-  version 1.0.0, Windows 10 version 1809 or newer or Windows 11, 64-bit, about 58 MB.
+  version 1.0.0, Windows 10 version 1809 or newer or Windows 11, 64-bit, about 53 MB (the page states no size).
+  The Store package is built and tried, not submitted.
 - The Windows and Android apps open `controlmymac.com/download`, the Mac download page. That page now lists the other
   devices under the Mac button, so those visitors find their own download once it is live.
 - The name is Control My PC (confirmed 12 Oct 2026). `app_name` stays the one place for it.
 - Nothing is hosted on this site or in its GitHub releases (his decision: "dont host on site, just link microsoft installer"). Worth knowing anyway: `api/download-dmg.ts` takes the `.dmg` from the **latest** release of this repository, so only Mac releases may ever be "latest" here.
-- Current notes of that chat: `~/Coding/ControlMyMac-CrossPlatform/dist/windows-release-drafts-2026-10-12/WINDOWS-DOWNLOAD-FOR-WEBSITE.md`
-  (on the Mac).
+- That chat's notes: `docs/WINDOWS-DOWNLOAD-FOR-WEBSITE.md` on branch `feature/windows-release` of the cross-platform
+  repository (`~/Coding/cmm-xplat-security`, on the Mac).
 - A second design for this area exists and is not approved: the Windows download chat's proposal (the main button
   changes with the visitor's computer, and the waiting-list section becomes "Now on Windows: Control My PC").
   Build it only after Sebastian says so, and in this branch, so the area is not built twice. Agreed with that chat:
