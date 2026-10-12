@@ -82,7 +82,8 @@ Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; nev
 
 | Setting | Now | Meaning |
 |---|---|---|
-| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://`. A direct download link shows "Download for Windows" with the note "Windows 10+ · Free · No account" (`windows_needs` plus words the Mac note already uses). A Microsoft Store link (`https://apps.microsoft.com/detail/<Store ID>`) shows Microsoft's badge instead |
+| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://`: "Download for Windows" with a short note (details under "Windows: what is decided and known"). A Store page link here instead shows Microsoft's badge |
+| `links.windows_store` | `PASTE_THE_MICROSOFT_STORE_PAGE_LINK_HERE` | Optional small "Also in the Microsoft Store" link under the Windows button |
 | `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
 | `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
 | `app_name.windows`, `app_name.android` | `Control My PC` | Working name, not final until Sebastian confirms (recommended by the SEO chat, 12 Oct 2026; the iPhone and Mac apps stay Control My Mac). A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
@@ -121,33 +122,35 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
 - The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
   remove once both are out, and email the waiting list. Its text says "Control My Mac is on its way to Windows PCs
   and Android phones": change it if the final name is Control My PC.
-
-### Windows download: what is known (12 Oct 2026, from the "Control My PC: signed Windows download" chat)
-
-No public file yet: only an unsigned test build exists, nothing is signed or uploaded, and no real iPhone has
-controlled it. Sebastian still has to pick the signing route (Microsoft Store, his own certificate, or Azure).
-
-- Version 1.0.0. Needs Windows 10 version 1809 or newer, or Windows 11, 64-bit, normal (x64) and ARM PCs. About 58 MB.
-  Free, no account.
-- Files per release: `ControlMyPC-Setup-<version>-x64.msi` (main button), `ControlMyPC-Setup-<version>-arm64.msi`
-  (a small second link, not built into the area yet).
-- Direct download route: copy the Mac's shape, a stable `/download.msi` that redirects to the current installer, and
-  put that link in `links.windows`. Windows shows "unrecognized app" for the first weeks even for a signed file, so
-  add one line under the button then ("Windows may ask once: choose More info, then Run anyway", 25 languages).
-- **Trap:** `api/download-dmg.ts` takes the `.dmg` from this repository's **latest** GitHub release. A Windows release
-  uploaded here as a normal release becomes "latest" and breaks the Mac download. Windows files need their own
-  public repository, or releases made with `--latest=false`, and the Windows redirect must name its own repository
-  or tag.
-- The Windows and Android apps open `controlmymac.com/download`, the Mac download page. That page now lists the other
-  devices under the Mac button, so those visitors find their own download once it is live.
-- The Windows update feed (`appcast-windows.xml` and its `.signature`) must be stored byte for byte: add both to
-  `.gitattributes` with `-text` when they arrive.
-- Full notes: `docs/WINDOWS-DOWNLOAD-FOR-WEBSITE.md`, branch `feature/windows-release` of the cross-platform
-  repository (`~/Coding/cmm-xplat-security`, on the Mac), once that chat has written it.
 - `get-iphone.html` sends every visitor to the App Store. Decide whether Android phones should go to Google Play.
 - `scripts/build-press-kit.py`: the "Get it" fact and the Windows and Android question (never edit `press.html`).
-- A Windows download page (what `/download` is for the Mac), if the link is not a store page.
 - Google Play status and plan: `Fable stuff/_Marketing/11-GOOGLE-PLAY-SAME-AS-APP-STORE.md` (on the Mac).
+
+### Windows: what is decided and known (12 Oct 2026, from the "Control My PC: signed Windows download" chat)
+
+Sebastian chose the Microsoft Store, with both a download button and the Store page ("signing do microsoft store ...
+Installer. do both store and direct download"). Nothing is live: no Store developer account, no Store ID, and no real
+iPhone has controlled the Windows build yet.
+
+- `links.windows` gets Microsoft's installer link, `https://get.microsoft.com/installer/download/<Store ID>`. A click
+  downloads a small file signed by Microsoft that installs the Store app. Nothing is hosted on this site, it picks
+  normal or ARM PCs by itself, Windows shows no warning, and the Store updates the app.
+- `links.windows_store` gets the Store page, `https://apps.microsoft.com/detail/<Store ID>`. It appears as a small
+  "Also in the Microsoft Store" link under the button.
+- The `<Store ID>` (12 characters) exists once he has opened the free Store developer account and reserved the name.
+- The button downloads a Windows file, so it is the gradient main button only for Windows visitors (there the Mac
+  button of the same area turns quiet); for everyone else it is a quiet button. `assets/site.js` does this. To see it
+  locally add `&platform-preview=windows` to the address (localhost only).
+- Under the button: "Windows 10+ · Free · No account" (`windows_needs` plus words the Mac note already uses). Facts:
+  version 1.0.0, Windows 10 version 1809 or newer or Windows 11, 64-bit, about 58 MB.
+- The Windows and Android apps open `controlmymac.com/download`, the Mac download page. That page now lists the other
+  devices under the Mac button, so those visitors find their own download once it is live.
+- The name is not settled ("For the name I want it to be the same" can mean either one): `app_name` stays the one place.
+- Only if he later buys his own certificate and hosts the installer himself: **never upload Windows files as a
+  normal release of this repository.** `api/download-dmg.ts` takes the `.dmg` from the **latest** release here, so a
+  Windows release would break the Mac download. Use a separate public repository or `--latest=false`.
+- Current notes of that chat: `~/Coding/ControlMyMac-CrossPlatform/dist/windows-release-drafts-2026-10-12/WINDOWS-DOWNLOAD-FOR-WEBSITE.md`
+  (on the Mac).
 
 Local preview of a worktree: the built-in preview serves the main checkout, so start
 `python3 -m http.server 8898 --directory <worktree>` and open `http://localhost:8898/index.html?waitlist-preview=1`.
@@ -206,6 +209,6 @@ Ko-fi takes 0% of one-off tips; money lands directly and instantly in your own S
 ## Remaining placeholders
 
 - `APP_STORE_URL_HERE` — still used only by unreleased future app pages when present. Control My Mac no longer exposes an App Store placeholder on the public pages.
-- `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` and `PASTE_THE_GOOGLE_PLAY_LINK_HERE` — only in `scripts/store-buttons.json`, never on a page (see "Windows and Google Play buttons").
+- `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE`, `PASTE_THE_MICROSOFT_STORE_PAGE_LINK_HERE` and `PASTE_THE_GOOGLE_PLAY_LINK_HERE` — only in `scripts/store-buttons.json`, never on a page (see "Windows and Google Play buttons").
 - `DOWNLOAD_URL_HERE` — the "Download coming soon" buttons on `filepilot.html`. Replace with the direct-download URL once FilePilot ships.
 - `DONATE_URL_HERE` — the two hidden "Support the free Mac app" buttons in `index.html` (pricing + footer). Replace with your Ko-fi page URL (see above); the buttons stay hidden until then.

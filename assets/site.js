@@ -67,6 +67,10 @@
   var platform =
     (navigator.userAgentData && navigator.userAgentData.platform) ||
     navigator.platform || "";
+  // On localhost, ?platform-preview=windows (or mac) shows the page the way that visitor gets it.
+  var previewAs = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) &&
+    /[?&]platform-preview=(\w+)/.exec(location.search);
+  if (previewAs) { platform = previewAs[1]; }
   // Case-insensitive: Chromium reports "macOS", WebKit "MacIntel".
   // maxTouchPoints guard: iPads masquerade as "MacIntel".
   var isMac = platform.toLowerCase().indexOf("mac") === 0 &&
@@ -142,6 +146,16 @@
       ? dlCopy[3]
       : dlCopy[4];
     for (var n = 0; n < dlNotes.length; n++) { dlNotes[n].textContent = noteText; }
+  }
+
+  // The Windows button in the download area ("[data-win-cta]", there once its link exists) downloads a
+  // Windows installer, so it is the main button only on a Windows PC, where the Mac button of the same
+  // area steps back. Everywhere else it keeps its quiet look.
+  var winCtas = document.querySelectorAll("[data-win-cta]");
+  if (winCtas.length && platform.toLowerCase().indexOf("win") === 0) {
+    for (var w = 0; w < winCtas.length; w++) { winCtas[w].className = "btn btn-primary"; }
+    var macInArea = document.querySelectorAll(".get [data-dl-cta]");
+    for (var m = 0; m < macInArea.length; m++) { macInArea[m].className = "btn btn-quiet"; }
   }
 
   // On the selector page, offer a quiet way back to the stored choice.

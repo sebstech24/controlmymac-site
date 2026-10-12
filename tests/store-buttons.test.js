@@ -34,7 +34,7 @@ test("no placeholder or preview link is on a page, and a device without a link h
     for (const name of ["index.html", "download.html"]) {
       const html = page(lang, name);
       assert.ok(html.includes("<!-- get:start"), `${lang}/${name} has no download area`);
-      assert.doesNotMatch(html, /PASTE_THE_|preview-only|toolbox\.marketingtools\.apple\.com|play\.google\.com\/intl|get\.microsoft\.com/, `${lang}/${name}`);
+      assert.doesNotMatch(html, /PASTE_THE_|preview-only|toolbox\.marketingtools\.apple\.com|play\.google\.com\/intl|get\.microsoft\.com\/images/, `${lang}/${name}`);
       const area = html.slice(html.indexOf("<!-- get:start"), html.indexOf("<!-- get:end -->"));
       if (!live("windows")) { assert.ok(!area.includes(settings.copy[lang].win_btn) && !/microsoft/.test(area), `${lang}/${name} shows a Windows button`); }
       if (live("windows") && settings.links.windows.startsWith("https://apps.microsoft.com/")) {

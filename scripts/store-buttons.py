@@ -19,8 +19,10 @@ Official badge artwork is used when it is in the repository, never drawn here:
 <folder> is the language folder name, "en" for English. Without Apple's file the page keeps the site's own App Store
 button. Without Google's (or Microsoft's) file that button refuses to go live.
 
-links.windows may be a direct download link (the site's "Download for Windows" button plus a short note built from
-windows_needs) or a Microsoft Store link, https://apps.microsoft.com/... (Microsoft's badge, no note).
+links.windows is a download link, by decision of 12 Oct 2026 Microsoft's installer for the Store app
+(https://get.microsoft.com/installer/download/<Store ID>): the site's "Download for Windows" button plus a short note
+built from windows_needs, and under it a small "Also in the Microsoft Store" link when links.windows_store is set.
+If links.windows is itself a Store page link (https://apps.microsoft.com/...), Microsoft's badge is shown instead.
 
 --remote-badges is for a local look only (never commit its output): it points the badges at Apple's and Google's own
 servers, so the real artwork can be seen before the files are in the repository.
@@ -194,10 +196,16 @@ def new_tiles(lang, waitlist_href):
         if windows_from_store():
             label = esc(words["ms_aria"].replace("{name}", CONF["app_name"]["windows"]))
             button = microsoft_store_button(lang, label)
-        else:  # direct download: the site's button, and what it needs in the words the Mac note already uses
+        else:
+            # A download link (Microsoft's installer for the Store app): the site's button, and what it needs in the
+            # words the Mac note already uses. It is a Windows file, so it is the main button only for Windows
+            # visitors: quiet here, and assets/site.js makes it the gradient button on a Windows PC.
             note = " · ".join([CONF["windows_needs"], words["free"], words["no_account"]])
-            button = (f'<a class="btn btn-primary" href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a>\n'
+            button = (f'<a class="btn btn-quiet" data-win-cta href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a>\n'
                       f'          <p class="cta-note">{esc(note)}</p>')
+            if CONF["links"]["windows_store"].startswith("https://"):
+                button += (f'\n          <p class="cta-note"><a href="{esc(CONF["links"]["windows_store"])}">'
+                           f'{esc(words["also_store"])}</a></p>')
         tiles["windows"] = ('        <div class="get-tile">\n'
                             f'          {caption("windows", "Windows", "windows")}\n'
                             f'          {button}\n'

@@ -1339,6 +1339,8 @@ section.featured{margin:var(--sp-l) auto var(--sp-xl);padding:0;max-width:1100px
 .get-grid:has(.get-cap small) .get-cap{min-height:34px}
 .get-tile>.cta{flex-direction:column}
 .get-tile .cta-note,.get-tile .pair-note{margin-top:0}
+.get-tile .cta-note+.cta-note{margin-top:-6px}
+.get-tile .cta-note a{color:var(--accent);font-weight:600}
 .get-tile .pair-note{max-width:340px}
 /* Official store badges: the artwork is never restyled, only sized (same height for both) and given its clear space by the grid gap */
 .store-badge{display:inline-flex;border-radius:8px;transition:transform var(--motion-micro)}
