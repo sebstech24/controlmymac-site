@@ -8,6 +8,27 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.10</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Ready for the new Launcher</strong> in the iPhone and iPad app (1.2.8): a grid of your open apps with their icons, a window list for each app, sets, favorites and all your apps.</li>
+          <li>Tapping an app that is already open brings it to the front.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 12 Oct 2026 07:46:00 +0000</pubDate>
+      <sparkle:version>16</sparkle:version>
+      <sparkle:shortVersionString>1.2.10</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.10/ControlMyMac-1.2.10.dmg"
+                 sparkle:version="16"
+                 sparkle:shortVersionString="1.2.10"
+                 length="3814797"
+                 type="application/octet-stream"
+                 sparkle:edSignature="G1dgdUE78Nmmf1dv1PZfFnqo/qL2PLk9G+6WfesMRL0Vwh17S3lqPjyf9ZK6OGJAsiJvkbAA2e1g+gfUr810Cw==" />
+    </item>
+    <item>
       <title>Version 1.2.9</title>
       <description><![CDATA[
         <ul>
