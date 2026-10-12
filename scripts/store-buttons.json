@@ -12,6 +12,9 @@
     "android": "PASTE_THE_GOOGLE_PLAY_LINK_HERE"
   },
 
+  "links_note": "Windows takes either a direct https download link (shows the Download for Windows button with a short note under it) or a Microsoft Store link, https://apps.microsoft.com/detail/<Store ID> (shows Microsoft's official badge instead).",
+  "windows_needs": "Windows 10+",
+
   "until_a_link_exists": "soon",
   "until_a_link_exists_options": ["soon = a quiet 'Coming soon' pill that opens the waiting list", "hidden = nothing at all"],
 
@@ -26,6 +29,9 @@
     "en": {
       "phones": "iPhone and iPad",
       "win_btn": "Download for Windows",
+      "free": "Free",
+      "no_account": "No account",
+      "ms_aria": "Get {name} from the Microsoft Store",
       "play_aria": "Get {name} on Google Play",
       "soon": "Coming soon",
       "other": "Other devices",
@@ -37,6 +43,9 @@
     "cs": {
       "phones": "iPhone a iPad",
       "win_btn": "Stáhnout pro Windows",
+      "free": "Zdarma",
+      "no_account": "Bez účtu",
+      "ms_aria": "Stáhnout {name} z Microsoft Storu",
       "play_aria": "Stáhnout {name} z Google Play",
       "soon": "Již brzy",
       "other": "Další zařízení",
@@ -48,6 +57,9 @@
     "da": {
       "phones": "iPhone og iPad",
       "win_btn": "Hent til Windows",
+      "free": "Gratis",
+      "no_account": "Ingen konto",
+      "ms_aria": "Hent {name} i Microsoft Store",
       "play_aria": "Hent {name} på Google Play",
       "soon": "Kommer snart",
       "other": "Andre enheder",
@@ -59,6 +71,9 @@
     "de": {
       "phones": "iPhone und iPad",
       "win_btn": "Für Windows herunterladen",
+      "free": "Kostenlos",
+      "no_account": "Kein Konto",
+      "ms_aria": "{name} im Microsoft Store laden",
       "play_aria": "{name} bei Google Play laden",
       "soon": "Demnächst",
       "other": "Weitere Geräte",
@@ -70,6 +85,9 @@
     "el": {
       "phones": "iPhone και iPad",
       "win_btn": "Λήψη για Windows",
+      "free": "Δωρεάν",
+      "no_account": "Χωρίς λογαριασμό",
+      "ms_aria": "Αποκτήστε το {name} από το Microsoft Store",
       "play_aria": "Αποκτήστε το {name} στο Google Play",
       "soon": "Έρχεται σύντομα",
       "other": "Άλλες συσκευές",
@@ -81,6 +99,9 @@
     "es": {
       "phones": "iPhone y iPad",
       "win_btn": "Descargar para Windows",
+      "free": "Gratis",
+      "no_account": "Sin cuenta",
+      "ms_aria": "Descargar {name} en Microsoft Store",
       "play_aria": "Descargar {name} en Google Play",
       "soon": "Próximamente",
       "other": "Otros dispositivos",
@@ -92,6 +113,9 @@
     "fi": {
       "phones": "iPhone ja iPad",
       "win_btn": "Lataa Windowsille",
+      "free": "Ilmainen",
+      "no_account": "Ei tiliä",
+      "ms_aria": "Lataa {name} Microsoft Storesta",
       "play_aria": "Lataa {name} Google Playsta",
       "soon": "Tulossa pian",
       "other": "Muut laitteet",
@@ -103,6 +127,9 @@
     "fr": {
       "phones": "iPhone et iPad",
       "win_btn": "Télécharger pour Windows",
+      "free": "Gratuit",
+      "no_account": "Pas de compte",
+      "ms_aria": "Télécharger {name} dans le Microsoft Store",
       "play_aria": "Télécharger {name} sur Google Play",
       "soon": "Bientôt disponible",
       "other": "Autres appareils",
@@ -114,6 +141,9 @@
     "hu": {
       "phones": "iPhone és iPad",
       "win_btn": "Letöltés Windowsra",
+      "free": "Ingyenes",
+      "no_account": "Nincs fiók",
+      "ms_aria": "A {name} letöltése a Microsoft Store-ból",
       "play_aria": "A {name} letöltése a Google Playről",
       "soon": "Hamarosan",
       "other": "Más eszközök",
@@ -125,6 +155,9 @@
     "it": {
       "phones": "iPhone e iPad",
       "win_btn": "Scarica per Windows",
+      "free": "Gratis",
+      "no_account": "Nessun account",
+      "ms_aria": "Scarica {name} dal Microsoft Store",
       "play_aria": "Scarica {name} su Google Play",
       "soon": "In arrivo",
       "other": "Altri dispositivi",
@@ -136,6 +169,9 @@
     "ja": {
       "phones": "iPhone・iPad",
       "win_btn": "Windows版をダウンロード",
+      "free": "無料",
+      "no_account": "アカウント不要",
+      "ms_aria": "Microsoft Storeで{name}を入手",
       "play_aria": "Google Playで{name}を入手",
       "soon": "近日公開",
       "other": "ほかのデバイス",
@@ -147,6 +183,9 @@
     "ko": {
       "phones": "iPhone・iPad",
       "win_btn": "Windows용 다운로드",
+      "free": "무료",
+      "no_account": "계정 없음",
+      "ms_aria": "Microsoft Store에서 {name} 다운로드",
       "play_aria": "Google Play에서 {name} 다운로드",
       "soon": "출시 예정",
       "other": "다른 기기",
@@ -158,6 +197,9 @@
     "nl": {
       "phones": "iPhone en iPad",
       "win_btn": "Download voor Windows",
+      "free": "Gratis",
+      "no_account": "Geen account",
+      "ms_aria": "Download {name} in de Microsoft Store",
       "play_aria": "Download {name} op Google Play",
       "soon": "Binnenkort",
       "other": "Andere apparaten",
@@ -169,6 +211,9 @@
     "no": {
       "phones": "iPhone og iPad",
       "win_btn": "Last ned for Windows",
+      "free": "Gratis",
+      "no_account": "Ingen konto",
+      "ms_aria": "Last ned {name} fra Microsoft Store",
       "play_aria": "Last ned {name} på Google Play",
       "soon": "Kommer snart",
       "other": "Andre enheter",
@@ -180,6 +225,9 @@
     "pl": {
       "phones": "iPhone i iPad",
       "win_btn": "Pobierz na Windows",
+      "free": "Za darmo",
+      "no_account": "Bez konta",
+      "ms_aria": "Pobierz {name} z Microsoft Store",
       "play_aria": "Pobierz {name} z Google Play",
       "soon": "Wkrótce",
       "other": "Inne urządzenia",
@@ -191,6 +239,9 @@
     "pt": {
       "phones": "iPhone e iPad",
       "win_btn": "Baixar para Windows",
+      "free": "Grátis",
+      "no_account": "Sem conta",
+      "ms_aria": "Baixar o {name} na Microsoft Store",
       "play_aria": "Baixar o {name} no Google Play",
       "soon": "Em breve",
       "other": "Outros dispositivos",
@@ -202,6 +253,9 @@
     "ro": {
       "phones": "iPhone și iPad",
       "win_btn": "Descărcați pentru Windows",
+      "free": "Gratuit",
+      "no_account": "Fără cont",
+      "ms_aria": "Descărcați {name} din Microsoft Store",
       "play_aria": "Descărcați {name} din Google Play",
       "soon": "În curând",
       "other": "Alte dispozitive",
@@ -213,6 +267,9 @@
     "ru": {
       "phones": "iPhone и iPad",
       "win_btn": "Скачать для Windows",
+      "free": "Бесплатно",
+      "no_account": "Без аккаунта",
+      "ms_aria": "Скачать {name} в Microsoft Store",
       "play_aria": "Скачать {name} в Google Play",
       "soon": "Скоро",
       "other": "Другие устройства",
@@ -224,6 +281,9 @@
     "sk": {
       "phones": "iPhone a iPad",
       "win_btn": "Stiahnuť pre Windows",
+      "free": "Zadarmo",
+      "no_account": "Bez účtu",
+      "ms_aria": "Stiahnuť {name} z Microsoft Store",
       "play_aria": "Stiahnuť {name} z Google Play",
       "soon": "Už čoskoro",
       "other": "Ďalšie zariadenia",
@@ -235,6 +295,9 @@
     "sl": {
       "phones": "iPhone in iPad",
       "win_btn": "Prenesite za Windows",
+      "free": "Brezplačno",
+      "no_account": "Brez računa",
+      "ms_aria": "Prenesite {name} iz trgovine Microsoft Store",
       "play_aria": "Prenesite {name} iz trgovine Google Play",
       "soon": "Kmalu",
       "other": "Druge naprave",
@@ -246,6 +309,9 @@
     "sv": {
       "phones": "iPhone och iPad",
       "win_btn": "Hämta för Windows",
+      "free": "Gratis",
+      "no_account": "Inget konto",
+      "ms_aria": "Hämta {name} i Microsoft Store",
       "play_aria": "Hämta {name} på Google Play",
       "soon": "Kommer snart",
       "other": "Andra enheter",
@@ -257,6 +323,9 @@
     "tr": {
       "phones": "iPhone ve iPad",
       "win_btn": "Windows için indir",
+      "free": "Ücretsiz",
+      "no_account": "Hesap yok",
+      "ms_aria": "{name} uygulamasını Microsoft Store’dan indir",
       "play_aria": "{name} uygulamasını Google Play’den indir",
       "soon": "Yakında",
       "other": "Diğer cihazlar",
@@ -268,6 +337,9 @@
     "uk": {
       "phones": "iPhone та iPad",
       "win_btn": "Завантажити для Windows",
+      "free": "Безкоштовно",
+      "no_account": "Без облікового запису",
+      "ms_aria": "Завантажити {name} з Microsoft Store",
       "play_aria": "Завантажити {name} з Google Play",
       "soon": "Незабаром",
       "other": "Інші пристрої",
@@ -279,6 +351,9 @@
     "zh": {
       "phones": "iPhone 和 iPad",
       "win_btn": "下载 Windows 版",
+      "free": "免费",
+      "no_account": "无需账户",
+      "ms_aria": "在 Microsoft Store 获取 {name}",
       "play_aria": "在 Google Play 获取 {name}",
       "soon": "即将推出",
       "other": "其他设备",
@@ -290,6 +365,9 @@
     "zh-hant": {
       "phones": "iPhone 與 iPad",
       "win_btn": "下載 Windows 版",
+      "free": "免費",
+      "no_account": "不需帳號",
+      "ms_aria": "在 Microsoft Store 取得 {name}",
       "play_aria": "在 Google Play 取得 {name}",
       "soon": "即將推出",
       "other": "其他裝置",

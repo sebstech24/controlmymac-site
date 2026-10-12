@@ -15,8 +15,12 @@ Everything it reads is in scripts/store-buttons.json:
 Official badge artwork is used when it is in the repository, never drawn here:
   * assets/badges/app-store/<folder>.svg     Apple's "Download on the App Store" badge (black)
   * assets/badges/google-play/<folder>.png   Google's "Get it on Google Play" badge (or .svg)
+  * assets/badges/microsoft-store/<folder>.svg   Microsoft's Store badge, only if links.windows is a Store link
 <folder> is the language folder name, "en" for English. Without Apple's file the page keeps the site's own App Store
-button. Without Google's file the Google Play button refuses to go live.
+button. Without Google's (or Microsoft's) file that button refuses to go live.
+
+links.windows may be a direct download link (the site's "Download for Windows" button plus a short note built from
+windows_needs) or a Microsoft Store link, https://apps.microsoft.com/... (Microsoft's badge, no note).
 
 --remote-badges is for a local look only (never commit its output): it points the badges at Apple's and Google's own
 servers, so the real artwork can be seen before the files are in the repository.
@@ -61,12 +65,18 @@ APPLE_LOCALE = {"en": "en-us", "cs": "cs-cz", "da": "da-dk", "de": "de-de", "el"
                 "pl": "pl-pl", "pt": "pt-br", "ro": "ro-ro", "ru": "ru-ru", "sk": "sk-sk", "sl": "sl-si", "sv": "sv-se",
                 "tr": "tr-tr", "uk": "uk-ua", "zh": "zh-cn", "zh-hant": "zh-tw"}
 GOOGLE_LOCALE = {"pt": "pt-br", "uk": "ua", "zh": "zh-cn", "zh-hant": "zh-tw"}
+MICROSOFT_LOCALE = {"en": "en-us", "pt": "pt-br", "zh": "zh-cn", "zh-hant": "zh-tw", "no": "en-us"}
 # Google's web badge PNG carries its own clear space: 646 x 250 with the badge itself 564 x 168 in the middle.
 PLAY_PNG = (646, 250, 564, 168)
 
 
 def live(platform):
     return CONF["links"][platform].startswith("https://")
+
+
+def windows_from_store():
+    """A Microsoft Store link gets Microsoft's badge; any other link is a direct download with the site's own button."""
+    return CONF["links"]["windows"].startswith("https://apps.microsoft.com/")
 
 
 def shown(platform):
@@ -148,6 +158,20 @@ def google_play_button(lang, label):
             f'style="width:{full_w * k:.1f}px;height:{full_h * k:.1f}px;margin:-{my:.1f}px -{mx:.1f}px"></a>')
 
 
+def microsoft_store_button(lang, label):
+    rel = badge_file("microsoft-store", lang)
+    href = esc(CONF["links"]["windows"])
+    if REMOTE:
+        src, width = f"https://get.microsoft.com/images/{MICROSOFT_LOCALE.get(lang, lang)}%20dark.svg", ""
+    elif not rel or not rel.endswith(".svg"):
+        sys.exit(f"Windows is set to a Microsoft Store link, but assets/badges/microsoft-store/{lang}.svg is missing. "
+                 "Microsoft's official badge has to be in the repository first.")
+    else:
+        w, h = svg_size(os.path.join(ROOT, rel))
+        src, width = "/" + rel, f' width="{round(BADGE_H * w / h)}"'
+    return f'<a class="store-badge" href="{href}" aria-label="{label}"><img src="{src}" alt=""{width} height="{BADGE_H}"></a>'
+
+
 def caption(icon, name, platform=None):
     """Device icon plus name; a differently named Windows or Android app shows its own name underneath."""
     other = CONF["app_name"].get(platform, CONF["app_name"]["site"]) if platform else CONF["app_name"]["site"]
@@ -167,9 +191,16 @@ def new_tiles(lang, waitlist_href):
     words = CONF["copy"][lang]
     tiles, pills = {}, []
     if live("windows"):
+        if windows_from_store():
+            label = esc(words["ms_aria"].replace("{name}", CONF["app_name"]["windows"]))
+            button = microsoft_store_button(lang, label)
+        else:  # direct download: the site's button, and what it needs in the words the Mac note already uses
+            note = " · ".join([CONF["windows_needs"], words["free"], words["no_account"]])
+            button = (f'<a class="btn btn-primary" href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a>\n'
+                      f'          <p class="cta-note">{esc(note)}</p>')
         tiles["windows"] = ('        <div class="get-tile">\n'
                             f'          {caption("windows", "Windows", "windows")}\n'
-                            f'          <a class="btn btn-primary" href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a>\n'
+                            f'          {button}\n'
                             '        </div>\n')
     elif shown("windows"):
         pills.append(soon_pill("windows", "Windows", lang, waitlist_href))

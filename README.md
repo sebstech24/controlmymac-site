@@ -82,7 +82,7 @@ Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; nev
 
 | Setting | Now | Meaning |
 |---|---|---|
-| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://` |
+| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://`. A direct download link shows "Download for Windows" with the note "Windows 10+ · Free · No account" (`windows_needs` plus words the Mac note already uses). A Microsoft Store link (`https://apps.microsoft.com/detail/<Store ID>`) shows Microsoft's badge instead |
 | `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
 | `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
 | `app_name.windows`, `app_name.android` | `Control My PC` | Working name, not final until Sebastian confirms (recommended by the SEO chat, 12 Oct 2026; the iPhone and Mac apps stay Control My Mac). A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
@@ -107,6 +107,8 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
   `assets/badges/google-play/<folder>.png` (`<folder>` = language folder, `en` for English), then run the builder.
 - Until Apple's file is there the pages keep the site's own App Store button. Without Google's file the Google Play
   button refuses to go live.
+- Only if Windows goes through the Microsoft Store: Microsoft's badges in `assets/badges/microsoft-store/<folder>.svg`
+  (from Microsoft's badge page, `apps.microsoft.com/badge`).
 - Apple asks for one App Store badge per layout: once the official badge is in, the second App Store button on the
   homepage (pricing section) and the ones on the other pages need the same swap or a plain text button.
 - `python3 scripts/store-buttons.py --remote-badges` is for a local look only (it loads the artwork from Apple's and
@@ -119,8 +121,29 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
 - The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
   remove once both are out, and email the waiting list. Its text says "Control My Mac is on its way to Windows PCs
   and Android phones": change it if the final name is Control My PC.
-- The Windows file's version, size and minimum Windows version (from the "Control My PC: signed Windows download"
-  chat) belong in a note under the Windows button; the builder has no such note yet.
+
+### Windows download: what is known (12 Oct 2026, from the "Control My PC: signed Windows download" chat)
+
+No public file yet: only an unsigned test build exists, nothing is signed or uploaded, and no real iPhone has
+controlled it. Sebastian still has to pick the signing route (Microsoft Store, his own certificate, or Azure).
+
+- Version 1.0.0. Needs Windows 10 version 1809 or newer, or Windows 11, 64-bit, normal (x64) and ARM PCs. About 58 MB.
+  Free, no account.
+- Files per release: `ControlMyPC-Setup-<version>-x64.msi` (main button), `ControlMyPC-Setup-<version>-arm64.msi`
+  (a small second link, not built into the area yet).
+- Direct download route: copy the Mac's shape, a stable `/download.msi` that redirects to the current installer, and
+  put that link in `links.windows`. Windows shows "unrecognized app" for the first weeks even for a signed file, so
+  add one line under the button then ("Windows may ask once: choose More info, then Run anyway", 25 languages).
+- **Trap:** `api/download-dmg.ts` takes the `.dmg` from this repository's **latest** GitHub release. A Windows release
+  uploaded here as a normal release becomes "latest" and breaks the Mac download. Windows files need their own
+  public repository, or releases made with `--latest=false`, and the Windows redirect must name its own repository
+  or tag.
+- The Windows and Android apps open `controlmymac.com/download`, the Mac download page. That page now lists the other
+  devices under the Mac button, so those visitors find their own download once it is live.
+- The Windows update feed (`appcast-windows.xml` and its `.signature`) must be stored byte for byte: add both to
+  `.gitattributes` with `-text` when they arrive.
+- Full notes: `docs/WINDOWS-DOWNLOAD-FOR-WEBSITE.md`, branch `feature/windows-release` of the cross-platform
+  repository (`~/Coding/cmm-xplat-security`, on the Mac), once that chat has written it.
 - `get-iphone.html` sends every visitor to the App Store. Decide whether Android phones should go to Google Play.
 - `scripts/build-press-kit.py`: the "Get it" fact and the Windows and Android question (never edit `press.html`).
 - A Windows download page (what `/download` is for the Mac), if the link is not a store page.
