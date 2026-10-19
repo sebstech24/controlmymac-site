@@ -204,7 +204,7 @@ def page(p):
 """
 
 
-HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $17.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
+HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $29.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
         <p><strong>Keyboard shortcuts only.</strong> Each button sends a key combo, or a few in a row, to your Mac. It doesn't run plugins, scripts or typed text, so anything you can't do with a keyboard shortcut in {app} is out of reach for the Grid too.</p>
         <p><strong>Learning from the Mac.</strong> Recording a shortcut by pressing it on the Mac needs the Input Monitoring permission for the Mac app. It only listens while you're recording and saves just the combo. You can also set every shortcut by hand.</p>
         <p><strong>Your shortcuts, not ours.</strong> The list above uses {app}'s default Mac shortcuts. If you've changed yours, record them from your Mac instead and the buttons will always match.</p>"""

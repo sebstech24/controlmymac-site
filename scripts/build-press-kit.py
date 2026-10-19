@@ -95,7 +95,7 @@ FACTS = [  # (label, html)
     ("Connection", "Bluetooth (the default) or the same Wi-Fi network, paired by scanning a QR code. Direct between the "
      "two devices, encrypted, no account."),
     ("Prices", "Free to download. The Essentials plan is free forever and the Mac app is free. Full App is $3.99 a month "
-     "after a 7-day free trial, or $17.99 once (US prices). In euro countries: €4.99 a month or €19.99 once. No ads in "
+     "after a 7-day free trial, or $29.99 once (US prices). In euro countries: €4.99 a month or €34.99 once. No ads in "
      "any plan."),
     ("Languages", f"{len(LANGUAGES)}: {LANG_LIST}."),
     ("Privacy label", "Data Not Collected (App Store)."),
@@ -256,7 +256,7 @@ FAQ = [  # (question, answer html)
      "Only for keyboard shortcuts. It does not control streaming software scenes or plugins."),
     ("What does it cost?",
      "It is free to download, with a free Essentials plan forever and a free Mac app. Full App is $3.99 a month after a "
-     "7-day free trial, or $17.99 once, in the US. In euro countries it is €4.99 a month or €19.99 once. The App Store "
+     "7-day free trial, or $29.99 once, in the US. In euro countries it is €4.99 a month or €34.99 once. The App Store "
      "shows each country's own price. There are no ads in any plan."),
     ("Can I try the full version for a review?",
      "Yes. Full App has a 7-day free trial on the monthly plan, which renews at the monthly price unless you cancel. "
@@ -415,9 +415,9 @@ def json_ld():
                       "https://www.saashub.com/control-my-mac", "https://www.producthunt.com/products/control-my-mac"],
            "offers": [{"@type": "Offer", "name": "Essentials", "price": "0", "priceCurrency": "USD", "category": "free"},
                       {"@type": "Offer", "name": "Full App (monthly)", "price": "3.99", "priceCurrency": "USD"},
-                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "17.99", "priceCurrency": "USD"},
+                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "29.99", "priceCurrency": "USD"},
                       {"@type": "Offer", "name": "Full App (monthly)", "price": "4.99", "priceCurrency": "EUR"},
-                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "19.99", "priceCurrency": "EUR"}],
+                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "34.99", "priceCurrency": "EUR"}],
            "author": {"@id": URL + "#sebastian"},
            "publisher": {"@type": "Organization", "name": "Control My Mac", "url": SITE + "/"}}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -641,7 +641,7 @@ def build_page(zip_mb):
           </tbody>
         </table>
       </div>
-      <p class="cmp-note">Full App is $3.99 a month after a 7-day free trial, or $17.99 once, in the US. It is bought in the iPhone or iPad app through Apple.</p>
+      <p class="cmp-note">Full App is $3.99 a month after a 7-day free trial, or $29.99 once, in the US. It is bought in the iPhone or iPad app through Apple.</p>
     </div>
   </section>
 
