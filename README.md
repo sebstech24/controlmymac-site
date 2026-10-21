@@ -66,7 +66,7 @@ The links to `v1.2.3` are the last Intel version and stay as they are.
 | Change | Update |
 |---|---|
 | A new language | the new folder, switcher, sitemap, 404 list (see the app repo's `native/AppStore/l10n-nine-languages/README.md`) and `LANG_NAMES` in `scripts/after-release.py` |
-| Prices | `index.html` (price cards and the four `Offer` entries in the structured data), `pro.html`, `support.html`, the same pages in every language folder, and the two price texts in `scripts/build-press-kit.py`. App Store descriptions carry no amounts, only "Prices vary by country." |
+| Prices | Now (21 Oct 2026): Monthly $3.99 / €4.99, Lifetime $119.99 / €129.99. Update `index.html` (price cards and the four `Offer` entries in the structured data), `pro.html`, `support.html`, `one-hand.html`, `present.html`, the same pages in every language folder, `compare.html`, `stream-deck-alternative.html`, the four Grid guides plus `scripts/grid_guides_data.py` and `scripts/build-grid-guides.py`, and the price texts in `scripts/build-press-kit.py` (then rerun it). `git grep` the old amount to catch the rest. App Store descriptions carry no amounts, only "Prices vary by country." |
 | Minimum iOS, iPadOS or macOS version | the "macOS 14+ · iOS/iPadOS 18+" lines and footers on every page, `operatingSystem` in the structured data, the Requirements fact in `scripts/build-press-kit.py` |
 | What the apps collect or send | `privacy.html` and its effective date, in every language |
 
