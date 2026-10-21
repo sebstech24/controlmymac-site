@@ -25,7 +25,7 @@ URL = SITE + "/press"
 
 # ---------------------------------------------------------------- facts (checked against the live sources)
 CHECKED = "21 October 2026"
-IOS_VERSION, IOS_DATE = "1.2.9", "15 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
+IOS_VERSION, IOS_DATE = "1.2.10", "21 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
 MAC_VERSION, MAC_DATE = "1.2.10", "12 October 2026"        # appcast.xml
 FIRST_RELEASE = "30 June 2026"
 YOUTUBE_ID = "tFjjSwfIPU0"                               # same video as the homepage (data-yt on index.html)
