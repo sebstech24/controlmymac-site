@@ -37,7 +37,7 @@ MACRO = {
     ],
     "shots": ["zoom", "menu"],
     "honest": """        <p><strong>What “macro” means here.</strong> Each button sends a keyboard shortcut, or a few in a row, to your Mac. It doesn't type text snippets, run scripts or wait between steps. Most things a keyboard shortcut does on your Mac, a button can do too. Media keys like volume and brightness, and shortcuts you have to hold down, aren't supported.</p>
-        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $29.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
+        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $119.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
         <p><strong>Learning from the Mac.</strong> Recording a shortcut by pressing it on the Mac needs the Input Monitoring permission for the Mac app. It only listens while you're recording and saves just the combo. You can also set every shortcut by hand.</p>
         <p><strong>More than buttons.</strong> The same app is also a trackpad, a keyboard and a launcher for apps and windows, all built to be used with one finger. More in the <a href="/iphone-as-mouse-for-mac">iPhone as a mouse guide</a>.</p>""",
     "faq": [

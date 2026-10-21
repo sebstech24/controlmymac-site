@@ -76,7 +76,7 @@ no internal information.
 - **Pay-per-key micro-paywalls and opaque pricing** → pricing on the page:
   free Mac app; Essentials stays free with trackpad movement, click, right click
   Live and Draft Keyboard basics, one Grid button and Launcher preview; Full
-  App is €4.99/month or €34.99 lifetime after a free App Store 7-day Trial.
+  App is €4.99/month or €129.99 lifetime after a free App Store 7-day Trial.
 - **Shortcut grids that change with context** → Full App can assign a Grid to
   the frontmost Mac app, so the controls change automatically when the user's
   work changes.
@@ -98,7 +98,7 @@ no internal information.
   but real talks need more than next-slide — pointer, launcher, window
   switching win the comparison with Keynote Remote.
 - **Power users:** they're allergic to ads, accounts and rented features —
-  local-only transport, encryption, and the €34.99 lifetime option are the
+  local-only transport, encryption, and the €129.99 lifetime option are the
   proof points.
 
 ---
