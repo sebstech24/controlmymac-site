@@ -138,7 +138,8 @@ iPhone has controlled the Windows build yet.
   normal or ARM PCs by itself, Windows shows no warning, and the Store updates the app.
 - `links.windows_store` gets the Store page, `https://apps.microsoft.com/detail/<Store ID>`. It appears as a small
   "Also in the Microsoft Store" link under the button.
-- The `<Store ID>` (12 characters) exists once he has opened the free Store developer account and reserved the name.
+- Store ID `9P7H2FKL3JH3` (reserved as "Control My PC", 22 Oct 2026). Both links are dead until the first version is
+  published in the Store, so paste them into `links` only then; the exact values are in `links_note`.
 - The button downloads a Windows file, so it is the gradient main button only for Windows visitors (there the Mac
   button of the same area turns quiet); for everyone else it is a quiet button. `assets/site.js` does this. To see it
   locally add `&platform-preview=windows` to the address (localhost only).

@@ -13,7 +13,7 @@
     "android": "PASTE_THE_GOOGLE_PLAY_LINK_HERE"
   },
 
-  "links_note": "windows: Microsoft's installer link, https://get.microsoft.com/installer/download/<Store ID> (decided 12 Oct 2026). It shows the Download for Windows button with a short note. windows_store (optional): the Store page, https://apps.microsoft.com/detail/<Store ID>, shown as a small 'Also in the Microsoft Store' link under the button. If windows itself is a Store page link, Microsoft's badge is shown instead of the button.",
+  "links_note": "windows: Microsoft's installer link, https://get.microsoft.com/installer/download/9P7H2FKL3JH3 (decided 12 Oct 2026; Store ID 9P7H2FKL3JH3 reserved 22 Oct 2026; paste both only once the app is published in the Store, before that they are dead links). It shows the Download for Windows button with a short note. windows_store (optional): the Store page, https://apps.microsoft.com/detail/9P7H2FKL3JH3, shown as a small 'Also in the Microsoft Store' link under the button. If windows itself is a Store page link, Microsoft's badge is shown instead of the button.",
   "windows_needs": "Windows 10+",
 
   "until_a_link_exists": "soon",
