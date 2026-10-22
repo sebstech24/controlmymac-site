@@ -2401,10 +2401,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.controlmymac.com/download"/>
   </url>
   <url>
-    <loc>https://www.controlmymac.com/accessibility</loc>
-    <lastmod>2026-10-21</lastmod>
-  </url>
-  <url>
     <loc>https://www.controlmymac.com/one-hand</loc>
     <lastmod>2026-10-05</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.controlmymac.com/one-hand"/>
@@ -7205,6 +7201,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.controlmymac.com/privacy"/>
   </url>
   <url>
+    <loc>https://www.controlmymac.com/accessibility</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
     <loc>https://www.controlmymac.com/compare</loc>
     <lastmod>2026-10-05</lastmod>
   </url>
@@ -7235,5 +7235,9 @@
   <url>
     <loc>https://www.controlmymac.com/press</loc>
     <lastmod>2026-10-05</lastmod>
+  </url>
+  <url>
+    <loc>https://www.controlmymac.com/terms</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
 </urlset>
