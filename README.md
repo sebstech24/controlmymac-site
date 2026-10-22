@@ -104,15 +104,14 @@ settings are out of step.
 Apple's and Google's rules allow only their own badge artwork, at the same height, App Store first, with clear space
 around it, and no Apple, Windows or Android logos as icons (so the device icons are plain shapes).
 
-- **Not in the repository yet** (needs Sebastian's yes: Apple's artwork comes with its Marketing Artwork License).
-  Put Apple's black badges in `assets/badges/app-store/<folder>.svg` and Google's in
-  `assets/badges/google-play/<folder>.png` (`<folder>` = language folder, `en` for English), then run the builder.
-- Until Apple's file is there the pages keep the site's own App Store button. Without Google's file the Google Play
-  button refuses to go live.
-- Only if Windows goes through the Microsoft Store: Microsoft's badges in `assets/badges/microsoft-store/<folder>.svg`
-  (from Microsoft's badge page, `apps.microsoft.com/badge`).
-- Apple asks for one App Store badge per layout: once the official badge is in, the second App Store button on the
-  homepage (pricing section) and the ones on the other pages need the same swap or a plain text button.
+- **In the repository since 22 Oct 2026** (Sebastian's yes, including Apple's Marketing Artwork License): Apple's
+  black badges in `assets/badges/app-store/<folder>.svg` and Google's in `assets/badges/google-play/<folder>.png`
+  (`<folder>` = language folder, `en` for English), fetched from Apple's marketing tools and Google's badge page.
+- Every App Store button on the site is Apple's badge now, one per page (`scripts/apply-app-store-badge.py`; pages
+  with the download area have a plain "Open in the App Store" button in the pricing section instead), with Apple's
+  credit line in the footer. Never draw an App Store or Google Play button by hand again.
+- The Microsoft Store badge is not needed: the Windows button links to Microsoft's installer. Only if `links.windows`
+  were ever a Store page: Microsoft's badges in `assets/badges/microsoft-store/<folder>.svg`.
 - `python3 scripts/store-buttons.py --remote-badges` is for a local look only (it loads the artwork from Apple's and
   Google's servers). Never commit its output; `npm test` catches it.
 
