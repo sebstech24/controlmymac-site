@@ -21,7 +21,7 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/present` | `present.html` | Variant: presenters & educators framing |
 | `/pro` | `pro.html` | Variant: power-user framing |
 | `/privacy` | `privacy.html` | Privacy policy (no data collected, no account, local-only) |
-| `/terms` | `terms.html` | Terms of Use for the free Mac app and, once out, Control My PC for Windows and Android (the iPhone app uses Apple's standard licence). English only for now; the effective date is a placeholder to set on the day it is published. Google Play and the Microsoft Store link to it |
+| `/terms` | `terms.html` | Terms of Use for the free Mac app and, once out, Control My PC for Windows and Android (the iPhone app uses Apple's standard licence). English only for now; effective 22 October 2026. Google Play and the Microsoft Store link to it |
 | `/support` | `support.html` | Setup, pairing troubleshooting, plans, contact |
 | `/download` | `download.html` | Mac companion download handoff page with GitHub and direct .dmg actions |
 | `/smartwake` | `smartwake.html` | Product page: Smart Wake (iPhone + Apple Watch alarm, unreleased). `#privacy` / `#support` anchors double as its App Store privacy & support URLs |
