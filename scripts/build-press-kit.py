@@ -24,15 +24,17 @@ SITE = "https://www.controlmymac.com"
 URL = SITE + "/press"
 
 # ---------------------------------------------------------------- facts (checked against the live sources)
-CHECKED = "6 October 2026"
-IOS_VERSION, IOS_DATE = "1.2.6", "3 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
-MAC_VERSION, MAC_DATE = "1.2.9", "5 October 2026"        # appcast.xml
+CHECKED = "21 October 2026"
+IOS_VERSION, IOS_DATE = "1.2.10", "21 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
+MAC_VERSION, MAC_DATE = "1.2.10", "12 October 2026"        # appcast.xml
 FIRST_RELEASE = "30 June 2026"
 YOUTUBE_ID = "tFjjSwfIPU0"                               # same video as the homepage (data-yt on index.html)
 EMAIL = "sebastian@controlmymac.com"
 APP_STORE = "https://apps.apple.com/app/id6781458180"
-LANGUAGES = ["English", "German", "French", "Italian", "Spanish", "Portuguese (Brazil)", "Dutch", "Polish", "Turkish",
-             "Russian", "Ukrainian", "Slovenian", "Japanese", "Korean", "Simplified Chinese", "Traditional Chinese"]
+LANGUAGES = ["English", "German", "French", "Italian", "Spanish", "Portuguese (Brazil)", "Dutch", "Polish",
+             "Turkish", "Russian", "Ukrainian", "Slovenian", "Czech", "Slovak", "Swedish", "Norwegian", "Danish",
+             "Finnish", "Hungarian", "Romanian", "Greek", "Japanese", "Korean", "Simplified Chinese",
+             "Traditional Chinese"]
 LANG_LIST = ", ".join(LANGUAGES[:-1]) + " and " + LANGUAGES[-1]
 SOCIAL = [("TikTok", "https://www.tiktok.com/@sebs_tech"), ("Instagram", "https://www.instagram.com/sebs_tech"),
           ("YouTube", "https://www.youtube.com/@Sebs_tech")]
@@ -92,8 +94,8 @@ FACTS = [  # (label, html)
      "(M1 or newer). Intel Macs can use Mac app 1.2.3, the last Intel version."),
     ("Connection", "Bluetooth (the default) or the same Wi-Fi network, paired by scanning a QR code. Direct between the "
      "two devices, encrypted, no account."),
-    ("Prices", "Free to download. The Essentials plan is free forever and the Mac app is free. Full App is $3.99 a month "
-     "after a 7-day free trial, or $17.99 once (US prices). In euro countries: €4.99 a month or €19.99 once. No ads in "
+    ("Prices", "Free to download. The Essentials plan is free forever and the Mac app is free. Full App is $4.99 a week "
+     "or $39.99 a year after a 7-day free trial, or $119.99 once (US prices). In euro countries: €5.99 a week, €44.99 a year or €129.99 once. No ads in "
      "any plan."),
     ("Languages", f"{len(LANGUAGES)}: {LANG_LIST}."),
     ("Privacy label", "Data Not Collected (App Store)."),
@@ -208,7 +210,7 @@ ACCESS = [
     ("Type at your own pace.", "The Draft keyboard uses the phone's autocorrect and dictation, then sends the finished "
      "text in one go."),
     ("Mouse Hold.", "Keeps the mouse button down for long drags. Part of Full App."),
-    ("Large text.", "The app follows the system text size, up to the largest accessibility sizes."),
+    ("Text size.", "Most text follows the system text size; some labels on the main screen do not scale yet and are being fixed."),
     ("Help Mode and a warm, low-glare dark mode.", ""),
     ("Works alongside the Mac's built-in accessibility tools.", 'The <a href="/one-hand">one-hand page</a> explains how '
      "they fit together."),
@@ -253,11 +255,11 @@ FAQ = [  # (question, answer html)
     ("Is it good for streamers?",
      "Only for keyboard shortcuts. It does not control streaming software scenes or plugins."),
     ("What does it cost?",
-     "It is free to download, with a free Essentials plan forever and a free Mac app. Full App is $3.99 a month after a "
-     "7-day free trial, or $17.99 once, in the US. In euro countries it is €4.99 a month or €19.99 once. The App Store "
+     "It is free to download, with a free Essentials plan forever and a free Mac app. Full App is $4.99 a week or $39.99 a year after a "
+     "7-day free trial, or $119.99 once, in the US. In euro countries it is €5.99 a week, €44.99 a year or €129.99 once. The App Store "
      "shows each country's own price. There are no ads in any plan."),
     ("Can I try the full version for a review?",
-     "Yes. Full App has a 7-day free trial on the monthly plan, which renews at the monthly price unless you cancel. "
+     "Yes. Full App has a 7-day free trial on the weekly and yearly plans, which then renew at their price unless you cancel. "
      f'For longer review access, email <a href="mailto:{EMAIL}">{EMAIL}</a>.'),
     ("Is it accessible?",
      "It is built for people with limited hand or arm use: one finger for everything, large targets, two-hand shortcuts "
@@ -412,10 +414,12 @@ def json_ld():
            "sameAs": [APP_STORE, "https://alternativeto.net/software/control-my-mac/about/",
                       "https://www.saashub.com/control-my-mac", "https://www.producthunt.com/products/control-my-mac"],
            "offers": [{"@type": "Offer", "name": "Essentials", "price": "0", "priceCurrency": "USD", "category": "free"},
-                      {"@type": "Offer", "name": "Full App (monthly)", "price": "3.99", "priceCurrency": "USD"},
-                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "17.99", "priceCurrency": "USD"},
-                      {"@type": "Offer", "name": "Full App (monthly)", "price": "4.99", "priceCurrency": "EUR"},
-                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "19.99", "priceCurrency": "EUR"}],
+                      {"@type": "Offer", "name": "Full App (weekly)", "price": "4.99", "priceCurrency": "USD"},
+                      {"@type": "Offer", "name": "Full App (yearly)", "price": "39.99", "priceCurrency": "USD"},
+                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "119.99", "priceCurrency": "USD"},
+                      {"@type": "Offer", "name": "Full App (weekly)", "price": "5.99", "priceCurrency": "EUR"},
+                      {"@type": "Offer", "name": "Full App (yearly)", "price": "44.99", "priceCurrency": "EUR"},
+                      {"@type": "Offer", "name": "Full App (lifetime)", "price": "129.99", "priceCurrency": "EUR"}],
            "author": {"@id": URL + "#sebastian"},
            "publisher": {"@type": "Organization", "name": "Control My Mac", "url": SITE + "/"}}
     crumbs = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -639,7 +643,7 @@ def build_page(zip_mb):
           </tbody>
         </table>
       </div>
-      <p class="cmp-note">Full App is $3.99 a month after a 7-day free trial, or $17.99 once, in the US. It is bought in the iPhone or iPad app through Apple.</p>
+      <p class="cmp-note">Full App is $4.99 a week or $39.99 a year after a 7-day free trial, or $119.99 once, in the US. It is bought in the iPhone or iPad app through Apple.</p>
     </div>
   </section>
 

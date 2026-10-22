@@ -33,16 +33,16 @@ def edit(path, old, new, marker=None):
     changed.add(path)
 
 
-EURO = "In euro countries Full App is €4.99 a month or €19.99 once, and the App Store always shows the price for your country before you buy."
+EURO = "In euro countries Full App is €4.99 a month or €34.99 once, and the App Store always shows the price for your country before you buy."
 
 # 1. prices ----------------------------------------------------------------------------------------------------------
 edit("index.html", '<p class="amt">€0</p>', '<p class="amt">$0</p>')
 edit("index.html", '<p class="amt">€4.99<span>/month</span></p>', '<p class="amt">$3.99<span>/month</span></p>')
-edit("index.html", '<p class="amt" style="margin-top:var(--sp-m)">€19.99<span> once</span></p>',
-     '<p class="amt" style="margin-top:var(--sp-m)">$17.99<span> once</span></p>')
+edit("index.html", '<p class="amt" style="margin-top:var(--sp-m)">€34.99<span> once</span></p>',
+     '<p class="amt" style="margin-top:var(--sp-m)">$29.99<span> once</span></p>')
 t = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-old_faq = "It's €4.99/month after a free 7-day trial, or €19.99 once, bought in the iPhone or iPad app through Apple."
-new_faq = ("It's $3.99/month after a free 7-day trial, or $17.99 once, in the US (€4.99 or €19.99 in euro countries), "
+old_faq = "It's €4.99/month after a free 7-day trial, or €34.99 once, bought in the iPhone or iPad app through Apple."
+new_faq = ("It's $3.99/month after a free 7-day trial, or $29.99 once, in the US (€4.99 or €34.99 in euro countries), "
            "bought in the iPhone or iPad app through Apple.")
 if old_faq in t:
     if t.count(old_faq) != 2:
@@ -53,11 +53,11 @@ edit("index.html", '<p class="price-note">Every feature is listed above',
      f'<p class="price-note">Prices shown are US prices. {EURO} Every feature is listed above')
 edit("index.html", '    {"@type":"Offer","name":"Full App (monthly)","price":"4.99","priceCurrency":"EUR"}\n',
      '    {"@type":"Offer","name":"Full App (monthly)","price":"4.99","priceCurrency":"EUR"},\n'
-     '    {"@type":"Offer","name":"Full App (lifetime)","price":"17.99","priceCurrency":"USD"},\n'
+     '    {"@type":"Offer","name":"Full App (lifetime)","price":"29.99","priceCurrency":"USD"},\n'
      '    {"@type":"Offer","name":"Full App (monthly)","price":"3.99","priceCurrency":"USD"}\n', marker='"priceCurrency":"USD"')
 
 edit("pro.html", '<p class="amt">€0</p>', '<p class="amt">$0</p>')
-edit("pro.html", '<p class="amt">€19.99<span> once</span></p>', '<p class="amt">$17.99<span> once</span></p>')
+edit("pro.html", '<p class="amt">€34.99<span> once</span></p>', '<p class="amt">$29.99<span> once</span></p>')
 edit("pro.html", "or €4.99/month — free 7-day trial, then auto-renews unless cancelled",
      "or $3.99/month, free 7-day trial, then auto-renews unless cancelled")
 edit("pro.html", '<p class="price-note">Lifetime means lifetime.', f'<p class="price-note">Prices shown are US prices. {EURO} Lifetime means lifetime.')
@@ -65,14 +65,14 @@ edit("pro.html", "auto-renews at €4.99/month unless you cancel", "auto-renews 
 
 edit("support.html", "auto-renews into a 4.99 EUR per month subscription unless you cancel before it ends",
      "auto-renews into a $3.99 per month subscription in the US (4.99 EUR in euro countries) unless you cancel before it ends")
-edit("support.html", "Full App is 4.99 EUR per month or 19.99 EUR lifetime (a one-time purchase),",
-     "Full App is $3.99 per month or $17.99 lifetime (a one-time purchase) in the US, or 4.99 EUR and 19.99 EUR in euro countries,")
+edit("support.html", "Full App is 4.99 EUR per month or 34.99 EUR lifetime (a one-time purchase),",
+     "Full App is $3.99 per month or $29.99 lifetime (a one-time purchase) in the US, or 4.99 EUR and 34.99 EUR in euro countries,")
 edit("support.html", "auto-renews at €4.99/month unless you cancel</strong>",
      "auto-renews at $3.99/month in the US (€4.99 in euro countries) unless you cancel</strong>")
-edit("support.html", "<strong>Full App</strong> (€4.99/month or €19.99 lifetime)",
-     "<strong>Full App</strong> ($3.99/month or $17.99 lifetime in the US, €4.99 or €19.99 in euro countries)")
-edit("present.html", "or unlock for €4.99/month or €19.99 once.",
-     "or unlock for $3.99/month or $17.99 once in the US (€4.99 or €19.99 in euro countries).")
+edit("support.html", "<strong>Full App</strong> (€4.99/month or €34.99 lifetime)",
+     "<strong>Full App</strong> ($3.99/month or $29.99 lifetime in the US, €4.99 or €34.99 in euro countries)")
+edit("present.html", "or unlock for €4.99/month or €34.99 once.",
+     "or unlock for $3.99/month or $29.99 once in the US (€4.99 or €34.99 in euro countries).")
 TM = ("Premiere Pro and Photoshop are trademarks of Adobe, DaVinci Resolve is a trademark of Blackmagic Design, and Final Cut "
       "Pro is a trademark of Apple Inc. Control My Mac is not affiliated with Adobe, Blackmagic Design or Apple.")
 edit("stream-deck-alternative.html", "Control My Mac is not affiliated with Elgato.</p>",
@@ -80,8 +80,8 @@ edit("stream-deck-alternative.html", "Control My Mac is not affiliated with Elga
 edit("iphone-as-mouse-for-mac.html", "Remote-control traffic stays encrypted and travels directly between your devices.</p>",
      "Remote-control traffic stays encrypted and travels directly between your devices. " + TM + "</p>", marker="not affiliated with Adobe")
 
-edit("one-hand.html", "and Full App is €4.99/month or €19.99 once.",
-     "and Full App is $3.99/month or $17.99 once in the US (€4.99 or €19.99 in euro countries).")
+edit("one-hand.html", "and Full App is €4.99/month or €34.99 once.",
+     "and Full App is $3.99/month or $29.99 once in the US (€4.99 or €34.99 in euro countries).")
 
 # 2. /one-hand section, placed after "How Control My Mac fills the gaps" (band) and before "More guides" ------------------
 ONE_HAND = """  <section id="one-tap-shortcuts">
@@ -140,7 +140,7 @@ FAQ = [
     ("Does it work with Premiere Pro, DaVinci Resolve or Final Cut Pro?",
      'Yes, through their keyboard shortcuts. Each of them can have its own Grid. There are ready-made starter Grids for <a href="/premiere-pro-shortcuts-iphone">Premiere Pro</a>, <a href="/davinci-resolve-shortcuts-iphone">DaVinci Resolve</a> and <a href="/final-cut-pro-shortcuts-iphone">Final Cut Pro</a>.'),
     ("Is it free?",
-     "The Mac app is free, and the free Essentials plan in the iPhone and iPad app includes one Grid button. A Grid for every Mac app and Auto-Switch come with Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $17.99 once."),
+     "The Mac app is free, and the free Essentials plan in the iPhone and iPad app includes one Grid button. A Grid for every Mac app and Auto-Switch come with Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $29.99 once."),
 ]
 import json  # noqa: E402
 faq_html = "\n".join(f"        <details>\n          <summary>{q}</summary>\n          <p>{a}</p>\n        </details>" for q, a in FAQ)
