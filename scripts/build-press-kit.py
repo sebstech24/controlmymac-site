@@ -210,7 +210,7 @@ ACCESS = [
     ("Type at your own pace.", "The Draft keyboard uses the phone's autocorrect and dictation, then sends the finished "
      "text in one go."),
     ("Mouse Hold.", "Keeps the mouse button down for long drags. Part of Full App."),
-    ("Large text.", "The app follows the system text size, up to the largest accessibility sizes."),
+    ("Text size.", "Most text follows the system text size; some labels on the main screen do not scale yet and are being fixed."),
     ("Help Mode and a warm, low-glare dark mode.", ""),
     ("Works alongside the Mac's built-in accessibility tools.", 'The <a href="/one-hand">one-hand page</a> explains how '
      "they fit together."),
