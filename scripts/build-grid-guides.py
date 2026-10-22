@@ -188,7 +188,7 @@ def page(p):
     <div class="wrap">
       <div class="final">
         <h2 class="h2">{e(p["final_h2"])}</h2>
-        <p class="lead">The Mac app is free. Start the 7-day free trial of Full App on iPhone or iPad to give every Mac app its own Grid. It then renews at $3.99 a month in the US unless you cancel. If you cancel, Essentials stays free with the trackpad, keyboard basics and one Grid button.</p>
+        <p class="lead">The Mac app is free. Start the 7-day free trial of Full App on iPhone or iPad to give every Mac app its own Grid. It then renews at $4.99 a week or $39.99 a year in the US unless you cancel. If you cancel, Essentials stays free with the trackpad, keyboard basics and one Grid button.</p>
         {CTA}
         <p class="cta-note">macOS 14+ · Apple silicon · Intel Macs up to <a href="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.3/ControlMyMac-1.2.3.dmg">version 1.2.3</a> · No account</p>
       </div>
@@ -204,7 +204,7 @@ def page(p):
 """
 
 
-HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $3.99 a month in the US after a 7-day free trial, renewing until you cancel, or $119.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
+HONEST_COMMON = """        <p><strong>Full App.</strong> A Grid for each Mac app and Auto-Switch are part of Full App: $4.99 a week or $39.99 a year in the US after a 7-day free trial, renewing until you cancel, or $119.99 once. The free Essentials plan includes one Grid button, so you can try the idea first.</p>
         <p><strong>Keyboard shortcuts only.</strong> Each button sends a key combo, or a few in a row, to your Mac. It doesn't run plugins, scripts or typed text, so anything you can't do with a keyboard shortcut in {app} is out of reach for the Grid too.</p>
         <p><strong>Learning from the Mac.</strong> Recording a shortcut by pressing it on the Mac needs the Input Monitoring permission for the Mac app. It only listens while you're recording and saves just the combo. You can also set every shortcut by hand.</p>
         <p><strong>Your shortcuts, not ours.</strong> The list above uses {app}'s default Mac shortcuts. If you've changed yours, record them from your Mac instead and the buttons will always match.</p>"""
