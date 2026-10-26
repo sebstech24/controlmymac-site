@@ -8,6 +8,27 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.11</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>Always opens visibly:</strong> opening Control My Mac now shows its panel under the menu bar icon, or the setup window if the icon is hidden (for example behind the notch). Before, it could look as if the app didn't open.</li>
+          <li>Opening it again while it runs shows the panel too. Starting at login stays silent.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 26 Oct 2026 16:47:00 +0000</pubDate>
+      <sparkle:version>17</sparkle:version>
+      <sparkle:shortVersionString>1.2.11</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.11/ControlMyMac-1.2.11.dmg"
+                 sparkle:version="17"
+                 sparkle:shortVersionString="1.2.11"
+                 length="3815630"
+                 type="application/octet-stream"
+                 sparkle:edSignature="tS7uBQUU3RjKrrXPQuIwso1pq0NnWK47fNQjicgHxGx11YdwQVQq+cTmWr2Qn0PCv+GlIwpfO0PTEFpC4eRNAA==" />
+    </item>
+    <item>
       <title>Version 1.2.10</title>
       <description><![CDATA[
         <ul>
