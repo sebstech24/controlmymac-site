@@ -24,8 +24,8 @@ SITE = "https://www.controlmymac.com"
 URL = SITE + "/press"
 
 # ---------------------------------------------------------------- facts (checked against the live sources)
-CHECKED = "26 October 2026"
-IOS_VERSION, IOS_DATE = "1.2.13", "26 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
+CHECKED = "27 October 2026"
+IOS_VERSION, IOS_DATE = "1.2.14", "26 October 2026"        # itunes.apple.com/lookup?id=6781458180&country=us
 MAC_VERSION, MAC_DATE = "1.2.11", "26 October 2026"        # appcast.xml
 FIRST_RELEASE = "30 June 2026"
 YOUTUBE_ID = "tFjjSwfIPU0"                               # same video as the homepage (data-yt on index.html)

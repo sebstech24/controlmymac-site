@@ -72,7 +72,8 @@ if live_dmg != expected_dmg:
     notes.append(f"{SITE}/download.dmg still leads to {live_dmg} (it is cached for up to 30 minutes after a release)")
 
 # ---------------------------------------------------------------- iPhone: Apple's public lookup
-look = json.load(get(f"https://itunes.apple.com/lookup?id={APP_ID}&country=us"))["results"][0]
+# The "t" parameter dodges Apple's CDN, which kept serving the old version for this exact URL hours after a release.
+look = json.load(get(f"https://itunes.apple.com/lookup?id={APP_ID}&country=us&t={int(datetime.datetime.now().timestamp())}"))["results"][0]
 ios_version = look["version"]
 ios_date = long_date(datetime.datetime.fromisoformat(look["currentVersionReleaseDate"].replace("Z", "+00:00")))
 store_languages = len(look.get("languageCodesISO2A", []))
