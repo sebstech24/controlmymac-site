@@ -1,6 +1,6 @@
-/* Screenbridge pages: its own logo, a drawn diagram, and the Play button before launch. */
-.brand[href="/screenbridge"] .logo,.brand[href="/de/screenbridge"] .logo{
-  background:url("/assets/screenbridge/icon-192.png") center/cover;
+/* Telebeam pages: its own logo, a drawn diagram, and the Play button before launch. */
+.brand[href="/telebeam"] .logo,.brand[href="/de/telebeam"] .logo{
+  background:url("/assets/telebeam/icon-192.png") center/cover;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
 }
 [data-play-soon]{pointer-events:none;opacity:.7}
