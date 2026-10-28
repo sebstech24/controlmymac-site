@@ -20,7 +20,7 @@ _PLAY = "https://play.google.com/store/apps/details?id=com.sebstech.telebeam&ref
 PLAY = {"product": _PLAY.format("cmm-site"), "help": _PLAY.format("help-pages")}
 GITHUB = "https://github.com/sebstech24/mirror-tv"
 PRIVACY = "https://sebstech24.github.io/mirror-tv/privacy.html"
-MAIL = "support@controlmymac.com"
+MAIL = "telebeam@controlmymac.com"
 TESTED = {
     "en": f'Tested on a Philips Google TV so far; if it doesn\'t run well on yours, write to <a href="mailto:{MAIL}">{MAIL}</a> during your trial.',
     "de": f'Bisher auf einem Philips-Google-TV getestet; läuft es auf deinem nicht gut, schreib während der Testphase an <a href="mailto:{MAIL}">{MAIL}</a>.',
@@ -363,7 +363,7 @@ BRANDS = [
          install='''<ul><li><strong>Google TV models:</strong> open the <strong>Apps</strong> tab or <strong>Search</strong> on the home screen and look for Telebeam, or press the remote's Google Assistant/microphone button and say “Telebeam”.</li>
 <li><strong>Android TV models:</strong> press <strong>Home</strong>, open the <strong>Google Play Store</strong> app from the Apps row and search for Telebeam.</li></ul>''',
          faq=[("Does my Sony TV support mirroring from a Mac?", "Some Bravia models have Apple's receiver built in and appear in the Mac's Screen Mirroring list by themselves. On Bravia models with Google TV or Android TV that don't, Telebeam adds the TV to the list."),
-              ("Has Telebeam been tested on Sony TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your Bravia, write to support@controlmymac.com during your trial.")]),
+              ("Has Telebeam been tested on Sony TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your Bravia, write to telebeam@controlmymac.com during your trial.")]),
     dict(slug="mirror-mac-to-tcl-tv", brand="TCL", crumb="Mirror a Mac to a TCL TV",
          title="How to Mirror a Mac to a TCL TV (Google TV) | Telebeam",
          desc="Mirror your Mac to a TCL Google TV or Android TV without an Apple TV. Which TCL models can run Telebeam, how to install it, and how to connect.",
@@ -374,7 +374,7 @@ BRANDS = [
          install='''<ul><li><strong>Google TV models:</strong> open the <strong>Apps</strong> tab or <strong>Search</strong> on the home screen and look for Telebeam.</li>
 <li><strong>Android TV models:</strong> press <strong>Home</strong>, open the <strong>Google Play Store</strong> and search for Telebeam.</li></ul>''',
          faq=[("Does Telebeam work on a TCL Roku TV?", "No. Telebeam runs on Google TV and Android TV only. On a TCL Roku TV or Fire TV, a Chromecast with Google TV or Google TV Streamer plugged into the TV can run it instead."),
-              ("Has Telebeam been tested on TCL TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your TCL, write to support@controlmymac.com during your trial.")]),
+              ("Has Telebeam been tested on TCL TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your TCL, write to telebeam@controlmymac.com during your trial.")]),
     dict(slug="mirror-mac-to-philips-tv", brand="Philips", crumb="Mirror a Mac to a Philips TV",
          title="How to Mirror a Mac to a Philips TV (Google TV) | Telebeam",
          desc="Mirror your Mac to a Philips Google TV or Android TV without an Apple TV. Which Philips models can run Telebeam, how to install it, and how to connect.",
@@ -396,7 +396,7 @@ BRANDS = [
          install='''<ul><li><strong>Google TV models:</strong> open the <strong>Apps</strong> tab or <strong>Search</strong> on the home screen and look for Telebeam.</li>
 <li><strong>Android TV models:</strong> press <strong>Home</strong>, open the <strong>Google Play Store</strong> and search for Telebeam.</li></ul>''',
          faq=[("Does Telebeam work on a Hisense VIDAA TV?", "No. VIDAA isn't Google TV or Android TV, so Telebeam can't be installed. A Chromecast with Google TV or Google TV Streamer plugged into the TV can run it instead."),
-              ("Has Telebeam been tested on Hisense TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your Hisense, write to support@controlmymac.com during your trial.")]),
+              ("Has Telebeam been tested on Hisense TVs?", "Not yet. It is made for Google TV and Android TV and has been tested on a Philips Google TV so far. If it doesn't run well on your Hisense, write to telebeam@controlmymac.com during your trial.")]),
 ]
 
 for b in BRANDS:
@@ -449,7 +449,7 @@ page(lang="en", slug="mac-doesnt-see-my-tv", kind="help", crumb="Mac doesn't see
           ("Why do I only see an empty desktop on the TV?", "The Mac is using the TV as a second display. Open System Settings → Displays → “When connected to TV” → Mirror Entire Screen."),
           ("Why is Netflix or other streaming video black when I mirror?", "Protected video from services that block screen recording shows as black. That's decided by the Mac and the streaming service, not by the TV."),
           ("Does screen mirroring work on a guest or hotel Wi-Fi?", "Often not. Those networks usually stop devices from seeing each other. Use your main home network.")],
-     final=("Back on the big screen", "Still stuck? Email support@controlmymac.com with your Mac and TV model."))
+     final=("Back on the big screen", "Still stuck? Email telebeam@controlmymac.com with your Mac and TV model."))
 
 # ---------------------------------------------------------------- German
 
@@ -589,7 +589,7 @@ page(lang="de", slug="mac-doesnt-see-my-tv", kind="help", crumb="Mac findet den 
           ("Warum sehe ich auf dem Fernseher nur einen leeren Schreibtisch?", "Der Mac nutzt den Fernseher als zweiten Bildschirm. " + MIRROR_DE),
           ("Warum sind Netflix und andere Streaming-Videos beim Spiegeln schwarz?", "Geschützte Videos von Diensten, die Bildschirmaufnahmen blockieren, erscheinen schwarz. Das entscheiden der Mac und der Dienst, nicht der Fernseher."),
           ("Funktioniert die Bildschirmsynchronisierung im Gast- oder Hotel-WLAN?", "Oft nicht. Solche Netze verhindern meist, dass sich Geräte sehen. Nutze dein normales Heimnetz.")],
-     final=("Zurück auf dem großen Bildschirm", "Immer noch nicht? Schreib an support@controlmymac.com mit Mac- und TV-Modell."))
+     final=("Zurück auf dem großen Bildschirm", "Immer noch nicht? Schreib an telebeam@controlmymac.com mit Mac- und TV-Modell."))
 
 
 def update_sitemap(urls):
