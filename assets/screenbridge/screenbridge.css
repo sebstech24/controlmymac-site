@@ -1,0 +1,11 @@
+/* Screenbridge pages: its own logo, a drawn diagram, and the Play button before launch. */
+.brand[href="/screenbridge"] .logo,.brand[href="/de/screenbridge"] .logo{
+  background:url("/assets/screenbridge/icon-192.png") center/cover;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+}
+[data-play-soon]{pointer-events:none;opacity:.7}
+.sb-diagram{margin:0 auto var(--sp-3xl);max-width:520px;padding:0 var(--sp-l);color:var(--muted)}
+.sb-diagram svg{width:100%;height:auto;display:block}
+.sb-diagram text{font:600 15px/1 system-ui,-apple-system,sans-serif}
+.sb-diagram .sb-wave{stroke:var(--accent)}
+.sb-diagram circle.sb-wave{fill:var(--accent)}
