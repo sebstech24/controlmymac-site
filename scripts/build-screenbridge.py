@@ -510,7 +510,7 @@ page(lang="de", slug="screenbridge", kind="product", crumb="Screenbridge",
           ("Ist Screenbridge Open Source?", f'Ja, unter GPL-3.0. Der <a href="{GITHUB}">Quellcode liegt auf GitHub</a>.')],
      final=("Dein Mac auf dem großen Bildschirm", "Screenbridge auf dem Fernseher öffnen, in der Bildschirmsynchronisierung wählen, fertig."))
 
-MIRROR_DE = "Öffne auf dem Mac Systemeinstellungen → Displays und stelle den Fernseher so ein, dass er den Mac-Bildschirm synchronisiert (spiegelt), statt als separater Bildschirm zu dienen."
+MIRROR_DE = "Öffne auf dem Mac Systemeinstellungen → Displays und wähle bei „Wenn mit TV-Gerät verbunden“ die Option „Ganzen Bildschirm synchronisieren“, damit der Fernseher den Mac-Bildschirm spiegelt statt als separater Bildschirm zu dienen."
 
 page(lang="de", slug="mirror-mac-to-google-tv", kind="help", crumb="Mac auf Google TV spiegeln",
      title="Mac auf Google TV spiegeln (ohne Apple TV): Anleitung | Screenbridge",
