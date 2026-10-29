@@ -20,6 +20,10 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/couch` | `couch.html` | Variant: couch & home-theater framing |
 | `/present` | `present.html` | Variant: presenters & educators framing |
 | `/pro` | `pro.html` | Variant: power-user framing |
+| `/iphone-as-mouse-for-mac` | `iphone-as-mouse-for-mac.html` | Guide: iPhone as a mouse for Mac |
+| `/stream-deck-alternative` | `stream-deck-alternative.html` | Guide: Stream Deck alternative |
+| `/compare` | `compare.html` | Guide: Compare Mac remote apps |
+| `/macro-pad-for-mac` | `macro-pad-for-mac.html` | Guide: Macro pad for Mac |
 | `/privacy` | `privacy.html` | Privacy policy (no data collected, no account, local-only) |
 | `/terms` | `terms.html` | Terms of Use for the free Mac app and, once out, Control My PC for Windows and Android (the iPhone app uses Apple's standard licence). English only for now; effective 22 October 2026. Google Play and the Microsoft Store link to it |
 | `/support` | `support.html` | Setup, pairing troubleshooting, plans, contact |
