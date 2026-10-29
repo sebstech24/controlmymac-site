@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pair your phone | Control My Mac</title>
+  <meta name="description" content="Get the Control My Mac or Control My PC phone app, then scan the pairing code again.">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="/assets/site.css">
+  <!--
+    The pairing QR on the Mac and Windows apps is https://www.controlmymac.com/pair#payload=...
+    With the phone app installed, the Camera opens the app directly and this page never loads.
+    Without it, this page shows the right store. The #payload holds the pairing secret: browsers never
+    send the fragment to the server, and this page loads no outside scripts and removes it from the address bar.
+  -->
+  <script>
+    if (location.hash) { history.replaceState(null, "", location.pathname); }
+  </script>
+  <style>
+    .pr-wrap { max-width: 560px; margin: 0 auto; padding: 0 var(--sp-xl);
+      min-height: 70vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; gap: var(--sp-l); }
+    .pr-stores { display: flex; gap: var(--sp-m); flex-wrap: wrap; justify-content: center; align-items: center; }
+    .pr-muted { font-size: 1.05rem; line-height: 1.6; color: var(--muted, #5b6472); margin: 0; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main id="main" class="pr-wrap">
+    <h1 style="font-size:clamp(1.8rem,6vw,2.6rem);line-height:1.1;margin:0">Get the app to pair</h1>
+    <p class="pr-muted" id="pr-text">
+      This code pairs your phone with your computer. Install the free phone app,
+      then scan the code on your computer again with your Camera.
+    </p>
+    <div class="pr-stores">
+      <a class="store-badge" id="pr-ios" href="https://apps.apple.com/app/id6781458180" aria-label="Download Control My Mac on the App Store"><img src="/assets/badges/app-store/en.svg" alt="" width="132" height="44"></a>
+      <a class="store-badge" id="pr-android" href="https://play.google.com/store/apps/details?id=com.controlmymac.controller" aria-label="Get Control My PC on Google Play"><img src="/assets/badges/google-play/en.png" alt="" height="44"></a>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted,#5b6472);margin-top:var(--sp-l)">
+      No account, no servers. Your phone and computer talk directly, encrypted.
+    </p>
+  </main>
+  <script>
+    // iPadOS reports itself as a Mac, so a touch Mac counts as iPad.
+    var ua = navigator.userAgent;
+    var apple = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(ua);
+    if (apple) { document.getElementById("pr-android").hidden = true; }
+    if (android) { document.getElementById("pr-ios").hidden = true; }
+    if (!apple && !android) {
+      document.getElementById("pr-text").textContent =
+        "Scan the pairing code on your computer with your phone's Camera. No app yet? Get it here first.";
+    }
+  </script>
+</body>
+</html>

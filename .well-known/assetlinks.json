@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.controlmymac.controller",
+      "sha256_cert_fingerprints": [
+        "90:49:67:50:D6:47:B5:88:7E:73:9E:06:7E:1F:86:F7:73:97:11:04:64:0D:05:C4:9F:5C:C4:D1:61:37:18:9D",
+        "84:FC:F5:27:57:71:B0:84:9C:03:12:AA:51:C1:08:7B:A4:BF:DA:7E:E1:6E:FA:D5:16:09:A7:DB:CE:9C:7D:32"
+      ]
+    }
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["H9ZS6Y55PD.com.sebastianskoic.macremotecontrol.phone"],
+        "components": [
+          { "/": "/pair", "comment": "Pairing QR scanned with the iPhone Camera; the secret is in the #fragment" }
+        ]
+      }
+    ]
+  }
+}
