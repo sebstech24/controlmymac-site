@@ -10,7 +10,10 @@ What it rewrites, for every page that exists:
   * the footer language list (<nav class="flangs">) on every localized page, in every language;
   * the hreflang <link> tags in the <head> of every localized page (right after the canonical link), the same
     set the sitemap carries;
-  * sitemap.xml: one <url> per localized page, each with the full set of hreflang alternates;
+  * sitemap.xml: one <url> per localized page, each with the full set of hreflang alternates, and every URL's
+    <lastmod> (English-only guides too): the day its page file last changed in git, or today while it has
+    uncommitted changes. So run it after editing a page and commit the sitemap with the page;
+
   * the logo selector list in assets/site.css (.brand[href="/xx"] .logo).
 
 What it does NOT do (edit by hand when adding a language):
@@ -20,6 +23,7 @@ What it does NOT do (edit by hand when adding a language):
 """
 import os
 import re
+import subprocess
 import sys
 from datetime import date
 
@@ -154,23 +158,44 @@ def sitemap_block(code, page, lastmod):
     return "\n".join(lines) + "\n"
 
 
+def page_dates():
+    """{"de/pro.html": "2026-10-26", ...}: the day each .html file last changed in git; today if it has uncommitted changes."""
+    # shortcut: a page synced before midnight but committed after it shows the earlier day until the next sync.
+    run = lambda *args: subprocess.run(["git", *args, "--", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    today = date.today().isoformat()
+    dates, day = {}, None
+    for line in run("log", "--format=@%cs", "--name-only").splitlines():
+        if line.startswith("@"):
+            day = line[1:]
+        elif line:
+            dates.setdefault(line, day)
+    for line in run("status", "--porcelain", "--untracked-files=all").splitlines():
+        dates[line[3:].split(" -> ")[-1]] = today
+    return dates
+
+
 def sync_sitemap(check):
     path = os.path.join(ROOT, "sitemap.xml")
     xml = open(path, encoding="utf-8").read()
     blocks = URL_RE.findall(xml)
     head = xml[: xml.index(blocks[0])]
     tail = xml[xml.rindex(blocks[-1]) + len(blocks[-1]):]
-    lastmods = {LOC_RE.search(b).group(1): LASTMOD_RE.search(b).group(1) for b in blocks}
     localized = {SITE + page_path(code, page) for code, *_ in LOCALES for page in PAGES}
+    dates = page_dates()
     today = date.today().isoformat()
     out = []
     for page in PAGES:
         for code, *_ in LOCALES:
             if os.path.exists(page_file(code, page)):
-                loc = SITE + page_path(code, page)
-                out.append(sitemap_block(code, page, lastmods.get(loc, today)))
-    # English-only pages (guides, comparisons) keep their blocks untouched, after the localized ones.
-    out += [b for b in blocks if LOC_RE.search(b).group(1) not in localized]
+                rel = os.path.relpath(page_file(code, page), ROOT)
+                out.append(sitemap_block(code, page, dates.get(rel, today)))
+    # English-only pages (guides, comparisons) keep their blocks, after the localized ones; only the date follows git.
+    for b in blocks:
+        loc = LOC_RE.search(b).group(1)
+        if loc in localized:
+            continue
+        rel = (loc[len(SITE):].strip("/") or "index") + ".html"
+        out.append(LASTMOD_RE.sub(f"<lastmod>{dates[rel]}</lastmod>", b) if rel in dates else b)
     new = head + "".join(out) + tail
     if new != xml and not check:
         open(path, "w", encoding="utf-8").write(new)
