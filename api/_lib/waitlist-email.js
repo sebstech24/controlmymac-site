@@ -2,7 +2,7 @@ import { escapeHtml, normalizeLocale } from "./security.js";
 import { WAITLIST_MAIL } from "./waitlist-copy.js";
 
 const SITE_URL = "https://www.controlmymac.com";
-const SENDER = "Sebastian Apps, Šturmova ulica 7A, Ljubljana";
+const SENDER = "Sebastian Škoić s.p., Šturmova ulica 7A, Ljubljana";
 
 /** Plain confirmation email for the Windows/Android waiting list (words: scripts/waitlist-i18n.json). */
 export function renderWaitlistEmail({ locale, windows, android, news }) {

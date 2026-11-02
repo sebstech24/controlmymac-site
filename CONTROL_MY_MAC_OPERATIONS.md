@@ -63,7 +63,7 @@ The later app source adds a second in-app entrance at **Control My Mac → Setti
 
 The intended flow is:
 
-1. A visitor opens the desktop website and selects the required Sebastian Apps email opt-in.
+1. A visitor opens the desktop website and selects the required news email opt-in.
 2. Cloudflare Turnstile blocks basic automated abuse.
 3. `/api/request-code` normalizes and hashes the address, encrypts the address, records the consent version, and atomically assigns one unused Apple code.
 4. Brevo sends exactly one immediate email. The message shows the code, a **Redeem in the App Store** button, and the in-app path **Settings → Mode → Unlock → Have a promo code?**.

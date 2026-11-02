@@ -23,7 +23,7 @@ import { verifyTurnstile } from "./_lib/turnstile.js";
 
 // v3: single opt-in. Ticking the required box on the form is the consent; there is no
 // separate confirmation email any more (api/confirm-newsletter.js only serves old links).
-const CONSENT_VERSION = "sebastian-apps-perks-v3-2026-09-26";
+const CONSENT_VERSION = "news-emails-v4-2026-11-02";
 // Brand-new addresses (not re-sends) one IP, or IPv6 /64, may claim per day.
 const NEW_CODES_PER_IP = 3;
 const NEW_CODE_WINDOW_SECONDS = 24 * 60 * 60;
@@ -106,7 +106,7 @@ export async function POST(request) {
     return failure(
       400,
       "errConsent",
-      "Please agree to join Sebastian Apps emails to receive this subscriber welcome gift.",
+      "Please agree to join the news emails to receive this subscriber welcome gift.",
     );
   }
 

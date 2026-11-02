@@ -27,7 +27,7 @@ export function GET(request) {
     return page("Link expired", "This confirmation link is not valid.");
   }
   return page(
-    "Confirm Sebastian Apps emails",
+    "Confirm news emails",
     "Confirm to receive future app news, launch offers, and occasional free codes. You can unsubscribe at any time.",
     token,
   );
@@ -53,5 +53,5 @@ export async function POST(request) {
   } catch {
     // Consent is safely recorded; the authenticated maintenance job retries Brevo.
   }
-  return page("Email confirmed", "You are subscribed to Sebastian Apps emails. You can unsubscribe at any time.");
+  return page("Email confirmed", "You are subscribed to news emails from Sebastian Škoić s.p. You can unsubscribe at any time.");
 }

@@ -273,7 +273,7 @@ test("explicit disabled mode cannot become live merely because secrets exist", a
     assert.deepEqual(await status.json(), {
       configured: false,
       preview: false,
-      consentVersion: "sebastian-apps-perks-v3-2026-09-26",
+      consentVersion: "news-emails-v4-2026-11-02",
       turnstileSiteKey: null,
     });
 

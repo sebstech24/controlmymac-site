@@ -93,12 +93,12 @@ test("every language's footer names the sender and links its own privacy page", 
     const address = pageHtml.match(/Šturmova ulica 7A, Ljubljana, [^<]+/)?.[0];
     assert.ok(address, `${locale} privacy page has no address`);
     assert.ok(
-      html.includes(`Sebastian Apps · ${escapeHtml(address)} · <a href="${home}" style="color:#5f6b84;text-decoration:underline">controlmymac.com</a> · `
+      html.includes(`Sebastian Škoić s.p. · ${escapeHtml(address)} · <a href="${home}" style="color:#5f6b84;text-decoration:underline">controlmymac.com</a> · `
         + `<a href="${home}/privacy" style="color:#3f4c6b;text-decoration:underline">${escapeHtml(title)}</a>`),
       `${locale} html footer`,
     );
     const lastLine = text.split("\n").at(-1);
-    assert.ok(lastLine.startsWith(`Sebastian Apps · ${address} · controlmymac.com · ${title}`), `${locale} text footer`);
+    assert.ok(lastLine.startsWith(`Sebastian Škoić s.p. · ${address} · controlmymac.com · ${title}`), `${locale} text footer`);
     assert.ok(lastLine.endsWith(`${home}/privacy`), `${locale} text privacy link`);
   }
 });
@@ -110,7 +110,7 @@ test("every privacy page explains the gift emails: controller, legal basis, prov
   for (const locale of LOCALES) {
     const html = read(locale);
     assert.equal(sectionCount(html), sectionCount(english), `${locale} has a different set of sections`);
-    assert.match(html, /<div class="meta">[\s\S]*?Sebastian Apps[\s\S]*?<\/div>/, `${locale} controller`);
+    assert.match(html, /<div class="meta">[\s\S]*?Sebastian Škoić s\.p\.[\s\S]*?<\/div>/, `${locale} controller`);
     assert.match(html, /\b(GDPR|DSGVO|RGPD|AVG|RODO)\b/, `${locale} legal basis`);
     for (const name of ["Vercel", "Neon", "Brevo", "Turnstile", "ICO", "support@controlmymac.com"]) {
       assert.ok(html.includes(name), `${locale} does not mention ${name}`);
@@ -270,7 +270,7 @@ test("a new request records v3 single opt-in consent and emails the stored per-c
     assert.equal(response.status, 200);
     const assign = database.calls.find((call) => call.text.includes("assign_offer_code"));
     assert.equal(assign.values[3], true);
-    assert.equal(assign.values[4], "sebastian-apps-perks-v3-2026-09-26");
+    assert.equal(assign.values[4], "news-emails-v4-2026-11-02");
 
     assert.equal(brevo.length, 1);
     const [email] = brevo;
@@ -335,7 +335,7 @@ test("the unsubscribe page speaks the language the gift was requested in", async
     const url = `https://example.test/api/unsubscribe?token=${encodeURIComponent(token)}`;
     const ask = await (await unsubscribePage(new Request(url, { headers: { "accept-language": "fr" } }))).text();
     assert.match(ask, /<html lang="de">/);
-    assert.match(ask, /Keine E-Mails mehr von Sebastian Apps\?/);
+    assert.match(ask, /Keine E-Mails mehr von Sebastian Škoić s\.p\.\?/);
     assert.match(ask, /<button type="submit">Abmelden<\/button>/);
     assert.equal(unsubscribed, false, "opening the page changes nothing");
 

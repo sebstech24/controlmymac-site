@@ -19,9 +19,9 @@ import { verifyTurnstile } from "./_lib/turnstile.js";
 // Windows and Android waiting list. Stores the address for one release announcement per
 // platform and sends one confirmation email, so the person can check the address works and
 // rescue it from spam. Pressing the button is the consent (the form says so); the optional
-// news box also adds the address to the Sebastian Apps mailing list. Free-month codes are
+// news box also adds the address to the news mailing list. Free-month codes are
 // never touched.
-const CONSENT_VERSION = "platform-waitlist-v2-2026-10-05";
+const CONSENT_VERSION = "platform-waitlist-v3-2026-11-02";
 const JOINS_PER_IP = 10;
 const JOIN_WINDOW_SECONDS = 24 * 60 * 60;
 const REQUIRED_ENV = [

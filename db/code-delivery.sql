@@ -437,7 +437,7 @@ end;
 $$;
 
 -- Windows and Android waiting list (Oct 2026). Separate from code_requests on purpose:
--- joining it does not subscribe anyone to Sebastian Apps emails.
+-- joining it does not subscribe anyone to news emails.
 create table if not exists platform_waitlist (
   id uuid primary key default gen_random_uuid(),
   email_hash text not null unique,

@@ -6,7 +6,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Thanks for signing up.",
     "mailIntro": "This email confirms that your address works. I’ll email you the day Control My PC for {platforms} is released.",
     "mailSpam": "Did this email land in your spam or junk folder? Please move it to your inbox, or mark it as “not spam”. Otherwise the release email may never reach you.",
-    "mailNews": "You also asked for Sebastian Apps news: occasional app news and promo codes. Every one of those emails has an unsubscribe link.",
+    "mailNews": "You also asked for news: occasional news about Control My Mac and my other apps, and promo codes. Every one of those emails has an unsubscribe link.",
     "mailLeave": "Didn’t sign up, or changed your mind? Reply to this email and I’ll remove you.",
     "mailCountry": "Slovenia",
     "mailPrivacy": "Privacy Policy"
@@ -17,7 +17,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Danke für deine Anmeldung.",
     "mailIntro": "Diese E-Mail bestätigt, dass deine Adresse funktioniert. Ich schreibe dir am Tag der Veröffentlichung von Control My PC für {platforms}.",
     "mailSpam": "Ist diese E-Mail in deinem Spam- oder Junk-Ordner gelandet? Bitte verschiebe sie in deinen Posteingang oder markiere sie als „kein Spam“. Sonst erreicht dich die E-Mail zur Veröffentlichung womöglich nie.",
-    "mailNews": "Du hast außerdem Neuigkeiten von Sebastian Apps gewünscht: gelegentliche App-Neuigkeiten und Aktionscodes. Jede dieser E-Mails enthält einen Abmeldelink.",
+    "mailNews": "Du hast außerdem Neuigkeiten gewünscht: gelegentliche Neuigkeiten zu Control My Mac und meinen anderen Apps sowie Aktionscodes. Jede dieser E-Mails enthält einen Abmeldelink.",
     "mailLeave": "Du hast dich nicht angemeldet oder es dir anders überlegt? Antworte auf diese E-Mail, dann trage ich dich aus.",
     "mailCountry": "Slowenien",
     "mailPrivacy": "Datenschutzerklärung"
@@ -28,7 +28,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Gracias por apuntarte.",
     "mailIntro": "Este correo confirma que tu dirección funciona. Te escribiré el día que salga Control My PC para {platforms}.",
     "mailSpam": "¿Ha llegado este correo a tu carpeta de spam o correo no deseado? Muévelo a tu bandeja de entrada o márcalo como «no es spam». Si no, puede que el correo del lanzamiento no te llegue nunca.",
-    "mailNews": "También pediste novedades de Sebastian Apps: novedades de apps y códigos promocionales de vez en cuando. Todos esos correos incluyen un enlace para darte de baja.",
+    "mailNews": "También pediste novedades: novedades de Control My Mac y de mis otras apps y códigos promocionales de vez en cuando. Todos esos correos incluyen un enlace para darte de baja.",
     "mailLeave": "¿No te apuntaste tú o has cambiado de opinión? Responde a este correo y te borro de la lista.",
     "mailCountry": "Eslovenia",
     "mailPrivacy": "Política de privacidad"
@@ -39,7 +39,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Merci de votre inscription.",
     "mailIntro": "Cet e-mail confirme que votre adresse fonctionne. Je vous écrirai le jour de la sortie de Control My PC pour {platforms}.",
     "mailSpam": "Cet e-mail est-il arrivé dans vos courriers indésirables ? Déplacez-le dans votre boîte de réception ou marquez-le comme « pas un spam ». Sinon, l’e-mail de sortie risque de ne jamais vous parvenir.",
-    "mailNews": "Vous avez aussi demandé les nouvelles de Sebastian Apps : des nouvelles d’apps et des codes promo de temps en temps. Chacun de ces e-mails contient un lien de désabonnement.",
+    "mailNews": "Vous avez aussi demandé des nouvelles : des nouvelles de Control My Mac et de mes autres apps et des codes promo de temps en temps. Chacun de ces e-mails contient un lien de désabonnement.",
     "mailLeave": "Cette inscription n’est pas de vous, ou vous avez changé d’avis ? Répondez à cet e-mail et je vous retirerai de la liste.",
     "mailCountry": "Slovénie",
     "mailPrivacy": "Politique de confidentialité"
@@ -50,7 +50,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Grazie per l’iscrizione.",
     "mailIntro": "Questa email conferma che il tuo indirizzo funziona. Ti scriverò il giorno in cui uscirà Control My PC per {platforms}.",
     "mailSpam": "Questa email è finita nello spam o nella posta indesiderata? Spostala nella posta in arrivo o segnalala come «non spam». Altrimenti l’email sull’uscita potrebbe non raggiungerti mai.",
-    "mailNews": "Hai chiesto anche le novità di Sebastian Apps: novità sulle app e codici promozionali ogni tanto. Ogni email di questo tipo contiene un link per disiscriverti.",
+    "mailNews": "Hai chiesto anche le novità: novità su Control My Mac e sulle mie altre app e codici promozionali ogni tanto. Ogni email di questo tipo contiene un link per disiscriverti.",
     "mailLeave": "Non hai richiesto l’iscrizione o hai cambiato idea? Rispondi a questa email e ti rimuovo dalla lista.",
     "mailCountry": "Slovenia",
     "mailPrivacy": "Informativa sulla privacy"
@@ -61,7 +61,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Bedankt voor je aanmelding.",
     "mailIntro": "Deze e-mail bevestigt dat je adres werkt. Ik mail je op de dag dat Control My PC voor {platforms} uitkomt.",
     "mailSpam": "Is deze e-mail in je spam- of ongewenste-mailmap terechtgekomen? Verplaats hem dan naar je inbox of markeer hem als “geen spam”. Anders komt de releasemail misschien nooit bij je aan.",
-    "mailNews": "Je hebt ook nieuws van Sebastian Apps aangevraagd: af en toe app-nieuws en promocodes. Elke e-mail daarvan bevat een afmeldlink.",
+    "mailNews": "Je hebt ook nieuws aangevraagd: af en toe nieuws over Control My Mac en mijn andere apps, en promocodes. Elke e-mail daarvan bevat een afmeldlink.",
     "mailLeave": "Heb je je niet aangemeld of ben je van gedachten veranderd? Reageer op deze e-mail, dan haal ik je van de lijst.",
     "mailCountry": "Slovenië",
     "mailPrivacy": "Privacybeleid"
@@ -72,7 +72,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Dziękuję za zapisanie się.",
     "mailIntro": "Ten e-mail potwierdza, że Twój adres działa. Napiszę do Ciebie w dniu premiery Control My PC na {platforms}.",
     "mailSpam": "Czy ten e-mail trafił do folderu ze spamem? Przenieś go do skrzynki odbiorczej albo oznacz jako „nie spam”. W przeciwnym razie e-mail o premierze może nigdy do Ciebie nie dotrzeć.",
-    "mailNews": "Zaznaczona została też opcja nowości Sebastian Apps: od czasu do czasu wiadomości o aplikacjach i kody promocyjne. Każdy taki e-mail zawiera link do wypisania się.",
+    "mailNews": "Zaznaczona została też opcja nowości: od czasu do czasu wiadomości o Control My Mac i moich pozostałych aplikacjach oraz kody promocyjne. Każdy taki e-mail zawiera link do wypisania się.",
     "mailLeave": "Ten zapis to pomyłka albo zmieniasz zdanie? Odpisz na ten e-mail, a usunę Cię z listy.",
     "mailCountry": "Słowenia",
     "mailPrivacy": "Polityka prywatności"
@@ -83,7 +83,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Obrigado por se inscrever.",
     "mailIntro": "Este e-mail confirma que seu endereço funciona. Vou escrever para você no dia em que o Control My PC para {platforms} for lançado.",
     "mailSpam": "Este e-mail caiu na sua pasta de spam ou lixo eletrônico? Mova-o para a caixa de entrada ou marque como “não é spam”. Caso contrário, o e-mail do lançamento pode nunca chegar até você.",
-    "mailNews": "Você também pediu as novidades da Sebastian Apps: novidades de apps e códigos promocionais de vez em quando. Todo e-mail desse tipo tem um link para cancelar a inscrição.",
+    "mailNews": "Você também pediu novidades: novidades do Control My Mac e dos meus outros apps e códigos promocionais de vez em quando. Todo e-mail desse tipo tem um link para cancelar a inscrição.",
     "mailLeave": "Não se inscreveu ou mudou de ideia? Responda a este e-mail e eu removo você da lista.",
     "mailCountry": "Eslovênia",
     "mailPrivacy": "Política de Privacidade"
@@ -94,7 +94,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Спасибо, что подписались.",
     "mailIntro": "Это письмо подтверждает, что ваш адрес работает. Я напишу вам в день выхода Control My PC для {platforms}.",
     "mailSpam": "Это письмо попало в папку «Спам» или «Нежелательная почта»? Переместите его во входящие или отметьте как «не спам». Иначе письмо о выходе может до вас не дойти.",
-    "mailNews": "Вы также попросили новости Sebastian Apps: иногда новости приложений и промокоды. В каждом таком письме есть ссылка для отписки.",
+    "mailNews": "Вы также попросили новости: иногда новости о Control My Mac и других моих приложениях, а также промокоды. В каждом таком письме есть ссылка для отписки.",
     "mailLeave": "Не подписывались или передумали? Ответьте на это письмо, и я удалю вас из списка.",
     "mailCountry": "Словения",
     "mailPrivacy": "Политика конфиденциальности"
@@ -105,7 +105,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Hvala za prijavo.",
     "mailIntro": "To sporočilo potrjuje, da vaš naslov deluje. Pisal vam bom na dan izida aplikacije Control My PC za {platforms}.",
     "mailSpam": "Je to sporočilo pristalo v mapi z vsiljeno pošto? Premaknite ga v prejeto pošto ali ga označite kot „ni vsiljena pošta“. Sicer vas sporočilo o izidu morda nikoli ne bo doseglo.",
-    "mailNews": "Zahtevali ste tudi novice Sebastian Apps: občasne novice o aplikacijah in promocijske kode. Vsako takšno sporočilo vsebuje povezavo za odjavo.",
+    "mailNews": "Zahtevali ste tudi novice: občasne novice o Control My Mac in mojih drugih aplikacijah ter promocijske kode. Vsako takšno sporočilo vsebuje povezavo za odjavo.",
     "mailLeave": "Se niste prijavili ali ste si premislili? Odgovorite na to sporočilo in vas bom odstranil.",
     "mailCountry": "Slovenija",
     "mailPrivacy": "Pravilnik o zasebnosti"
@@ -116,7 +116,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Kaydolduğun için teşekkürler.",
     "mailIntro": "Bu e-posta, adresinin çalıştığını doğrular. {platforms} için Control My PC’in çıktığı gün sana e-posta göndereceğim.",
     "mailSpam": "Bu e-posta spam veya gereksiz klasörüne mi düştü? Lütfen gelen kutuna taşı ya da “spam değil” olarak işaretle. Aksi halde çıkış e-postası sana hiç ulaşmayabilir.",
-    "mailNews": "Ayrıca Sebastian Apps haberlerini de istedin: ara sıra uygulama haberleri ve promosyon kodları. Bu e-postaların her birinde abonelikten çıkma bağlantısı var.",
+    "mailNews": "Ayrıca haberleri de istedin: ara sıra Control My Mac ve diğer uygulamalarım hakkında haberler ve promosyon kodları. Bu e-postaların her birinde abonelikten çıkma bağlantısı var.",
     "mailLeave": "Kaydolmadın mı ya da fikrini mi değiştirdin? Bu e-postayı yanıtla, seni listeden çıkarayım.",
     "mailCountry": "Slovenya",
     "mailPrivacy": "Gizlilik Politikası"
@@ -127,7 +127,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Дякую, що підписалися.",
     "mailIntro": "Цей лист підтверджує, що ваша адреса працює. Я напишу вам у день виходу Control My PC для {platforms}.",
     "mailSpam": "Цей лист потрапив у папку «Спам»? Перенесіть його до вхідних або позначте як «не спам». Інакше лист про вихід може до вас не дійти.",
-    "mailNews": "Ви також попросили новини Sebastian Apps: час від часу новини програм і промокоди. Кожен такий лист містить посилання для відписки.",
+    "mailNews": "Ви також попросили новини: час від часу новини про Control My Mac та інші мої програми, а також промокоди. Кожен такий лист містить посилання для відписки.",
     "mailLeave": "Не підписувалися або передумали? Дайте відповідь на цей лист, і я видалю вас зі списку.",
     "mailCountry": "Словенія",
     "mailPrivacy": "Політика приватності"
@@ -138,7 +138,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "ご登録ありがとうございます。",
     "mailIntro": "このメールは、メールアドレスが正しく届くことの確認です。{platforms}向けControl My PCを公開する日に、メールでお知らせします。",
     "mailSpam": "このメールは迷惑メールフォルダに入っていませんでしたか？受信トレイに移すか、「迷惑メールではない」と設定してください。そうしないと、公開のお知らせメールが届かない可能性があります。",
-    "mailNews": "Sebastian Appsのお知らせもご希望いただきました。アプリのお知らせやプロモーションコードを、ときどきお送りします。これらのメールにはすべて配信停止リンクがあります。",
+    "mailNews": "お知らせもご希望いただきました。Control My Macや私のほかのアプリのお知らせとプロモーションコードを、ときどきお送りします。これらのメールにはすべて配信停止リンクがあります。",
     "mailLeave": "登録に心当たりがない場合や、気が変わった場合は、このメールに返信してください。リストから削除します。",
     "mailCountry": "スロベニア",
     "mailPrivacy": "プライバシーポリシー"
@@ -149,7 +149,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "신청해 주셔서 감사합니다.",
     "mailIntro": "이 이메일은 주소가 정상적으로 작동하는지 확인하기 위한 것입니다. {platforms}용 Control My PC이 출시되는 날 이메일로 알려 드리겠습니다.",
     "mailSpam": "이 이메일이 스팸함이나 정크 메일함에 들어 있었나요? 받은편지함으로 옮기거나 ‘스팸 아님’으로 표시해 주세요. 그러지 않으면 출시 안내 이메일이 도착하지 않을 수 있습니다.",
-    "mailNews": "Sebastian Apps 소식도 신청하셨습니다. 앱 소식과 프로모션 코드를 가끔 보내 드립니다. 해당 이메일에는 모두 구독 취소 링크가 있습니다.",
+    "mailNews": "소식도 신청하셨습니다. Control My Mac과 제 다른 앱 소식, 프로모션 코드를 가끔 보내 드립니다. 해당 이메일에는 모두 구독 취소 링크가 있습니다.",
     "mailLeave": "신청하신 적이 없거나 마음이 바뀌셨나요? 이 이메일에 답장해 주시면 명단에서 삭제해 드리겠습니다.",
     "mailCountry": "슬로베니아",
     "mailPrivacy": "개인정보 처리방침"
@@ -160,7 +160,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "感谢你的注册。",
     "mailIntro": "这封邮件用来确认你的邮箱地址可以正常收信。Control My PC {platforms} 版发布的当天，我会给你发邮件。",
     "mailSpam": "这封邮件是不是进了垃圾邮件文件夹？请把它移到收件箱，或标记为“不是垃圾邮件”。否则发布通知邮件可能永远无法送达你。",
-    "mailNews": "你还选择了接收 Sebastian Apps 的新闻：偶尔的应用新闻和优惠代码。每封这类邮件都带有退订链接。",
+    "mailNews": "你还选择了接收新闻：偶尔的 Control My Mac 和我其他应用的新闻，以及优惠代码。每封这类邮件都带有退订链接。",
     "mailLeave": "没有注册过，或者改变主意了？回复这封邮件，我会把你从名单中删除。",
     "mailCountry": "斯洛文尼亚",
     "mailPrivacy": "隐私政策"
@@ -171,7 +171,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "感謝你的註冊。",
     "mailIntro": "這封郵件用來確認你的地址可以正常收信。Control My PC {platforms} 版推出的當天，我會寄信通知你。",
     "mailSpam": "這封郵件是不是進了垃圾郵件匣？請把它移到收件匣，或標示為「不是垃圾郵件」。否則推出通知信可能永遠無法送達。",
-    "mailNews": "你也選擇了接收 Sebastian Apps 的消息：不定期的 App 最新消息和優惠代碼。每封這類郵件都附有取消訂閱連結。",
+    "mailNews": "你也選擇了接收最新消息：不定期的 Control My Mac 和我其他 App 的最新消息，以及優惠代碼。每封這類郵件都附有取消訂閱連結。",
     "mailLeave": "沒有註冊過，或改變心意了？回覆這封郵件，我就會把你從名單中刪除。",
     "mailCountry": "斯洛維尼亞",
     "mailPrivacy": "隱私權政策"
@@ -182,7 +182,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Děkujeme za přihlášení.",
     "mailIntro": "Tento e-mail potvrzuje, že vaše adresa funguje. Napíšu vám v den vydání Control My PC pro {platforms}.",
     "mailSpam": "Skončil tento e-mail ve složce nevyžádané pošty? Přesuňte ho prosím do doručené pošty nebo ho označte jako „není nevyžádaná pošta“. Jinak se k vám e-mail o vydání nemusí nikdy dostat.",
-    "mailNews": "Požádali jste také o novinky ze Sebastian Apps: občasné novinky o aplikacích a promo kódy. Každý z těchto e-mailů obsahuje odkaz pro odhlášení.",
+    "mailNews": "Požádali jste také o novinky: občasné novinky o Control My Mac a mých dalších aplikacích a promo kódy. Každý z těchto e-mailů obsahuje odkaz pro odhlášení.",
     "mailLeave": "Nepřihlásili jste se, nebo jste si to rozmysleli? Odpovězte na tento e-mail a odstraním vás.",
     "mailCountry": "Slovinsko",
     "mailPrivacy": "Zásady ochrany osobních údajů"
@@ -193,7 +193,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Ďakujem, že ste sa zapísali.",
     "mailIntro": "Tento e-mail potvrdzuje, že vaša adresa funguje. V deň, keď vyjde Control My PC pre {platforms}, vám napíšem.",
     "mailSpam": "Skončil tento e-mail v priečinku so spamom alebo nevyžiadanou poštou? Presuňte ho, prosím, do doručenej pošty alebo ho označte ako „nie je spam“. Inak sa k vám e-mail o vydaní nemusí dostať.",
-    "mailNews": "Požiadali ste aj o novinky Sebastian Apps: občasné novinky o aplikáciách a promo kódy. Každý takýto e-mail obsahuje odkaz na odhlásenie.",
+    "mailNews": "Požiadali ste aj o novinky: občasné novinky o Control My Mac a mojich ďalších aplikáciách a promo kódy. Každý takýto e-mail obsahuje odkaz na odhlásenie.",
     "mailLeave": "Nezapísali ste sa alebo ste si to rozmysleli? Odpovedzte na tento e-mail a odstránim vás.",
     "mailCountry": "Slovinsko",
     "mailPrivacy": "Zásady ochrany súkromia"
@@ -204,7 +204,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Tack för din anmälan.",
     "mailIntro": "Det här meddelandet bekräftar att din adress fungerar. Jag skickar ett mejl till dig den dag Control My PC för {platforms} lanseras.",
     "mailSpam": "Hamnade det här meddelandet i skräpposten? Flytta det till inkorgen eller markera det som ”inte skräp”. Annars kanske e-postmeddelandet om lanseringen aldrig når dig.",
-    "mailNews": "Du bad också om nyheter från Sebastian Apps: appnyheter och kampanjkoder då och då. Varje sådant meddelande har en länk för att avsluta prenumerationen.",
+    "mailNews": "Du bad också om nyheter: nyheter om Control My Mac och mina andra appar samt kampanjkoder då och då. Varje sådant meddelande har en länk för att avsluta prenumerationen.",
     "mailLeave": "Har du inte anmält dig, eller ångrat dig? Svara på det här meddelandet så tar jag bort dig.",
     "mailCountry": "Slovenien",
     "mailPrivacy": "Integritetspolicy"
@@ -215,7 +215,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Takk for påmeldingen.",
     "mailIntro": "Denne e-posten bekrefter at adressen din fungerer. Jeg sender deg en e-post den dagen Control My PC for {platforms} er ute.",
     "mailSpam": "Havnet denne e-posten i mappen for søppelpost eller useriøs e-post? Flytt den til innboksen, eller merk den som «ikke søppelpost». Ellers kan det hende at e-posten om lanseringen aldri når deg.",
-    "mailNews": "Du ba også om nyheter fra Sebastian Apps: av og til appnyheter og kampanjekoder. Hver av disse e-postene har en lenke for å melde seg av.",
+    "mailNews": "Du ba også om nyheter: av og til nyheter om Control My Mac og de andre appene mine, og kampanjekoder. Hver av disse e-postene har en lenke for å melde seg av.",
     "mailLeave": "Har du ikke meldt deg på, eller har du ombestemt deg? Svar på denne e-posten, så fjerner jeg deg.",
     "mailCountry": "Slovenia",
     "mailPrivacy": "Personvernerklæring"
@@ -226,7 +226,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Tak for din tilmelding.",
     "mailIntro": "Denne e-mail bekræfter, at din adresse virker. Jeg skriver til dig den dag, Control My PC til {platforms} udkommer.",
     "mailSpam": "Er denne e-mail havnet i mappen med spam eller uønsket post? Flyt den til din indbakke, eller marker den som »ikke spam«. Ellers når mailen om udgivelsen dig måske aldrig.",
-    "mailNews": "Du har også bedt om nyheder fra Sebastian Apps: en gang imellem nyheder om appen og tilbudskoder. Hver af disse e-mails har et link til at afmelde dig.",
+    "mailNews": "Du har også bedt om nyheder: en gang imellem nyheder om Control My Mac og mine andre apps samt tilbudskoder. Hver af disse e-mails har et link til at afmelde dig.",
     "mailLeave": "Har du ikke tilmeldt dig, eller har du fortrudt? Svar på denne e-mail, så fjerner jeg dig.",
     "mailCountry": "Slovenien",
     "mailPrivacy": "Privatlivspolitik"
@@ -237,7 +237,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Kiitos ilmoittautumisesta.",
     "mailIntro": "Tämä sähköposti vahvistaa, että osoitteesi toimii. Lähetän sinulle sähköpostia sinä päivänä, kun Control My PC ({platforms}) julkaistaan.",
     "mailSpam": "Päätyikö tämä sähköposti roskapostikansioosi? Siirrä se saapuneisiin tai merkitse, ettei se ole roskapostia. Muuten julkaisusähköposti ei välttämättä koskaan tavoita sinua.",
-    "mailNews": "Pyysit myös Sebastian Appsin uutisia: silloin tällöin sovellusuutisia ja tarjouskoodeja. Jokaisessa näistä sähköposteista on linkki tilauksen perumiseen.",
+    "mailNews": "Pyysit myös uutisia: silloin tällöin uutisia Control My Macista ja muista sovelluksistani sekä tarjouskoodeja. Jokaisessa näistä sähköposteista on linkki tilauksen perumiseen.",
     "mailLeave": "Etkö ilmoittautunut tai muutitko mielesi? Vastaa tähän sähköpostiin, niin poistan sinut listalta.",
     "mailCountry": "Slovenia",
     "mailPrivacy": "Tietosuojakäytäntö"
@@ -248,7 +248,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Köszönjük a feliratkozást.",
     "mailIntro": "Ez az e-mail megerősíti, hogy a címe működik. Azon a napon e-mailt küldök, amikor a Control My PC megjelenik ezen: {platforms}.",
     "mailSpam": "A levélszemét vagy a spam mappába került ez az e-mail? Tegye át a beérkezett üzenetek közé, vagy jelölje meg úgy, hogy „nem spam”. Különben előfordulhat, hogy a megjelenésről szóló e-mail nem jut el Önhöz.",
-    "mailNews": "A Sebastian Apps híreit is kérte: időnkénti app-híreket és promóciós kódokat. Mindegyik ilyen e-mailben van leiratkozási hivatkozás.",
+    "mailNews": "A hírlevelet is kérte: időnkénti híreket a Control My Mac appról és a többi appomról, valamint promóciós kódokat. Mindegyik ilyen e-mailben van leiratkozási hivatkozás.",
     "mailLeave": "Nem Ön iratkozott fel, vagy meggondolta magát? Válaszoljon erre az e-mailre, és eltávolítom a címét.",
     "mailCountry": "Szlovénia",
     "mailPrivacy": "Adatvédelmi tájékoztató"
@@ -259,7 +259,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Vă mulțumim pentru înscriere.",
     "mailIntro": "Acest e-mail confirmă că adresa dvs. funcționează. Vă voi scrie în ziua în care Control My PC pentru {platforms} este lansat.",
     "mailSpam": "A ajuns acest e-mail în dosarul de spam sau de junk? Mutați-l în mesajele primite (Inbox) sau marcați-l ca „nu este spam”. Altfel e-mailul despre lansare poate să nu ajungă niciodată la dvs.",
-    "mailNews": "Ați cerut, de asemenea, noutăți de la Sebastian Apps: noutăți ocazionale despre aplicații și coduri promoționale. Fiecare dintre aceste e-mailuri conține un link de dezabonare.",
+    "mailNews": "Ați cerut, de asemenea, noutăți: noutăți ocazionale despre Control My Mac și celelalte aplicații ale mele și coduri promoționale. Fiecare dintre aceste e-mailuri conține un link de dezabonare.",
     "mailLeave": "Nu v-ați înscris sau v-ați răzgândit? Răspundeți la acest e-mail și vă voi elimina.",
     "mailCountry": "Slovenia",
     "mailPrivacy": "Politica de confidențialitate"
@@ -270,7 +270,7 @@ export const WAITLIST_MAIL = {
     "mailHello": "Ευχαριστούμε για την εγγραφή σας.",
     "mailIntro": "Αυτό το email επιβεβαιώνει ότι η διεύθυνσή σας λειτουργεί. Θα σας στείλω email την ημέρα που θα κυκλοφορήσει το Control My PC για {platforms}.",
     "mailSpam": "Βρέθηκε αυτό το email στον φάκελο ανεπιθύμητων; Μετακινήστε το στα εισερχόμενά σας ή σημειώστε το ως «μη ανεπιθύμητο». Αλλιώς το email κυκλοφορίας μπορεί να μη φτάσει ποτέ σε εσάς.",
-    "mailNews": "Ζητήσατε επίσης νέα από τη Sebastian Apps: περιστασιακά νέα εφαρμογών και κωδικούς προσφοράς. Κάθε τέτοιο email έχει σύνδεσμο διαγραφής από τη λίστα.",
+    "mailNews": "Ζητήσατε επίσης νέα: περιστασιακά νέα για το Control My Mac και τις άλλες εφαρμογές μου, καθώς και κωδικούς προσφοράς. Κάθε τέτοιο email έχει σύνδεσμο διαγραφής από τη λίστα.",
     "mailLeave": "Δεν εγγραφήκατε εσείς ή αλλάξατε γνώμη; Απαντήστε σε αυτό το email και θα σας αφαιρέσω.",
     "mailCountry": "Σλοβενία",
     "mailPrivacy": "Πολιτική απορρήτου"

@@ -174,7 +174,7 @@ The shared site script loads Vercel Web Analytics from `/_vercel/insights/script
 
 The repository contains a disabled implementation for a subscriber welcome gift:
 
-1. The visitor explicitly joins occasional Control My Mac and Sebastian Apps emails.
+1. The visitor explicitly joins occasional emails about Control My Mac and Sebastian's other apps.
 2. The only automatic email contains a unique Apple code for one free month, a "Redeem in the App Store" button (the code's Apple redemption link), the in-app steps, and an unsubscribe link.
 3. Consent is single opt-in (since 26 Sep 2026): the required checkbox is recorded with the request, and the daily cron adds the address to the marketing list after the code email is sent. `/api/confirm-newsletter` only keeps serving confirmation links sent before that date.
 4. A signed unsubscribe page removes the address from the list without invalidating a code already sent. An unsubscribe sticks: a later form request for the same address (which anyone can make) never re-subscribes it, and a request that sends nothing changes nothing stored.
