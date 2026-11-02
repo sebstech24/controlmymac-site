@@ -8,6 +8,29 @@
     <description>Updates for the free Control My Mac companion app.</description>
     <language>en</language>
     <item>
+      <title>Version 1.2.12</title>
+      <description><![CDATA[
+        <ul>
+          <li><strong>New phones need your OK:</strong> the first time a phone connects, your Mac asks whether to allow it. Phones you allow go straight through after that. After this update, each phone you already use asks once.</li>
+          <li><strong>Hidden pairing code:</strong> the QR code and pairing code stay blurred until you click them, then show for 10 seconds. You can turn this off in Settings.</li>
+          <li><strong>Codes that expire:</strong> the 6-character code only works for 10 minutes after it was shown.</li>
+          <li>"Teach a shortcut" stops by itself after the first shortcut or 10 seconds.</li>
+          <li>Requires a Mac with Apple silicon. Intel Macs stay on version 1.2.3.</li>
+        </ul>
+      ]]></description>
+      <pubDate>Mon, 02 Nov 2026 11:18:00 +0000</pubDate>
+      <sparkle:version>18</sparkle:version>
+      <sparkle:shortVersionString>1.2.12</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+      <enclosure url="https://github.com/sebstech24/controlmymac-site/releases/download/v1.2.12/ControlMyMac-1.2.12.dmg"
+                 sparkle:version="18"
+                 sparkle:shortVersionString="1.2.12"
+                 length="3893501"
+                 type="application/octet-stream"
+                 sparkle:edSignature="j4YfIEhIbbj6QWZLYDp0VxnlqHyN7EPPvyMZiZIg376McFdknOJWgPJtuqUAMYJDlxh35dXWnPu8KaYNlDR4Cg==" />
+    </item>
+    <item>
       <title>Version 1.2.11</title>
       <description><![CDATA[
         <ul>
