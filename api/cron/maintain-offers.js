@@ -9,11 +9,13 @@ import {
   pendingBatches,
   pendingMarketingRequests,
   pendingMarketingRemovals,
+  batchIdForRequest,
   upsertBatch,
 } from "../_lib/database.js";
 import {
-  createFreeMonthBatch,
+  createOfferBatch,
   fetchBatchValues,
+  offerForBatch,
   prepareCodeRows,
 } from "../_lib/apple-offers.js";
 import {
@@ -35,7 +37,7 @@ function authorized(request) {
   return Boolean(secret) && request.headers.get("authorization") === `Bearer ${secret}`;
 }
 
-async function importReadyBatches() {
+export async function importReadyBatches() {
   let imported = 0;
   for (const batch of await pendingBatches()) {
     const values = await fetchBatchValues(batch.id);
@@ -51,7 +53,7 @@ async function importReadyBatches() {
   return imported;
 }
 
-function messageInput(delivery) {
+async function messageInput(delivery) {
   const email = decrypt(delivery.email_ciphertext, process.env.CODE_ENCRYPTION_KEY);
   const code = decrypt(delivery.code_ciphertext, process.env.CODE_ENCRYPTION_KEY);
   const token = signUnsubscribeToken(delivery.request_id, process.env.UNSUBSCRIBE_SECRET);
@@ -65,6 +67,7 @@ function messageInput(delivery) {
     redemptionUrl: decryptOptional(delivery.redemption_url_ciphertext, process.env.CODE_ENCRYPTION_KEY),
     expiresAt: delivery.expires_at,
     autoRenews: process.env.FREE_MONTH_AUTO_RENEWS === "true",
+    offer: offerForBatch(await batchIdForRequest(delivery.request_id)),
     unsubscribeUrl: `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(token)}`,
   };
 }
@@ -74,7 +77,7 @@ async function deliverQueued(limit = 50) {
   for (let index = 0; index < limit; index += 1) {
     const delivery = await claimNextDelivery();
     if (!delivery) break;
-    const input = messageInput(delivery);
+    const input = await messageInput(delivery);
     try {
       const messageId = await sendCodeEmail(input);
       await markDeliverySent(delivery.request_id, messageId);
@@ -123,29 +126,31 @@ export async function GET(request) {
   }
 
   const imported = await importReadyBatches();
-  let inventory = await inventoryCounts();
-  let createdBatch = null;
+  const inventory0 = await inventoryCounts();
+  const unused = {
+    free_month: inventory0.unused - (inventory0.unused_lifetime || 0),
+    lifetime47: inventory0.unused_lifetime || 0,
+  };
   const threshold = Math.max(25, Number(process.env.OFFER_CODE_LOW_WATERMARK || 100));
-  const existingPending = await pendingBatches();
-  if (inventory.unused < threshold && existingPending.length === 0) {
+  const pending = (await pendingBatches()).map((batch) => offerForBatch(batch.id));
+  const createdBatches = [];
+  // Keep both gifts stocked; each top-up batch expires after about 170 days (Apple's limit is 6 months).
+  for (const offer of ["free_month", "lifetime47"]) {
+    if (unused[offer] >= threshold || pending.includes(offer)) continue;
     const quantity = Math.min(25000, Math.max(500, Number(process.env.OFFER_CODE_BATCH_SIZE || 500)));
-    createdBatch = await createFreeMonthBatch({ quantity });
-    await upsertBatch({
-      ...createdBatch,
-      source: "apple_api",
-      environment: "PRODUCTION",
-      state: "generating",
-    });
+    const batch = await createOfferBatch(offer, { quantity });
+    await upsertBatch({ ...batch, source: "apple_api", environment: "PRODUCTION", state: "generating" });
+    createdBatches.push(batch.id);
   }
 
   const sent = await deliverQueued();
   const repairedUnsubscribes = await repairUnsubscribes();
   const repairedSubscriptions = await repairMarketingList();
-  inventory = await inventoryCounts();
+  const inventory = await inventoryCounts();
   return json({
     ok: true,
     imported,
-    createdBatch: createdBatch?.id || null,
+    createdBatches,
     sent,
     repairedUnsubscribes,
     repairedSubscriptions,

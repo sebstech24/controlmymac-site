@@ -48,7 +48,8 @@ export async function assignCode(input) {
       ${input.emailCiphertext},
       ${input.locale},
       ${input.marketingRequested},
-      ${input.consentVersion}
+      ${input.consentVersion},
+      ${input.offer}
     )
   `;
   return rows[0] || null;
@@ -152,11 +153,21 @@ export async function pendingMarketingRequests(limit = 50) {
   `;
 }
 
+// Which batch the address's code came from, so the email describes that code's offer
+// (people who already got a free-month code keep getting that same code and email).
+export async function batchIdForRequest(requestId) {
+  const sql = getDatabase();
+  const rows = await sql`select batch_id from offer_codes where request_id = ${requestId} limit 1`;
+  return rows[0]?.batch_id || null;
+}
+
 export async function inventoryCounts() {
   const sql = getDatabase();
   const rows = await sql`
     select
       count(*) filter (where status = 'unused' and expires_at > now() + interval '24 hours')::int as unused,
+      count(*) filter (where status = 'unused' and expires_at > now() + interval '24 hours'
+        and batch_id like 'lifetime:%')::int as unused_lifetime,
       count(*) filter (where status in ('assigned', 'sent'))::int as allocated,
       count(*) filter (where status = 'expired' or expires_at <= now())::int as expired
     from offer_codes

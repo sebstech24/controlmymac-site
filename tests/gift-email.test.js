@@ -271,6 +271,7 @@ test("a new request records v3 single opt-in consent and emails the stored per-c
     const assign = database.calls.find((call) => call.text.includes("assign_offer_code"));
     assert.equal(assign.values[3], true);
     assert.equal(assign.values[4], "news-emails-v4-2026-11-02");
+    assert.equal(assign.values[5], "free_month"); // no pick sent (an old cached form) = the free month
 
     assert.equal(brevo.length, 1);
     const [email] = brevo;
@@ -286,7 +287,7 @@ test("the daily cron passes the stored redeem link into re-sent emails", async (
   let claimed = false;
   const database = fakeDatabase([
     ["from offer_code_batches", []],
-    ["count(*) filter", [{ unused: 1000, allocated: 1, expired: 0 }]],
+    ["count(*) filter", [{ unused: 1000, unused_lifetime: 500, allocated: 1, expired: 0 }]],
     ["as pending", [{ pending: 0 }]],
     ["claim_next_code_delivery", () => {
       if (claimed) return [];
@@ -392,7 +393,7 @@ test("assign_offer_code confirms consent at request time in the migration and th
     const sql = readFileSync(new URL(file, import.meta.url), "utf8");
     const assign = sql.match(/create or replace function assign_offer_code\([\s\S]*?\n\$\$;/)?.[0];
     assert.ok(assign, file);
-    assert.match(assign, /marketing_requested_at,\n\s+marketing_confirmed_at,\n\s+consent_text_version\n/, file);
+    assert.match(assign, /marketing_requested_at,\n\s+marketing_confirmed_at,\n\s+consent_text_version,?\n/, file);
     // A known address is confirmed once, and never again after it unsubscribed.
     assert.match(
       assign,
@@ -400,4 +401,58 @@ test("assign_offer_code confirms consent at request time in the migration and th
       file,
     );
   }
+});
+
+test("the 47% off Lifetime email exists in every language and never mentions renewal", () => {
+  const english = render("en", { offer: "lifetime47" });
+  for (const locale of LOCALES) {
+    const free = render(locale);
+    const email = render(locale, { offer: "lifetime47" });
+    assert.match(email.subject, /47/, `${locale} subject`);
+    assert.match(email.text, /47/, `${locale} text`);
+    assert.ok(!email.text.includes(NO_RENEW[locale]), `${locale} still says the free month does not renew`);
+    assert.notEqual(email.subject, free.subject, `${locale} subject is still the free-month one`);
+    if (locale !== "en") assert.notEqual(email.subject, english.subject, `${locale} falls back to English`);
+    assert.ok(email.text.includes("CMMSTORED123") && email.html.includes(escapeHtml(STORED_URL)), locale);
+  }
+});
+
+test("Lifetime batches are recognised by their id, free-month batches stay free-month", async () => {
+  const { offerForBatch } = await import("../api/_lib/apple-offers.js");
+  assert.equal(offerForBatch("lifetime:8ab04556-c0c1-4f53-a7c2-e87451b62536"), "lifetime47");
+  assert.equal(offerForBatch("599671"), "free_month");
+  assert.equal(offerForBatch(null), "free_month");
+});
+
+test("a request served from a Lifetime batch gets the 47% off Lifetime email", async () => {
+  const database = fakeDatabase([
+    ["consume_rate_limit", [{ allowed: true }]],
+    ["email_hash = any", []],
+    ["assign_offer_code", [{
+      request_id: "00000000-0000-4000-8000-00000000000c",
+      code_ciphertext: encrypt("CMMSTORED123", ENCRYPTION_KEY),
+      redemption_url_ciphertext: encrypt(STORED_URL, ENCRYPTION_KEY),
+      expires_at: "2027-04-23T08:00:00.000Z",
+      reused: false,
+      marketing_subscribed_at: null,
+      outcome: "assigned",
+      attempt: 1,
+    }]],
+    ["select batch_id from offer_codes", [{ batch_id: "lifetime:8ab04556-c0c1-4f53-a7c2-e87451b62536" }]],
+  ]);
+  await withEnv(LIVE_ENV, database, async ({ brevo }) => {
+    const response = await requestCode(new Request("https://example.test/api/request-code", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-real-ip": "203.0.113.8" },
+      body: JSON.stringify({ email: "person@example.test", locale: "en", marketingOptIn: true, offer: "lifetime47", turnstileToken: "ok" }),
+    }));
+    assert.equal(response.status, 200);
+    const assign = database.calls.find((call) => call.text.includes("assign_offer_code"));
+    assert.equal(assign.values[5], "lifetime47");
+    const [email] = brevo;
+    assert.equal(email.body.subject, "Your 47% off Control My Mac Lifetime");
+    assert.match(email.body.textContent, /one-time purchase/);
+    assert.doesNotMatch(email.body.textContent, /free month/);
+    assert.deepEqual(email.body.tags, ["control-my-mac", "lifetime-47-code"]);
+  });
 });

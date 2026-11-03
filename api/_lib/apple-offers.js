@@ -29,7 +29,6 @@ function appleConfig() {
     issuerId: process.env.APP_STORE_CONNECT_ISSUER_ID,
     keyId: process.env.APP_STORE_CONNECT_KEY_ID,
     privateKey: process.env.APP_STORE_CONNECT_PRIVATE_KEY,
-    offerCodeId: process.env.APPLE_FREE_MONTH_OFFER_CODE_ID,
   };
   if (Object.values(config).some((value) => !value)) {
     throw new Error("App Store Connect offer-code credentials are incomplete");
@@ -57,23 +56,50 @@ export function defaultExpirationDate(now = new Date()) {
   return result.toISOString().slice(0, 10);
 }
 
-export async function createFreeMonthBatch({ quantity = 500, expirationDate } = {}) {
+// The two gifts a visitor can pick (since 4 Nov 2026). Lifetime batches are stored as
+// "lifetime:<Apple batch id>"; every other batch id is a free-month batch.
+export const LIFETIME_BATCH_PREFIX = "lifetime:";
+const OFFERS = {
+  free_month: {
+    resource: "subscriptionOfferCodeOneTimeUseCodes",
+    offerType: "subscriptionOfferCodes",
+    offerId: () => process.env.APPLE_FREE_MONTH_OFFER_CODE_ID,
+    prefix: "",
+  },
+  // 47% off Full App Lifetime ($63.99 instead of $119.99), Apple offer WEBSITE-LIFETIME-47-2026-11.
+  lifetime47: {
+    resource: "inAppPurchaseOfferCodeOneTimeUseCodes",
+    offerType: "inAppPurchaseOfferCodes",
+    offerId: () => process.env.APPLE_LIFETIME_OFFER_CODE_ID || "f86c4d5f-27a6-40e7-8f1f-83863745b64a",
+    prefix: LIFETIME_BATCH_PREFIX,
+  },
+};
+
+export function offerForBatch(batchId) {
+  return String(batchId || "").startsWith(LIFETIME_BATCH_PREFIX) ? "lifetime47" : "free_month";
+}
+
+export function normalizeOffer(value) {
+  return value === "lifetime47" ? "lifetime47" : "free_month";
+}
+
+export async function createOfferBatch(offer, { quantity = 500, expirationDate } = {}) {
   if (!Number.isInteger(quantity) || quantity < 500 || quantity > 25000) {
     throw new Error("Apple production batches must contain 500 to 25,000 codes");
   }
-  const config = appleConfig();
+  const kind = OFFERS[normalizeOffer(offer)];
+  const offerId = kind.offerId();
+  if (!offerId) throw new Error(`No Apple offer id for ${offer}`);
   const date = expirationDate || defaultExpirationDate();
-  const response = await appleRequest("/v1/subscriptionOfferCodeOneTimeUseCodes", {
+  const attributes = { numberOfCodes: quantity, expirationDate: date };
+  if (kind.prefix) attributes.environment = "PRODUCTION";
+  const response = await appleRequest(`/v1/${kind.resource}`, {
     method: "POST",
     body: JSON.stringify({
       data: {
-        type: "subscriptionOfferCodeOneTimeUseCodes",
-        attributes: { numberOfCodes: quantity, expirationDate: date },
-        relationships: {
-          offerCode: {
-            data: { type: "subscriptionOfferCodes", id: config.offerCodeId },
-          },
-        },
+        type: kind.resource,
+        attributes,
+        relationships: { offerCode: { data: { type: kind.offerType, id: offerId } } },
       },
     }),
   });
@@ -82,7 +108,7 @@ export async function createFreeMonthBatch({ quantity = 500, expirationDate } = 
     throw new Error(`Apple batch creation failed (${response.status}): ${JSON.stringify(body).slice(0, 600)}`);
   }
   return {
-    id: body.data.id,
+    id: `${kind.prefix}${body.data.id}`,
     expectedCount: quantity,
     expiresAt: `${date}T08:00:00.000Z`,
   };
@@ -134,8 +160,9 @@ export function parseOfferCodeCsv(csv) {
 }
 
 export async function fetchBatchValues(batchId) {
+  const kind = OFFERS[offerForBatch(batchId)];
   const response = await appleRequest(
-    `/v1/subscriptionOfferCodeOneTimeUseCodes/${encodeURIComponent(batchId)}/values`,
+    `/v1/${kind.resource}/${encodeURIComponent(batchId.slice(kind.prefix.length))}/values`,
     { method: "GET", accept: "text/csv" },
   );
   if (response.status === 404 || response.status === 409 || response.status === 425) return null;

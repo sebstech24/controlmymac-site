@@ -591,6 +591,186 @@ const COPY = {
   },
 };
 
+// The 47% off Full App Lifetime gift (codes from batches "lifetime:<id>", since 4 Nov 2026).
+// Only these lines differ from COPY; payOnce replaces the free month's renewal line.
+const LIFETIME_COPY = {
+  en: {
+    subject: "Your 47% off Control My Mac Lifetime",
+    heading: "Your 47% off Lifetime is ready",
+    intro: "Thanks for joining my emails about Control My Mac and my other apps. Here is your personal code for 47% off Full App Lifetime in Control My Mac: pay once, keep it forever.",
+    payOnce: "Lifetime is a one-time purchase, not a subscription: you pay the discounted price once and it never renews. The App Store shows the price before you confirm.",
+    why: "You’re getting this email because you asked for the subscriber gift on controlmymac.com and agreed to receive emails from Sebastian Škoić s.p.",
+  },
+  de: {
+    subject: "Dein Rabatt: Control My Mac auf Lebenszeit 47 % günstiger",
+    heading: "Auf Lebenszeit 47 % günstiger: Dein Code ist bereit",
+    intro: "Danke, dass du dich für meine E-Mails zu Control My Mac und meinen anderen Apps angemeldet hast. Hier ist dein persönlicher Code, mit dem du Full App auf Lebenszeit in Control My Mac 47 % günstiger bekommst: einmal zahlen, für immer behalten.",
+    payOnce: "Full App auf Lebenszeit ist ein einmaliger Kauf, kein Abonnement: Du zahlst den reduzierten Preis ein einziges Mal, und er verlängert sich nie. Der App Store zeigt dir den Preis an, bevor du bestätigst.",
+    why: "Du bekommst diese E-Mail, weil du auf controlmymac.com das Willkommensgeschenk für Abonnenten angefordert und den E-Mails von Sebastian Škoić s.p. zugestimmt hast.",
+  },
+  es: {
+    subject: "Tu 47 % de descuento en Control My Mac de por vida",
+    heading: "Tu 47 % de descuento en la compra de por vida está listo",
+    intro: "Gracias por suscribirte a mis correos sobre Control My Mac y mis otras apps. Aquí tienes tu código personal con un 47 % de descuento en Full App de por vida en Control My Mac: pagas una vez y es tuyo para siempre.",
+    payOnce: "La compra de por vida es un pago único, no una suscripción: pagas el precio con descuento una sola vez y nunca se renueva. El App Store te muestra el precio antes de que confirmes.",
+    why: "Recibes este correo porque pediste el regalo para suscriptores en controlmymac.com y aceptaste recibir correos de Sebastian Škoić s.p.",
+  },
+  fr: {
+    subject: "Votre réduction de 47 % sur Control My Mac à vie",
+    heading: "Votre réduction de 47 % sur l’achat à vie vous attend",
+    intro: "Merci de vous être inscrit à mes e-mails sur Control My Mac et mes autres apps. Voici votre code personnel de 47 % de réduction sur Full App à vie dans Control My Mac : payez une fois, gardez-le pour toujours.",
+    payOnce: "L’achat à vie est un paiement unique, pas un abonnement : vous payez le prix réduit une seule fois et il ne se renouvelle jamais. L’App Store affiche le prix avant que vous confirmiez.",
+    why: "Vous recevez cet e-mail car vous avez demandé le cadeau pour les abonnés sur controlmymac.com et accepté de recevoir les e-mails de Sebastian Škoić s.p.",
+  },
+  it: {
+    subject: "Il tuo 47% di sconto su Control My Mac a vita",
+    heading: "Il tuo 47% di sconto sull’acquisto a vita è pronto",
+    intro: "Grazie per esserti iscritto alle mie email su Control My Mac e sulle mie altre app. Ecco il tuo codice personale per il 47% di sconto su Full App a vita in Control My Mac: paghi una volta ed è tuo per sempre.",
+    payOnce: "L’acquisto a vita è un pagamento unico, non un abbonamento: paghi il prezzo scontato una sola volta e non si rinnova mai. L’App Store ti mostra il prezzo prima della conferma.",
+    why: "Ricevi questa email perché hai richiesto il regalo per gli iscritti su controlmymac.com e hai accettato di ricevere le email di Sebastian Škoić s.p.",
+  },
+  pt: {
+    subject: "Seu desconto de 47% no Control My Mac vitalício",
+    heading: "Seu desconto de 47% na compra vitalícia está pronto",
+    intro: "Obrigado por se inscrever nos meus e-mails sobre o Control My Mac e meus outros apps. Aqui está seu código pessoal de 47% de desconto na compra vitalícia do Full App no Control My Mac: pague uma vez e fique com ele para sempre.",
+    payOnce: "A compra vitalícia é um pagamento único, não uma assinatura: você paga o preço com desconto uma única vez e ela nunca é renovada. A App Store mostra o preço antes de você confirmar.",
+    why: "Você está recebendo este e-mail porque pediu o presente para inscritos em controlmymac.com e aceitou receber e-mails de Sebastian Škoić s.p.",
+  },
+  nl: {
+    subject: "Je 47% korting op Control My Mac levenslang",
+    heading: "Je 47% korting op de levenslange aankoop staat klaar",
+    intro: "Bedankt voor je aanmelding voor mijn e-mails over Control My Mac en mijn andere apps. Hier is je persoonlijke code voor 47% korting op Full App levenslang in Control My Mac: één keer betalen, voor altijd van jou.",
+    payOnce: "De levenslange aankoop is eenmalig, geen abonnement: je betaalt de kortingsprijs één keer en hij wordt nooit verlengd. De App Store toont de prijs voordat je bevestigt.",
+    why: "Je krijgt deze e-mail omdat je op controlmymac.com het welkomstcadeau voor abonnees hebt aangevraagd en akkoord bent gegaan met e-mails van Sebastian Škoić s.p.",
+  },
+  sv: {
+    subject: "Dina 47 % rabatt på Control My Mac för livstid",
+    heading: "Din kod för 47 % rabatt på livstidsköpet är klar",
+    intro: "Tack för att du anmälde dig till e-postutskicken om Control My Mac och mina andra appar. Här är din personliga kod för 47 % rabatt på Full App för livstid i Control My Mac: betala en gång, behåll den för alltid.",
+    payOnce: "Livstidsköpet är ett engångsköp, inte ett abonnemang: du betalar det rabatterade priset en gång och det förnyas aldrig. App Store visar priset innan du bekräftar.",
+    why: "Du får det här e-postmeddelandet eftersom du begärde välkomstgåvan till prenumeranter på controlmymac.com och godkände att få e-post från Sebastian Škoić s.p.",
+  },
+  no: {
+    subject: "Koden din: 47 % rabatt på Control My Mac for livstid",
+    heading: "Koden din for 47 % rabatt på livstidskjøpet er klar",
+    intro: "Takk for at du abonnerer på e-postene mine om Control My Mac og de andre appene mine. Her er din personlige kode for 47 % rabatt på Full App for livstid i Control My Mac: betal én gang, behold den for alltid.",
+    payOnce: "Livstidskjøpet er et engangskjøp, ikke et abonnement: Du betaler den rabatterte prisen én gang, og det fornyes aldri. App Store viser prisen før du bekrefter.",
+    why: "Du får denne e-posten fordi du ba om velkomstgaven til abonnenter på controlmymac.com og sa ja til å motta e-post fra Sebastian Škoić s.p.",
+  },
+  da: {
+    subject: "Dine 47 % rabat på Control My Mac Lifetime",
+    heading: "Din Lifetime-rabat på 47 % er klar",
+    intro: "Tak, fordi du har tilmeldt dig mine e-mails om Control My Mac og mine andre apps. Her er din personlige kode til 47 % rabat på Full App Lifetime i Control My Mac. Du betaler én gang og beholder den for altid.",
+    payOnce: "Lifetime er et engangskøb, ikke et abonnement: Du betaler den nedsatte pris én gang, og købet fornyes aldrig. App Store viser prisen, før du bekræfter.",
+    why: "Du får denne e-mail, fordi du har bedt om velkomstgaven til abonnenter på controlmymac.com og har sagt ja til at modtage e-mails fra Sebastian Škoić s.p.",
+  },
+  fi: {
+    subject: "47 %:n alennuksesi Control My Mac Lifetimesta",
+    heading: "47 %:n Lifetime-alennuksesi on valmis",
+    intro: "Kiitos, että liityit Control My Macia ja muita sovelluksiani koskevalle sähköpostilistalle. Tässä on henkilökohtainen koodisi, jolla saat Control My Macin Full App Lifetimen 47 %:n alennuksella: maksat kerran ja pidät sen ikuisesti.",
+    payOnce: "Lifetime on kertaostos, ei tilaus: maksat alennetun hinnan kerran, eikä ostos koskaan uusiudu. App Store näyttää hinnan ennen kuin vahvistat ostoksen.",
+    why: "Saat tämän sähköpostin, koska pyysit tilaajien tervetuliaislahjaa osoitteessa controlmymac.com ja suostuit vastaanottamaan Sebastian Škoić s.p.:n sähköposteja.",
+  },
+  pl: {
+    subject: "Twoja zniżka 47 % na Control My Mac Lifetime",
+    heading: "Twoja zniżka 47 % na Lifetime jest gotowa",
+    intro: "Dziękujemy za zapisanie się na e-maile o Control My Mac i naszych pozostałych aplikacjach. Oto Twój osobisty kod obniżający cenę Full App Lifetime w Control My Mac o 47 %: płacisz raz, a Full App zostaje z Tobą na zawsze.",
+    payOnce: "Lifetime to jednorazowy zakup, a nie subskrypcja: obniżoną cenę płacisz tylko raz i zakup nigdy się nie odnawia. App Store pokaże cenę, zanim potwierdzisz zakup.",
+    why: "Ta wiadomość trafiła do Ciebie, ponieważ na controlmymac.com poproszono z tego adresu o prezent dla subskrybentów i wyrażono zgodę na e-maile od Sebastian Škoić s.p.",
+  },
+  cs: {
+    subject: "Vaše sleva 47 % na Control My Mac Lifetime",
+    heading: "Vaše sleva 47 % na Lifetime je připravena",
+    intro: "Děkujeme, že jste se přihlásili k odběru e-mailů o Control My Mac a našich dalších aplikacích. Tady je váš osobní kód se slevou 47 % na Full App Lifetime v aplikaci Control My Mac: zaplatíte jednou a Full App vám zůstane navždy.",
+    payOnce: "Lifetime je jednorázový nákup, ne předplatné: zlevněnou cenu zaplatíte jen jednou a nákup se nikdy neobnoví. App Store vám cenu ukáže, než nákup potvrdíte.",
+    why: "Tento e-mail dostáváte, protože jste na controlmymac.com požádali o dárek pro odběratele a souhlasili jste s příjmem e-mailů od Sebastian Škoić s.p.",
+  },
+  sk: {
+    subject: "Vaša zľava 47 % na Control My Mac Lifetime",
+    heading: "Vaša zľava 47 % na Lifetime je pripravená",
+    intro: "Ďakujeme, že odoberáte e-maily o Control My Mac a našich ďalších aplikáciách. Tu je váš osobný kód so zľavou 47 % na Full App Lifetime v aplikácii Control My Mac: zaplatíte raz a Full App vám zostane navždy.",
+    payOnce: "Lifetime je jednorazový nákup, nie predplatné: zľavnenú cenu zaplatíte iba raz a nákup sa nikdy neobnoví. App Store vám cenu ukáže ešte pred potvrdením.",
+    why: "Tento e-mail dostávate, pretože ste si na controlmymac.com vyžiadali darček pre odberateľov a súhlasili ste s prijímaním e-mailov od Sebastian Škoić s.p.",
+  },
+  sl: {
+    subject: "Vaš 47-odstotni popust za Control My Mac Lifetime",
+    heading: "Vaš 47-odstotni popust za Lifetime je pripravljen",
+    intro: "Hvala, ker ste se naročili na e-poštna sporočila o Control My Mac in naših drugih aplikacijah. Tukaj je vaša osebna koda za 47 % popusta pri nakupu Full App Lifetime v aplikaciji Control My Mac: plačate enkrat, Full App pa ostane vaš za vedno.",
+    payOnce: "Lifetime je enkraten nakup, ne naročnina: znižano ceno plačate samo enkrat, nakup pa se nikoli ne podaljša. Trgovina App Store vam pred potrditvijo prikaže ceno.",
+    why: "To e-poštno sporočilo ste prejeli, ker ste na controlmymac.com zahtevali darilo za naročnike in privolili v prejemanje e-poštnih sporočil od Sebastian Škoić s.p.",
+  },
+  hu: {
+    subject: "A Control My Mac Lifetime 47%-os kedvezménye",
+    heading: "A 47%-os Lifetime-kedvezmény készen áll",
+    intro: "Köszönjük, hogy feliratkozott a Control My Mac appról és a többi appunkról szóló e-mailekre. Itt az egyéni kódja, amellyel 47% kedvezményt kap a Control My Mac Full App Lifetime árából: egyszer fizet, és örökre az Öné.",
+    payOnce: "A Lifetime egyszeri vásárlás, nem előfizetés: a kedvezményes árat egyszer fizeti ki, és soha nem újul meg. Az App Store a megerősítés előtt megmutatja az árat.",
+    why: "Azért kapja ezt az e-mailt, mert a controlmymac.com oldalon kérte a feliratkozói ajándékot, és beleegyezett a Sebastian Škoić s.p. e-mailjeinek fogadásába.",
+  },
+  ro: {
+    subject: "Reducerea dvs. de 47% la Control My Mac Lifetime",
+    heading: "Reducerea dvs. de 47% la Lifetime este pregătită",
+    intro: "Vă mulțumim că v-ați abonat la e-mailurile despre Control My Mac și celelalte aplicații ale noastre. Iată codul dvs. personal pentru o reducere de 47% la Full App Lifetime în Control My Mac: plătiți o dată, iar Full App rămâne al dvs. pentru totdeauna.",
+    payOnce: "Lifetime este o achiziție unică, nu un abonament: plătiți prețul redus o singură dată, iar achiziția nu se reînnoiește niciodată. App Store vă arată prețul înainte să confirmați.",
+    why: "Primiți acest e-mail pentru că ați cerut cadoul pentru abonați pe controlmymac.com și ați acceptat să primiți e-mailuri de la Sebastian Škoić s.p.",
+  },
+  ja: {
+    subject: "Control My Macの買い切り47%オフコードをお届けします",
+    heading: "買い切り47%オフの準備ができました",
+    intro: "Control My Macや私のほかのアプリについてのメールにご登録いただきありがとうございます。Control My MacのFull Appを47%オフで買い切りできる専用コードをお送りします。一度お支払いいただければ、ずっとお使いいただけます。",
+    payOnce: "買い切りはサブスクリプションではなく、1回限りの購入です。割引価格を一度お支払いいただくだけで、更新されることはありません。価格は購入を確定する前にApp Storeに表示されます。",
+    why: "このメールは、controlmymac.comで登録特典をリクエストし、Sebastian Škoić s.p.からのメール受信に同意いただいたためお送りしています。",
+  },
+  ko: {
+    subject: "Control My Mac 평생 구매 47% 할인 코드",
+    heading: "평생 구매 47% 할인이 준비되었습니다",
+    intro: "Control My Mac과 제 다른 앱에 관한 이메일을 구독해 주셔서 감사합니다. Control My Mac의 Full App 평생 구매를 47% 할인된 가격으로 받을 수 있는 개인 코드입니다. 한 번 결제하면 평생 사용할 수 있습니다.",
+    payOnce: "평생 구매는 구독이 아닌 일회성 구매입니다. 할인된 가격을 한 번만 결제하며 갱신되지 않습니다. 구매를 확인하기 전에 App Store에 가격이 표시됩니다.",
+    why: "controlmymac.com에서 구독자 환영 선물을 요청하고 Sebastian Škoić s.p.의 이메일 수신에 동의하셔서 이 이메일을 보내 드렸습니다.",
+  },
+  zh: {
+    subject: "您的 Control My Mac 终身买断立减 47%",
+    heading: "您的终身买断立减 47% 优惠已准备好",
+    intro: "感谢订阅我关于 Control My Mac 及我其他应用的邮件。这是您的专属代码，买断 Control My Mac 的 Full App 终身版可立减 47%：一次付款，永久使用。",
+    payOnce: "终身买断是一次性购买，不是订阅：您只需按优惠价支付一次，永不续订。确认购买前，App Store 会显示价格。",
+    why: "您收到这封邮件，是因为您在 controlmymac.com 申请了订阅欢迎礼，并同意接收 Sebastian Škoić s.p. 的邮件。",
+  },
+  "zh-hant": {
+    subject: "你的 Control My Mac 永久版現省 47%",
+    heading: "你的永久版現省 47% 優惠準備好了",
+    intro: "感謝你訂閱我關於 Control My Mac 及我其他 App 的電子郵件。這是你的專屬代碼，購買 Control My Mac 的 Full App 永久版可現省 47%：一次付清，永久使用。",
+    payOnce: "永久版是一次性購買，不是訂閱：你只需用優惠價支付一次，之後不會續訂。確認購買前，App Store 會先顯示價格。",
+    why: "你會收到這封電子郵件，是因為你在 controlmymac.com 申請了訂閱歡迎禮，並同意接收 Sebastian Škoić s.p. 的電子郵件。",
+  },
+  ru: {
+    subject: "Ваша скидка 47% на пожизненный доступ к Control My Mac",
+    heading: "Ваша скидка 47% на пожизненный доступ готова",
+    intro: "Спасибо за подписку на письма о Control My Mac и других моих приложениях. Вот ваш личный код со скидкой 47% на пожизненный доступ к Full App в Control My Mac: платите один раз — пользуйтесь всегда.",
+    payOnce: "Пожизненный доступ — это разовая покупка, а не подписка: вы один раз платите цену со скидкой, и покупка никогда не продлевается. App Store покажет цену до того, как вы подтвердите покупку.",
+    why: "Вы получили это письмо, потому что запросили подарок для подписчиков на controlmymac.com и согласились получать письма от Sebastian Škoić s.p.",
+  },
+  uk: {
+    subject: "Ваша знижка 47% на довічний доступ до Control My Mac",
+    heading: "Ваша знижка 47% на довічний доступ готова",
+    intro: "Дякуємо, що підписалися на листи про Control My Mac та інші наші програми. Ось ваш особистий код зі знижкою 47% на довічний доступ до Full App у Control My Mac: платите один раз — користуєтеся завжди.",
+    payOnce: "Довічний доступ — це одноразова покупка, а не підписка: ви один раз сплачуєте ціну зі знижкою, і покупка ніколи не поновлюється. App Store покаже ціну, перш ніж ви підтвердите покупку.",
+    why: "Ви отримали цей лист, бо попросили подарунок для підписників на controlmymac.com і погодилися отримувати листи від Sebastian Škoić s.p.",
+  },
+  tr: {
+    subject: "Ömür boyu Control My Mac’te %47 indiriminiz",
+    heading: "Ömür boyu için %47 indiriminiz hazır",
+    intro: "Control My Mac ve diğer uygulamalarım hakkındaki e-postalara katıldığınız için teşekkürler. Control My Mac’te ömür boyu Full App için %47 indirimli kişisel kodunuz burada: bir kez ödeyin, sonsuza dek kullanın.",
+    payOnce: "Ömür boyu satın alım bir abonelik değil, tek seferlik bir satın alımdır: indirimli fiyatı bir kez ödersiniz ve hiçbir zaman yenilenmez. App Store, onaylamadan önce fiyatı gösterir.",
+    why: "Bu e-postayı, controlmymac.com’da hoş geldin hediyesini istediğiniz ve Sebastian Škoić s.p. tarafından gönderilen e-postaları almayı kabul ettiğiniz için alıyorsunuz.",
+  },
+  el: {
+    subject: "Η έκπτωσή σας 47% για το Control My Mac εφ’ όρου ζωής",
+    heading: "Η έκπτωσή σας 47% στην αγορά εφ’ όρου ζωής είναι έτοιμη",
+    intro: "Ευχαριστούμε που εγγραφήκατε στα email για το Control My Mac και τις άλλες εφαρμογές μας. Ορίστε ο προσωπικός σας κωδικός για έκπτωση 47% στην αγορά του Full App εφ’ όρου ζωής στο Control My Mac: πληρώνετε μία φορά και το κρατάτε για πάντα.",
+    payOnce: "Η αγορά εφ’ όρου ζωής είναι εφάπαξ αγορά, όχι συνδρομή: πληρώνετε τη μειωμένη τιμή μία φορά και δεν ανανεώνεται ποτέ. Το App Store εμφανίζει την τιμή πριν την επιβεβαιώσετε.",
+    why: "Λαμβάνετε αυτό το email επειδή ζητήσατε το δώρο για εγγεγραμμένους στο controlmymac.com και συμφωνήσατε να λαμβάνετε email από τον Sebastian Škoić s.p.",
+  },
+};
+
 // Slovenian needs the month in the genitive after "do" ("do 15. januarja"), which the long month name
 // from Intl is not; the numeric form ("15. 1. 2027") is correct in every sentence.
 const DATE_STYLE = { sl: { year: "numeric", month: "numeric", day: "numeric", timeZone: "UTC" } };
@@ -630,14 +810,17 @@ function fillLabels(template, labels, quotes, html) {
 }
 
 // `attempt` and the old `confirmationUrl` may still be passed by callers; neither changes the email.
-export function renderCodeEmail({ locale, code, expiresAt, autoRenews, redemptionUrl, unsubscribeUrl }) {
+export function renderCodeEmail({ locale, code, expiresAt, autoRenews, redemptionUrl, unsubscribeUrl, offer }) {
   const language = normalizeLocale(locale);
-  const copy = COPY[language] || COPY.en;
+  const lifetime = offer === "lifetime47";
+  const copy = lifetime
+    ? { ...(COPY[language] || COPY.en), ...(LIFETIME_COPY[language] || LIFETIME_COPY.en) }
+    : COPY[language] || COPY.en;
   const labels = { ...(APP_LABELS[language] || APP_LABELS.en), redeem: APPLE_REDEEM_LABEL[language] || APPLE_REDEEM_LABEL.en };
   const quotes = QUOTES[language] || QUOTES.en;
   // Some dates already end in a period (Russian "15 марта 2027 г."); don't double it.
   const expiry = copy.expires.replace("{date}", formatDate(expiresAt, language)).replace("..", ".");
-  const renewal = autoRenews ? copy.renews : copy.noRenew;
+  const renewal = lifetime ? copy.payOnce : autoRenews ? copy.renews : copy.noRenew;
   const redeemUrl = redemptionUrlFor(code, redemptionUrl);
   const colon = COLON[language] ?? ": ";
   const gap = SENTENCE_GAP[language] ?? " ";

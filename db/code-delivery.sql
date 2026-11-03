@@ -169,12 +169,15 @@ begin
 end;
 $$;
 
+alter table code_requests add column if not exists requested_offer text not null default 'free_month';
+
 create or replace function assign_offer_code(
   p_email_hash text,
   p_email_ciphertext text,
   p_locale text,
   p_marketing_requested boolean,
-  p_consent_text_version text
+  p_consent_text_version text,
+  p_offer text
 ) returns table (
   request_id uuid,
   code_ciphertext text,
@@ -210,7 +213,8 @@ begin
     marketing_requested,
     marketing_requested_at,
     marketing_confirmed_at,
-    consent_text_version
+    consent_text_version,
+    requested_offer
   ) values (
     p_email_hash,
     p_email_ciphertext,
@@ -218,7 +222,8 @@ begin
     p_marketing_requested,
     case when p_marketing_requested then now() else null end,
     case when p_marketing_requested then now() else null end,
-    case when p_marketing_requested then p_consent_text_version else null end
+    case when p_marketing_requested then p_consent_text_version else null end,
+    p_offer
   )
   on conflict (email_hash) do update
   set email_ciphertext = excluded.email_ciphertext,
@@ -238,6 +243,11 @@ begin
         when excluded.marketing_requested
           and code_requests.marketing_unsubscribed_at is null then excluded.consent_text_version
         else code_requests.consent_text_version
+      end,
+      -- The pick counts until a code is attached; after that the address keeps its code.
+      requested_offer = case
+        when code_requests.code_id is null and code_requests.sent_at is null then excluded.requested_offer
+        else code_requests.requested_offer
       end,
       attempts = code_requests.attempts + 1,
       last_requested_at = now()
@@ -310,6 +320,7 @@ begin
   from offer_codes as oc
   where oc.status = 'unused'
     and oc.expires_at > now() + interval '24 hours'
+    and ((p_offer = 'lifetime47') = (oc.batch_id like 'lifetime:%'))
   order by oc.expires_at asc, oc.created_at asc
   for update skip locked
   limit 1;
@@ -410,6 +421,7 @@ begin
     from offer_codes as oc
     where oc.status = 'unused'
       and oc.expires_at > now() + interval '24 hours'
+      and ((v_request.requested_offer = 'lifetime47') = (oc.batch_id like 'lifetime:%'))
     order by oc.expires_at asc, oc.created_at asc
     for update skip locked
     limit 1;

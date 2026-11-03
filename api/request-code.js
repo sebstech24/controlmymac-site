@@ -1,10 +1,12 @@
 import {
   assignCode,
+  batchIdForRequest,
   consumeRateLimit,
   findExistingEmailHash,
   markDeliveryFailed,
   markDeliverySent,
 } from "./_lib/database.js";
+import { normalizeOffer, offerForBatch } from "./_lib/apple-offers.js";
 import { sendCodeEmail } from "./_lib/brevo.js";
 import {
   canonicalEmail,
@@ -81,7 +83,7 @@ export function GET() {
 export async function POST(request) {
   const currentMode = mode();
   if (currentMode === "disabled") {
-    return failure(503, "errUnavailable", "The free-month gift isn't available right now.", {
+    return failure(503, "errUnavailable", "The subscriber gift isn't available right now.", {
       configured: false,
     });
   }
@@ -147,19 +149,21 @@ export async function POST(request) {
     locale,
     marketingRequested: true,
     consentVersion: CONSENT_VERSION,
+    // The gift the visitor picked; an address that already has a code keeps that code.
+    offer: normalizeOffer(body.offer),
   });
   if (assigned?.outcome === "already_claimed") {
     return failure(
       409,
       "errClaimed",
-      "This email address has already received its free-month code. Each address can claim the gift once.",
+      "This email address has already received its code. Each address can claim the gift once.",
     );
   }
   if (!assigned?.code_ciphertext) {
     return json({
       ok: true,
       queued: true,
-      message: "Your request is queued. Your free-month code will be emailed as soon as it is ready.",
+      message: "Your request is queued. Your code will be emailed as soon as it is ready.",
     });
   }
 
@@ -182,6 +186,7 @@ export async function POST(request) {
       redemptionUrl,
       expiresAt: assigned.expires_at,
       autoRenews: process.env.FREE_MONTH_AUTO_RENEWS === "true",
+      offer: offerForBatch(await batchIdForRequest(assigned.request_id)),
       unsubscribeUrl: `${siteUrl}/api/unsubscribe?token=${encodeURIComponent(token)}`,
     });
     await markDeliverySent(assigned.request_id, providerMessageId);

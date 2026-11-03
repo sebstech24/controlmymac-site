@@ -336,7 +336,7 @@ test("Brevo idempotency key is per request attempt, in the body headers, and dup
   }
 });
 
-test("the migration and the full schema define the same one-code-per-email functions", () => {
+test("the migration and the full schema define the same one-code-per-email functions", async () => {
   const schema = readFileSync(new URL("../db/code-delivery.sql", import.meta.url), "utf8");
   const migration = readFileSync(new URL("../db/2026-09-26-one-code-per-email.sql", import.meta.url), "utf8");
   const extract = (sql, pattern) => {
@@ -349,9 +349,15 @@ test("the migration and the full schema define the same one-code-per-email funct
     /create or replace function assign_offer_code\([\s\S]*?\n\$\$;/,
     /create or replace function claim_next_code_delivery\(\)[\s\S]*?\n\$\$;/,
   ];
-  for (const pattern of pieces) {
-    assert.equal(extract(schema, pattern), extract(migration, pattern), String(pattern));
+  assert.equal(extract(schema, pieces[0]), extract(migration, pieces[0]), String(pieces[0]));
+  // Since 4 Nov 2026 both functions also honour the visitor's pick (free month or 47% off Lifetime);
+  // the newest definitions are in api/_lib/offer-choice-migration.js.
+  const latest = (await import("../api/_lib/offer-choice-migration.js")).default.join("\n\n");
+  for (const pattern of pieces.slice(1)) {
+    assert.equal(extract(schema, pattern), extract(latest, pattern), String(pattern));
   }
+  assert.match(extract(latest, pieces[1]), /\(p_offer = 'lifetime47'\) = \(oc\.batch_id like 'lifetime:%'\)/);
+  assert.match(extract(latest, pieces[2]), /\(v_request\.requested_offer = 'lifetime47'\) = \(oc\.batch_id like 'lifetime:%'\)/);
 
   const assign = extract(migration, pieces[1]);
   assert.match(assign, /'already_claimed'::text/);

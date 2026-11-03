@@ -841,6 +841,16 @@ html { scroll-padding-top: 84px; }
   color:var(--text);background:var(--bg-2);border:1px solid var(--line);
 }
 .offer-input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.offer-choice{margin:0 0 var(--sp-s);padding:0;border:0;display:grid;gap:8px}
+.offer-choice legend{margin-bottom:6px}
+.offer-option{
+  display:flex;gap:10px;align-items:flex-start;padding:10px 12px;cursor:pointer;
+  border-radius:var(--r-control);background:var(--bg-2);border:1px solid var(--line);
+}
+.offer-option:has(input:checked){border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.offer-option input{width:18px;height:18px;margin-top:2px;flex:0 0 auto;accent-color:var(--accent)}
+.offer-option strong{display:block;font-size:14.5px}
+.offer-option small{display:block;color:var(--muted);font-size:12.5px;line-height:1.4}
 .offer-consent{
   margin-top:var(--sp-s);padding:var(--sp-m);border-radius:var(--r-control);
   background:var(--bg-2);border:1px solid var(--line);

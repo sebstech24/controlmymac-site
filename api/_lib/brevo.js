@@ -61,7 +61,7 @@ export async function sendCodeEmail(input) {
     htmlContent: content.html,
     textContent: content.text,
     headers,
-    tags: ["control-my-mac", "free-month-code"],
+    tags: ["control-my-mac", input.offer === "lifetime47" ? "lifetime-47-code" : "free-month-code"],
   }, { acceptDuplicate: true });
   return response.messageId || "accepted";
 }
