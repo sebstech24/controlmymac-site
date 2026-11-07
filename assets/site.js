@@ -161,7 +161,16 @@
     : /Mobi|Tablet/.test(ua) ? "phone" : "computer";
   var mains = document.querySelectorAll("[data-main]");
   var pick = device !== "mac" && document.querySelector('[data-main="' + device + '"]');
-  for (var mi = 0; pick && mi < mains.length; mi++) { mains[mi].hidden = mains[mi] !== pick; }
+  for (var mi = 0; pick && mi < mains.length; mi++) {
+    var mainBox = mains[mi];
+    if (mainBox === pick) { mainBox.hidden = false; }
+    else if (mainBox.getAttribute("data-main") === "mac") {
+      // Keep this box: assets/offer.js puts the gift link in it, under the Mac button. Hide only the button and its note.
+      var macParts = mainBox.querySelectorAll(".cta, [data-dl-note]");
+      for (var mp = 0; mp < macParts.length; mp++) { macParts[mp].style.display = "none"; }
+      mainBox.parentNode.insertBefore(pick, mainBox);
+    } else { mainBox.hidden = true; }
+  }
   if (device === "mac" || device === "windows" || device === "computer") {
     var qrs = document.querySelectorAll("[data-get-qr]");
     for (var q = 0; q < qrs.length; q++) { qrs[q].hidden = false; }
