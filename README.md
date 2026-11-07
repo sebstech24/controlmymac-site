@@ -28,12 +28,13 @@ Plain HTML + CSS + a few lines of vanilla JS. No build step, no frameworks, no e
 | `/terms` | `terms.html` | Terms of Use for the free Mac app and, once out, Control My PC for Windows and Android (the iPhone app uses Apple's standard licence). English only for now; effective 22 October 2026. Google Play and the Microsoft Store link to it |
 | `/support` | `support.html` | Setup, pairing troubleshooting, plans, contact |
 | `/download` | `download.html` | Mac companion download handoff page with GitHub and direct .dmg actions |
+| `/app` | `app.html` | Where the download area's QR code leads: iPhone/iPad to the App Store, Android to Google Play (with QR tracking), both badges otherwise. `noindex` |
 | `/smartwake` | `smartwake.html` | Product page: Smart Wake (iPhone + Apple Watch alarm, unreleased). `#privacy` / `#support` anchors double as its App Store privacy & support URLs |
 | `/filepilot` | `filepilot.html` | Product page: FilePilot (Explorer-style file manager for macOS, unreleased, direct download). `#privacy` / `#support` anchors serve as its privacy & support URLs |
 | — | `assets/site.css` | Shared design system (glass chrome, accent gradient, light/dark, reduced-motion/transparency fallbacks) |
 | — | `assets/site.js` | Audience-choice memory for `/start` (no tracking, localStorage only), newsletter opt-in UI, donate-button seam |
 | `/api/subscribe` | `api/subscribe.ts` | Vercel serverless function: adds newsletter signups to the email provider (env-var configured, see below) |
-| — | `scripts/store-buttons.py` + `.json` | The download area (Mac, Windows, App Store, Google Play) on every homepage and download page; the Windows and Google Play links live in the `.json` |
+| — | `scripts/store-buttons.py` + `.json` | The download area on every homepage and download page: main button per device, every app in two groups, QR code, store tracking; one `live` switch per store (see "Download area") |
 | — | `AUDIENCE-RESEARCH.md` | Public-safe research notes behind the variant messaging |
 
 ## After every release
@@ -77,32 +78,52 @@ The links to `v1.2.3` are the last Intel version and stay as they are.
 | Minimum iOS, iPadOS or macOS version | the "macOS 14+ · iOS/iPadOS 18+" lines and footers on every page, `operatingSystem` in the structured data, the Requirements fact in `scripts/build-press-kit.py` |
 | What the apps collect or send | `privacy.html` and its effective date, in every language |
 
-## Windows and Google Play buttons (prepared 12 Oct 2026, not live)
+## Download area (redone 7 Nov 2026; all four stores live)
 
-The download area shows one entry per device, each under a device icon: Mac, Windows, iPhone and iPad (App Store),
-Android (Google Play). It sits in the hero of every homepage and, without the Mac entry, under the button on every
-Mac download page. `scripts/store-buttons.py` builds it in all 25 languages; never edit the block between
-`<!-- get:start -->` and `<!-- get:end -->` by hand.
+Built by `scripts/store-buttons.py` from `scripts/store-buttons.json` in all 25 languages, on every homepage (hero)
+and every Mac download page; never edit the block between `<!-- get:start -->` and `<!-- get:end -->` by hand.
 
-**The one place for the two links is the top of `scripts/store-buttons.json`.**
+- **One main button for the visitor's device** (`assets/site.js` picks it): Mac = the notarized .dmg download, as
+  before (also the choice without JavaScript, and the .dmg stays a small "anyway" link); iPhone and iPad = App Store;
+  Android = Google Play; Windows = Microsoft Store, with Microsoft's installer as a small "Download for Windows" link.
+  Any other device keeps the old hand-off ("Send it to your Mac"). No Mac App Store (Sebastian, 2 Nov 2026).
+- **Under it, every app in two groups**: "On your phone" (App Store, Google Play) and "On your computer" (Mac,
+  Windows), and "You need both: the app on your phone and the free app on your computer."
+- **On computers only, a QR code** (`assets/qr-app.svg`, made once with Python `qrcode`, points at
+  `https://www.controlmymac.com/app`). `app.html` sends an iPhone or iPad to the App Store and an Android phone to
+  Google Play; anything else sees both badges.
+- **Install tracking** on every store link, added by the script: App Store `pt=129029065` (Apple provider token)
+  with `ct=website` (`ct=website-qr` from the QR page), visible in App Store Connect > App Analytics > Sources >
+  Campaigns; Google Play `referrer=utm_source=controlmymac.com&utm_medium=website|qr&utm_campaign=download`, visible
+  in Play Console > Statistics/Acquisition by UTM; Microsoft Store `cid=website`, visible in Partner Center
+  acquisitions by custom campaign.
+- To preview a device locally: `python3 -m http.server 8898`, then `http://localhost:8898/index.html?platform-preview=ios`
+  (or `android`, `windows`, `mac`; localhost only).
+
+**The switch per store is `live` at the top of `scripts/store-buttons.json`** (`true`/`false`). `false` turns that
+store's badge into a quiet "Coming soon" pill that opens the waiting list (`until_a_link_exists: "hidden"` removes it
+instead), removes its main button, and drops its trademark line. Switched on for Windows and Android on 7 Nov 2026,
+after the Microsoft Store page and the Google Play page both answered live that day.
 
 | Setting | Now | Meaning |
 |---|---|---|
-| `links.windows` | `PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE` | The Windows button is live once this starts with `https://`: "Download for Windows" with a short note (details under "Windows: what is decided and known"). A Store page link here instead shows Microsoft's badge |
-| `links.windows_store` | `PASTE_THE_MICROSOFT_STORE_PAGE_LINK_HERE` | Optional small "Also in the Microsoft Store" link under the Windows button |
-| `links.android` | `PASTE_THE_GOOGLE_PLAY_LINK_HERE` | Same for Google Play |
-| `until_a_link_exists` | `soon` | `soon`: a quiet "Coming soon" pill that opens the waiting list (`#platforms`). `hidden`: nothing |
-| `app_name.windows`, `app_name.android` | `Control My PC` | Confirmed by Sebastian on 12 Oct 2026 ("use Control my PC as the name", passed on by the Windows download chat); the iPhone and Mac apps stay Control My Mac. A name that differs from the site's shows under the device name on the live button, and in the Google Play label for screen readers. It appears nowhere while the device is still "Coming soon" |
+| `live.windows`, `live.android` | `true`, `true` | The one-line switch per store |
+| `links.windows_store` | `https://apps.microsoft.com/detail/9P7H2FKL3JH3` | Behind Microsoft's badge |
+| `links.windows` | `https://get.microsoft.com/installer/download/9P7H2FKL3JH3` | Small "Download for Windows" link under the badge |
+| `links.android` | `https://play.google.com/store/apps/details?id=com.controlmymac.controller` | Behind Google's badge |
+| `tracking` | see above | Apple `pt`/`ct`, Play UTM, Microsoft `cid` |
+| `app_name.windows`, `app_name.android` | `Control My PC` | Shown under the device name (confirmed 12 Oct 2026) |
+| `copy.<lang>` | 25 languages | `phone_head`, `computer_head`, `qr`, `both`, `mac_btn` added 7 Nov 2026 |
 
-To switch a button on: paste the link, then
+After any change:
 
 ```sh
 python3 scripts/store-buttons.py     # rewrites the 50 pages
 python3 scripts/sync-locales.py --check && npm test
 ```
 
-commit and push. `python3 scripts/store-buttons.py --check` (also part of `npm test`) fails when the pages and the
-settings are out of step.
+then commit and push. `python3 scripts/store-buttons.py --check` (also part of `npm test`) fails when the pages and the
+settings are out of step; the test also checks the tracking on every store link.
 
 ### Official badges
 
@@ -115,14 +136,18 @@ around it, and no Apple, Windows or Android logos as icons (so the device icons 
 - Every App Store button on the site is Apple's badge now, one per page (`scripts/apply-app-store-badge.py`; pages
   with the download area have a plain "Open in the App Store" button in the pricing section instead), with Apple's
   credit line in the footer. Never draw an App Store or Google Play button by hand again.
-- The Microsoft Store badge is not needed: the Windows button links to Microsoft's installer. Only if `links.windows`
-  were ever a Store page: Microsoft's badges in `assets/badges/microsoft-store/<folder>.svg`.
+- Microsoft's badge is loaded from `get.microsoft.com/images/<locale>%20dark.svg`, the way Microsoft's own badge
+  tool embeds it (Norwegian has none there and uses the English one). Nothing of Microsoft's is stored here.
 - `python3 scripts/store-buttons.py --remote-badges` is for a local look only (it loads the artwork from Apple's and
   Google's servers). Never commit its output; `npm test` catches it.
 
 ### Also do when Windows or Android goes live (the switch does not do these)
 
-- Copy that says Mac only: the pairing note under the App Store button, the FAQ "Does it work with Windows or
+Done on 7 Nov 2026: the privacy page's Control My PC section says both apps are available, in all 25 languages
+(added to the 24 translations, which had no such section; effective date 7 November 2026 everywhere), and the
+"only works with the Mac app" note under the App Store badge became "You need both". Still open from this list:
+
+- Copy that says Mac only: the FAQ "Does it work with Windows or
   Android?", page titles and descriptions, the structured data (`operatingSystem`, `installUrl`), in every language.
 - The "Coming soon to Windows and Android" section and its footer link (`scripts/apply-waitlist.py`): reword or
   remove once both are out, and email the waiting list. Its text says "Control My Mac is on its way to Windows PCs

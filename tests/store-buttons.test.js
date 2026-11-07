@@ -29,22 +29,38 @@ test("every page is in step with the settings", () => {
   execFileSync("python3", [path.join(root, "scripts", "store-buttons.py"), "--check"], { stdio: "pipe" });
 });
 
-test("no placeholder or preview link is on a page, and a device without a link has no button", () => {
+test("each page shows every app in two groups, live stores only as badges, with store tracking", () => {
   for (const lang of langs) {
     for (const name of ["index.html", "download.html"]) {
       const html = page(lang, name);
       assert.ok(html.includes("<!-- get:start"), `${lang}/${name} has no download area`);
-      assert.doesNotMatch(html, /PASTE_THE_|preview-only|toolbox\.marketingtools\.apple\.com|play\.google\.com\/intl|get\.microsoft\.com\/images/, `${lang}/${name}`);
+      assert.doesNotMatch(html, /PASTE_THE_|preview-only|toolbox\.marketingtools\.apple\.com|play\.google\.com\/intl/, `${lang}/${name}`);
       const area = html.slice(html.indexOf("<!-- get:start"), html.indexOf("<!-- get:end -->"));
-      if (!live("windows")) { assert.ok(!area.includes(settings.copy[lang].win_btn) && !/microsoft/.test(area), `${lang}/${name} shows a Windows button`); }
-      if (live("windows") && settings.links.windows.startsWith("https://apps.microsoft.com/")) {
-        assert.ok(existsSync(path.join(root, "assets", "badges", "microsoft-store", `${lang}.svg`)), `Microsoft's official badge for ${lang} is missing`);
+      const words = settings.copy[lang];
+      assert.ok(area.includes(words.phone_head) && area.includes(words.computer_head), `${lang}/${name} lacks the two groups`);
+      assert.ok(area.includes("data-get-qr hidden") && area.includes("/assets/qr-app.svg"), `${lang}/${name} lacks the QR code`);
+      // Every App Store link in the area carries the campaign token, every Play link its referrer.
+      for (const href of area.match(/https:\/\/apps\.apple\.com\/[^"]*/g)) {
+        assert.match(href, new RegExp(`\\?pt=${settings.tracking.apple_pt}&amp;ct=website&amp;mt=8$`), `${lang}/${name}`);
       }
-      if (!live("android")) { assert.ok(!/google-play|play\.google\.com/.test(area), `${lang}/${name} shows a Google Play button`); }
+      assert.equal(/play\.google\.com/.test(area), live("android"), `${lang}/${name}: Google Play badge vs live.android`);
+      assert.equal(/apps\.microsoft\.com/.test(area), live("windows"), `${lang}/${name}: Microsoft badge vs live.windows`);
       if (live("android")) {
+        assert.match(area, /details\?id=com\.controlmymac\.controller&amp;referrer=utm_source%3Dcontrolmymac\.com%26utm_medium%3Dwebsite/);
         assert.ok(["png", "svg"].some((ext) => existsSync(path.join(root, "assets", "badges", "google-play", `${lang}.${ext}`))),
           `Google's official badge for ${lang} is missing`);
       }
+      if (live("windows")) { assert.match(area, /9P7H2FKL3JH3\?cid=website/); }
+      if (name === "index.html") {
+        assert.match(area, /data-main="mac">[\s\S]*data-dl-cta href="\/download"/, `${lang}: the Mac download must stay the default main button`);
+        assert.match(area, /data-main="ios" hidden/, `${lang}: no App Store main button`);
+      }
     }
   }
+});
+
+test("the QR page sends phones to their store with the QR campaign", () => {
+  const html = readFileSync(path.join(root, "app.html"), "utf8");
+  assert.match(html, /ct=website-qr/);
+  assert.match(html, /utm_medium%3Dqr/);
 });

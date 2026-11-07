@@ -1,31 +1,41 @@
 {
   "how_to": [
-    "The download area on the site: Mac, Windows, App Store (iPhone and iPad), Google Play (Android).",
-    "This file is the ONE place for the two new links. After any change here run:",
+    "The download area on the site: one main button for the visitor's device, then every app in two groups",
+    "(On your phone: App Store, Google Play. On your computer: Mac, Windows) and, on computers, a QR code for the phone app.",
+    "Switch a store on or off in 'live' (true or false), then run:",
     "    python3 scripts/store-buttons.py",
-    "then commit and push. A link counts as real once it starts with https://",
-    "Full steps: README.md, 'Windows and Google Play buttons'."
+    "then commit and push. Full steps: README.md, 'Download area'."
   ],
-
-  "links": {
-    "windows": "PASTE_THE_WINDOWS_DOWNLOAD_LINK_HERE",
-    "windows_store": "PASTE_THE_MICROSOFT_STORE_PAGE_LINK_HERE",
-    "android": "PASTE_THE_GOOGLE_PLAY_LINK_HERE"
+  "live": {
+    "windows": true,
+    "android": true
   },
-
-  "links_note": "windows: Microsoft's installer link, https://get.microsoft.com/installer/download/9P7H2FKL3JH3 (decided 12 Oct 2026; Store ID 9P7H2FKL3JH3 reserved 22 Oct 2026; paste both only once the app is published in the Store, before that they are dead links). It shows the Download for Windows button with a short note. windows_store (optional): the Store page, https://apps.microsoft.com/detail/9P7H2FKL3JH3, shown as a small 'Also in the Microsoft Store' link under the button. If windows itself is a Store page link, Microsoft's badge is shown instead of the button.",
+  "live_note": "Both switched on 7 Nov 2026 (Microsoft Store listing and Google Play page checked live that day). false = a quiet 'Coming soon' pill instead of the badge.",
+  "links": {
+    "windows_store": "https://apps.microsoft.com/detail/9P7H2FKL3JH3",
+    "windows": "https://get.microsoft.com/installer/download/9P7H2FKL3JH3",
+    "android": "https://play.google.com/store/apps/details?id=com.controlmymac.controller"
+  },
+  "links_note": "windows_store: the Microsoft Store page, behind Microsoft's badge. windows: Microsoft's installer for the Store app, a small 'Download for Windows' link under the badge. android: the Google Play page. The App Store link is taken from each page. Tracking is added by the script: App Store pt/ct (ct=website, website-qr), Google Play referrer UTM (utm_medium=website, qr), Microsoft cid=website.",
+  "tracking": {
+    "apple_pt": "129029065",
+    "apple_ct": "website",
+    "play_source": "controlmymac.com",
+    "play_campaign": "download",
+    "ms_cid": "website"
+  },
   "windows_needs": "Windows 10+",
-
   "until_a_link_exists": "soon",
-  "until_a_link_exists_options": ["soon = a quiet 'Coming soon' pill that opens the waiting list", "hidden = nothing at all"],
-
+  "until_a_link_exists_options": [
+    "soon = a quiet 'Coming soon' pill that opens the waiting list",
+    "hidden = nothing at all"
+  ],
   "app_name": {
     "site": "Control My Mac",
     "windows": "Control My PC",
     "android": "Control My PC"
   },
   "app_name_note": "If the Windows or Android app gets another name (for example Control My PC), change it here: the live button then shows that name under the device, and screen readers hear it.",
-
   "copy": {
     "en": {
       "phones": "iPhone and iPad",
@@ -33,14 +43,17 @@
       "free": "Free",
       "no_account": "No account",
       "ms_aria": "Get {name} from the Microsoft Store",
-      "also_store": "Also in the Microsoft Store",
       "play_aria": "Get {name} on Google Play",
       "soon": "Coming soon",
-      "other": "Other devices",
       "tm_apple": "Apple, the Apple logo, Mac, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.",
       "tm_play": "Google Play and the Google Play logo are trademarks of Google LLC.",
       "tm_android": "Android is a trademark of Google LLC.",
-      "tm_windows": "Windows is a trademark of the Microsoft group of companies."
+      "tm_windows": "Windows is a trademark of the Microsoft group of companies.",
+      "phone_head": "On your phone",
+      "computer_head": "On your computer",
+      "qr": "Scan with your phone to get the app",
+      "both": "You need both: the app on your phone and the free app on your computer.",
+      "mac_btn": "Download for Mac"
     },
     "cs": {
       "phones": "iPhone a iPad",
@@ -48,14 +61,17 @@
       "free": "Zdarma",
       "no_account": "Bez účtu",
       "ms_aria": "Stáhnout {name} z Microsoft Storu",
-      "also_store": "Také v Microsoft Storu",
       "play_aria": "Stáhnout {name} z Google Play",
       "soon": "Již brzy",
-      "other": "Další zařízení",
       "tm_apple": "Apple, logo Apple, Mac, iPhone a iPad jsou ochranné známky společnosti Apple Inc. registrované v USA a dalších zemích. App Store je servisní známka společnosti Apple Inc.",
       "tm_play": "Google Play a logo Google Play jsou ochranné známky společnosti Google LLC.",
       "tm_android": "Android je ochranná známka společnosti Google LLC.",
-      "tm_windows": "Windows je ochranná známka skupiny společností Microsoft."
+      "tm_windows": "Windows je ochranná známka skupiny společností Microsoft.",
+      "phone_head": "V telefonu",
+      "computer_head": "V počítači",
+      "qr": "Naskenujte telefonem a stáhněte si aplikaci",
+      "both": "Potřebujete obě: aplikaci v telefonu a bezplatnou aplikaci v počítači.",
+      "mac_btn": "Stáhnout pro Mac"
     },
     "da": {
       "phones": "iPhone og iPad",
@@ -63,14 +79,17 @@
       "free": "Gratis",
       "no_account": "Ingen konto",
       "ms_aria": "Hent {name} i Microsoft Store",
-      "also_store": "Også i Microsoft Store",
       "play_aria": "Hent {name} på Google Play",
       "soon": "Kommer snart",
-      "other": "Andre enheder",
       "tm_apple": "Apple, Apple-logoet, Mac, iPhone og iPad er varemærker tilhørende Apple Inc., registreret i USA og andre lande. App Store er et servicemærke tilhørende Apple Inc.",
       "tm_play": "Google Play og Google Play-logoet er varemærker tilhørende Google LLC.",
       "tm_android": "Android er et varemærke tilhørende Google LLC.",
-      "tm_windows": "Windows er et varemærke tilhørende Microsoft-koncernen."
+      "tm_windows": "Windows er et varemærke tilhørende Microsoft-koncernen.",
+      "phone_head": "På din telefon",
+      "computer_head": "På din computer",
+      "qr": "Scan med din telefon for at hente appen",
+      "both": "Du skal bruge begge: appen på din telefon og den gratis app på din computer.",
+      "mac_btn": "Hent til Mac"
     },
     "de": {
       "phones": "iPhone und iPad",
@@ -78,14 +97,17 @@
       "free": "Kostenlos",
       "no_account": "Kein Konto",
       "ms_aria": "{name} im Microsoft Store laden",
-      "also_store": "Auch im Microsoft Store",
       "play_aria": "{name} bei Google Play laden",
       "soon": "Demnächst",
-      "other": "Weitere Geräte",
       "tm_apple": "Apple, das Apple Logo, Mac, iPhone und iPad sind Marken der Apple Inc., die in den USA und weiteren Ländern eingetragen sind. App Store ist eine Dienstleistungsmarke der Apple Inc.",
       "tm_play": "Google Play und das Google Play-Logo sind Marken von Google LLC.",
       "tm_android": "Android ist eine Marke von Google LLC.",
-      "tm_windows": "Windows ist eine Marke der Microsoft-Unternehmensgruppe."
+      "tm_windows": "Windows ist eine Marke der Microsoft-Unternehmensgruppe.",
+      "phone_head": "Auf deinem Handy",
+      "computer_head": "Auf deinem Computer",
+      "qr": "Mit dem Handy scannen und die App laden",
+      "both": "Du brauchst beide: die App auf deinem Handy und die kostenlose App auf deinem Computer.",
+      "mac_btn": "Für Mac herunterladen"
     },
     "el": {
       "phones": "iPhone και iPad",
@@ -93,14 +115,17 @@
       "free": "Δωρεάν",
       "no_account": "Χωρίς λογαριασμό",
       "ms_aria": "Αποκτήστε το {name} από το Microsoft Store",
-      "also_store": "Επίσης στο Microsoft Store",
       "play_aria": "Αποκτήστε το {name} στο Google Play",
       "soon": "Έρχεται σύντομα",
-      "other": "Άλλες συσκευές",
       "tm_apple": "Τα Apple, το λογότυπο Apple, Mac, iPhone και iPad είναι εμπορικά σήματα της Apple Inc., κατατεθέντα στις ΗΠΑ και σε άλλες χώρες. Το App Store είναι σήμα υπηρεσίας της Apple Inc.",
       "tm_play": "Το Google Play και το λογότυπο Google Play είναι εμπορικά σήματα της Google LLC.",
       "tm_android": "Το Android είναι εμπορικό σήμα της Google LLC.",
-      "tm_windows": "Τα Windows είναι εμπορικό σήμα του ομίλου εταιρειών Microsoft."
+      "tm_windows": "Τα Windows είναι εμπορικό σήμα του ομίλου εταιρειών Microsoft.",
+      "phone_head": "Στο τηλέφωνό σας",
+      "computer_head": "Στον υπολογιστή σας",
+      "qr": "Σαρώστε με το τηλέφωνό σας για να αποκτήσετε την εφαρμογή",
+      "both": "Χρειάζεστε και τις δύο: την εφαρμογή στο τηλέφωνό σας και τη δωρεάν εφαρμογή στον υπολογιστή σας.",
+      "mac_btn": "Λήψη για Mac"
     },
     "es": {
       "phones": "iPhone y iPad",
@@ -108,14 +133,17 @@
       "free": "Gratis",
       "no_account": "Sin cuenta",
       "ms_aria": "Descargar {name} en Microsoft Store",
-      "also_store": "También en Microsoft Store",
       "play_aria": "Descargar {name} en Google Play",
       "soon": "Próximamente",
-      "other": "Otros dispositivos",
       "tm_apple": "Apple, el logotipo de Apple, Mac, iPhone y iPad son marcas comerciales de Apple Inc., registradas en EE. UU. y en otros países. App Store es una marca de servicio de Apple Inc.",
       "tm_play": "Google Play y el logotipo de Google Play son marcas comerciales de Google LLC.",
       "tm_android": "Android es una marca comercial de Google LLC.",
-      "tm_windows": "Windows es una marca comercial del grupo de empresas Microsoft."
+      "tm_windows": "Windows es una marca comercial del grupo de empresas Microsoft.",
+      "phone_head": "En tu móvil",
+      "computer_head": "En tu ordenador",
+      "qr": "Escanea con tu móvil para conseguir la app",
+      "both": "Necesitas las dos: la app en tu móvil y la app gratuita en tu ordenador.",
+      "mac_btn": "Descargar para Mac"
     },
     "fi": {
       "phones": "iPhone ja iPad",
@@ -123,14 +151,17 @@
       "free": "Ilmainen",
       "no_account": "Ei tiliä",
       "ms_aria": "Lataa {name} Microsoft Storesta",
-      "also_store": "Myös Microsoft Storessa",
       "play_aria": "Lataa {name} Google Playsta",
       "soon": "Tulossa pian",
-      "other": "Muut laitteet",
       "tm_apple": "Apple, Apple-logo, Mac, iPhone ja iPad ovat Apple Inc:n tavaramerkkejä, jotka on rekisteröity Yhdysvalloissa ja muissa maissa. App Store on Apple Inc:n palvelumerkki.",
       "tm_play": "Google Play ja Google Play -logo ovat Google LLC:n tavaramerkkejä.",
       "tm_android": "Android on Google LLC:n tavaramerkki.",
-      "tm_windows": "Windows on Microsoft-konsernin tavaramerkki."
+      "tm_windows": "Windows on Microsoft-konsernin tavaramerkki.",
+      "phone_head": "Puhelimessa",
+      "computer_head": "Tietokoneessa",
+      "qr": "Skannaa puhelimella ja lataa sovellus",
+      "both": "Tarvitset molemmat: sovelluksen puhelimeesi ja ilmaisen sovelluksen tietokoneellesi.",
+      "mac_btn": "Lataa Macille"
     },
     "fr": {
       "phones": "iPhone et iPad",
@@ -138,14 +169,17 @@
       "free": "Gratuit",
       "no_account": "Pas de compte",
       "ms_aria": "Télécharger {name} dans le Microsoft Store",
-      "also_store": "Aussi dans le Microsoft Store",
       "play_aria": "Télécharger {name} sur Google Play",
       "soon": "Bientôt disponible",
-      "other": "Autres appareils",
       "tm_apple": "Apple, le logo Apple, Mac, iPhone et iPad sont des marques d’Apple Inc., déposées aux États-Unis et dans d’autres pays. App Store est une marque de service d’Apple Inc.",
       "tm_play": "Google Play et le logo Google Play sont des marques de Google LLC.",
       "tm_android": "Android est une marque de Google LLC.",
-      "tm_windows": "Windows est une marque du groupe Microsoft."
+      "tm_windows": "Windows est une marque du groupe Microsoft.",
+      "phone_head": "Sur votre téléphone",
+      "computer_head": "Sur votre ordinateur",
+      "qr": "Scannez avec votre téléphone pour obtenir l’app",
+      "both": "Il vous faut les deux : l’app sur votre téléphone et l’app gratuite sur votre ordinateur.",
+      "mac_btn": "Télécharger pour Mac"
     },
     "hu": {
       "phones": "iPhone és iPad",
@@ -153,14 +187,17 @@
       "free": "Ingyenes",
       "no_account": "Nincs fiók",
       "ms_aria": "A {name} letöltése a Microsoft Store-ból",
-      "also_store": "A Microsoft Store-ban is",
       "play_aria": "A {name} letöltése a Google Playről",
       "soon": "Hamarosan",
-      "other": "Más eszközök",
       "tm_apple": "Az Apple, az Apple logó, a Mac, az iPhone és az iPad az Apple Inc. védjegye, amely az Egyesült Államokban és más országokban be van jegyezve. Az App Store az Apple Inc. szolgáltatási védjegye.",
       "tm_play": "A Google Play és a Google Play logó a Google LLC védjegye.",
       "tm_android": "Az Android a Google LLC védjegye.",
-      "tm_windows": "A Windows a Microsoft vállalatcsoport védjegye."
+      "tm_windows": "A Windows a Microsoft vállalatcsoport védjegye.",
+      "phone_head": "A telefonján",
+      "computer_head": "A számítógépén",
+      "qr": "Olvassa be a telefonjával, és töltse le az appot",
+      "both": "Mindkettőre szüksége van: az appra a telefonján és az ingyenes appra a számítógépén.",
+      "mac_btn": "Letöltés Macre"
     },
     "it": {
       "phones": "iPhone e iPad",
@@ -168,14 +205,17 @@
       "free": "Gratis",
       "no_account": "Nessun account",
       "ms_aria": "Scarica {name} dal Microsoft Store",
-      "also_store": "Anche nel Microsoft Store",
       "play_aria": "Scarica {name} su Google Play",
       "soon": "In arrivo",
-      "other": "Altri dispositivi",
       "tm_apple": "Apple, il logo Apple, Mac, iPhone e iPad sono marchi di Apple Inc., registrati negli Stati Uniti e in altri Paesi. App Store è un marchio di servizio di Apple Inc.",
       "tm_play": "Google Play e il logo di Google Play sono marchi di Google LLC.",
       "tm_android": "Android è un marchio di Google LLC.",
-      "tm_windows": "Windows è un marchio del gruppo di società Microsoft."
+      "tm_windows": "Windows è un marchio del gruppo di società Microsoft.",
+      "phone_head": "Sul tuo telefono",
+      "computer_head": "Sul tuo computer",
+      "qr": "Inquadra con il telefono per scaricare l’app",
+      "both": "Ti servono entrambe: l’app sul telefono e l’app gratuita sul computer.",
+      "mac_btn": "Scarica per Mac"
     },
     "ja": {
       "phones": "iPhone・iPad",
@@ -183,14 +223,17 @@
       "free": "無料",
       "no_account": "アカウント不要",
       "ms_aria": "Microsoft Storeで{name}を入手",
-      "also_store": "Microsoft Storeでも入手できます",
       "play_aria": "Google Playで{name}を入手",
       "soon": "近日公開",
-      "other": "ほかのデバイス",
       "tm_apple": "Apple、Appleのロゴ、Mac、iPhone、iPadは、米国その他の国や地域で登録されたApple Inc.の商標です。App Storeは、Apple Inc.のサービスマークです。",
       "tm_play": "Google PlayおよびGoogle Playロゴは、Google LLCの商標です。",
       "tm_android": "AndroidはGoogle LLCの商標です。",
-      "tm_windows": "Windowsは、マイクロソフト グループの企業の商標です。"
+      "tm_windows": "Windowsは、マイクロソフト グループの企業の商標です。",
+      "phone_head": "スマートフォンで",
+      "computer_head": "コンピュータで",
+      "qr": "スマートフォンでスキャンしてアプリを入手",
+      "both": "スマートフォンのアプリと、コンピュータ用の無料アプリの両方が必要です。",
+      "mac_btn": "Mac版をダウンロード"
     },
     "ko": {
       "phones": "iPhone・iPad",
@@ -198,14 +241,17 @@
       "free": "무료",
       "no_account": "계정 없음",
       "ms_aria": "Microsoft Store에서 {name} 다운로드",
-      "also_store": "Microsoft Store에서도 받을 수 있습니다",
       "play_aria": "Google Play에서 {name} 다운로드",
       "soon": "출시 예정",
-      "other": "다른 기기",
       "tm_apple": "Apple, Apple 로고, Mac, iPhone 및 iPad는 미국 및 기타 국가에서 등록된 Apple Inc.의 상표입니다. App Store는 Apple Inc.의 서비스 상표입니다.",
       "tm_play": "Google Play 및 Google Play 로고는 Google LLC의 상표입니다.",
       "tm_android": "Android는 Google LLC의 상표입니다.",
-      "tm_windows": "Windows는 Microsoft 그룹사의 상표입니다."
+      "tm_windows": "Windows는 Microsoft 그룹사의 상표입니다.",
+      "phone_head": "휴대폰에서",
+      "computer_head": "컴퓨터에서",
+      "qr": "휴대폰으로 스캔해 앱 받기",
+      "both": "휴대폰 앱과 컴퓨터용 무료 앱이 모두 필요합니다.",
+      "mac_btn": "Mac용 다운로드"
     },
     "nl": {
       "phones": "iPhone en iPad",
@@ -213,14 +259,17 @@
       "free": "Gratis",
       "no_account": "Geen account",
       "ms_aria": "Download {name} in de Microsoft Store",
-      "also_store": "Ook in de Microsoft Store",
       "play_aria": "Download {name} op Google Play",
       "soon": "Binnenkort",
-      "other": "Andere apparaten",
       "tm_apple": "Apple, het Apple logo, Mac, iPhone en iPad zijn handelsmerken van Apple Inc., geregistreerd in de VS en andere landen. App Store is een dienstmerk van Apple Inc.",
       "tm_play": "Google Play en het Google Play-logo zijn handelsmerken van Google LLC.",
       "tm_android": "Android is een handelsmerk van Google LLC.",
-      "tm_windows": "Windows is een handelsmerk van de Microsoft-bedrijvengroep."
+      "tm_windows": "Windows is een handelsmerk van de Microsoft-bedrijvengroep.",
+      "phone_head": "Op je telefoon",
+      "computer_head": "Op je computer",
+      "qr": "Scan met je telefoon om de app te downloaden",
+      "both": "Je hebt ze allebei nodig: de app op je telefoon en de gratis app op je computer.",
+      "mac_btn": "Download voor Mac"
     },
     "no": {
       "phones": "iPhone og iPad",
@@ -228,14 +277,17 @@
       "free": "Gratis",
       "no_account": "Ingen konto",
       "ms_aria": "Last ned {name} fra Microsoft Store",
-      "also_store": "Også i Microsoft Store",
       "play_aria": "Last ned {name} på Google Play",
       "soon": "Kommer snart",
-      "other": "Andre enheter",
       "tm_apple": "Apple, Apple-logoen, Mac, iPhone og iPad er varemerker for Apple Inc., registrert i USA og andre land. App Store er et tjenestemerke for Apple Inc.",
       "tm_play": "Google Play og Google Play-logoen er varemerker for Google LLC.",
       "tm_android": "Android er et varemerke for Google LLC.",
-      "tm_windows": "Windows er et varemerke for Microsoft-konsernet."
+      "tm_windows": "Windows er et varemerke for Microsoft-konsernet.",
+      "phone_head": "På telefonen",
+      "computer_head": "På datamaskinen",
+      "qr": "Skann med telefonen for å laste ned appen",
+      "both": "Du trenger begge: appen på telefonen og den gratis appen på datamaskinen.",
+      "mac_btn": "Last ned for Mac"
     },
     "pl": {
       "phones": "iPhone i iPad",
@@ -243,14 +295,17 @@
       "free": "Za darmo",
       "no_account": "Bez konta",
       "ms_aria": "Pobierz {name} z Microsoft Store",
-      "also_store": "Także w Microsoft Store",
       "play_aria": "Pobierz {name} z Google Play",
       "soon": "Wkrótce",
-      "other": "Inne urządzenia",
       "tm_apple": "Apple, logo Apple, Mac, iPhone i iPad są znakami towarowymi Apple Inc., zastrzeżonymi w USA i innych krajach. App Store jest znakiem usługowym Apple Inc.",
       "tm_play": "Google Play i logo Google Play są znakami towarowymi Google LLC.",
       "tm_android": "Android jest znakiem towarowym Google LLC.",
-      "tm_windows": "Windows jest znakiem towarowym grupy firm Microsoft."
+      "tm_windows": "Windows jest znakiem towarowym grupy firm Microsoft.",
+      "phone_head": "Na telefonie",
+      "computer_head": "Na komputerze",
+      "qr": "Zeskanuj telefonem, aby pobrać aplikację",
+      "both": "Potrzebujesz obu: aplikacji na telefonie i darmowej aplikacji na komputerze.",
+      "mac_btn": "Pobierz na Maca"
     },
     "pt": {
       "phones": "iPhone e iPad",
@@ -258,14 +313,17 @@
       "free": "Grátis",
       "no_account": "Sem conta",
       "ms_aria": "Baixar o {name} na Microsoft Store",
-      "also_store": "Também na Microsoft Store",
       "play_aria": "Baixar o {name} no Google Play",
       "soon": "Em breve",
-      "other": "Outros dispositivos",
       "tm_apple": "Apple, o logotipo da Apple, Mac, iPhone e iPad são marcas comerciais da Apple Inc., registradas nos EUA e em outros países. App Store é uma marca de serviço da Apple Inc.",
       "tm_play": "Google Play e o logotipo do Google Play são marcas comerciais da Google LLC.",
       "tm_android": "Android é uma marca comercial da Google LLC.",
-      "tm_windows": "Windows é uma marca comercial do grupo de empresas Microsoft."
+      "tm_windows": "Windows é uma marca comercial do grupo de empresas Microsoft.",
+      "phone_head": "No seu celular",
+      "computer_head": "No seu computador",
+      "qr": "Escaneie com o celular para baixar o app",
+      "both": "Você precisa dos dois: o app no celular e o app gratuito no computador.",
+      "mac_btn": "Baixar para Mac"
     },
     "ro": {
       "phones": "iPhone și iPad",
@@ -273,14 +331,17 @@
       "free": "Gratuit",
       "no_account": "Fără cont",
       "ms_aria": "Descărcați {name} din Microsoft Store",
-      "also_store": "Și în Microsoft Store",
       "play_aria": "Descărcați {name} din Google Play",
       "soon": "În curând",
-      "other": "Alte dispozitive",
       "tm_apple": "Apple, sigla Apple, Mac, iPhone și iPad sunt mărci comerciale ale Apple Inc., înregistrate în SUA și în alte țări. App Store este o marcă de serviciu a Apple Inc.",
       "tm_play": "Google Play și sigla Google Play sunt mărci comerciale ale Google LLC.",
       "tm_android": "Android este o marcă comercială a Google LLC.",
-      "tm_windows": "Windows este o marcă comercială a grupului de companii Microsoft."
+      "tm_windows": "Windows este o marcă comercială a grupului de companii Microsoft.",
+      "phone_head": "Pe telefon",
+      "computer_head": "Pe computer",
+      "qr": "Scanați cu telefonul pentru a obține aplicația",
+      "both": "Aveți nevoie de amândouă: aplicația de pe telefon și aplicația gratuită de pe computer.",
+      "mac_btn": "Descărcați pentru Mac"
     },
     "ru": {
       "phones": "iPhone и iPad",
@@ -288,14 +349,17 @@
       "free": "Бесплатно",
       "no_account": "Без аккаунта",
       "ms_aria": "Скачать {name} в Microsoft Store",
-      "also_store": "Также в Microsoft Store",
       "play_aria": "Скачать {name} в Google Play",
       "soon": "Скоро",
-      "other": "Другие устройства",
       "tm_apple": "Apple, логотип Apple, Mac, iPhone и iPad являются товарными знаками Apple Inc., зарегистрированными в США и других странах. App Store является знаком обслуживания Apple Inc.",
       "tm_play": "Google Play и логотип Google Play являются товарными знаками компании Google LLC.",
       "tm_android": "Android является товарным знаком компании Google LLC.",
-      "tm_windows": "Windows является товарным знаком группы компаний Microsoft."
+      "tm_windows": "Windows является товарным знаком группы компаний Microsoft.",
+      "phone_head": "На телефоне",
+      "computer_head": "На компьютере",
+      "qr": "Отсканируйте телефоном, чтобы скачать приложение",
+      "both": "Нужны оба приложения: на телефоне и бесплатное на компьютере.",
+      "mac_btn": "Скачать для Mac"
     },
     "sk": {
       "phones": "iPhone a iPad",
@@ -303,14 +367,17 @@
       "free": "Zadarmo",
       "no_account": "Bez účtu",
       "ms_aria": "Stiahnuť {name} z Microsoft Store",
-      "also_store": "Aj v Microsoft Store",
       "play_aria": "Stiahnuť {name} z Google Play",
       "soon": "Už čoskoro",
-      "other": "Ďalšie zariadenia",
       "tm_apple": "Apple, logo Apple, Mac, iPhone a iPad sú ochranné známky spoločnosti Apple Inc. registrované v USA a ďalších krajinách. App Store je servisná známka spoločnosti Apple Inc.",
       "tm_play": "Google Play a logo Google Play sú ochranné známky spoločnosti Google LLC.",
       "tm_android": "Android je ochranná známka spoločnosti Google LLC.",
-      "tm_windows": "Windows je ochranná známka skupiny spoločností Microsoft."
+      "tm_windows": "Windows je ochranná známka skupiny spoločností Microsoft.",
+      "phone_head": "V telefóne",
+      "computer_head": "V počítači",
+      "qr": "Naskenujte telefónom a stiahnite si aplikáciu",
+      "both": "Potrebujete obe: aplikáciu v telefóne a bezplatnú aplikáciu v počítači.",
+      "mac_btn": "Stiahnuť pre Mac"
     },
     "sl": {
       "phones": "iPhone in iPad",
@@ -318,14 +385,17 @@
       "free": "Brezplačno",
       "no_account": "Brez računa",
       "ms_aria": "Prenesite {name} iz trgovine Microsoft Store",
-      "also_store": "Tudi v trgovini Microsoft Store",
       "play_aria": "Prenesite {name} iz trgovine Google Play",
       "soon": "Kmalu",
-      "other": "Druge naprave",
       "tm_apple": "Apple, logotip Apple, Mac, iPhone in iPad so blagovne znamke družbe Apple Inc., registrirane v ZDA in drugih državah. App Store je storitvena znamka družbe Apple Inc.",
       "tm_play": "Google Play in logotip Google Play sta blagovni znamki družbe Google LLC.",
       "tm_android": "Android je blagovna znamka družbe Google LLC.",
-      "tm_windows": "Windows je blagovna znamka skupine podjetij Microsoft."
+      "tm_windows": "Windows je blagovna znamka skupine podjetij Microsoft.",
+      "phone_head": "Na telefonu",
+      "computer_head": "Na računalniku",
+      "qr": "Skenirajte s telefonom in prenesite aplikacijo",
+      "both": "Potrebujete obe: aplikacijo na telefonu in brezplačno aplikacijo na računalniku.",
+      "mac_btn": "Prenesite za Mac"
     },
     "sv": {
       "phones": "iPhone och iPad",
@@ -333,14 +403,17 @@
       "free": "Gratis",
       "no_account": "Inget konto",
       "ms_aria": "Hämta {name} i Microsoft Store",
-      "also_store": "Finns även i Microsoft Store",
       "play_aria": "Hämta {name} på Google Play",
       "soon": "Kommer snart",
-      "other": "Andra enheter",
       "tm_apple": "Apple, Apples logotyp, Mac, iPhone och iPad är varumärken som tillhör Apple Inc. och är registrerade i USA och andra länder. App Store är ett servicemärke som tillhör Apple Inc.",
       "tm_play": "Google Play och Google Play-logotypen är varumärken som tillhör Google LLC.",
       "tm_android": "Android är ett varumärke som tillhör Google LLC.",
-      "tm_windows": "Windows är ett varumärke som tillhör Microsoft-koncernen."
+      "tm_windows": "Windows är ett varumärke som tillhör Microsoft-koncernen.",
+      "phone_head": "På din telefon",
+      "computer_head": "På din dator",
+      "qr": "Skanna med telefonen för att hämta appen",
+      "both": "Du behöver båda: appen i telefonen och den kostnadsfria appen på datorn.",
+      "mac_btn": "Hämta för Mac"
     },
     "tr": {
       "phones": "iPhone ve iPad",
@@ -348,14 +421,17 @@
       "free": "Ücretsiz",
       "no_account": "Hesap yok",
       "ms_aria": "{name} uygulamasını Microsoft Store’dan indir",
-      "also_store": "Microsoft Store’da da var",
       "play_aria": "{name} uygulamasını Google Play’den indir",
       "soon": "Yakında",
-      "other": "Diğer cihazlar",
       "tm_apple": "Apple, Apple logosu, Mac, iPhone ve iPad, Apple Inc.’in ABD’de ve diğer ülkelerde tescilli ticari markalarıdır. App Store, Apple Inc.’in hizmet markasıdır.",
       "tm_play": "Google Play ve Google Play logosu, Google LLC’nin ticari markalarıdır.",
       "tm_android": "Android, Google LLC’nin ticari markasıdır.",
-      "tm_windows": "Windows, Microsoft şirketler grubunun ticari markasıdır."
+      "tm_windows": "Windows, Microsoft şirketler grubunun ticari markasıdır.",
+      "phone_head": "Telefonunda",
+      "computer_head": "Bilgisayarında",
+      "qr": "Uygulamayı almak için telefonunla tara",
+      "both": "İkisine de ihtiyacın var: telefonundaki uygulama ve bilgisayarındaki ücretsiz uygulama.",
+      "mac_btn": "Mac için indir"
     },
     "uk": {
       "phones": "iPhone та iPad",
@@ -363,14 +439,17 @@
       "free": "Безкоштовно",
       "no_account": "Без облікового запису",
       "ms_aria": "Завантажити {name} з Microsoft Store",
-      "also_store": "Також у Microsoft Store",
       "play_aria": "Завантажити {name} з Google Play",
       "soon": "Незабаром",
-      "other": "Інші пристрої",
       "tm_apple": "Apple, логотип Apple, Mac, iPhone та iPad є торговельними марками Apple Inc., зареєстрованими в США та інших країнах. App Store є знаком обслуговування Apple Inc.",
       "tm_play": "Google Play і логотип Google Play є торговельними марками Google LLC.",
       "tm_android": "Android є торговельною маркою Google LLC.",
-      "tm_windows": "Windows є торговельною маркою групи компаній Microsoft."
+      "tm_windows": "Windows є торговельною маркою групи компаній Microsoft.",
+      "phone_head": "На телефоні",
+      "computer_head": "На комп’ютері",
+      "qr": "Відскануйте телефоном, щоб завантажити програму",
+      "both": "Потрібні обидві: програма на телефоні та безкоштовна програма на комп’ютері.",
+      "mac_btn": "Завантажити для Mac"
     },
     "zh": {
       "phones": "iPhone 和 iPad",
@@ -378,14 +457,17 @@
       "free": "免费",
       "no_account": "无需账户",
       "ms_aria": "在 Microsoft Store 获取 {name}",
-      "also_store": "也可在 Microsoft Store 获取",
       "play_aria": "在 Google Play 获取 {name}",
       "soon": "即将推出",
-      "other": "其他设备",
       "tm_apple": "Apple、Apple 标志、Mac、iPhone 和 iPad 是 Apple Inc. 在美国和其他国家及地区注册的商标。App Store 是 Apple Inc. 的服务标记。",
       "tm_play": "Google Play 和 Google Play 徽标是 Google LLC 的商标。",
       "tm_android": "Android 是 Google LLC 的商标。",
-      "tm_windows": "Windows 是 Microsoft 集团公司的商标。"
+      "tm_windows": "Windows 是 Microsoft 集团公司的商标。",
+      "phone_head": "在手机上",
+      "computer_head": "在电脑上",
+      "qr": "用手机扫码获取 App",
+      "both": "两者都需要：手机上的 App 和电脑上的免费 App。",
+      "mac_btn": "下载 Mac 版"
     },
     "zh-hant": {
       "phones": "iPhone 與 iPad",
@@ -393,14 +475,17 @@
       "free": "免費",
       "no_account": "不需帳號",
       "ms_aria": "在 Microsoft Store 取得 {name}",
-      "also_store": "也可在 Microsoft Store 取得",
       "play_aria": "在 Google Play 取得 {name}",
       "soon": "即將推出",
-      "other": "其他裝置",
       "tm_apple": "Apple、Apple 標誌、Mac、iPhone 和 iPad 是 Apple Inc. 在美國及其他國家和地區註冊的商標。App Store 是 Apple Inc. 的服務標記。",
       "tm_play": "Google Play 和 Google Play 標誌是 Google LLC 的商標。",
       "tm_android": "Android 是 Google LLC 的商標。",
-      "tm_windows": "Windows 是 Microsoft 企業集團的商標。"
+      "tm_windows": "Windows 是 Microsoft 企業集團的商標。",
+      "phone_head": "在手機上",
+      "computer_head": "在電腦上",
+      "qr": "用手機掃描以取得 App",
+      "both": "兩者都需要：手機上的 App，以及電腦上的免費 App。",
+      "mac_btn": "下載 Mac 版"
     }
   }
 }

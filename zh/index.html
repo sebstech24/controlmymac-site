@@ -128,25 +128,57 @@
 
     <!-- get:start (built by scripts/store-buttons.py; change scripts/store-buttons.json, not this block) -->
     <div class="get">
-      <div class="get-grid">
-        <div class="get-tile">
-          <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="11" rx="2"/><path d="M2 19.5h20"/></svg><span>Mac</span></p>
-          <div class="cta">
-            <a class="btn btn-primary" data-dl-cta href="/zh/download">免费下载 Mac 配套应用</a>
-            <a class="btn btn-quiet" data-dl-alt hidden href="/download.dmg">仍然下载 .dmg</a>
+    <div class="get-main" data-main="mac">
+      <div class="cta">
+        <a class="btn btn-primary" data-dl-cta href="/zh/download">免费下载 Mac 配套应用</a>
+        <a class="btn btn-quiet" data-dl-alt hidden href="/download.dmg">仍然下载 .dmg</a>
+      </div>
+      <p class="cta-note" data-dl-note>macOS 14+ · iOS/iPadOS 18+ · 免费 · 无需账户，没有服务器</p>
+    </div>
+    <div class="get-main" data-main="ios" hidden>
+      <a class="store-badge" href="https://apps.apple.com/app/id6781458180?pt=129029065&amp;ct=website&amp;mt=8" aria-label="在 App Store 下载 Control My Mac"><img src="/assets/badges/app-store/zh.svg" alt="" width="147" height="54"></a>
+    </div>
+    <div class="get-main" data-main="android" hidden>
+      <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.controlmymac.controller&amp;referrer=utm_source%3Dcontrolmymac.com%26utm_medium%3Dwebsite%26utm_campaign%3Ddownload" aria-label="在 Google Play 获取 Control My PC"><img src="/assets/badges/google-play/zh.png" alt="" width="207.6" height="80.4" style="width:207.6px;height:80.4px;margin:-13.2px -13.2px"></a>
+    </div>
+    <div class="get-main" data-main="windows" hidden>
+      <a class="store-badge store-badge-ms" href="https://apps.microsoft.com/detail/9P7H2FKL3JH3?cid=website" aria-label="在 Microsoft Store 获取 Control My PC"><img src="https://get.microsoft.com/images/zh-cn%20dark.svg" alt="" height="54" style="height:54px"></a>
+          <p class="cta-note"><a href="https://get.microsoft.com/installer/download/9P7H2FKL3JH3">下载 Windows 版</a> · Windows 10+</p>
+    </div>
+    <div class="get-groups">
+      <div class="get-group">
+        <p class="get-head">在手机上</p>
+        <div class="get-row">
+          <div class="get-tile">
+            <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 7.5V5.5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h5.5"/><rect x="13" y="10" width="8" height="10.5" rx="1.8"/></svg><span>iPhone 和 iPad</span></p>
+            <a class="store-badge" href="https://apps.apple.com/app/id6781458180?pt=129029065&amp;ct=website&amp;mt=8" aria-label="在 App Store 下载 Control My Mac"><img src="/assets/badges/app-store/zh.svg" alt="" width="120" height="44"></a>
           </div>
-          <p class="cta-note" data-dl-note>macOS 14+ · iOS/iPadOS 18+ · 免费 · 无需账户，没有服务器</p>
-        </div>
-        <div class="get-tile">
-          <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 7.5V5.5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h5.5"/><rect x="13" y="10" width="8" height="10.5" rx="1.8"/></svg><span>iPhone 和 iPad</span></p>
-          <a class="store-badge" href="https://apps.apple.com/app/id6781458180" aria-label="在 App Store 下载 Control My Mac"><img src="/assets/badges/app-store/zh.svg" alt="" width="120" height="44"></a>
-          <p class="pair-note">iPhone 和 iPad 应用需要和免费的 Mac 配套应用一起使用。</p>
+          <div class="get-tile">
+            <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M12 5.8h.01"/></svg><span>Android<small>Control My PC</small></span></p>
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.controlmymac.controller&amp;referrer=utm_source%3Dcontrolmymac.com%26utm_medium%3Dwebsite%26utm_campaign%3Ddownload" aria-label="在 Google Play 获取 Control My PC"><img src="/assets/badges/google-play/zh.png" alt="" width="169.2" height="65.5" style="width:169.2px;height:65.5px;margin:-10.7px -10.7px"></a>
+          </div>
         </div>
       </div>
-      <div class="get-soon-row">
-        <a class="get-soon" data-waitlist-href="#platforms"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg><b>Windows</b><span>即将推出</span><span class="get-notify" data-waitlist-link hidden>通知我</span></a>
-        <a class="get-soon" data-waitlist-href="#platforms"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M12 5.8h.01"/></svg><b>Android</b><span>即将推出</span><span class="get-notify" data-waitlist-link hidden>通知我</span></a>
+      <div class="get-group">
+        <p class="get-head">在电脑上</p>
+        <div class="get-row">
+          <div class="get-tile">
+            <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4.5" width="16" height="11" rx="2"/><path d="M2 19.5h20"/></svg><span>Mac</span></p>
+            <a class="btn btn-quiet" data-dl-cta href="/download">下载 Mac 版</a>
+          </div>
+          <div class="get-tile">
+            <p class="get-cap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg><span>Windows<small>Control My PC</small></span></p>
+            <a class="store-badge store-badge-ms" href="https://apps.microsoft.com/detail/9P7H2FKL3JH3?cid=website" aria-label="在 Microsoft Store 获取 Control My PC"><img src="https://get.microsoft.com/images/zh-cn%20dark.svg" alt="" height="44" style="height:44px"></a>
+          <p class="cta-note"><a href="https://get.microsoft.com/installer/download/9P7H2FKL3JH3">下载 Windows 版</a> · Windows 10+</p>
+          </div>
+        </div>
       </div>
+      <p class="pair-note">两者都需要：手机上的 App 和电脑上的免费 App。</p>
+    </div>
+    <div class="get-qr" data-get-qr hidden>
+      <img src="/assets/qr-app.svg" alt="" width="112" height="112">
+      <p>用手机扫码获取 App</p>
+    </div>
     </div>
     <!-- get:end -->
 
@@ -404,7 +436,7 @@
   <nav class="flangs" aria-label="语言"><a href="/" lang="en" hreflang="en">English</a> <a href="/cs" lang="cs" hreflang="cs">Čeština</a> <a href="/da" lang="da" hreflang="da">Dansk</a> <a href="/de" lang="de" hreflang="de">Deutsch</a> <a href="/es" lang="es" hreflang="es">Español</a> <a href="/fr" lang="fr" hreflang="fr">Français</a> <a href="/it" lang="it" hreflang="it">Italiano</a> <a href="/hu" lang="hu" hreflang="hu">Magyar</a> <a href="/nl" lang="nl" hreflang="nl">Nederlands</a> <a href="/no" lang="nb" hreflang="nb">Norsk</a> <a href="/pl" lang="pl" hreflang="pl">Polski</a> <a href="/pt" lang="pt-BR" hreflang="pt-BR">Português</a> <a href="/ro" lang="ro" hreflang="ro">Română</a> <a href="/sk" lang="sk" hreflang="sk">Slovenčina</a> <a href="/sl" lang="sl" hreflang="sl">Slovenščina</a> <a href="/fi" lang="fi" hreflang="fi">Suomi</a> <a href="/sv" lang="sv" hreflang="sv">Svenska</a> <a href="/tr" lang="tr" hreflang="tr">Türkçe</a> <a href="/el" lang="el" hreflang="el">Ελληνικά</a> <a href="/ru" lang="ru" hreflang="ru">Русский</a> <a href="/uk" lang="uk" hreflang="uk">Українська</a> <a href="/ja" lang="ja" hreflang="ja">日本語</a> <a href="/ko" lang="ko" hreflang="ko">한국어</a> <a href="/zh" lang="zh-Hans" hreflang="zh-Hans" aria-current="page">简体中文</a> <a href="/zh-hant" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></nav>
   <p class="fmade">制作者: <a href="https://linktr.ee/sebs_tech" rel="me noopener">Sebs_Tech</a> · <a href="https://www.tiktok.com/@sebs_tech" rel="me noopener">TikTok</a> · <a href="https://www.instagram.com/sebs_tech" rel="me noopener">Instagram</a> · <a href="https://www.youtube.com/@Sebs_tech" rel="me noopener">YouTube</a></p>
   <p class="fmade flisted">收录于: <a href="https://alternativeto.net/software/control-my-mac/about/" rel="noopener">AlternativeTo</a> · <a href="https://www.saashub.com/control-my-mac" rel="noopener">SaaSHub</a> · <a href="https://www.producthunt.com/products/control-my-mac" rel="noopener">Product Hunt</a></p>
-  <!-- tm:start --><p class="fmade ftm">Apple、Apple 标志、Mac、iPhone 和 iPad 是 Apple Inc. 在美国和其他国家及地区注册的商标。App Store 是 Apple Inc. 的服务标记。 Android 是 Google LLC 的商标。 Windows 是 Microsoft 集团公司的商标。</p><!-- tm:end -->
+  <!-- tm:start --><p class="fmade ftm">Apple、Apple 标志、Mac、iPhone 和 iPad 是 Apple Inc. 在美国和其他国家及地区注册的商标。App Store 是 Apple Inc. 的服务标记。 Google Play 和 Google Play 徽标是 Google LLC 的商标。 Android 是 Google LLC 的商标。 Windows 是 Microsoft 集团公司的商标。</p><!-- tm:end -->
 </div>
 </footer>
 

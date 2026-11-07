@@ -1,36 +1,37 @@
 #!/usr/bin/env python3
-"""Builds the download area: Mac, Windows, App Store (iPhone and iPad), Google Play (Android), each with its device
-icon, on every homepage and every Mac download page, in all 25 languages.
+"""Builds the download area on every homepage and every Mac download page, in all 25 languages:
+  * one main button for the visitor's device (assets/site.js picks it): Mac = the .dmg download as before (also the
+    choice without JavaScript), iPhone and iPad = App Store, Android = Google Play, Windows = Microsoft Store;
+  * under it every app in two groups, "On your phone" (App Store, Google Play) and "On your computer" (Mac, Windows);
+  * on computers only, a QR code (assets/qr-app.svg) that opens /app on the phone, which sends it to its own store.
+The Mac download page gets the groups and the QR code under its own Mac button.
 
     python3 scripts/store-buttons.py            # rewrite the pages
     python3 scripts/store-buttons.py --check    # write nothing; exit 1 if a page is out of step with the settings
 
 Everything it reads is in scripts/store-buttons.json:
-  * links.windows and links.android: the ONE place for the two new links. A button is live once its link starts
-    with https://, until then it is a "Coming soon" pill that opens the waiting list, or nothing at all
-    (until_a_link_exists: "soon" or "hidden");
+  * live.windows and live.android: the one-line switch per store. false = a "Coming soon" pill that opens the
+    waiting list, or nothing at all (until_a_link_exists: "soon" or "hidden");
+  * links and tracking: the store links and each store's install tracking (App Store pt/ct, Google Play referrer
+    UTM, Microsoft cid), added to every store link here;
   * app_name: what the Windows and Android apps are called;
   * copy: the words, per language. "Notify me" comes from scripts/waitlist-i18n.json, the same words as the form.
 
-Official badge artwork is used when it is in the repository, never drawn here:
+Official badge artwork only, never drawn here:
   * assets/badges/app-store/<folder>.svg     Apple's "Download on the App Store" badge (black)
   * assets/badges/google-play/<folder>.png   Google's "Get it on Google Play" badge (or .svg)
-  * assets/badges/microsoft-store/<folder>.svg   Microsoft's Store badge, only if links.windows is a Store link
+  * Microsoft's badge is loaded from get.microsoft.com, the way Microsoft's own badge tool embeds it.
 <folder> is the language folder name, "en" for English. Without Apple's file the page keeps the site's own App Store
-button. Without Google's (or Microsoft's) file that button refuses to go live.
-
-links.windows is a download link, by decision of 12 Oct 2026 Microsoft's installer for the Store app
-(https://get.microsoft.com/installer/download/<Store ID>): the site's "Download for Windows" button plus a short note
-built from windows_needs, and under it a small "Also in the Microsoft Store" link when links.windows_store is set.
-If links.windows is itself a Store page link (https://apps.microsoft.com/...), Microsoft's badge is shown instead.
+button. Without Google's file that button refuses to go live.
 
 --remote-badges is for a local look only (never commit its output): it points the badges at Apple's and Google's own
-servers, so the real artwork can be seen before the files are in the repository.
+servers.
 """
 import json
 import os
 import re
 import sys
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONF = json.load(open(os.path.join(ROOT, "scripts", "store-buttons.json"), encoding="utf-8"))
@@ -72,13 +73,12 @@ MICROSOFT_LOCALE = {"en": "en-us", "pt": "pt-br", "zh": "zh-cn", "zh-hant": "zh-
 PLAY_PNG = (646, 250, 564, 168)
 
 
+TRACK = CONF["tracking"]
+MAIN_H = 54  # the main button's badge is a size up; the groups use BADGE_H
+
+
 def live(platform):
-    return CONF["links"][platform].startswith("https://")
-
-
-def windows_from_store():
-    """A Microsoft Store link gets Microsoft's badge; any other link is a direct download with the site's own button."""
-    return CONF["links"]["windows"].startswith("https://apps.microsoft.com/")
+    return CONF["live"][platform] is True
 
 
 def shown(platform):
@@ -120,23 +120,39 @@ def png_size(path):
     return int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")
 
 
-def app_store_button(lang, href, label):
+# Store links with each store's own install tracking, so its dashboard shows installs that came from this site.
+def apple_href(base, ct):
+    return f'{base}?pt={TRACK["apple_pt"]}&ct={ct}&mt=8'
+
+
+def play_href(medium):
+    ref = quote(f'utm_source={TRACK["play_source"]}&utm_medium={medium}&utm_campaign={TRACK["play_campaign"]}', safe="")
+    return f'{CONF["links"]["android"]}&referrer={ref}'
+
+
+def ms_href():
+    return f'{CONF["links"]["windows_store"]}?cid={TRACK["ms_cid"]}'
+
+
+def app_store_button(lang, href, label, h=BADGE_H):
     """Apple's badge when its artwork is here, otherwise the site's own App Store button."""
     rel = badge_file("app-store", lang)
+    href = esc(href)
     if REMOTE:
         src, width = f"https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/{APPLE_LOCALE[lang]}", ""
     elif rel:
-        w, h = svg_size(os.path.join(ROOT, rel))
-        src, width = "/" + rel, f' width="{round(BADGE_H * w / h)}"'
+        w, bh = svg_size(os.path.join(ROOT, rel))
+        src, width = "/" + rel, f' width="{round(h * w / bh)}"'
     else:
         return (f'<a class="btn btn-appstore" href="{href}" aria-label="{label}">{APPLE_GLYPH}'
                 '<span class="as-txt"><small>Download on the</small><b>App&nbsp;Store</b></span></a>')
-    return f'<a class="store-badge" href="{href}" aria-label="{label}"><img src="{src}" alt=""{width} height="{BADGE_H}"></a>'
+    return f'<a class="store-badge" href="{href}" aria-label="{label}"><img src="{src}" alt=""{width} height="{h}"></a>'
 
 
-def google_play_button(lang, label):
+def google_play_button(lang, h=BADGE_H):
+    label = esc(CONF["copy"][lang]["play_aria"].replace("{name}", CONF["app_name"]["android"]))
     rel = badge_file("google-play", lang)
-    href = esc(CONF["links"]["android"])
+    href = esc(play_href("website"))
     if REMOTE:
         code = GOOGLE_LOCALE.get(lang, lang)
         src, size = f"https://play.google.com/intl/en_us/badges/static/images/badges/{code}_badge_web_generic.png", PLAY_PNG
@@ -144,34 +160,31 @@ def google_play_button(lang, label):
         sys.exit(f"Google Play is set to live, but assets/badges/google-play/{lang}.png (or .svg) is missing. "
                  "Google's official badge has to be in the repository first.")
     elif rel.endswith(".svg"):
-        w, h = svg_size(os.path.join(ROOT, rel))
+        w, bh = svg_size(os.path.join(ROOT, rel))
         return (f'<a class="store-badge" href="{href}" aria-label="{label}">'
-                f'<img src="/{rel}" alt="" width="{round(BADGE_H * w / h)}" height="{BADGE_H}"></a>')
+                f'<img src="/{rel}" alt="" width="{round(h * w / bh)}" height="{h}"></a>')
     else:
         src, size = "/" + rel, PLAY_PNG
         if png_size(os.path.join(ROOT, rel)) != PLAY_PNG[:2]:
             sys.exit(f"{rel} is not Google's 646 x 250 web badge; check the file before going live.")
-    # The PNG's own clear space is pulled back in with negative margins, so the badge itself is BADGE_H tall.
+    # The PNG's own clear space is pulled back in with negative margins, so the badge itself is h tall.
     full_w, full_h, badge_w, badge_h = size
-    k = BADGE_H / badge_h
+    k = h / badge_h
     mx, my = (full_w - badge_w) / 2 * k, (full_h - badge_h) / 2 * k
     return (f'<a class="store-badge" href="{href}" aria-label="{label}">'
             f'<img src="{src}" alt="" width="{full_w * k:.1f}" height="{full_h * k:.1f}" '
             f'style="width:{full_w * k:.1f}px;height:{full_h * k:.1f}px;margin:-{my:.1f}px -{mx:.1f}px"></a>')
 
 
-def microsoft_store_button(lang, label):
-    rel = badge_file("microsoft-store", lang)
-    href = esc(CONF["links"]["windows"])
-    if REMOTE:
-        src, width = f"https://get.microsoft.com/images/{MICROSOFT_LOCALE.get(lang, lang)}%20dark.svg", ""
-    elif not rel or not rel.endswith(".svg"):
-        sys.exit(f"Windows is set to a Microsoft Store link, but assets/badges/microsoft-store/{lang}.svg is missing. "
-                 "Microsoft's official badge has to be in the repository first.")
-    else:
-        w, h = svg_size(os.path.join(ROOT, rel))
-        src, width = "/" + rel, f' width="{round(BADGE_H * w / h)}"'
-    return f'<a class="store-badge" href="{href}" aria-label="{label}"><img src="{src}" alt=""{width} height="{BADGE_H}"></a>'
+def windows_body(lang, h=BADGE_H):
+    """Microsoft's badge (served by Microsoft, as its badge tool embeds it), then the installer as a small link."""
+    words = CONF["copy"][lang]
+    label = esc(words["ms_aria"].replace("{name}", CONF["app_name"]["windows"]))
+    src = f"https://get.microsoft.com/images/{MICROSOFT_LOCALE.get(lang, lang)}%20dark.svg"
+    note = f'<a href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a> · {esc(CONF["windows_needs"])}'
+    return (f'<a class="store-badge store-badge-ms" href="{esc(ms_href())}" aria-label="{label}">'
+            f'<img src="{src}" alt="" height="{h}" style="height:{h}px"></a>\n'
+            f'          <p class="cta-note">{note}</p>')
 
 
 def caption(icon, name, platform=None):
@@ -183,47 +196,50 @@ def caption(icon, name, platform=None):
 
 def soon_pill(platform, name, lang, waitlist_href):
     words = CONF["copy"][lang]
-    return (f'<a class="get-soon" data-waitlist-href="{waitlist_href}">{ICON[platform]}<b>{name}</b>'
+    return (f'          <a class="get-soon" data-waitlist-href="{waitlist_href}">{ICON[platform]}<b>{name}</b>'
             f'<span>{esc(words["soon"])}</span>'
-            f'<span class="get-notify" data-waitlist-link hidden>{esc(WAITLIST[lang]["submit"])}</span></a>')
+            f'<span class="get-notify" data-waitlist-link hidden>{esc(WAITLIST[lang]["submit"])}</span></a>\n')
 
 
-def new_tiles(lang, waitlist_href):
-    """Windows and Android: live tiles (go into the grid) and coming-soon pills (go under it)."""
+def tile(icon, name, body, platform=None):
+    return ('          <div class="get-tile">\n'
+            f'            {caption(icon, name, platform)}\n'
+            f'            {body}\n'
+            '          </div>\n')
+
+
+def group(head, items):
+    if not items:
+        return ""
+    return ('      <div class="get-group">\n'
+            f'        <p class="get-head">{esc(head)}</p>\n'
+            f'        <div class="get-row">\n{items}        </div>\n'
+            '      </div>\n')
+
+
+def groups(lang, apple_base, apple_label, waitlist_href, mac_tile=""):
+    """Every app, in two groups, so it is clear a phone app and a computer app go together. App Store first."""
     words = CONF["copy"][lang]
-    tiles, pills = {}, []
-    if live("windows"):
-        if windows_from_store():
-            label = esc(words["ms_aria"].replace("{name}", CONF["app_name"]["windows"]))
-            button = microsoft_store_button(lang, label)
-        else:
-            # A download link (Microsoft's installer for the Store app): the site's button, and what it needs in the
-            # words the Mac note already uses. It is a Windows file, so it is the main button only for Windows
-            # visitors: quiet here, and assets/site.js makes it the gradient button on a Windows PC.
-            note = " · ".join([CONF["windows_needs"], words["free"], words["no_account"]])
-            button = (f'<a class="btn btn-quiet" data-win-cta href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a>\n'
-                      f'          <p class="cta-note">{esc(note)}</p>')
-            if CONF["links"]["windows_store"].startswith("https://"):
-                button += (f'\n          <p class="cta-note"><a href="{esc(CONF["links"]["windows_store"])}">'
-                           f'{esc(words["also_store"])}</a></p>')
-        tiles["windows"] = ('        <div class="get-tile">\n'
-                            f'          {caption("windows", "Windows", "windows")}\n'
-                            f'          {button}\n'
-                            '        </div>\n')
-    elif shown("windows"):
-        pills.append(soon_pill("windows", "Windows", lang, waitlist_href))
+    phone = tile("phones", esc(words["phones"]), app_store_button(lang, apple_href(apple_base, TRACK["apple_ct"]), apple_label))
     if live("android"):
-        label = esc(words["play_aria"].replace("{name}", CONF["app_name"]["android"]))
-        tiles["android"] = ('        <div class="get-tile">\n'
-                            f'          {caption("android", "Android", "android")}\n'
-                            f'          {google_play_button(lang, label)}\n'
-                            '        </div>\n')
+        phone += tile("android", "Android", google_play_button(lang), "android")
     elif shown("android"):
-        pills.append(soon_pill("android", "Android", lang, waitlist_href))
-    row = ""
-    if pills:
-        row = '      <div class="get-soon-row">\n' + "".join(f"        {p}\n" for p in pills) + "      </div>\n"
-    return tiles, row
+        phone += soon_pill("android", "Android", lang, waitlist_href)
+    computer = mac_tile
+    if live("windows"):
+        computer += tile("windows", "Windows", windows_body(lang), "windows")
+    elif shown("windows"):
+        computer += soon_pill("windows", "Windows", lang, waitlist_href)
+    return ('    <div class="get-groups">\n' + group(words["phone_head"], phone) + group(words["computer_head"], computer)
+            + f'      <p class="pair-note">{esc(words["both"])}</p>\n    </div>\n')
+
+
+def qr_block(lang):
+    """Shown on computers only (assets/site.js): the phone camera opens /app, which sends it to its own store."""
+    return ('    <div class="get-qr" data-get-qr hidden>\n'
+            '      <img src="/assets/qr-app.svg" alt="" width="112" height="112">\n'
+            f'      <p>{esc(CONF["copy"][lang]["qr"])}</p>\n'
+            '    </div>\n')
 
 
 def find(pattern, text, what, path):
@@ -233,43 +249,38 @@ def find(pattern, text, what, path):
     return m
 
 
+APPLE_RE = r'<a class="(?:btn btn-appstore|store-badge)" href="(https://apps\.apple\.com/[^"?]*)[^"]*" aria-label="([^"]*)"'
+
+
 def homepage_block(lang, old, path):
-    """The four-device area in the hero. Keeps the page's own Mac button, notes and App Store label as they are."""
-    words = CONF["copy"][lang]
+    """One main button for the visitor's device (assets/site.js picks it; without JS it is the Mac download, as
+    before), every app in two groups under it, and the QR code for computers. Keeps the page's own Mac button,
+    notes and App Store label as they are."""
     mac_cta = find(r'<a class="btn btn-primary" data-dl-cta href="[^"]*">.*?</a>', old, "the Mac button", path).group(0)
     mac_alt = find(r'<a class="btn btn-quiet" data-dl-alt hidden href="[^"]*">.*?</a>', old, "the .dmg link", path).group(0)
     mac_note = find(r'<p class="cta-note" data-dl-note>.*?</p>', old, "the Mac note", path).group(0)
-    pair_note = find(r'<p class="pair-note">.*?</p>', old, "the pairing note", path).group(0)
-    store = find(r'<a class="(?:btn btn-appstore|store-badge)" href="(https://apps\.apple\.com/[^"]*)" aria-label="([^"]*)"', old, "the App Store button", path)
-    tiles, soon_row = new_tiles(lang, "#platforms")
-    return (f'{START}\n    <div class="get">\n      <div class="get-grid">\n'
-            '        <div class="get-tile">\n'
-            f'          {caption("mac", "Mac")}\n'
-            f'          <div class="cta">\n            {mac_cta}\n            {mac_alt}\n          </div>\n'
-            f'          {mac_note}\n'
-            '        </div>\n'
-            f'{tiles.get("windows", "")}'
-            '        <div class="get-tile">\n'
-            f'          {caption("phones", esc(words["phones"]))}\n'
-            f'          {app_store_button(lang, store.group(1), store.group(2))}\n'
-            f'          {pair_note}\n'
-            '        </div>\n'
-            f'{tiles.get("android", "")}'
-            f'      </div>\n{soon_row}    </div>\n    {END}')
+    store = find(APPLE_RE, old, "the App Store button", path)
+    apple_base, apple_label = store.group(1), store.group(2)
+    main = ('    <div class="get-main" data-main="mac">\n'
+            f'      <div class="cta">\n        {mac_cta}\n        {mac_alt}\n      </div>\n'
+            f'      {mac_note}\n    </div>\n'
+            '    <div class="get-main" data-main="ios" hidden>\n'
+            f'      {app_store_button(lang, apple_href(apple_base, TRACK["apple_ct"]), apple_label, MAIN_H)}\n    </div>\n')
+    if live("android"):
+        main += f'    <div class="get-main" data-main="android" hidden>\n      {google_play_button(lang, MAIN_H)}\n    </div>\n'
+    if live("windows"):
+        main += f'    <div class="get-main" data-main="windows" hidden>\n      {windows_body(lang, MAIN_H)}\n    </div>\n'
+    mac_tile = tile("mac", "Mac", f'<a class="btn btn-quiet" data-dl-cta href="/download">{esc(CONF["copy"][lang]["mac_btn"])}</a>')
+    return (f'{START}\n    <div class="get">\n{main}'
+            f'{groups(lang, apple_base, apple_label, "#platforms", mac_tile)}{qr_block(lang)}'
+            f'    </div>\n    {END}')
 
 
-def download_block(lang, store_href, store_label):
-    """Under the Mac download: the same buttons for the other devices."""
-    words = CONF["copy"][lang]
-    tiles, soon_row = new_tiles(lang, home(lang) + "#platforms")
-    return (f'{START}\n    <div class="get get-other">\n      <p class="get-head">{esc(words["other"])}</p>\n'
-            '      <div class="get-grid">\n'
-            '        <div class="get-tile">\n'
-            f'          {caption("phones", esc(words["phones"]))}\n'
-            f'          {app_store_button(lang, store_href, store_label)}\n'
-            '        </div>\n'
-            f'{tiles.get("windows", "")}{tiles.get("android", "")}'
-            f'      </div>\n{soon_row}    </div>\n    {END}')
+def download_block(lang, apple_base, apple_label):
+    """Under the Mac download: the phone apps, the other computer, and the QR code."""
+    return (f'{START}\n    <div class="get get-other">\n'
+            f'{groups(lang, apple_base, apple_label, home(lang) + "#platforms")}{qr_block(lang)}'
+            f'    </div>\n    {END}')
 
 
 def trademark_line(lang, is_home):
@@ -312,8 +323,7 @@ def build_download(lang):
     path = page_file(lang, "download.html")
     page = open(path, encoding="utf-8").read()
     home_page = open(page_file(lang, "index.html"), encoding="utf-8").read()
-    store = find(r'<a class="(?:btn btn-appstore|store-badge)" href="(https://apps\.apple\.com/[^"]*)" aria-label="([^"]*)"', home_page,
-                 "the App Store button", page_file(lang, "index.html"))
+    store = find(APPLE_RE, home_page, "the App Store button", page_file(lang, "index.html"))
     block = download_block(lang, store.group(1), store.group(2))
     if START in page:
         a, b = page.index(START), page.index(END) + len(END)
@@ -336,8 +346,10 @@ def main():
     if CONF["until_a_link_exists"] not in ("soon", "hidden"):
         sys.exit('until_a_link_exists must be "soon" or "hidden".')
     for platform, link in CONF["links"].items():
-        if link.startswith("http://"):
+        if not link.startswith("https://"):
             sys.exit(f"links.{platform} must start with https://")
+    if any(v not in (True, False) for v in CONF["live"].values()):
+        sys.exit("live.windows and live.android must be true or false.")
     stale = 0
     for lang in LANGS:
         for path, new in (build_home(lang), build_download(lang)):

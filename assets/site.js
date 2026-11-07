@@ -148,14 +148,23 @@
     for (var n = 0; n < dlNotes.length; n++) { dlNotes[n].textContent = noteText; }
   }
 
-  // The Windows button in the download area ("[data-win-cta]", there once its link exists) downloads a
-  // Windows installer, so it is the main button only on a Windows PC, where the Mac button of the same
-  // area steps back. Everywhere else it keeps its quiet look.
-  var winCtas = document.querySelectorAll("[data-win-cta]");
-  if (winCtas.length && platform.toLowerCase().indexOf("win") === 0) {
-    for (var w = 0; w < winCtas.length; w++) { winCtas[w].className = "btn btn-primary"; }
-    var macInArea = document.querySelectorAll(".get [data-dl-cta]");
-    for (var m = 0; m < macInArea.length; m++) { macInArea[m].className = "btn btn-quiet"; }
+  // Download area (scripts/store-buttons.py): the main button follows the visitor's device. The Mac
+  // download is the default (and the only one without JS); "[data-main=ios|android|windows]" replaces it
+  // on that device when the page has it. Computers also get the QR code that installs the phone app.
+  var ua = navigator.userAgent || "";
+  var plat = platform.toLowerCase();
+  var device = previewAs ? plat
+    : /iPhone|iPad|iPod/.test(ua) || (plat.indexOf("mac") === 0 && navigator.maxTouchPoints > 1) ? "ios"
+    : /Android/.test(ua) ? "android"
+    : isMac ? "mac"
+    : plat.indexOf("win") === 0 ? "windows"
+    : /Mobi|Tablet/.test(ua) ? "phone" : "computer";
+  var mains = document.querySelectorAll("[data-main]");
+  var pick = device !== "mac" && document.querySelector('[data-main="' + device + '"]');
+  for (var mi = 0; pick && mi < mains.length; mi++) { mains[mi].hidden = mains[mi] !== pick; }
+  if (device === "mac" || device === "windows" || device === "computer") {
+    var qrs = document.querySelectorAll("[data-get-qr]");
+    for (var q = 0; q < qrs.length; q++) { qrs[q].hidden = false; }
   }
 
   // On the selector page, offer a quiet way back to the stored choice.
