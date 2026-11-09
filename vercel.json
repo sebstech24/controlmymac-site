@@ -12,6 +12,11 @@
       ],
       "destination": "https://www.controlmymac.com/$1",
       "permanent": true
+    },
+    {
+      "source": "/get",
+      "destination": "/app",
+      "permanent": false
     }
   ],
   "rewrites": [

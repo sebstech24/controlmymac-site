@@ -241,8 +241,8 @@ FAQ = [  # (question, answer html)
      "sends keyboard shortcuts only. It is for people whose buttons would mostly be Mac shortcuts and who would rather "
      'use the phone they already own. The <a href="/stream-deck-alternative">deck comparison</a> has the details.'),
     ("How is it different from other remote mouse apps?",
-     "Many of them cover more platforms and add extras such as media remotes. Control My Mac works only with Mac, iPhone "
-     "and iPad, and spends that focus on the per-app shortcut Grid, a Draft keyboard, one-finger use from pairing "
+     "Many of them cover more platforms and add extras such as media remotes. Control My Mac works with Macs and Windows "
+     "PCs, and puts its focus on the per-app shortcut Grid, a Draft keyboard, one-finger use from pairing "
      'onward, no ads in any plan and no account. The <a href="/compare">comparison page</a> has the details.'),
     ("Are there other apps that switch buttons by app?",
      "Yes. Switching by app is not new on its own. What Control My Mac combines is a Grid that follows the Mac app in "
@@ -268,8 +268,8 @@ FAQ = [  # (question, answer html)
     ("Which languages does it speak?",
      f"{len(LANGUAGES)}: {LANG_LIST}. The website is in the same {len(LANGUAGES)} languages."),
     ("Does it work with Windows or Android?",
-     "Not today. It is for Mac, iPhone and iPad only. Windows and Android versions are on the way, and the "
-     '<a href="/#platforms">homepage has a waiting list</a> for them.'),
+     "Yes. The iPhone and iPad app also controls Windows PCs. Control My PC for Android controls Macs and Windows "
+     "PCs, and the free Windows app is on the Microsoft Store."),
     ("Who is behind it?",
      "Sebastian Škoić, a solo developer in Slovenia, also known as the tech creator Sebs_Tech."),
 ]
