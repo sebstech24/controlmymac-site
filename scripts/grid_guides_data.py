@@ -48,7 +48,7 @@ MACRO = {
         ("Can the buttons change depending on the app?",
          "Yes. Every Mac app can get its own Grid, made in one tap, that switches in by itself when that app is in front. Every other app uses your Default grid. This is part of Full App."),
         ("Does it work with Windows?",
-         "No. Control My Mac is for Macs only (macOS 14 or later), on iPhone or iPad."),
+         "Yes. The iPhone and iPad app also controls Windows PCs with the free Windows app from the Microsoft Store. On an Android phone, Control My PC controls Macs and Windows PCs."),
     ],
     "final_h2": "Put a macro pad on the phone you own",
 }

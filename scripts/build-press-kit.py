@@ -31,6 +31,8 @@ FIRST_RELEASE = "30 June 2026"
 YOUTUBE_ID = "tFjjSwfIPU0"                               # same video as the homepage (data-yt on index.html)
 EMAIL = "sebastian@controlmymac.com"
 APP_STORE = "https://apps.apple.com/app/id6781458180"
+GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.controlmymac.controller"
+MS_STORE = "https://apps.microsoft.com/detail/9P7H2FKL3JH3"
 LANGUAGES = ["English", "German", "French", "Italian", "Spanish", "Portuguese (Brazil)", "Dutch", "Polish",
              "Turkish", "Russian", "Ukrainian", "Slovenian", "Czech", "Slovak", "Swedish", "Norwegian", "Danish",
              "Finnish", "Hungarian", "Romanian", "Greek", "Japanese", "Korean", "Simplified Chinese",
@@ -100,7 +102,9 @@ FACTS = [  # (label, html)
     ("Languages", f"{len(LANGUAGES)}: {LANG_LIST}."),
     ("Privacy label", "Data Not Collected (App Store)."),
     ("Category", "Productivity. Rated 4+."),
-    ("Get it", f'<a href="{APP_STORE}">iPhone and iPad app on the App Store</a>. <a href="/download">Free Mac app</a>.'),
+    ("Get it", f'<a href="{APP_STORE}">iPhone and iPad app on the App Store</a>. <a href="{GOOGLE_PLAY}">Control My PC '
+               f'for Android on Google Play</a>. <a href="/download">Free Mac app</a>. <a href="{MS_STORE}">Free Windows '
+               'app on the Microsoft Store</a>.'),
 ]
 
 IMAGES_WIDE = [  # (file stem, title, caption, alt)
@@ -356,7 +360,8 @@ def facts_text():
     for label, value in FACTS:
         value = plain(value)
         if label == "Get it":
-            value = f"iPhone and iPad app: {APP_STORE}  Mac app: {SITE}/download"
+            value = (f"iPhone and iPad app: {APP_STORE}  Android app: {GOOGLE_PLAY}  Mac app: {SITE}/download  "
+                     f"Windows app: {MS_STORE}")
         lines.append(f"{label}: {value}")
     lines += ["", "DESCRIPTIONS"]
     for _, heading, text in DESCRIPTIONS[1:]:
@@ -364,7 +369,8 @@ def facts_text():
     lines += ["NOTE", "App grids and Auto-Switch are part of the paid Full App. The free Essentials plan includes one "
               "Grid button.", "", "ABOUT THE MAKER", BIO, "", "QUOTES (Sebastian Škoić, maker of Control My Mac)",
               *[f'{label}: "{quote}"' for _, label, quote in QUOTES], "", "LINKS", f"Website: {SITE}", f"Press page: {URL}",
-              f"App Store: {APP_STORE}", f"Mac app: {SITE}/download",
+              f"App Store: {APP_STORE}", f"Google Play: {GOOGLE_PLAY}", f"Mac app: {SITE}/download",
+              f"Microsoft Store: {MS_STORE}",
               f"Demo video: https://www.youtube.com/watch?v={YOUTUBE_ID}", f"Privacy policy: {SITE}/privacy"]
     lines += [f"{name}: {url}" for name, url in SOCIAL]
     lines += ["", "PRESS CONTACT", f"Sebastian Škoić, {EMAIL}", "", "USING THE FILES",
