@@ -1,6 +1,8 @@
 import { getDatabase, inventoryCounts, pendingBatches, upsertBatch } from "../_lib/database.js";
 import { importReadyBatches } from "../cron/maintain-offers.js";
-import { sendCodeEmail } from "../_lib/brevo.js";
+import { sendCodeEmail, sendWaitlistReleaseEmail } from "../_lib/brevo.js";
+import { decrypt } from "../_lib/security.js";
+import { renderWaitlistReleaseEmail } from "../_lib/waitlist-email.js";
 import { randomUUID } from "node:crypto";
 import statements from "../_lib/offer-choice-migration.js";
 
@@ -84,6 +86,46 @@ export async function GET(request) {
       order by people desc`;
     const total = rows.reduce((sum, row) => sum + row.people, 0);
     return json({ ok: true, total, rows });
+  }
+  if (step === "waitlist-release") {
+    // The one "it's out" email. preview = what each person would get (no addresses);
+    // send (only with confirm=send-to-waitlist) = send it and mark the row, so a re-run skips them.
+    const params = new URL(request.url).searchParams;
+    const rows = await sql`
+      select id, email_ciphertext, locale,
+             wants_windows and notified_windows_at is null as windows,
+             wants_android and notified_android_at is null as android
+      from platform_waitlist
+      where (wants_windows and notified_windows_at is null)
+         or (wants_android and notified_android_at is null)
+      order by created_at`;
+    if (params.get("mode") !== "send" || params.get("confirm") !== "send-to-waitlist") {
+      return json({
+        ok: true,
+        pending: rows.length,
+        emails: rows.map(({ locale, windows, android }) => ({
+          locale, windows, android, ...renderWaitlistReleaseEmail({ locale, windows, android }), html: undefined,
+        })),
+      });
+    }
+    let sent = 0;
+    const failed = [];
+    for (const row of rows) {
+      try {
+        const email = decrypt(row.email_ciphertext, process.env.CODE_ENCRYPTION_KEY);
+        await sendWaitlistReleaseEmail({ id: row.id, email, locale: row.locale, windows: row.windows, android: row.android });
+        await sql`
+          update platform_waitlist
+          set notified_windows_at = case when ${row.windows} then now() else notified_windows_at end,
+              notified_android_at = case when ${row.android} then now() else notified_android_at end,
+              updated_at = now()
+          where id = ${row.id}`;
+        sent += 1;
+      } catch (error) {
+        failed.push({ locale: row.locale, error: String(error?.message || error).slice(0, 200) });
+      }
+    }
+    return json({ ok: failed.length === 0, sent, failed });
   }
   if (step === "import") {
     const imported = await importReadyBatches();

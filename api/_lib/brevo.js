@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { renderCodeEmail } from "./email-content.js";
-import { renderWaitlistEmail } from "./waitlist-email.js";
+import { renderWaitlistEmail, renderWaitlistReleaseEmail } from "./waitlist-email.js";
 
 function deterministicIdempotencyKey(seed) {
   const value = createHash("sha256").update(seed).digest("hex").slice(0, 32).split("");
@@ -111,5 +111,26 @@ export async function sendWaitlistEmail(input) {
     headers: Object.keys(headers).length ? headers : undefined,
     tags: ["control-my-mac", "platform-waitlist"],
   });
+  return response.messageId || "accepted";
+}
+
+/** The one release email to an address on the waiting list. Same row, same key: never sent twice. */
+export async function sendWaitlistReleaseEmail(input) {
+  const content = renderWaitlistReleaseEmail(input);
+  const response = await brevoRequest("/smtp/email", {
+    sender: {
+      email: process.env.BREVO_SENDER_EMAIL,
+      name: process.env.BREVO_SENDER_NAME || "Sebastian from Control My Mac",
+    },
+    replyTo: process.env.BREVO_REPLY_TO
+      ? { email: process.env.BREVO_REPLY_TO, name: "Sebastian" }
+      : undefined,
+    to: [{ email: input.email }],
+    subject: content.subject,
+    htmlContent: content.html,
+    textContent: content.text,
+    idempotencyKey: deterministicIdempotencyKey(`${input.id}:waitlist-release-2026-11`),
+    tags: ["control-my-mac", "platform-waitlist-release"],
+  }, { acceptDuplicate: true });
   return response.messageId || "accepted";
 }
