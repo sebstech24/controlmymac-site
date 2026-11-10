@@ -71,6 +71,20 @@ export async function GET(request) {
     });
     return json({ ok: true, messageId: Boolean(messageId) });
   }
+  if (step === "waitlist") {
+    // Counts only, never addresses: who is waiting for which platform, in which language.
+    const rows = await sql`
+      select locale, wants_windows, wants_android,
+             count(*)::int as people,
+             count(notified_windows_at)::int as told_windows,
+             count(notified_android_at)::int as told_android,
+             count(confirmation_sent_at)::int as confirmed_sent
+      from platform_waitlist
+      group by locale, wants_windows, wants_android
+      order by people desc`;
+    const total = rows.reduce((sum, row) => sum + row.people, 0);
+    return json({ ok: true, total, rows });
+  }
   if (step === "import") {
     const imported = await importReadyBatches();
     return json({ ok: true, imported, inventory: await inventoryCounts(), generating: await pendingBatches() });
