@@ -1385,3 +1385,8 @@ a.get-soon[href]:hover{border-color:var(--accent);background:color-mix(in srgb,v
 /* Narrow two-column widths: a long button label (Ukrainian, Russian, Greek) wraps inside its tile instead of running off the screen edge */
 @media (min-width:760px) and (max-width:1023px){.get-tile .btn{max-width:100%;white-space:normal;text-align:center}}
 @media (prefers-reduced-motion:reduce){.store-badge,a.get-soon[href]{transition:none}}
+
+/* Black Friday banner (site.js adds it until 1 Dec 2026) */
+.bf-banner{display:block;padding:10px var(--sp-l);background:var(--grad);color:#fff;text-align:center;font-weight:600;font-size:15px;line-height:1.35;text-decoration:none}
+.bf-banner:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:640px){.bf-banner{font-size:13px;padding:8px 16px}}

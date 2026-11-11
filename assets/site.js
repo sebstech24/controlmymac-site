@@ -509,3 +509,18 @@
     })(rails[r]);
   }
 })();
+
+/* Black Friday banner: the iPhone app's Full App Lifetime is on sale in the App Store until 30 Nov 2026.
+   Shows on every page that loads this script, in the page's language, and hides itself from 1 Dec. */
+(function () {
+  "use strict";
+  if (Date.now() >= Date.UTC(2026, 11, 1, 8)) { return; }
+  var TEXT = {"en": "Black Friday, until 30 November: 47% off Full App Lifetime","cs": "Black Friday, do 30. listopadu: Sleva 47 % na Full App Lifetime","da": "Black Friday, til og med 30. november: 47 % rabat på Full App Lifetime","de": "Black Friday, bis 30. November: Full App auf Lebenszeit 47 % günstiger","el": "Black Friday, έως τις 30 Νοεμβρίου: Έκπτωση 47% στο Full App εφ’ όρου ζωής","es": "Black Friday, hasta el 30 de noviembre: 47 % de descuento en Full App de por vida","fi": "Black Friday 30.11. asti: 47 %:n alennus Full App Lifetimesta","fr": "Black Friday, jusqu’au 30 novembre : 47 % de réduction sur Full App à vie","hu": "Black Friday (november 30-ig): 47% kedvezmény a Full App Lifetime árából","it": "Black Friday, fino al 30 novembre: 47% di sconto su Full App a vita","ja": "ブラックフライデー（11月30日まで）：Full Appの買い切りが47%オフ","ko": "블랙 프라이데이(11월 30일까지): Full App 평생 구매 47% 할인","nl": "Black Friday, tot en met 30 november: 47% korting op Full App levenslang","no": "Black Friday, til og med 30. november: 47 % rabatt på Full App for livstid","pl": "Black Friday, do 30 listopada: 47 % zniżki na Full App Lifetime","pt": "Black Friday, até 30 de novembro: 47% de desconto no Full App vitalício","ro": "Black Friday, până pe 30 noiembrie: Reducere de 47% la Full App Lifetime","ru": "Чёрная пятница, до 30 ноября: Скидка 47% на пожизненный доступ к Full App","sk": "Black Friday, do 30. novembra: Zľava 47 % na Full App Lifetime","sl": "Črni petek, do 30. novembra: 47 % popusta za Full App Lifetime","sv": "Black Friday, till och med 30 november: 47 % rabatt på Full App för livstid","tr": "Black Friday, 30 Kasım’a kadar: Ömür boyu Full App’te %47 indirim","uk": "Чорна п’ятниця, до 30 листопада: Знижка 47% на довічний доступ до Full App","zh": "黑色星期五（截至11月30日）：Full App 终身买断立减 47%","zh-hant": "黑色星期五（至11月30日止）：Full App 永久版現省 47%"};
+  var lang = (location.pathname.split("/")[1] || "").toLowerCase();
+  var a = document.createElement("a");
+  a.className = "bf-banner";
+  a.href = "https://apps.apple.com/app/id6781458180?pt=129029065&ct=black-friday-2026&mt=8";
+  a.textContent = TEXT[lang] || TEXT.en;
+  var skip = document.querySelector(".skip-link");
+  if (skip) { skip.after(a); } else { document.body.prepend(a); }
+})();
