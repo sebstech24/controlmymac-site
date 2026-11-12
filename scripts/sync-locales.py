@@ -63,7 +63,7 @@ LOCALES = [
 ]
 
 # Pages that exist once per language, in sitemap order. "" is the home page.
-PAGES = ["", "couch", "download", "one-hand", "present", "pro", "start", "support", "privacy"]
+PAGES = ["", "couch", "download", "one-hand", "present", "pro", "start", "support", "privacy", "legal"]
 
 NAV_RE = re.compile(r'<nav class="flangs" aria-label="([^"]*)">.*?</nav>', re.S)
 URL_RE = re.compile(r"  <url>\n.*?  </url>\n", re.S)

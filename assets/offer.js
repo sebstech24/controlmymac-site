@@ -5,6 +5,8 @@
    shows the flow for design review without calling the API. */
 (function () {
   "use strict";
+  // Visitor statistics (stats.js, PostHog cookieless): event names only, never what was typed.
+  function track(name, props) { if (window.posthog && window.posthog.capture) window.posthog.capture(name, props || {}); }
 
   var COPY = {
     en: {
@@ -28,6 +30,7 @@
       submit: "Send the code",
       sending: "Sending…",
       fine: "Nothing is paid on this site. If you pick 47% off Lifetime, you pay the discounted price in the App Store. You can unsubscribe from updates at any time.",
+      saleNote: "Until 30 November, Full App Lifetime already costs about this much in the App Store for everyone, no code needed. Your code stays valid for later.",
       errEmail: "Enter a valid email address to continue.",
       errConsent: "Join the news emails to receive the subscriber welcome gift.",
       errWait: "Please wait for the security check to finish.",
@@ -67,6 +70,7 @@
       submit: "Code senden",
       sending: "Wird gesendet …",
       fine: "Auf dieser Website wird nichts bezahlt. Wenn du 47 % Rabatt auf den Kauf auf Lebenszeit wählst, zahlst du den reduzierten Preis im App Store. Du kannst Updates jederzeit abbestellen.",
+      saleNote: "Bis 30. November kostet Full App auf Lebenszeit im App Store für alle schon ungefähr so viel, ganz ohne Code. Dein Code bleibt für später gültig.",
       errEmail: "Gib eine gültige E-Mail-Adresse ein, um fortzufahren.",
       errConsent: "Melde dich für die E-Mails mit Neuigkeiten an, um das Willkommensgeschenk zu erhalten.",
       errWait: "Bitte warte, bis die Sicherheitsprüfung abgeschlossen ist.",
@@ -106,6 +110,7 @@
       submit: "Envoyer le code",
       sending: "Envoi…",
       fine: "Aucun paiement sur ce site. Si vous choisissez 47 % de réduction sur l’achat à vie, vous payez le prix réduit dans l’App Store. Vous pouvez vous désabonner des mises à jour à tout moment.",
+      saleNote: "Jusqu’au 30 novembre, Full App à vie coûte déjà à peu près ce prix dans l’App Store pour tout le monde, sans code. Votre code reste valable pour plus tard.",
       errEmail: "Saisissez une adresse e-mail valide pour continuer.",
       errConsent: "Inscrivez-vous aux e-mails d’actualité pour recevoir le cadeau de bienvenue.",
       errWait: "Veuillez patienter jusqu’à la fin de la vérification de sécurité.",
@@ -145,6 +150,7 @@
       submit: "Invia il codice",
       sending: "Invio…",
       fine: "Su questo sito non si paga nulla. Se scegli il 47% di sconto sull’acquisto a vita, paghi il prezzo scontato nell’App Store. Puoi disiscriverti dagli aggiornamenti in qualsiasi momento.",
+      saleNote: "Fino al 30 novembre, Full App a vita costa già più o meno così nell’App Store per tutti, senza codice. Il tuo codice resta valido per dopo.",
       errEmail: "Inserisci un indirizzo email valido per continuare.",
       errConsent: "Iscriviti alle email di novità per ricevere il regalo di benvenuto.",
       errWait: "Attendi il completamento del controllo di sicurezza.",
@@ -184,6 +190,7 @@
       submit: "Enviar el código",
       sending: "Enviando…",
       fine: "En este sitio no se paga nada. Si eliges el 47 % de descuento en la compra de por vida, pagas el precio con descuento en el App Store. Puedes darte de baja de las novedades en cualquier momento.",
+      saleNote: "Hasta el 30 de noviembre, Full App de por vida ya cuesta más o menos esto en el App Store para todos, sin código. Tu código sigue siendo válido para más adelante.",
       errEmail: "Introduce un correo electrónico válido para continuar.",
       errConsent: "Suscríbete a los correos de novedades para recibir el regalo de bienvenida.",
       errWait: "Espera a que termine la comprobación de seguridad.",
@@ -223,6 +230,7 @@
       submit: "Enviar o código",
       sending: "Enviando…",
       fine: "Nenhum pagamento neste site. Se você escolher 47% de desconto na compra vitalícia, paga o preço com desconto na App Store. Você pode cancelar a inscrição nas novidades a qualquer momento.",
+      saleNote: "Até 30 de novembro, o Full App vitalício já custa mais ou menos isso na App Store para todos, sem código. Seu código continua válido para depois.",
       errEmail: "Digite um endereço de e-mail válido para continuar.",
       errConsent: "Inscreva-se nos e-mails de novidades para receber o presente de boas-vindas.",
       errWait: "Aguarde a verificação de segurança terminar.",
@@ -262,6 +270,7 @@
       submit: "Code versturen",
       sending: "Versturen…",
       fine: "Op deze site betaal je niets. Kies je 47% korting op de levenslange aankoop, dan betaal je de kortingsprijs in de App Store. Je kunt je altijd afmelden voor updates.",
+      saleNote: "Tot en met 30 november kost Full App levenslang in de App Store voor iedereen al ongeveer zoveel, zonder code. Je code blijft geldig voor later.",
       errEmail: "Vul een geldig e-mailadres in om door te gaan.",
       errConsent: "Meld je aan voor de nieuwsmails om het welkomstcadeau te ontvangen.",
       errWait: "Wacht tot de beveiligingscontrole klaar is.",
@@ -301,6 +310,7 @@
       submit: "コードを送信",
       sending: "送信中…",
       fine: "このサイトでのお支払いはありません。買い切り47%オフを選んだ場合は、割引価格をApp Storeでお支払いいただきます。お知らせの配信はいつでも停止できます。",
+      saleNote: "11月30日までは、コードがなくても、App StoreでFull Appの買い切りをどなたでもほぼこの価格で購入できます。コードはその後もご利用いただけます。",
       errEmail: "続けるには有効なメールアドレスを入力してください。",
       errConsent: "登録特典を受け取るには、お知らせメールに登録してください。",
       errWait: "セキュリティチェックが完了するまでお待ちください。",
@@ -340,6 +350,7 @@
       submit: "发送代码",
       sending: "正在发送…",
       fine: "本网站不收取任何费用。如果你选择终身买断立减 47%，需在 App Store 支付优惠后的价格。你可以随时退订更新。",
+      saleNote: "11月30日前，所有人无需代码即可在 App Store 以大致相同的价格购买 Full App 终身买断。你的代码之后仍然有效。",
       errEmail: "请输入有效的电子邮件地址以继续。",
       errConsent: "订阅新闻邮件即可领取订阅欢迎礼。",
       errWait: "请等待安全检查完成。",
@@ -379,6 +390,7 @@
       submit: "코드 보내기",
       sending: "보내는 중…",
       fine: "이 사이트에서는 결제하지 않습니다. 평생 구매 47% 할인을 선택하면 할인된 가격을 App Store에서 결제합니다. 소식 수신은 언제든지 취소할 수 있습니다.",
+      saleNote: "11월 30일까지는 코드 없이도 누구나 App Store에서 Full App 평생 구매를 이 정도 가격에 살 수 있습니다. 받은 코드는 나중에도 계속 사용할 수 있습니다.",
       errEmail: "계속하려면 올바른 이메일 주소를 입력하세요.",
       errConsent: "구독자 환영 선물을 받으려면 소식 이메일을 구독하세요.",
       errWait: "보안 확인이 끝날 때까지 기다려 주세요.",
@@ -418,6 +430,7 @@
       submit: "Отправить код",
       sending: "Отправка…",
       fine: "На этом сайте ничего не нужно оплачивать. Если вы выберете скидку 47% на пожизненный доступ, цену со скидкой вы заплатите в App Store. Отписаться от новостей можно в любой момент.",
+      saleNote: "До 30 ноября пожизненный доступ к Full App и так стоит в App Store примерно столько же для всех, без кода. Ваш код останется действительным и позже.",
       errEmail: "Введите действительный адрес эл. почты, чтобы продолжить.",
       errConsent: "Подпишитесь на письма с новостями, чтобы получить приветственный подарок.",
       errWait: "Дождитесь окончания проверки безопасности.",
@@ -457,6 +470,7 @@
       submit: "Wyślij kod",
       sending: "Wysyłanie…",
       fine: "Na tej stronie nic nie płacisz. Jeśli wybierzesz 47 % zniżki na Lifetime, obniżoną cenę zapłacisz w App Store. Z aktualizacji możesz się wypisać w każdej chwili.",
+      saleNote: "Do 30 listopada Full App Lifetime kosztuje w App Store mniej więcej tyle dla wszystkich, bez kodu. Twój kod pozostanie ważny na później.",
       errEmail: "Wpisz prawidłowy adres e-mail, aby kontynuować.",
       errConsent: "Zapisz się na e-maile z nowościami, aby otrzymać prezent powitalny.",
       errWait: "Poczekaj na zakończenie weryfikacji bezpieczeństwa.",
@@ -496,6 +510,7 @@
       submit: "Kodu gönder",
       sending: "Gönderiliyor…",
       fine: "Bu sitede ödeme yapılmaz. Ömür boyu Full App’te %47 indirimi seçersen indirimli fiyatı App Store’da ödersin. Güncellemelerden istediğin zaman çıkabilirsin.",
+      saleNote: "30 Kasım’a kadar ömür boyu Full App, App Store’da herkes için kod gerekmeden zaten yaklaşık bu fiyata. Kodun daha sonra da geçerli kalır.",
       errEmail: "Devam etmek için geçerli bir e-posta adresi gir.",
       errConsent: "Hoş geldin hediyesini almak için haber e-postalarına kaydol.",
       errWait: "Lütfen güvenlik kontrolünün bitmesini bekle.",
@@ -535,6 +550,7 @@
       submit: "寄送代碼",
       sending: "正在寄送…",
       fine: "本網站不會收取任何費用。如果你選擇永久版現省 47%，優惠後的價格是在 App Store 支付。你可以隨時取消訂閱最新消息。",
+      saleNote: "11月30日前，所有人無需代碼即可在 App Store 以大致相同的價格購買 Full App 永久版。你的代碼之後仍然有效。",
       errEmail: "請輸入有效的電子郵件地址以繼續。",
       errConsent: "要領取訂閱歡迎禮，請先訂閱最新消息電子郵件。",
       errWait: "請等待安全檢查完成。",
@@ -574,6 +590,7 @@
       submit: "Надіслати код",
       sending: "Надсилання…",
       fine: "На цьому сайті нічого платити не потрібно. Якщо ви оберете знижку 47% на довічний доступ, ціну зі знижкою ви сплатите в App Store. Від новин можна відписатися будь-коли.",
+      saleNote: "До 30 листопада довічний доступ до Full App і так коштує в App Store приблизно стільки ж для всіх, без коду. Ваш код залишиться дійсним і пізніше.",
       errEmail: "Щоб продовжити, введіть дійсну адресу е-пошти.",
       errConsent: "Щоб отримати вітальний подарунок для підписників, підпишіться на листи з новинами.",
       errWait: "Зачекайте, доки завершиться перевірка безпеки.",
@@ -613,6 +630,7 @@
       submit: "Pošljite mi kodo",
       sending: "Pošiljanje …",
       fine: "Na tem spletnem mestu ne plačate ničesar. Če izberete 47 % popusta za Lifetime, znižano ceno plačate v trgovini App Store. Od novic se lahko kadar koli odjavite.",
+      saleNote: "Do 30. novembra Full App Lifetime v trgovini App Store za vse že stane približno toliko, brez kode. Vaša koda ostane veljavna za pozneje.",
       errEmail: "Za nadaljevanje vnesite veljaven e-poštni naslov.",
       errConsent: "Če želite prejeti darilo za dobrodošlico, se naročite na e-poštne novice.",
       errWait: "Počakajte, da se varnostno preverjanje konča.",
@@ -652,6 +670,7 @@
       submit: "Odeslat kód",
       sending: "Odesílání…",
       fine: "Na tomto webu se nic neplatí. Pokud si vyberete slevu 47 % na Lifetime, zlevněnou cenu zaplatíte v App Storu. Odběr novinek můžete kdykoli zrušit.",
+      saleNote: "Do 30. listopadu stojí Full App Lifetime v App Storu pro všechny už zhruba tolik, bez kódu. Váš kód zůstane platný i na později.",
       errEmail: "Pro pokračování zadejte platnou e-mailovou adresu.",
       errConsent: "Přihlaste se k odběru e-mailů s novinkami, abyste získali uvítací dárek pro odběratele.",
       errWait: "Počkejte prosím, až se dokončí bezpečnostní kontrola.",
@@ -691,6 +710,7 @@
       submit: "Poslať kód",
       sending: "Odosiela sa…",
       fine: "Na tejto stránke sa nič neplatí. Ak si vyberiete zľavu 47 % na Lifetime, zľavnenú cenu zaplatíte v App Store. Z odberu noviniek sa môžete odhlásiť kedykoľvek.",
+      saleNote: "Do 30. novembra stojí Full App Lifetime v App Store pre všetkých už približne toľko, bez kódu. Váš kód zostane platný aj na neskôr.",
       errEmail: "Ak chcete pokračovať, zadajte platnú e-mailovú adresu.",
       errConsent: "Ak chcete získať uvítací darček pre odberateľov, prihláste sa na odber e-mailov s novinkami.",
       errWait: "Počkajte, kým sa dokončí bezpečnostná kontrola.",
@@ -730,6 +750,7 @@
       submit: "Skicka koden",
       sending: "Skickar…",
       fine: "Ingen betalning sker på den här webbplatsen. Om du väljer 47 % rabatt på livstidsköpet betalar du det rabatterade priset i App Store. Du kan avsluta prenumerationen på uppdateringar när du vill.",
+      saleNote: "Till och med 30 november kostar Full App för livstid redan ungefär så här mycket i App Store för alla, utan kod. Din kod gäller fortfarande senare.",
       errEmail: "Ange en giltig e-postadress för att fortsätta.",
       errConsent: "Anmäl dig till nyhetsutskicken för att få välkomstgåvan till prenumeranter.",
       errWait: "Vänta tills säkerhetskontrollen är klar.",
@@ -769,6 +790,7 @@
       submit: "Send koden",
       sending: "Sender…",
       fine: "Ingen betaling på dette nettstedet. Hvis du velger 47 % rabatt på livstidskjøpet, betaler du den rabatterte prisen i App Store. Du kan melde deg av oppdateringer når som helst.",
+      saleNote: "Til og med 30. november koster Full App for livstid allerede omtrent så mye i App Store for alle, uten kode. Koden din gjelder fortsatt senere.",
       errEmail: "Skriv inn en gyldig e-postadresse for å fortsette.",
       errConsent: "Abonner på e-postene med nyheter for å få velkomstgaven til abonnenter.",
       errWait: "Vent til sikkerhetskontrollen er ferdig.",
@@ -808,6 +830,7 @@
       submit: "Send koden",
       sending: "Sender…",
       fine: "Der betales ikke noget på dette websted. Hvis du vælger 47 % rabat på Lifetime, betaler du den nedsatte pris i App Store. Du kan afmelde opdateringer når som helst.",
+      saleNote: "Til og med 30. november koster Full App Lifetime allerede omtrent så meget i App Store for alle, uden kode. Din kode gælder stadig senere.",
       errEmail: "Indtast en gyldig e-mailadresse for at fortsætte.",
       errConsent: "Tilmeld dig nyhedsmailene for at modtage velkomstgaven til abonnenter.",
       errWait: "Vent, til sikkerhedstjekket er færdigt.",
@@ -847,6 +870,7 @@
       submit: "Lähetä koodi",
       sending: "Lähetetään…",
       fine: "Tällä sivustolla ei makseta mitään. Jos valitset 47 %:n alennuksen Lifetimesta, maksat alennetun hinnan App Storessa. Voit perua päivitysten tilauksen milloin tahansa.",
+      saleNote: "30.11. asti Full App Lifetime maksaa App Storessa jo kaikille suunnilleen saman verran ilman koodia. Koodisi pysyy voimassa myöhempää varten.",
       errEmail: "Jatka kirjoittamalla kelvollinen sähköpostiosoite.",
       errConsent: "Liity uutislistalle saadaksesi tilaajien tervetuliaislahjan.",
       errWait: "Odota, että turvatarkistus valmistuu.",
@@ -886,6 +910,7 @@
       submit: "Kód küldése",
       sending: "Küldés…",
       fine: "Ezen az oldalon nincs fizetés. Ha a Lifetime 47%-os kedvezményét választja, a kedvezményes árat az App Store-ban fizeti ki. A hírlevelekről bármikor leiratkozhat.",
+      saleNote: "November 30-ig a Full App Lifetime az App Store-ban már mindenkinek nagyjából ennyibe kerül, kód nélkül. A kódja később is érvényes marad.",
       errEmail: "A folytatáshoz adjon meg érvényes e-mail-címet.",
       errConsent: "Az üdvözlőajándékhoz iratkozzon fel a hírlevélre.",
       errWait: "Várja meg, amíg a biztonsági ellenőrzés befejeződik.",
@@ -925,6 +950,7 @@
       submit: "Trimiteți codul",
       sending: "Se trimite…",
       fine: "Pe acest site nu se plătește nimic. Dacă alegeți reducerea de 47% la Lifetime, prețul redus îl plătiți în App Store. Vă puteți dezabona de la noutăți oricând.",
+      saleNote: "Până pe 30 noiembrie, Full App Lifetime costă deja cam atât în App Store pentru toată lumea, fără cod. Codul dumneavoastră rămâne valabil și mai târziu.",
       errEmail: "Introduceți o adresă de e-mail validă pentru a continua.",
       errConsent: "Abonați-vă la e-mailurile cu noutăți pentru a primi cadoul de bun venit pentru abonați.",
       errWait: "Așteptați să se termine verificarea de securitate.",
@@ -964,6 +990,7 @@
       submit: "Αποστολή του κωδικού",
       sending: "Αποστολή…",
       fine: "Δεν γίνεται καμία πληρωμή σε αυτόν τον ιστότοπο. Αν επιλέξετε την έκπτωση 47% στο Full App εφ’ όρου ζωής, πληρώνετε τη μειωμένη τιμή στο App Store. Μπορείτε να διαγραφείτε από τις ενημερώσεις όποτε θέλετε.",
+      saleNote: "Έως τις 30 Νοεμβρίου, το Full App εφ’ όρου ζωής κοστίζει ήδη περίπου τόσο στο App Store για όλους, χωρίς κωδικό. Ο κωδικός σας παραμένει έγκυρος για αργότερα.",
       errEmail: "Εισαγάγετε μια έγκυρη διεύθυνση email για να συνεχίσετε.",
       errConsent: "Εγγραφείτε στα email με νέα για να λάβετε το δώρο καλωσορίσματος για εγγεγραμμένους.",
       errWait: "Περιμένετε να ολοκληρωθεί ο έλεγχος ασφαλείας.",
@@ -1122,6 +1149,7 @@
     }
 
     function open() {
+      track("gift_open");
       previousOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       scrim = el("div", "offer-scrim");
@@ -1192,12 +1220,15 @@
       messageEl.hidden = true;
       submitBtn = text("button", "btn btn-primary offer-submit", t.submit);
       submitBtn.type = "submit";
-      var fine = text("p", "offer-fine", t.fine);
+      var options = [["free_month", t.choiceMonth, t.choiceMonthNote], ["lifetime47", t.choiceLifetime, t.choiceLifetimeNote]];
+      // App Store sale until 30 Nov 2026: Lifetime already costs about the code price there for everyone, so say so.
+      var saleOn = Date.now() < Date.UTC(2026, 11, 1, 8) && options.some(function (o) { return o[0] === "lifetime47"; });
+      var fine = text("p", "offer-fine", t.fine + (saleOn && t.saleNote ? (/[。！？]$/.test(t.fine) ? "" : " ") + t.saleNote : ""));
 
       // The visitor picks one gift; an address only ever gets one code (the server keeps the first).
       var choice = el("fieldset", "offer-choice");
       choice.appendChild(text("legend", "offer-label", t.choiceLegend));
-      [["free_month", t.choiceMonth, t.choiceMonthNote], ["lifetime47", t.choiceLifetime, t.choiceLifetimeNote]].forEach(function (item, i) {
+      options.forEach(function (item, i) {
         var row = el("label", "offer-option");
         var radio = el("input");
         radio.type = "radio";
@@ -1249,6 +1280,8 @@
         submitBtn.disabled = true;
         submitBtn.textContent = t.sending;
 
+        var picked = (form.querySelector("input[name=offer]:checked") || {}).value || "free_month";
+        track("gift_submit", { offer: picked });
         if (localPreview) {
           window.setTimeout(function () { showSuccess(email, "preview"); }, 400);
           return;
@@ -1260,19 +1293,21 @@
             email: email,
             locale: locale,
             marketingOptIn: true,
-            offer: (form.querySelector("input[name=offer]:checked") || {}).value || "free_month",
+            offer: picked,
             turnstileToken: token,
             website: honeypot.value
           })
         }).then(function (response) {
           return response.json().catch(function () { return {}; }).then(function (result) {
             if (response.ok && result.ok) {
+              track("gift_sent", { offer: picked });
               showSuccess(email, result.preview ? "preview" : (result.queued ? "queued" : "sent"));
               return;
             }
             // The API names the matching message (errEmail, errClaimed, ...); fall back to the
             // status code for older responses.
             var key = result && result.errorKey;
+            track("gift_error", { offer: picked, reason: String(key || response.status) });
             var msg = (typeof key === "string" && /^err[A-Z]\w*$/.test(key) &&
                 Object.prototype.hasOwnProperty.call(t, key)) ? t[key]
               : response.status === 409 ? t.errClaimed

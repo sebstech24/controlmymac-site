@@ -63,7 +63,7 @@ DESCRIPTIONS = [  # (id, heading, text)
     ("desc-about", "About Control My Mac", "Control My Mac is an iPhone and iPad app with a free Mac companion, made by "
      "solo developer Sebastian Škoić in Slovenia. It turns the phone or tablet into a shortcut deck that follows whichever "
      "Mac app is in front, plus a trackpad, keyboard, app launcher and window switcher, all usable with one finger. It "
-     "needs no account, the apps collect no data, and phone and Mac connect directly over Bluetooth or Wi-Fi with "
+     "needs no account, it never collects how you use the apps, and phone and Mac connect directly over Bluetooth or Wi-Fi with "
      f"encryption. Available in {len(LANGUAGES)} languages on the App Store; the Mac app is at controlmymac.com."),
 ]
 BIO = ("Sebastian Škoić is a solo app developer from Slovenia and the tech creator behind Sebs_Tech, with more than 30,000 "
@@ -78,8 +78,8 @@ QUOTES = [  # (id, label, quote) approved as written, do not reword
      "themselves when I switch apps."),
     ("quote-editing", "On editing", "When Premiere is in front, my phone shows my editing shortcuts. When I jump to "
      "Safari, it shows tab controls. I don't touch anything, it just follows me."),
-    ("quote-privacy", "On privacy", "It's your phone and your Mac talking to each other, and that's it. No account, no "
-     "servers, nothing to sign up for. That's how I'd want a remote for my own computer to work."),
+    ("quote-privacy", "On privacy", "I design apps that solve my own problems, and then I share them with the world. Control My Mac is the remote I "
+     "wanted for my own Mac: no account, nothing to sign up for, and your app usage is never collected."),
     ("quote-one-hand", "On one-handed use", "If a shortcut needs two hands, that's a problem for a lot of people. On the "
      "Grid it's one tap with one finger."),
     ("quote-solo", "On building it alone", "I'm one person in Slovenia. Every button in the app is something I use "
@@ -187,7 +187,7 @@ PLANS = [  # (Essentials, Full App)
     ("No ads, no account", "No ads, no account"),
 ]
 PRIVACY = [
-    ("No account, no servers, no analytics in the apps.", "The App Store privacy label is Data Not Collected."),
+    ("No account needed · App usage never collected.", "No ads or analytics in the apps. The App Store privacy label is Data Not Collected."),
     ("Direct connection.", "Pointer moves, taps, keystrokes and launcher commands go straight from the iPhone or iPad to "
      "the paired Mac, over Bluetooth or the local network."),
     ("Encrypted.", "Every pointer and control message is encrypted and authenticated (ChaCha20-Poly1305), with a fresh "
@@ -227,7 +227,7 @@ FAQ = [  # (question, answer html)
      "directly over Bluetooth (the default, no network needed) or the same Wi-Fi network. Nothing goes through the "
      "internet or a server, and there is no account."),
     ("What data does it collect?",
-     "None from the apps. The App Store privacy label is Data Not Collected. There is no account, no analytics and no "
+     "The apps never send us what you do on your computer. The App Store privacy label is Data Not Collected. There is no account, no analytics and no "
      "ads in the apps, and the connection between the two devices is encrypted. The website is separate: it counts "
      'visits in aggregate and has optional email sign-ups, all described in the <a href="/privacy">privacy policy</a>.'),
     ("Which Mac, iPhone or iPad do I need?",
@@ -722,6 +722,8 @@ def build_page(zip_mb):
         <a href="/present">Presenting</a>
         <a href="/pro">Power users</a>
         <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/legal">Legal notice</a>
         <a href="/support">Support</a>
         <a href="/press" aria-current="page">Press</a>
         <a href="mailto:support@controlmymac.com">Contact</a>

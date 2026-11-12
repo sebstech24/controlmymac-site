@@ -11,6 +11,17 @@
   analyticsScript.src = "/_vercel/insights/script.js";
   document.head.appendChild(analyticsScript);
 
+  // Visitor statistics: PostHog EU, cookieless (assets/stats.js; privacy page "Website hosting and statistics").
+  // Empty key = off. Never put a key here before the privacy pages that name PostHog are live.
+  var POSTHOG_KEY = "";
+  if (POSTHOG_KEY) {
+    var statsScript = document.createElement("script");
+    statsScript.defer = true;
+    statsScript.src = "/assets/stats.js";
+    statsScript.setAttribute("data-key", POSTHOG_KEY);
+    document.head.appendChild(statsScript);
+  }
+
   var KEY = "cmm-audience";
   var DOWNLOAD_PAGE_URL = "https://www.controlmymac.com/download";
   var PAGES = {
@@ -510,12 +521,13 @@
   }
 })();
 
-/* Black Friday banner: the iPhone app's Full App Lifetime is on sale in the App Store until 30 Nov 2026.
+/* Black Friday banner: Full App Lifetime is $62.99 in the App Store until 30 Nov 2026, $119.99 from 1 Dec.
+   No percentage, "was" or "back to normal" price (legal check 12 Nov): Lifetime was $29.99 until 20 Oct, so it only says the price goes up on 1 Dec.
    Shows on every page that loads this script, in the page's language, and hides itself from 1 Dec. */
 (function () {
   "use strict";
   if (Date.now() >= Date.UTC(2026, 11, 1, 8)) { return; }
-  var TEXT = {"en": "Black Friday, until 30 November: 47% off Full App Lifetime","cs": "Black Friday, do 30. listopadu: Sleva 47 % na Full App Lifetime","da": "Black Friday, til og med 30. november: 47 % rabat på Full App Lifetime","de": "Black Friday, bis 30. November: Full App auf Lebenszeit 47 % günstiger","el": "Black Friday, έως τις 30 Νοεμβρίου: Έκπτωση 47% στο Full App εφ’ όρου ζωής","es": "Black Friday, hasta el 30 de noviembre: 47 % de descuento en Full App de por vida","fi": "Black Friday 30.11. asti: 47 %:n alennus Full App Lifetimesta","fr": "Black Friday, jusqu’au 30 novembre : 47 % de réduction sur Full App à vie","hu": "Black Friday (november 30-ig): 47% kedvezmény a Full App Lifetime árából","it": "Black Friday, fino al 30 novembre: 47% di sconto su Full App a vita","ja": "ブラックフライデー（11月30日まで）：Full Appの買い切りが47%オフ","ko": "블랙 프라이데이(11월 30일까지): Full App 평생 구매 47% 할인","nl": "Black Friday, tot en met 30 november: 47% korting op Full App levenslang","no": "Black Friday, til og med 30. november: 47 % rabatt på Full App for livstid","pl": "Black Friday, do 30 listopada: 47 % zniżki na Full App Lifetime","pt": "Black Friday, até 30 de novembro: 47% de desconto no Full App vitalício","ro": "Black Friday, până pe 30 noiembrie: Reducere de 47% la Full App Lifetime","ru": "Чёрная пятница, до 30 ноября: Скидка 47% на пожизненный доступ к Full App","sk": "Black Friday, do 30. novembra: Zľava 47 % na Full App Lifetime","sl": "Črni petek, do 30. novembra: 47 % popusta za Full App Lifetime","sv": "Black Friday, till och med 30 november: 47 % rabatt på Full App för livstid","tr": "Black Friday, 30 Kasım’a kadar: Ömür boyu Full App’te %47 indirim","uk": "Чорна п’ятниця, до 30 листопада: Знижка 47% на довічний доступ до Full App","zh": "黑色星期五（截至11月30日）：Full App 终身买断立减 47%","zh-hant": "黑色星期五（至11月30日止）：Full App 永久版現省 47%"};
+  var TEXT = {"en": "Black Friday sale on Full App Lifetime until 30 November. The price goes up on 1 December.","cs": "Black Friday výprodej Full App Lifetime do 30. listopadu. Od 1. prosince cena stoupne.","da": "Black Friday-udsalg på Full App Lifetime til og med 30. november. Prisen stiger 1. december.","de": "Black-Friday-Angebot für Full App auf Lebenszeit bis 30. November. Ab 1. Dezember steigt der Preis.","el": "Προσφορά Black Friday για το Full App εφ’ όρου ζωής έως τις 30 Νοεμβρίου. Η τιμή αυξάνεται από την 1η Δεκεμβρίου.","es": "Oferta de Black Friday en Full App de por vida hasta el 30 de noviembre. El precio sube el 1 de diciembre.","fi": "Black Friday -tarjous: Full App Lifetime 30.11. asti. Hinta nousee 1.12.","fr": "Offre Black Friday sur Full App à vie jusqu’au 30 novembre. Le prix augmente le 1er décembre.","hu": "Black Friday akció: a Full App Lifetime november 30-ig. December 1-jétől emelkedik az ár.","it": "Offerta Black Friday su Full App a vita fino al 30 novembre. Dal 1° dicembre il prezzo aumenta.","ja": "ブラックフライデーセール：Full Appの買い切り（11月30日まで）。12月1日から価格が上がります。","ko": "블랙 프라이데이 세일: Full App 평생 구매(11월 30일까지). 12월 1일부터 가격이 오릅니다.","nl": "Black Friday-aanbieding op Full App levenslang tot en met 30 november. Vanaf 1 december gaat de prijs omhoog.","no": "Black Friday-salg på Full App for livstid til og med 30. november. Prisen går opp 1. desember.","pl": "Wyprzedaż Black Friday: Full App Lifetime do 30 listopada. Od 1 grudnia cena wzrośnie.","pt": "Promoção de Black Friday no Full App vitalício até 30 de novembro. O preço sobe a partir de 1.º de dezembro.","ro": "Ofertă de Black Friday la Full App Lifetime până pe 30 noiembrie. De la 1 decembrie prețul crește.","ru": "Распродажа «Чёрная пятница»: пожизненный доступ к Full App до 30 ноября. С 1 декабря цена вырастет.","sk": "Black Friday výpredaj Full App Lifetime do 30. novembra. Od 1. decembra cena stúpne.","sl": "Akcija za črni petek: Full App Lifetime do 30. novembra. Od 1. decembra se cena zviša.","sv": "Black Friday-rea på Full App för livstid till och med 30 november. Priset höjs 1 december.","tr": "Black Friday indirimi: Ömür boyu Full App 30 Kasım’a kadar. Fiyat 1 Aralık’ta artıyor.","uk": "Розпродаж «Чорна п’ятниця»: довічний доступ до Full App до 30 листопада. З 1 грудня ціна зросте.","zh": "黑色星期五促销：Full App 终身买断，截至11月30日。12月1日起涨价。","zh-hant": "黑色星期五優惠：Full App 永久版，至11月30日止。12月1日起漲價。"};
   var lang = (location.pathname.split("/")[1] || "").toLowerCase();
   var a = document.createElement("a");
   a.className = "bf-banner";

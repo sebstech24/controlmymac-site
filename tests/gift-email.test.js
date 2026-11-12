@@ -90,7 +90,7 @@ test("every language's footer names the sender and links its own privacy page", 
     const title = pageHtml.match(/<h1>([^<]+)<\/h1>/)?.[1];
     assert.ok(title, `${locale} privacy page has no <h1>`);
     // The postal address is the one the privacy page gives, country in the page's language.
-    const address = pageHtml.match(/Šturmova ulica 7A, Ljubljana, [^<]+/)?.[0];
+    const address = pageHtml.match(/Šturmova ulica 7A, 1211 Ljubljana-Šmartno, [^<]+/)?.[0];
     assert.ok(address, `${locale} privacy page has no address`);
     assert.ok(
       html.includes(`Sebastian Škoić s.p. · ${escapeHtml(address)} · <a href="${home}" style="color:#5f6b84;text-decoration:underline">controlmymac.com</a> · `

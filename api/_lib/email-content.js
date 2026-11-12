@@ -5,7 +5,7 @@ export const APP_STORE_APP_ID = "6781458180";
 // The sender named in every email's footer, next to the site and its privacy page.
 const SENDER_NAME = "Sebastian Škoić s.p.";
 // The sender's postal address, shown after the name; COPY[locale].country names the country.
-const SENDER_STREET_CITY = "Šturmova ulica 7A, Ljubljana";
+const SENDER_STREET_CITY = "Šturmova ulica 7A, 1211 Ljubljana-Šmartno";
 const SITE_URL = "https://controlmymac.com";
 
 /**

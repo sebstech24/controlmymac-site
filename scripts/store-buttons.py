@@ -20,12 +20,14 @@ Everything it reads is in scripts/store-buttons.json:
 Official badge artwork only, never drawn here:
   * assets/badges/app-store/<folder>.svg     Apple's "Download on the App Store" badge (black)
   * assets/badges/google-play/<folder>.png   Google's "Get it on Google Play" badge (or .svg)
-  * Microsoft's badge is loaded from get.microsoft.com, the way Microsoft's own badge tool embeds it.
+  * assets/badges/microsoft-store/<folder>.svg  Microsoft's "Get it from Microsoft" badge (dark), the same file
+    get.microsoft.com serves; served from this site so visitors' browsers don't contact Microsoft. A language
+    without its own file shows en.svg.
 <folder> is the language folder name, "en" for English. Without Apple's file the page keeps the site's own App Store
 button. Without Google's file that button refuses to go live.
 
---remote-badges is for a local look only (never commit its output): it points the badges at Apple's and Google's own
-servers.
+--remote-badges is for a local look only (never commit its output): it points the badges at Apple's, Google's and
+Microsoft's own servers.
 """
 import json
 import os
@@ -177,10 +179,13 @@ def google_play_button(lang, h=BADGE_H):
 
 
 def windows_body(lang, h=BADGE_H):
-    """Microsoft's badge (served by Microsoft, as its badge tool embeds it), then the installer as a small link."""
+    """Microsoft's badge (its own artwork, served from this site), then the installer as a small link."""
     words = CONF["copy"][lang]
     label = esc(words["ms_aria"].replace("{name}", CONF["app_name"]["windows"]))
-    src = f"https://get.microsoft.com/images/{MICROSOFT_LOCALE.get(lang, lang)}%20dark.svg"
+    if REMOTE:
+        src = f"https://get.microsoft.com/images/{MICROSOFT_LOCALE.get(lang, lang)}%20dark.svg"
+    else:
+        src = "/" + (badge_file("microsoft-store", lang) or badge_file("microsoft-store", "en"))
     note = f'<a href="{esc(CONF["links"]["windows"])}">{esc(words["win_btn"])}</a> · {esc(CONF["windows_needs"])}'
     return (f'<a class="store-badge store-badge-ms" href="{esc(ms_href())}" aria-label="{label}">'
             f'<img src="{src}" alt="" height="{h}" style="height:{h}px"></a>\n'
