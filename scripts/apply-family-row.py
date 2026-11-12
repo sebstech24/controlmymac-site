@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Footer row "More apps from Sebs_Tech: …" linking the developer's other app sites, on every page with the footer.
+"""Footer row "More apps by Sebastian Škoić: …" (his App Store developer page) linking the developer's other app sites, on every page with the footer.
 
     python3 scripts/apply-family-row.py
 
@@ -10,15 +10,16 @@ import json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAMILY = json.load(open(os.path.expanduser("~/Coding/App Release/site-kit/frontend/family.json"), encoding="utf-8"))
-MORE = {"en": "More apps from Sebs_Tech:", "cs": "Další aplikace od Sebs_Tech:", "da": "Flere apps fra Sebs_Tech:",
-        "de": "Weitere Apps von Sebs_Tech:", "el": "Περισσότερες εφαρμογές από Sebs_Tech:", "es": "Más apps de Sebs_Tech:",
-        "fi": "Muita Sebs_Techin sovelluksia:", "fr": "Autres apps de Sebs_Tech :", "hu": "Sebs_Tech további alkalmazásai:",
-        "it": "Altre app di Sebs_Tech:", "ja": "Sebs_Tech のほかのアプリ：", "ko": "Sebs_Tech의 다른 앱:",
-        "nl": "Meer apps van Sebs_Tech:", "no": "Flere apper fra Sebs_Tech:", "pl": "Więcej aplikacji od Sebs_Tech:",
-        "pt": "Mais apps da Sebs_Tech:", "ro": "Alte aplicații de la Sebs_Tech:", "ru": "Другие приложения Sebs_Tech:",
-        "sk": "Ďalšie aplikácie od Sebs_Tech:", "sl": "Druge aplikacije Sebs_Tech:", "sv": "Fler appar från Sebs_Tech:",
-        "tr": "Sebs_Tech'in diğer uygulamaları:", "uk": "Інші застосунки Sebs_Tech:", "zh": "Sebs_Tech 的更多应用：",
-        "zh-hant": "Sebs_Tech 的更多應用程式："}
+DEV = "https://apps.apple.com/developer/sebastian-skoic/id6781458182"  # same name as in the App Store
+MORE = {"en": "More apps by Sebastian Škoić", "cs": "Další aplikace od Sebastiana Škoiće", "da": "Flere apps fra Sebastian Škoić",
+        "de": "Weitere Apps von Sebastian Škoić", "el": "Περισσότερες εφαρμογές από τον Sebastian Škoić", "es": "Más apps de Sebastian Škoić",
+        "fi": "Sebastian Škoićin muut sovellukset", "fr": "Autres apps de Sebastian Škoić", "hu": "Sebastian Škoić további appjai",
+        "it": "Altre app di Sebastian Škoić", "ja": "Sebastian Škoić のほかのアプリ", "ko": "Sebastian Škoić의 다른 앱",
+        "nl": "Meer apps van Sebastian Škoić", "no": "Flere apper fra Sebastian Škoić", "pl": "Więcej aplikacji Sebastiana Škoicia",
+        "pt": "Mais apps de Sebastian Škoić", "ro": "Alte aplicații de la Sebastian Škoić", "ru": "Другие приложения от Sebastian Škoić",
+        "sk": "Ďalšie aplikácie od Sebastiana Škoića", "sl": "Druge aplikacije Sebastiana Škoića", "sv": "Fler appar från Sebastian Škoić",
+        "tr": "Sebastian Škoić'in diğer uygulamaları", "uk": "Інші застосунки від Sebastian Škoić", "zh": "Sebastian Škoić 的更多应用",
+        "zh-hant": "Sebastian Škoić 的更多應用程式"}
 MADE = re.compile(r'(\n[ \t]*<p class="fmade">[^\n]*</p>)(\n[ \t]*<!-- family:start -->.*?<!-- family:end -->)?')
 
 
@@ -29,7 +30,7 @@ def row(lang):
             continue
         href = f["url"] + (f["langPath"].format(lang=lang) if lang != "en" and lang in f["langs"] else "/")
         links.append(f'<a href="{href}">{f["name"]}</a>')
-    return f'\n  <!-- family:start --><p class="fmade ffamily">{MORE[lang]} {" · ".join(links)}</p><!-- family:end -->'
+    return f'\n  <!-- family:start --><p class="fmade ffamily"><a href="{DEV}" rel="me noopener">{MORE[lang]}</a>: {" · ".join(links)}</p><!-- family:end -->'
 
 
 n = 0
