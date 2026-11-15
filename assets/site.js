@@ -13,7 +13,7 @@
 
   // Visitor statistics: PostHog EU, cookieless (assets/stats.js; privacy page "Website hosting and statistics").
   // Empty key = off. Never put a key here before the privacy pages that name PostHog are live.
-  var POSTHOG_KEY = "";
+  var POSTHOG_KEY = "phc_AXryUm8UkeEBD7T6G4xRX7NwRUkzBsTK3aVrK9JQPD9m";
   if (POSTHOG_KEY) {
     var statsScript = document.createElement("script");
     statsScript.defer = true;

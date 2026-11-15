@@ -8,6 +8,7 @@
   var me = document.currentScript;
   var key = me && me.getAttribute("data-key");
   if (!key || !/^phc_\w+$/.test(key)) return;
+  if (navigator.doNotTrack === "1" || window.doNotTrack === "1") return;
 
   // PostHog's own loader stub (posthog.com/docs/libraries/js), unchanged apart from the EU host.
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -27,7 +28,7 @@
     capture_exceptions: false,
     advanced_disable_flags: true,     // no feature-flag calls
     disable_external_dependency_loading: true,
-    person_profiles: "identified_only",
+    person_profiles: "never",
     mask_personal_data_properties: true
   });
   posthog.register({ lang: (document.documentElement.lang || "en").toLowerCase() });
@@ -37,8 +38,9 @@
     if (h === "apps.apple.com" || h === "itunes.apple.com") return "app_store";
     if (h === "play.google.com") return "google_play";
     if (h === "apps.microsoft.com" || h === "www.microsoft.com") return "microsoft_store";
-    if (a.hasAttribute("data-dl-cta") || /\.(dmg|zip|exe|msix\w*)$/i.test(a.pathname)) return "mac_download";
-    if (a.hasAttribute("data-win-cta")) return "windows_download";
+    if (a.hasAttribute("data-win-cta") || h === "get.microsoft.com" ||
+        /\.(exe|msi|msix\w*)$/i.test(a.pathname)) return "windows_download";
+    if (a.hasAttribute("data-dl-cta") || /\.(dmg|zip)$/i.test(a.pathname)) return "mac_download";
     return "";
   }
 
