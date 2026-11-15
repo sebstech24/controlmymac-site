@@ -195,6 +195,14 @@ Local preview of a worktree: the built-in preview serves the main checkout, so s
 
 The shared site script loads Vercel Web Analytics from `/_vercel/insights/script.js`. Also enable Web Analytics in the Vercel project dashboard; Vercel creates the analytics routes after the next deployment.
 
+## Security headers
+
+`vercel.json` sends the same browser security headers as controlmypc.app on every page (no framing, no type
+sniffing, and a Content-Security-Policy). Scripts run only from this site's files, Cloudflare Turnstile and PostHog;
+the few inline scripts (`pair.html`, `app.html`, `get-iphone.html`, `smartwake.html`) are allowed by their hash. After
+adding or editing an inline script, or loading anything from a new outside address, run `npm test`: it prints the
+hash to add to `script-src` in `vercel.json`. Without it the browser silently refuses to run the script.
+
 ## Subscriber welcome gift (prepared, not live)
 
 The repository contains a disabled implementation for a subscriber welcome gift:
