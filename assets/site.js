@@ -143,7 +143,31 @@
     }
   }
 
-  if (!isMac && (canShare || canCopy)) {
+  // The visitor's device. iPadOS reports itself as a Mac, so a touch Mac counts as iOS.
+  var ua = navigator.userAgent || "";
+  var plat = platform.toLowerCase();
+  var device = previewAs ? plat
+    : /iPhone|iPad|iPod/.test(ua) || (plat.indexOf("mac") === 0 && navigator.maxTouchPoints > 1) ? "ios"
+    : /Android/.test(ua) ? "android"
+    : isMac ? "mac"
+    : plat.indexOf("win") === 0 ? "windows"
+    : /Mobi|Tablet/.test(ua) ? "phone" : "computer";
+  var pick = device !== "mac" && document.querySelector('[data-main="' + device + '"]');
+
+  if (device === "android" || device === "windows") {
+    // Android and Windows have their own app: no "send it to your Mac". Where the page has that device's
+    // store link (the download area), the Mac buttons outside the area become it, in the page's own words;
+    // elsewhere the plain Mac download link stays as written.
+    var own = pick && (pick.querySelector(".cta-note a") || pick.querySelector("a"));
+    var ownLabel = own && ((own.textContent || "").trim() || own.getAttribute("aria-label"));
+    for (var o = 0; own && ownLabel && o < dlCtas.length; o++) {
+      if (dlCtas[o].closest(".get")) { continue; } // the download area already shows every app
+      dlCtas[o].href = own.href;
+      if (!dlCtas[o].hasAttribute("data-dl-label")) { dlCtas[o].textContent = ownLabel; } // the nav pill keeps "Download"
+      var macNote = dlCtas[o].closest(".cta") && dlCtas[o].closest(".cta").nextElementSibling;
+      if (macNote && macNote.hasAttribute("data-dl-note")) { macNote.hidden = true; } // "macOS 14+ ..." is not theirs
+    }
+  } else if (!isMac && (canShare || canCopy)) {
     var mainLabel = canShare ? dlCopy[0] : dlCopy[1];
     for (var k = 0; k < dlCtas.length; k++) {
       dlCtas[k].textContent = dlCtas[k].getAttribute("data-dl-label") || mainLabel;
@@ -153,7 +177,8 @@
     var dlAlts = document.querySelectorAll("[data-dl-alt]");
     for (var a = 0; a < dlAlts.length; a++) { dlAlts[a].hidden = false; }
     var dlNotes = document.querySelectorAll("[data-dl-note]");
-    var noteText = canShare
+    // Only an iPhone or iPad is told "You're on your iPhone — AirDrop ...".
+    var noteText = canShare && device === "ios"
       ? dlCopy[3]
       : dlCopy[4];
     for (var n = 0; n < dlNotes.length; n++) { dlNotes[n].textContent = noteText; }
@@ -162,16 +187,7 @@
   // Download area (scripts/store-buttons.py): the main button follows the visitor's device. The Mac
   // download is the default (and the only one without JS); "[data-main=ios|android|windows]" replaces it
   // on that device when the page has it. Computers also get the QR code that installs the phone app.
-  var ua = navigator.userAgent || "";
-  var plat = platform.toLowerCase();
-  var device = previewAs ? plat
-    : /iPhone|iPad|iPod/.test(ua) || (plat.indexOf("mac") === 0 && navigator.maxTouchPoints > 1) ? "ios"
-    : /Android/.test(ua) ? "android"
-    : isMac ? "mac"
-    : plat.indexOf("win") === 0 ? "windows"
-    : /Mobi|Tablet/.test(ua) ? "phone" : "computer";
   var mains = document.querySelectorAll("[data-main]");
-  var pick = device !== "mac" && document.querySelector('[data-main="' + device + '"]');
   for (var mi = 0; pick && mi < mains.length; mi++) {
     var mainBox = mains[mi];
     if (mainBox === pick) { mainBox.hidden = false; }
