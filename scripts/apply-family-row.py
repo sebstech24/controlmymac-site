@@ -10,6 +10,9 @@ import json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAMILY = json.load(open(os.path.expanduser("~/Coding/App Release/site-kit/frontend/family.json"), encoding="utf-8"))
+# LookSwitch is not a kit site yet; link its homepage in every language until family.json lists it.
+if not any(f["id"] == "lookswitch" for f in FAMILY):
+    FAMILY.append({"id": "lookswitch", "name": "LookSwitch", "url": "https://lookswitch.app", "langs": ["en"], "langPath": "/"})
 DEV = "https://apps.apple.com/developer/sebastian-skoic/id6781458182"  # same name as in the App Store
 MORE = {"en": "More apps by Sebastian Škoić", "cs": "Další aplikace od Sebastiana Škoiće", "da": "Flere apps fra Sebastian Škoić",
         "de": "Weitere Apps von Sebastian Škoić", "el": "Περισσότερες εφαρμογές από τον Sebastian Škoić", "es": "Más apps de Sebastian Škoić",
